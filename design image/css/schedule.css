@@ -1,10 +1,91 @@
 @charset "UTF-8";
 @import url(index.css);
 
+#column {
+    display: inline;
+    /*    background-color: red;*/
+}
+
+.header {
+    height: 8%;
+    width: 100%;
+    position: relative;
+    /*    background-color: magenta;*/
+}
+
+.label {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+    color: darkgray;
+    /*background-color: aqua;*/
+    position: absolute;
+    background:
+}
+
+.select {
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 25px;
+    position: relative;
+    display: block;
+    -weblit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 0;
+    color: darkgray;
+}
+
+#box {
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    /*    background-color: green;*/
+}
+
 .schedule {
     float: left;
-    height: 100%;
+    text-align: center;
+    height: 94%;
     width: 20%;
+    /*        background-color: aqua;*/
+}
+
+.scroll {
+    height: 98%;
+    width: 100%;
     overflow-y: scroll;
+}
+
+.time {
+    display: block;
+    align-content: center;
     /*    background-color: aqua;*/
+}
+
+.hour {
+    font-size: 40px;
+    color: gray;
+    border-bottom: 1px solid darkgray;
+    /*    background-color: red;*/
+    margin: 0;
+    text-align: center;
+}
+
+.minute {
+    margin: 0;
+    font-size: 25px;
+    color: gray;
+    /*    background-color: blueviolet;*/
+}
+
+.event {
+    color: gray;
+    font-size: 20px;
+    margin: 0;
 }

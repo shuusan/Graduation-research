@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
     <meta charset="utf-8">
@@ -8,25 +8,37 @@
 </head>
 
 <body>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <header>
     </header>
-    <div id="contents">
-        <div class="schedule">
-
+    <main>
+        <div id="box">
+            <!--    ここから内容    -->
+            <div class="schedule">
+                <div class="header">
+                    <h2 class="label">バスケ</h2>
+                    <select class="select">
+                        <option value="バスケ" selected>バスケ</option>
+                        <option value="卓球">卓球</option>
+                        <option value="バトミントン">バトミントン</option>
+                        <option value="バレー">バレー</option>
+                        <option value="サッカー">サッカー</option>
+                        <option value="しっぽ取り">尻尾取り</option>
+                        <option value="障害物競走">障害物競走</option>
+                        <option value="全体スケジュール">全体スケジュール</option>
+                    </select>
+                </div>
+                <div class="scroll">
+                    <div class="time">
+                        <h3 class="hour">- 1:00 -</h3>
+                        <h3 class="minute">PM 1:10</h3>
+                        <p class="event">体育館集合</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="schedule">
-
-        </div>
-        <div class="schedule">
-
-        </div>
-        <div class="schedule">
-
-        </div>
-        <div class="schedule">
-
-        </div>
-    </div>
+    </main>
+    <!--  遷移タグ  -->
     <nav>
         <h1>スケジュール</h1>
         <h1>質問フォーム</h1>
@@ -36,5 +48,6 @@
     <footer>
     </footer>
 </body>
+<script src="js/pulldown.js"> </script>
 
 </html>
