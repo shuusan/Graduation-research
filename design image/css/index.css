@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+body {
+    height: 37em;
+    /*    background-color: blue;*/
+    display: block;
+    align-content: center;
+    margin: 0 auto;
+}
+
+main {
+    height: 90%;
+    /*    background-color: yellow;*/
+    margin: 0 auto 5px auto;
+}
+
+nav {
+    width: 100%;
+    height: 2.5em;
+    margin: 0 auto 1em auto;
+    align-content: center;
+    /*    background-color: aqua;*/
+    text-align: center;
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+}
+
+h1 {
+    width: 24.85%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    align-content: center;
+    margin: 0 auto;
+    color: darkgray;
+    border-left: 1px solid darkgray;
+}
+
+footer {
+    width: 100%;
+    height: 2em;
+    margin: 0;
+    /*    background-color: red;*/
+}
