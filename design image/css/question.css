@@ -1,0 +1,23 @@
+@charset "UTF-8";
+@import url(index.css);
+
+#contents {
+    width: 53.5%;
+    height: 80%;
+    margin: 3em auto 0 auto;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.photo {
+    width: 150px;
+    height: 200px;
+    margin: 0 10px 0 10px;
+    border: 5px solid lightblue;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+    color: darkgray;
+}
