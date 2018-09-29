@@ -1,0 +1,5 @@
+create table division(
+id tinyint autoincrement unsigned,
+department varchar(50) not null,
+cose varchar(50) not null
+)

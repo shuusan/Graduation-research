@@ -1,0 +1,5 @@
+create table content(
+id tinyint(10) primary key,
+number tinyint autoincrement unsigned,
+name varchar(50) not null
+)

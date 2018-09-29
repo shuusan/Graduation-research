@@ -1,0 +1,6 @@
+create table information(
+id int primary key unsigned,
+grade tinyint unsigned,
+department tinyint unsigned,
+cose tinyint unsigned
+);
