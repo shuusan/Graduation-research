@@ -73,8 +73,13 @@ img {
 }
 
 th a :hover {
-    border: 5px solid lightblue;
+    border: 5px solid #AFB5F3;
     border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: gray;
 }
 
 /*ここからQuestion-submit*/
@@ -87,7 +92,7 @@ th a :hover {
 
 p {
     display: inline;
-    color: darkgray;
+    color: gray;
     font-size: 20px;
 }
 
@@ -108,8 +113,8 @@ button {
     width: 50%;
     height: 40px;
     font-size: 20px;
-    background-color: azure;
-    border: 1px solid azure;
+    background-color: white;
+    border: 1px solid white;
 }
 
 /*question-responce*/
@@ -194,15 +199,14 @@ h2 {
     display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
-    color: darkgray;
-    border: solid 2px darkgray;
+    color: gray;
+    border: solid 2px gray;
     border-radius: 3px;
     transition: .4s;
-    margin-left: 5px;
-    text-align: center;
+    background-color:white;
 }
 
 #square_btn:hover {
-    background: lightblue;
+    background: #AFB5F3;
     color: white;
 }
