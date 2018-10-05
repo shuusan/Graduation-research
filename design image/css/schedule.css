@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(index.css);
+@import url(../css/index.css);
 
 #column {
     display: inline;
@@ -8,8 +8,8 @@
 
 .header {
     height: 8%;
-    width: 100%;
-    position: relative;
+    width: 18.8%;
+    position: absolute;
     /*    background-color: magenta;*/
 }
 
