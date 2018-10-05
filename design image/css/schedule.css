@@ -19,10 +19,9 @@
     margin: 0;
     text-align: center;
     font-size: 30px;
-    color: darkgray;
-    /*background-color: aqua;*/
+    color: gray;
+    background-color: #E5EA5F;
     position: absolute;
-    background:
 }
 
 .select {
@@ -36,7 +35,7 @@
     -moz-appearance: none;
     appearance: none;
     opacity: 0;
-    color: darkgray;
+    color: gray;
 }
 
 #box {
@@ -45,7 +44,7 @@
     display: inline-flex;
     flex-flow: row;
     flex-wrap: wrap;
-    /*    background-color: green;*/
+        background-color: whitesmoke;
 }
 
 .schedule {
@@ -65,14 +64,14 @@
 .time {
     display: block;
     align-content: center;
+    border-bottom: 2px solid gray;
     /*    background-color: aqua;*/
 }
 
 .hour {
     font-size: 40px;
     color: gray;
-    border-bottom: 1px solid darkgray;
-    /*    background-color: red;*/
+    background-color: whitesmoke;
     margin: 0;
     text-align: center;
 }
@@ -81,11 +80,12 @@
     margin: 0;
     font-size: 25px;
     color: gray;
-    /*    background-color: blueviolet;*/
+       background-color: ;
 }
 
 .event {
     color: gray;
     font-size: 20px;
     margin: 0;
+           background-color: ;
 }
