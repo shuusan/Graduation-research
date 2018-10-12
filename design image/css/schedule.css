@@ -44,7 +44,7 @@
     display: inline-flex;
     flex-flow: row;
     flex-wrap: wrap;
-        background-color: whitesmoke;
+    background-color: whitesmoke;
 }
 
 .schedule {
@@ -80,12 +80,12 @@
     margin: 0;
     font-size: 25px;
     color: gray;
-       background-color: ;
+    background-color: ;
 }
 
 .event {
     color: gray;
     font-size: 20px;
-    margin: 0;
-           background-color: ;
+    margin-bottom: 0.1em;
+    background-color: ;
 }
