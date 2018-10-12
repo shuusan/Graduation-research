@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+body {
+    height: 37em;
+    display: block;
+    align-content: center;
+    margin: 0 auto;
+    background-color: whitesmoke;
+}
+
+main {
+    height: 90%;
+    margin: 0 auto 5px auto;
+    background-color: whitesmoke;
+}
+
+nav {
+    width: 100%;
+    height: 2.5em;
+    margin: 0 auto 1em auto;
+    align-content: center;
+    text-align: center;
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    background-color: #6B74D9;
+}
+
+h1 {
+    width: 24.85%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    align-content: center;
+    margin: 0 auto;
+    color: whitesmoke;
+    border-left: 1px solid whitesmoke;
+}
+
+footer {
+    width: 100%;
+    height: 2em;
+    margin: 0;
+    background-color: whitesmoke;
+}
