@@ -10,6 +10,19 @@
 <body>
     <script src="js/jquery-3.2.1.min.js"></script>
     <header>
+        <div id="nav-drawer">
+            <input id="nav-input" type="checkbox" class="nav-unshown">
+            <label id="nav-open" for="nav-input"><span></span></label>
+            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+            <div id="nav-content">
+                <h1>ユーザーの登録</h1>
+                <h1>ユーザーの更新</h1>
+                <h1>ユーザーの削除</h1>
+                <h1>・</h1>
+                <h1>・</h1>
+                <h1>・</h1>
+            </div>
+        </div>
     </header>
     <main>
         <div id="box">
@@ -335,7 +348,7 @@
     <!--  遷移タグ  -->
     <nav>
         <a href="../user/schedule.html">
-            <h1>スケジュール</h1>
+            <h1>タイムテーブル</h1>
         </a>
         <a href="../user/question-common.html">
             <h1>質問フォーム</h1>

@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url(../../css/user/index.css);
+@import url(../../css/user/hamburger.css);
 
 #column {
     display: inline;
@@ -88,4 +89,9 @@
     font-size: 20px;
     margin-bottom: 0.1em;
     background-color: ;
+}
+
+.main-event {
+    width: 20%;
+    height: 100%;
 }
