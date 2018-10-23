@@ -1,6 +1,0 @@
-create table question(
-id int unsigned not null,
-title varchar(50) not null,
-content varchar(1000) not null,
-tag varchar(20) not null
-)
