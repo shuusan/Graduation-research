@@ -1,6 +1,0 @@
-create table user(
-id int primary key unsigned,
-name varchar(30) not null,
-password varchar(20) not null,
-mail varchar(100) not null
-);

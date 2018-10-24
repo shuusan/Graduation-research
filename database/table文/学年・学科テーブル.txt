@@ -1,0 +1,6 @@
+CREATE TABLE department_cose(
+id TINYINT UNSIGNED AUTO_INCREMENT,
+name varchar(63) not null,
+PRIMARY KEY (id),
+INDEX (id)
+)ENGINE=INNODB;

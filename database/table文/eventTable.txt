@@ -1,7 +1,0 @@
-create table event(
-id int primary key unsigned,
-day date not null,
-hour time not null,
-minutes time not null,
-name varchar(50) not null
-);
