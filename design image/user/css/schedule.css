@@ -1,6 +1,6 @@
 @charset "UTF-8";
-@import url(../../css/user/index.css);
-@import url(../../css/user/hamburger.css);
+@import url(index.css);
+@import url(hamburger.css);
 
 #column {
     display: inline;
