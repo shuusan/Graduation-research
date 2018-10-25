@@ -1,6 +1,6 @@
 CREATE TABLE time (
 id SMALLINT UNSIGNED AUTO_INCREMENT,
-bottom_eventID TINYINT,
+bottom_eventID TINYINT UNSIGNED,
 datetime DATETIME,
 PRIMARY KEY (id),
 FOREIGN KEY (bottom_eventID)

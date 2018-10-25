@@ -1,6 +1,6 @@
 CREATE TABLE bottom_event (
 id SMALLINT UNSIGNED AUTO_INCREMENT,
-middle_eventID TINYINT,
+middle_eventID TINYINT UNSIGNED,
 display_flg TINYINT(1) UNSIGNED NOT NULL,
 event_title VARCHAR(63),
 event_contents VARCHAR(500),
