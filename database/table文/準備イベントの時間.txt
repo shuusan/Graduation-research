@@ -1,7 +1,8 @@
 CREATE TABLE preparation_time (
 id SMALLINT UNSIGNED AUTO_INCREMENT,
 eventID SMALLINT UNSIGNED,
-datetime DATETIME,
+start_datetime DATETIME,
+end_datetime DATETIME,
 PRIMARY KEY (id),
 FOREIGN KEY (eventID)
 REFERENCES preparation_event(id)

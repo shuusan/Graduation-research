@@ -1,7 +1,8 @@
 CREATE TABLE time (
 id SMALLINT UNSIGNED AUTO_INCREMENT,
 bottom_eventID TINYINT UNSIGNED,
-datetime DATETIME,
+start_datetime DATETIME,
+end_datetime
 PRIMARY KEY (id),
 FOREIGN KEY (bottom_eventID)
 REFERENCES middle_event(id)
