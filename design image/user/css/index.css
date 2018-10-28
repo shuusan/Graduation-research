@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-    height: 37em;
+    height: 35.9em;
     display: block;
     align-content: center;
     margin: 0 auto;
@@ -31,7 +31,7 @@ h1 {
     float: left;
     text-align: center;
     align-content: center;
-    margin: 0 auto;
+    margin: 0.2em 0 0 0;
     color: whitesmoke;
     border-left: 1px solid whitesmoke;
 }
@@ -40,5 +40,5 @@ footer {
     width: 100%;
     height: 2em;
     margin: 0;
-    background-color: whitesmoke;
+    /*    background-color: whitesmoke;*/
 }
