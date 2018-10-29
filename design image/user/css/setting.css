@@ -1,0 +1,72 @@
+@charset "UTF-8";
+@import url(index.css);
+@import url(hamburger.css);
+
+main {
+    height: 90%;
+    width: 90%;
+    display: flex;
+}
+
+#nav {
+    height: 70%;
+    width: 20%;
+    margin-top: 2em;
+    padding: 0.1em;
+    border: 0.1em solid darkgray;
+}
+
+#nav a {
+    text-decoration: none;
+}
+
+p {
+    width: 100%;
+    margin: 0.5em 0 0 0;
+    border-bottom: 0.1em solid darkgray;
+    border-collapse: collapse;
+    display: inline-block;
+}
+
+#sub {
+    width: 80%;
+    height: 100%;
+    display: block;
+}
+
+.text {
+    width: 50%;
+    height: 2.5em;
+}
+
+h2 {
+    display: inline;
+    color: darkkhaki;
+    font-family: Times, Times New Roman, Georgia, serif;
+}
+
+.title {
+    width: 100%;
+    border-bottom: 0.1em solid darkgray;
+    margin-bottom: 0.5em;
+}
+
+.contents {
+    margin-bottom: 5em;
+}
+
+.square_btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: gray;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    transition: .4s;
+    background-color: white;
+}
+
+.square_btn:hover {
+    background: #AFB5F3;
+    color: white;
+}

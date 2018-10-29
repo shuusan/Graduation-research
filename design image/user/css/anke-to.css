@@ -2,18 +2,6 @@
 @import url(index.css);
 @import url(hamburger.css);
 
-#scroll {
-    width: 85%;
-    height: 100%;
-    margin: 0 auto;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-}
-
-#scroll::-webkit-scrollbar {
-    display: none;
-}
-
 .form {
     height: 20%;
     width: 100%;
