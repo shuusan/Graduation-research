@@ -1,11 +1,6 @@
 @charset "UTF-8";
 @import url(index.css);
-
-main {
-    height: 90%;
-    margin: 0 auto 5px auto;
-    background-color: whitesmoke;
-}
+@import url(hamburger.css);
 
 #contents {
     width: 70%;
@@ -14,26 +9,28 @@ main {
     /*    background-color: red;*/
 }
 
+main {
+    margin: 0 auto;
+    height: 86.5%;
+}
+
 #search {
     width: 100%;
     height: 10%;
     display: flex;
-    /*    background-color: red;*/
 }
 
 #select {
-    width: 20%;
+    width: 24%;
     /*    background-color: aqua;*/
 }
 
 #textfield {
-    width: 55%;
+    width: 57%;
     margin-left: 1px;
 }
 
 #question {
-    width: 99%;
-    height: 90%;
     /*    background-color: yellow;*/
     overflow-y: scroll;
     -ms-overflow-style: none;
@@ -66,30 +63,7 @@ main {
     list-style: none;
     display: flex;
     margin: 0;
-}
-
-/*ここからquestion-select*/
-table {
-    width: 50%;
-    height: 50%;
-    margin: 0 auto;
-}
-
-img {
-    width: 80%;
-    height: 80%;
-    border: 5px solid darkgray;
-    border-radius: 8px
-}
-
-th a :hover {
-    border: 5px solid #AFB5F3;
-    border-radius: 8px;
-}
-
-h2 {
-    text-align: center;
-    color: gray;
+    height: 100%;
 }
 
 /*ここからQuestion-submit*/
@@ -142,7 +116,7 @@ button {
 
 #responce-sub {
     width: 70%;
-    height: 55%;
+    height: 50%;
     background-color: aliceblue;
     margin: 0 auto;
     border: 3px solid darkgray;
@@ -169,7 +143,6 @@ h3 {
 }
 
 #control {
-    /*    background-color: aqua;*/
     width: 73%;
     margin: 0 auto;
     text-align: center;
@@ -183,7 +156,6 @@ h3 {
     border: solid 2px darkgray;
     border-radius: 3px;
     transition: .4s;
-    margin-left: 5px;
     text-align: center;
 }
 
@@ -194,8 +166,8 @@ h3 {
 
 #return {
     width: 5em;
-    margin-left: 20em;
-    margin-right: 20em;
+    margin-left: 17.5em;
+    margin-right: 17.5em;
 }
 
 /*共通設定*/
@@ -207,7 +179,7 @@ h2 {
 
 #square_btn {
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: 0.7em 1.2em;
     text-decoration: none;
     color: gray;
     border: solid 2px gray;

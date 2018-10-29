@@ -3,9 +3,7 @@
 @import url(hamburger.css);
 
 main {
-    height: 90%;
-    margin: 0 auto 5px auto;
-    background-color: whitesmoke;
+    margin: 0 auto;
 }
 
 #column {

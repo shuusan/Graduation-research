@@ -1,0 +1,38 @@
+@charset "UTF-8";
+@import url(index.css);
+@import url(hamburger.css);
+
+main {
+    margin: 0 auto;
+    height: 90%;
+}
+
+.breadcrumb {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    height: 100%;
+}
+
+table {
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+}
+
+img {
+    width: 80%;
+    height: 80%;
+    border: 5px solid darkgray;
+    border-radius: 8px
+}
+
+th a :hover {
+    border: 5px solid #AFB5F3;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: gray;
+}

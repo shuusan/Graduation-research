@@ -2,11 +2,16 @@
 @import url(index.css);
 @import url(hamburger.css);
 
+main {
+    margin: 0 auto;
+}
+
 .form {
-    height: 20%;
-    width: 100%;
-    border-bottom: 0.1em solid lightgray;
-    margin-bottom: 0.5em;
+    height: 25%;
+    width: 90%;
+    border: 0.1em solid lightgray;
+    border-radius: 1em;
+    margin: 0 auto 0.5em auto;
     padding: 0.5em;
 }
 
@@ -17,4 +22,8 @@ h2 {
 
 .link {
     font-size: 2em;
+}
+
+p {
+    color: grey;
 }
