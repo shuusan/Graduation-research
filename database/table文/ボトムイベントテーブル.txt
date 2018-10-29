@@ -4,10 +4,12 @@ middle_eventID TINYINT UNSIGNED,
 display_flg TINYINT(1) UNSIGNED NOT NULL,
 event_title VARCHAR(63),
 event_contents VARCHAR(500),
-timeNo SMALLINT UNSIGNED NOT NULL,
+authority TINYINT(10) UNSIGNED,
+start_datetime DATETIME,
+end_datetime DATETIME,
 PRIMARY KEY (id),
 FOREIGN KEY (middle_eventID)
 REFERENCES middle_event(id)
 ON DELETE CASCADE,
 INDEX (id)
-)ENGINE=INNODB;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
