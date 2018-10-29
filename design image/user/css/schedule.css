@@ -2,6 +2,12 @@
 @import url(index.css);
 @import url(hamburger.css);
 
+main {
+    height: 90%;
+    margin: 0 auto 5px auto;
+    background-color: whitesmoke;
+}
+
 #column {
     display: inline;
     /*    background-color: red;*/

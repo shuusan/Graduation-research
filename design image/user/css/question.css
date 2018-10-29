@@ -1,7 +1,12 @@
 @charset "UTF-8";
 @import url(index.css);
 
-/*ここからquestion-common*/
+main {
+    height: 90%;
+    margin: 0 auto 5px auto;
+    background-color: whitesmoke;
+}
+
 #contents {
     width: 70%;
     height: 80%;
@@ -31,9 +36,14 @@
     height: 90%;
     /*    background-color: yellow;*/
     overflow-y: scroll;
+    -ms-overflow-style: none;
     border: 2px solid darkgray;
     border-radius: 3px;
     margin-top: 1em;
+}
+
+#question::-webkit-scrollbar {
+    display: none;
 }
 
 #common-contents {
