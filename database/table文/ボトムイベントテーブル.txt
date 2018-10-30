@@ -2,14 +2,14 @@ CREATE TABLE bottom_event (
 id SMALLINT UNSIGNED AUTO_INCREMENT,
 middle_eventID TINYINT UNSIGNED,
 display_flg TINYINT(1) UNSIGNED NOT NULL,
-event_title VARCHAR(63),
-event_contents VARCHAR(500),
-authority TINYINT(10) UNSIGNED,
+title VARCHAR(63),
+contents VARCHAR(500),
+authority TINYINT(10) UNSIGNED NOT NULL,
 start_datetime DATETIME,
 end_datetime DATETIME,
 PRIMARY KEY (id),
 FOREIGN KEY (middle_eventID)
 REFERENCES middle_event(id)
 ON DELETE CASCADE,
-INDEX (id)
+INDEX (title)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;

@@ -1,0 +1,9 @@
+CREATE TABLE anke-to(
+id TINYINT UNSIGNED,
+title VARCHAR(63) NOT NULL,
+url VARCHAR(255),
+start_datetime DATETIME,
+end_datetime DATETIME,
+PRIMARY KEY (id),
+INDEX (id)
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
