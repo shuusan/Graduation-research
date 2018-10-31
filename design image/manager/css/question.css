@@ -1,0 +1,194 @@
+@charset "UTF-8";
+@import url(index.css);
+@import url(hamburger.css);
+
+#contents {
+    width: 70%;
+    height: 80%;
+    margin: 0 auto;
+    /*    background-color: red;*/
+}
+
+main {
+    margin: 0 auto;
+    height: 86.5%;
+}
+
+#search {
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+
+#select {
+    width: 24%;
+    /*    background-color: aqua;*/
+}
+
+#textfield {
+    width: 57%;
+    margin-left: 1px;
+}
+
+#question {
+    /*    background-color: yellow;*/
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    border: 2px solid darkgray;
+    border-radius: 3px;
+    margin-top: 1em;
+}
+
+#question::-webkit-scrollbar {
+    display: none;
+}
+
+#common-contents {
+    list-style: none;
+    margin-right: 2em;
+    /*    background-color: aqua;*/
+}
+
+#common-contents li {
+    font-size: 2em;
+    border-bottom: 1px dotted darkgray;
+    margin-bottom: 5px;
+}
+
+#common-contents li a {
+    text-decoration: none;
+}
+
+.breadcrumb {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    height: 100%;
+}
+
+/*ここからQuestion-submit*/
+#contents2 {
+    width: 50%;
+    height: 75%;
+    margin: 0 auto;
+    display: block;
+}
+
+p {
+    display: inline;
+    color: gray;
+    font-size: 20px;
+}
+
+#select2 {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+}
+
+textarea {
+    width: 99%;
+    height: 60%;
+    font-size: 20px;
+}
+
+button {
+    margin: 0 auto;
+    width: 50%;
+    height: 40px;
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid white;
+}
+
+/*question-responce*/
+#responce-main {
+    width: 70%;
+    height: auto;
+    background-color: aliceblue;
+    margin: 0 auto;
+    border: 3px solid darkgray;
+    border-radius: 3px;
+    margin-bottom: 1em;
+    padding: 1em;
+    /*    background-color: red;*/
+}
+
+#responce-sub {
+    width: 70%;
+    height: 50%;
+    background-color: aliceblue;
+    margin: 0 auto;
+    border: 3px solid darkgray;
+    border-radius: 3px;
+    overflow-y: auto;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    /*    background-color: blue;*/
+}
+
+h3 {
+    display: inline;
+    color: gray;
+}
+
+#responce-sub p {
+    display: inline;
+    color: black;
+}
+
+#responce-main p {
+    display: inline;
+    color: black;
+}
+
+#control {
+    width: 73%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.square_btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: darkgray;
+    border: solid 2px darkgray;
+    border-radius: 3px;
+    transition: .4s;
+    text-align: center;
+}
+
+.square_btn:hover {
+    background: lightblue;
+    color: white;
+}
+
+#return {
+    width: 5em;
+    margin-left: 17.5em;
+    margin-right: 17.5em;
+}
+
+/*共通設定*/
+
+h2 {
+    text-align: center;
+    color: gray;
+}
+
+#square_btn {
+    display: inline-block;
+    padding: 0.7em 1.2em;
+    text-decoration: none;
+    color: gray;
+    border: solid 2px gray;
+    border-radius: 3px;
+    transition: .4s;
+    background-color: white;
+}
+
+#square_btn:hover {
+    background: #AFB5F3;
+    color: white;
+}

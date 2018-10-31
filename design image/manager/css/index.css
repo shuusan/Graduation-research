@@ -1,17 +1,22 @@
 @charset "UTF-8";
 
 body {
-    height: 37em;
+    height: 35.9em;
     display: block;
     align-content: center;
     margin: 0 auto;
     background-color: whitesmoke;
 }
 
+header {
+    height: 1em;
+    width: 100%;
+    display: flex;
+}
+
 main {
     height: 90%;
-    margin: 0 auto 5px auto;
-    background-color: whitesmoke;
+    width: 90%;
 }
 
 nav {
@@ -31,7 +36,7 @@ h1 {
     float: left;
     text-align: center;
     align-content: center;
-    margin: 0 auto;
+    margin: 0.2em 0 0 0;
     color: whitesmoke;
     border-left: 1px solid whitesmoke;
 }
@@ -40,5 +45,17 @@ footer {
     width: 100%;
     height: 2em;
     margin: 0;
-    background-color: whitesmoke;
+    /*    background-color: whitesmoke;*/
+}
+
+#scroll {
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+}
+
+#scroll::-webkit-scrollbar {
+    display: none;
 }
