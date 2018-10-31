@@ -18,6 +18,7 @@ main {
     width: 100%;
     height: 10%;
     display: flex;
+    margin: 0 auto;
 }
 
 #select {
@@ -26,7 +27,7 @@ main {
 }
 
 #textfield {
-    width: 57%;
+    width: 55.5%;
     margin-left: 1px;
 }
 
@@ -88,8 +89,12 @@ p {
 
 textarea {
     width: 99%;
-    height: 60%;
+    height: 94%;
     font-size: 20px;
+    background-color: aliceblue;
+    border-color: aliceblue;
+    resize: none;
+    outline: 0;
 }
 
 button {
@@ -175,6 +180,10 @@ h3 {
 h2 {
     text-align: center;
     color: gray;
+}
+
+#square_btn_size {
+    width: 10em;
 }
 
 #square_btn {
