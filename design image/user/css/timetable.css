@@ -8,9 +8,16 @@ main {
     background-color: red;
 }
 
+#subevent-blank {
+    width: 20px;
+    height: 50px;
+    margin: 0;
+    background-color: black;
+}
+
 #subevent-area {
     height: 50px;
-    width: calc(300px * 6);
+    width: calc(20px + 300px * 6);
     display: flex;
     background-color: blue;
 }
@@ -20,15 +27,30 @@ main {
     height: 50px;
     margin: 0;
     color: white;
-    line-height: 30px;
+    line-height: 50px;
     text-align: center;
     border-left: 1px solid white;
     word-wrap: break-word;
     background-color: black;
 }
 
+#event {
+    height: 90%;
+    width: calc(20px + 300px * 6);
+    overflow-y: scroll;
+    background-color: blue;
+}
+
 #time-area {
     width: 20px;
+    height: 447px;
+    position: fixed;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+}
+
+#time-area::-webkit-scrollbar {
+    display: none;
 }
 
 .constant-hour {
@@ -42,5 +64,11 @@ main {
 }
 
 #event-area {
-    background-color: yellow;
+    width: 100%;
+    height: 100%;
+    /*    background-color: yellow;*/
+}
+
+#event-area p {
+    margin: 0;
 }
