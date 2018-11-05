@@ -5,7 +5,6 @@
 main {
     width: 100%;
     overflow-x: scroll;
-    overscroll-behavior: none;
 }
 
 #subevent-blank {
@@ -35,10 +34,10 @@ main {
 
 #event {
     height: 90%;
+    overflow-wrap: break-word;
     width: calc(20px + 300px * 6);
     display: flex;
-    overflow-y: scroll;
-    overscroll-behavior: none;
+    overflow: auto;
     -ms-overflow-style: none;
 }
 
@@ -51,7 +50,6 @@ main {
     height: 447px;
     position: fixed;
     overflow-y: scroll;
-    overscroll-behavior: none;
     -ms-overflow-style: none;
 }
 
@@ -72,6 +70,7 @@ main {
 #event-area {
     display: flex;
     width: calc(300px * 6);
+    height: 7223px;
     margin-left: 20px;
 }
 
@@ -81,8 +80,9 @@ main {
 
 .event-contents {
     width: 300px;
-    height: 7225px;
-    background-color: blue;
+    height: 7223px;
+    overflow-x: hidden;
+    overflow-y: hidden;
     border-right: 1px solid lightgray;
 }
 
