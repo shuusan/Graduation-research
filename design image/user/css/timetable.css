@@ -65,7 +65,6 @@ main {
 #event {
     height: 90%;
     overflow-wrap: break-word;
-    width: calc(20px + 300px * 6);
     display: flex;
     overflow: auto;
     /*    scrollバーの表示    */
@@ -107,7 +106,6 @@ main {
 #event-area {
     display: flex;
     height: 7223px;
-    width: calc(300px * 6);
     margin-left: 20px;
 }
 
