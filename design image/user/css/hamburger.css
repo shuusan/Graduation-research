@@ -61,7 +61,6 @@
 
 /*中身*/
 #nav-content {
-    overflow: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -72,13 +71,30 @@
     max-width: 330px;
     /*最大幅（調整してください）*/
     height: 100%;
-    background: whitesmoke;
     /*背景色*/
+    background-color: white;
     transition: .3s ease-in-out;
     /*滑らかに表示*/
     -webkit-transform: translateX(-105%);
     transform: translateX(-105%);
     /*左に隠しておく*/
+}
+
+.nav {
+    display: inline;
+    width: 99%;
+    height: 50px;
+    margin: 0;
+    word-wrap: break-word;
+    border: 1px solid white;
+    border-left: none;
+    background-color: #6B74D9;
+}
+
+/*自分の現在いる場所を修飾*/
+#here {
+    width: 96.2%;
+    border-left: 10px solid yellow;
 }
 
 /*チェックが入ったらもろもろ表示*/
@@ -93,15 +109,4 @@
     transform: translateX(0%);
     /*中身を表示（右へスライド）*/
     box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
-}
-
-nav {
-    width: 100%;
-    height: 2.5em;
-    margin: 0 auto 1em auto;
-    align-content: center;
-    text-align: center;
-    border-top: 1px solid whitesmoke;
-    border-bottom: 1px solid whitesmoke;
-    background-color: #6B74D9;
 }

@@ -113,8 +113,7 @@ main {
 .event-contents {
     width: 300px;
     height: 7223px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
     border-right: 1px solid lightgray;
 }
 
