@@ -2,11 +2,45 @@
 @import url(index.css);
 @import url(hamburger.css);
 
+/*
+timetable階層構造
+    main {
+        #subevent-area {
+            #subevent-brank
+            .subevent-title
+        }
+
+        #event {
+            #time-area {
+                .constant-hour
+            }
+
+            #event-area {
+                .event-contents {
+                    .event-button {
+                        .event-division {
+                            .event-title
+                            .event-text
+                        }
+                    }
+                }
+            }
+        }
+    }
+*/
+
 main {
     width: 100%;
     overflow-x: scroll;
 }
 
+/*領域*/
+#subevent-area {
+    height: 50px;
+    display: flex;
+}
+
+/*左側の時間表示分を埋める*/
 #subevent-blank {
     width: 20px;
     height: 50px;
@@ -14,12 +48,7 @@ main {
     background-color: black;
 }
 
-#subevent-area {
-    height: 50px;
-    width: calc(20px + 300px * 6);
-    display: flex;
-}
-
+/*内容*/
 .subevent-title {
     width: 300px;
     height: 50px;
@@ -32,52 +61,57 @@ main {
     background-color: black;
 }
 
+/*縦スクロールするための領域*/
 #event {
     height: 90%;
     overflow-wrap: break-word;
     width: calc(20px + 300px * 6);
     display: flex;
     overflow: auto;
+    /*    scrollバーの表示    */
     -ms-overflow-style: none;
 }
 
+/*scrollバーの非表示*/
 #event::-webkit-scrollbar {
     display: none;
 }
 
+/*時間領域*/
 #time-area {
     width: 20px;
     height: 447px;
     position: fixed;
     overflow-y: scroll;
+    /*    scrollバーの表示    */
     -ms-overflow-style: none;
 }
 
+/*scrollバーの非表示*/
 #time-area::-webkit-scrollbar {
     display: none;
 }
 
+/*時間内容*/
 .constant-hour {
     height: 300px;
     margin: 0;
     color: white;
-    background-color: lime;
-    border-bottom: 1px solid white;
     text-align: center;
     line-height: 300px;
+    background-color: lime;
+    border-bottom: 1px solid white;
 }
 
+/*イベント領域*/
 #event-area {
     display: flex;
-    width: calc(300px * 6);
     height: 7223px;
+    width: calc(300px * 6);
     margin-left: 20px;
 }
 
-#event-area p {
-    margin: 0;
-}
-
+/*イベントごとの領域*/
 .event-contents {
     width: 300px;
     height: 7223px;
@@ -86,34 +120,40 @@ main {
     border-right: 1px solid lightgray;
 }
 
+/*ボタン*/
 .event-button {
     width: 100%;
     margin-bottom: 1px;
     background-color: aliceblue;
     border: none;
+    outline: none;
     border-bottom: 1px solid lightgray;
 }
 
+/*イベント開始時間*/
 .event-time {
     margin: 0;
+    padding: 4px 0 0 0;
     float: left;
     color: gray;
 }
 
+/*イベント詳細領域*/
 .event-division {
     width: 96%;
     padding: 0;
     margin: 0 0 100% 5%;
 }
 
+/*イベント名*/
 .event-title {
-    font-size: 15px;
-    text-align: left;
     font-weight: bold;
     word-wrap: break-word;
 }
 
-.event-text {
+/*イベント内容*/
+.event-division p {
+    margin: 0;
     height: 100%;
     font-size: 15px;
     text-align: left;
