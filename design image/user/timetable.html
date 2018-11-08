@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/timetable.css">
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jQueryUI-v1.12.1.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
     <title>メインページ</title>
 </head>
 
@@ -36,7 +38,6 @@ timetable階層構造
             #time-area {
                 .constant-hour
             }
-
             #event-area {
                 .event-contents {
                     .event-button {
@@ -1111,6 +1112,14 @@ timetable階層構造
 
             </div>
         </div>
+        <div id="date-drawer">
+            <input id="date-input" type="checkbox" class="date-unshown">
+            <label id="date-open" for="date-input"><span></span></label>
+            <label class="date-unshown" id="date-close" for="date-input"></label>
+            <div id="date-content">
+                <div id="datepicker"></div>
+            </div>
+        </div>
     </main>
     <nav>
         <a href="timetable.html">
@@ -1130,5 +1139,6 @@ timetable階層構造
     </footer>
 </body>
 <script type="text/javascript" src="js/syncscroll.js"></script>
+<script type="text/javascript" src="js/datepicker.js"></script>
 
 </html>
