@@ -178,7 +178,8 @@ main {
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    background-image: url(../image/datetime.png);
+    background-image: url(../image/calendar.png);
+    background-size: 60% 60%;
     background-repeat: no-repeat;
     background-color: lime;
     transition: .5s;
@@ -251,4 +252,32 @@ main {
     transform: translateX(-100%);
     /*中身を表示（右へスライド）*/
     box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
+}
+
+/*カレンダーの大きさ*/
+.ui-datepicker {
+    width: 97%;
+    padding: .2em .2em 0;
+    display: none;
+    border: none;
+}
+
+.ui-widget.ui-widget-content {
+    border: none;
+}
+
+/*タイマー*/
+#timertext {
+    margin: 0;
+    font-weight: bolder;
+}
+
+#timer {
+    height: 90%;
+    margin: 0;
+    font-size: 20px;
+    color: white;
+    border-bottom: 2px solid white;
+    background-color: black;
+    margin-left: 3%;
 }
