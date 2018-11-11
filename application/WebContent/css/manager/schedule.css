@@ -1,0 +1,101 @@
+@charset "UTF-8";
+@import url(index.css);
+@import url(hamburger.css);
+
+main {
+    margin: 0 auto;
+}
+
+#column {
+    display: inline;
+    /*    background-color: red;*/
+}
+
+.header {
+    height: 8%;
+    width: 18.8%;
+    position: absolute;
+    /*    background-color: magenta;*/
+}
+
+.label {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+    color: gray;
+    background-color: #E5EA5F;
+    position: absolute;
+}
+
+.select {
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 25px;
+    position: relative;
+    display: block;
+    -weblit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 0;
+    color: gray;
+}
+
+#box {
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    background-color: whitesmoke;
+}
+
+.schedule {
+    float: left;
+    text-align: center;
+    height: 94%;
+    width: 20%;
+    /*        background-color: aqua;*/
+}
+
+.scroll {
+    height: 98%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.time {
+    display: block;
+    align-content: center;
+    border-bottom: 2px solid gray;
+    /*    background-color: aqua;*/
+}
+
+.hour {
+    font-size: 40px;
+    color: gray;
+    background-color: whitesmoke;
+    margin: 0;
+    text-align: center;
+}
+
+.minute {
+    margin: 0;
+    font-size: 25px;
+    color: gray;
+    background-color: ;
+}
+
+.event {
+    color: gray;
+    font-size: 20px;
+    margin-bottom: 0.1em;
+    background-color: ;
+}
+
+.main-event {
+    width: 20%;
+    height: 100%;
+}
