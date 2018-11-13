@@ -4,7 +4,7 @@
 
 main {
     margin: 0 auto;
-    height: 90%;
+    text-align: center;
 }
 
 .breadcrumb {
@@ -33,6 +33,7 @@ th a :hover {
 }
 
 h2 {
+    display: inline;
     text-align: center;
     color: gray;
 }
