@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 #nav-drawer {
-    width: 1em;
+    width: 5%;
     height: 100%;
     position: relative;
 }
@@ -14,8 +14,8 @@
 /*アイコンのスペース*/
 #nav-open {
     display: inline-block;
-    width: 30px;
-    height: 22px;
+    width: 100%;
+    height: 100%;
     vertical-align: middle;
 }
 
@@ -81,10 +81,12 @@
 }
 
 .nav {
-    display: inline;
+    display: block;
     width: 99%;
-    height: 50px;
-    margin: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: none;
     word-wrap: break-word;
     border: 1px solid white;
     border-left: none;

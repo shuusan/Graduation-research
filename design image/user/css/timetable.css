@@ -36,7 +36,7 @@ main {
 
 /*領域*/
 #subevent-area {
-    height: 5%;
+    height: 10%;
     width: 100%;
     display: flex;
 }
@@ -44,7 +44,7 @@ main {
 /*左側の時間表示分を埋める*/
 #subevent-blank {
     width: 20px;
-    height: 97%;
+    height: 100%;
     margin: 0;
     background-color: black;
 }
@@ -54,8 +54,8 @@ main {
     width: 300px;
     height: 100%;
     margin: 0;
+    line-height: 300%;
     color: white;
-    line-height: 200%;
     text-align: center;
     border-left: 1px solid white;
     word-wrap: break-word;
@@ -80,7 +80,7 @@ main {
 /*時間領域*/
 #time-area {
     width: 20px;
-    height: 74%;
+    height: 73%;
     position: fixed;
     overflow-y: scroll;
     /*    scrollバーの表示    */
