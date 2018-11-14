@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Question_submit")
+@WebServlet("/User_Question_submit")
 public class Question_submit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public Question_submit() {
