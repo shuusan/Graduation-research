@@ -36,14 +36,15 @@ main {
 
 /*領域*/
 #subevent-area {
-    height: 50px;
+    height: 10%;
+    width: 100%;
     display: flex;
 }
 
 /*左側の時間表示分を埋める*/
 #subevent-blank {
     width: 20px;
-    height: 50px;
+    height: 100%;
     margin: 0;
     background-color: black;
 }
@@ -51,10 +52,10 @@ main {
 /*内容*/
 .subevent-title {
     width: 300px;
-    height: 50px;
+    height: 100%;
     margin: 0;
+    line-height: 300%;
     color: white;
-    line-height: 50px;
     text-align: center;
     border-left: 1px solid white;
     word-wrap: break-word;
@@ -79,7 +80,7 @@ main {
 /*時間領域*/
 #time-area {
     width: 20px;
-    height: 447px;
+    height: 73%;
     position: fixed;
     overflow-y: scroll;
     /*    scrollバーの表示    */
@@ -178,7 +179,7 @@ main {
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    background-image: url(../image/calendar.png);
+    background-image: url(../../photo/calendar.png);
     background-size: 60% 60%;
     background-repeat: no-repeat;
     background-color: lime;
@@ -279,5 +280,4 @@ main {
     color: white;
     border-bottom: 2px solid white;
     background-color: black;
-    margin-left: 3%;
 }

@@ -4,7 +4,7 @@
 
 main {
     margin: 0 auto;
-    height: 90%;
+    text-align: center;
 }
 
 .breadcrumb {
@@ -24,7 +24,7 @@ img {
     width: 80%;
     height: 80%;
     border: 5px solid darkgray;
-    border-radius: 8px
+    border-radius: 8px;
 }
 
 th a :hover {
@@ -33,6 +33,7 @@ th a :hover {
 }
 
 h2 {
+    display: inline;
     text-align: center;
     color: gray;
 }

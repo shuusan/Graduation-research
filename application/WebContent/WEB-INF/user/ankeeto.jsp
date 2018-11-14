@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/anke-to.css">
+    <link rel="stylesheet" href="css/user/ankeeto.css">
     <title>メインページ</title>
 </head>
 
@@ -49,16 +51,16 @@
         </div>
     </main>
     <nav>
-        <a href="timetable.html" class="navi">
+        <a href="Timetable" class="navi">
             タイムテーブル
         </a>
-        <a href="question-common.html" class="navi">
+        <a href="Question_common" class="navi">
             質問フォーム
         </a>
-        <a href="anke-to.html" class="navi">
+        <a href="Ankeeto" class="navi">
             アンケート機能
         </a>
-        <a href="setting.html" class="navi">
+        <a href="Setting" class="navi">
             設 定
         </a>
     </nav>
