@@ -17,9 +17,6 @@ main {
 
 #nav a {
     text-decoration: none;
-}
-
-p {
     width: 100%;
     margin: 0.5em 0 0 0;
     border-bottom: 0.1em solid darkgray;
