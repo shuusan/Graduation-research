@@ -16,11 +16,11 @@
             <label id="nav-open" for="nav-input"><span></span></label>
             <label class="nav-unshown" id="nav-close" for="nav-input"></label>
             <div id="nav-content">
-                <a href="#">
-                    <h1 id="here" class="nav">スポーツ大会</h1>
+                <a href="#" id="here" class="nav">
+                   スポーツ大会
                 </a>
-                <a href="#">
-                    <h1 class="nav">オープンキャンパス</h1>
+                <a href="#" class="nav">
+                    オープンキャンパス
                 </a>
             </div>
         </div>
@@ -28,10 +28,10 @@
     <main>
         <div id="nav">
             <a href="#Password">
-                <p>Password</p>
+                Password
             </a><br>
             <a href="#Mail">
-                <p>Mail</p>
+                Mail
             </a>
         </div>
         <div id="sub">

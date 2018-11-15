@@ -24,10 +24,10 @@
     <main>
         <div id="nav">
             <a href="#Password">
-                <p>Password</p>
+                Password
             </a><br>
             <a href="#Mail">
-                <p>Mail</p>
+                Mail
             </a>
         </div>
         <div id="sub">

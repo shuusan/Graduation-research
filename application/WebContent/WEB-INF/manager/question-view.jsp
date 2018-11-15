@@ -13,12 +13,12 @@
     <header>
         <ul class="breadcrumb">
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="Question_answer" itemprop="url">
+                <a href="Manager_Question_answer" itemprop="url">
                     <span itemprop="title">>回答フォーム</span>
                 </a>
             </li>
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="Question_view" itemprop="url">
+                <a href="Manager_Question_view" itemprop="url">
                     <span itemprop="title">>回答ページ</span>
                 </a>
             </li>

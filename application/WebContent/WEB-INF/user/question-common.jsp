@@ -22,7 +22,7 @@
         </div>
         <ul class="breadcrumb">
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="Question_common" itemprop="url">
+                <a href="User_Question_common" itemprop="url">
                     <span itemprop="title">>質問-メインページ</span>
                 </a>
             </li>
@@ -43,14 +43,14 @@
             </select>
             <input type="text" placeholder="検索する" id="textfield">
             <a href="#" id="square_btn">送信！</a>
-            <a id="square_btn" href="Question_select">直接質問する</a>
+            <a id="square_btn" href="User_Question_select">直接質問する</a>
         </div>
         <div id="question">
             <ul id="common-contents">
-                <li><a href="Question_responce">全体スケジュールについて</a></li>
-                <li><a href="Question_responce">全体スケジュールについて</a></li>
-                <li><a href="Question_responce">全体スケジュールについて</a></li>
-                <li><a href="Question_responce">全体スケジュールについて</a></li>
+                <li><a href="User_Question_responce">全体スケジュールについて</a></li>
+                <li><a href="User_Question_responce">全体スケジュールについて</a></li>
+                <li><a href="User_Question_responce">全体スケジュールについて</a></li>
+                <li><a href="User_Question_responce">全体スケジュールについて</a></li>
             </ul>
         </div>
     </main>

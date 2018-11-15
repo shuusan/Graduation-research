@@ -13,12 +13,12 @@
     <header>
         <ul class="breadcrumb">
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="Question_common" itemprop="url">
+                <a href="Manager_Question_common" itemprop="url">
                     <span itemprop="title">>質問-メインページ</span>
                 </a>
             </li>
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="Question_select" itemprop="url">
+                <a href="Manager_Question_select" itemprop="url">
                     <span itemprop="title">>質問区分選択</span>
                 </a>
             </li>
@@ -28,16 +28,16 @@
         <table id="question2">
             <tbody>
                 <tr>
-                    <th><a href=Question_submit><img src="photo/icon_141860_256.png" alt="1"></a></th>
-                    <th><a href=Question_submit><img src="photo/icon_141850_256.png" alt="2"></a></th>
-                    <th><a href=Question_submit><img src="photo/icon_141860_256.png" alt="3"></a></th>
-                    <th><a href=Question_submit><img src="photo/icon_142030_256.png" alt="4"></a></th>
+                    <th><a href="Manager_Question_submit"><img src="photo/icon_141860_256.png" alt="1"></a></th>
+                    <th><a href="Manager_Question_submit"><img src="photo/icon_141850_256.png" alt="2"></a></th>
+                    <th><a href="Manager_Question_submit"><img src="photo/icon_141860_256.png" alt="3"></a></th>
+                    <th><a href="Manager_Question_submit"><img src="photo/icon_142030_256.png" alt="4"></a></th>
                 </tr>
                 <tr>
-                    <th><a href=Question_submit><img src="photo/icon_138200_256.png" alt="5"></a></th>
-                    <th><a href=Question_submit><img src="photo/icon_141850_256.png" alt="6"></a></th>
-                    <th><a href=Question_submit><img src="photo/icon_141860_256.png" alt="7"></a></th>
-                    <th><a href=Question_submit><img src="photo/icon_142030_256.png" alt="8"></a></th>
+                    <th><a href="Manager_Question_submit"><img src="photo/icon_138200_256.png" alt="5"></a></th>
+                    <th><a href="Manager_Question_submit"><img src="photo/icon_141850_256.png" alt="6"></a></th>
+                    <th><a href="Manager_Question_submit"><img src="photo/icon_141860_256.png" alt="7"></a></th>
+                    <th><a href="Manager_Question_submit"><img src="photo/icon_142030_256.png" alt="8"></a></th>
                 </tr>
             </tbody>
         </table>

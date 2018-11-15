@@ -22,7 +22,7 @@
         </div>
         <ul class="breadcrumb">
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="Question_common" itemprop="url">
+                <a href="Manager_Question_common" itemprop="url">
                     <span itemprop="title">>質問-メインページ</span>
                 </a>
             </li>
@@ -47,10 +47,10 @@
         </div>
         <div id="question">
             <ul id="common-contents">
-                <li><a href="Question_responce">全体スケジュールについて</a></li>
-                <li><a href="Question_responce">全体スケジュールについて</a></li>
-                <li><a href="Question_responce">全体スケジュールについて</a></li>
-                <li><a href="Question_responce">全体スケジュールについて</a></li>
+                <li><a href="Manager_Question_responce">全体スケジュールについて</a></li>
+                <li><a href="Manager_Question_responce">全体スケジュールについて</a></li>
+                <li><a href="Manager_Question_responce">全体スケジュールについて</a></li>
+                <li><a href="Manager_Question_responce">全体スケジュールについて</a></li>
             </ul>
         </div>
     </main>
