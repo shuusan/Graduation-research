@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Ankeeto
  */
-@WebServlet("/Ankeeto")
-public class Manager_Ankeeto extends HttpServlet {
+@WebServlet("/Manager_Ankeeto")
+public class Ankeeto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Manager_Ankeeto() {
+    public Ankeeto() {
         super();
         // TODO Auto-generated constructor stub
     }

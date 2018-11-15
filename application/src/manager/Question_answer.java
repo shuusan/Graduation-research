@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Question_answer
  */
-@WebServlet("/Question_answer")
+@WebServlet("/Manager_Question_answer")
 public class Question_answer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */

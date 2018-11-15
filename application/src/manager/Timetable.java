@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Timetable
  */
-@WebServlet("/Timetable")
+@WebServlet("/Manager_Timetable")
 public class Timetable extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */

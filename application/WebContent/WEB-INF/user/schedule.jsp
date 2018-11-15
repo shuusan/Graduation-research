@@ -349,16 +349,16 @@
     </main>
     <!--  遷移タグ  -->
     <nav>
-        <a href="Timetable" class="navi">
+        <a href="User_Timetable" class="navi">
             タイムテーブル
         </a>
-        <a href="Question_common" class="navi">
+        <a href="User_Question_common" class="navi">
             質問フォーム
         </a>
-        <a href="Ankeeto" class="navi">
+        <a href="User_Ankeeto" class="navi">
             アンケート機能
         </a>
-        <a href="Setting" class="navi">
+        <a href="User_Setting" class="navi">
             設 定
         </a>
     </nav>
