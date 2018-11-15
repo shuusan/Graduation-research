@@ -1,4 +1,4 @@
-package manager;
+package servlet;
 
 import java.io.IOException;
 
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Timetable
+ * Servlet implementation class Setting
  */
-@WebServlet("/Manager_Timetable")
-public class Timetable extends HttpServlet {
+@WebServlet("/Manager_Setting")
+public class Manager_Setting extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Timetable() {
+    public Manager_Setting() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class Timetable extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "/WEB-INF/manager/timetable.jsp";
+		String view = "/WEB-INF/manager/setting.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

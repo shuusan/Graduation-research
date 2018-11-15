@@ -1,4 +1,4 @@
-package manager;
+package servlet;
 
 import java.io.IOException;
 
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Question_answer
+ * Servlet implementation class Question_submit
  */
-@WebServlet("/Manager_Question_answer")
-public class Question_answer extends HttpServlet {
+@WebServlet("/Manager_Question_submit")
+public class Manager_Question_submit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Question_answer() {
+    public Manager_Question_submit() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class Question_answer extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "/WEB-INF/manager/question-answer.jsp";
+		String view = "/WEB-INF/manager/question-submit.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

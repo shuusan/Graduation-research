@@ -1,4 +1,4 @@
-package manager;
+package servlet;
 
 import java.io.IOException;
 
@@ -9,34 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Ankeeto
- */
-@WebServlet("/Manager_Ankeeto")
-public class Ankeeto extends HttpServlet {
+@WebServlet("/User_Question_responce")
+public class User_Question_responce extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public User_Question_responce() {
+		super();
+		}
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Ankeeto() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "/WEB-INF/manager/ankeeto.jsp";
+		String view = "/WEB-INF/user/question-responce.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+		}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
 
+	}
 }
