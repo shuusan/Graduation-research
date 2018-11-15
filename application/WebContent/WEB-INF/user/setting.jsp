@@ -24,10 +24,10 @@
     <main>
         <div id="nav">
             <a href="#Password">
-                <p>Password</p>
+                Password
             </a><br>
             <a href="#Mail">
-                <p>Mail</p>
+                Mail
             </a>
         </div>
         <div id="sub">
@@ -51,16 +51,16 @@
         </div>
     </main>
     <nav>
-        <a href="Timetable" class="navi">
+        <a href="User_Timetable" class="navi">
             タイムテーブル
         </a>
-        <a href="Question_common" class="navi">
+        <a href="User_Question_common" class="navi">
             質問フォーム
         </a>
-        <a href="Ankeeto" class="navi">
+        <a href="User_Ankeeto" class="navi">
             アンケート機能
         </a>
-        <a href="Setting" class="navi">
+        <a href="User_Setting" class="navi">
             設 定
         </a>
     </nav>

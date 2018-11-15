@@ -13,12 +13,12 @@
     <header>
         <ul class="breadcrumb">
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="Question_common" itemprop="url">
+                <a href="Manager_Question_common" itemprop="url">
                     <span itemprop="title">>質問-メインページ</span>
                 </a>
             </li>
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="Question_responce" itemprop="url">
+                <a href="Manager_Question_responce" itemprop="url">
                     <span itemprop="title">>回答閲覧ページ</span>
                 </a>
             </li>
@@ -41,21 +41,21 @@
         </div>
         <div id="control">
             <a href="#" class="square_btn">前の質問</a>
-            <a href="Question_common" class="square_btn" id="return">戻る</a>
+            <a href="Manager_Question_common" class="square_btn" id="return">戻る</a>
             <a href="#" class="square_btn">次の質問</a>
         </div>
     </main>
     <nav>
-     <a href="Timetable" class="navi">
+        <a href="Manager_Timetable" class="navi">
             タイムテーブル
         </a>
-        <a href="Question_answer" class="navi">
+        <a href="Manager_Question_answer" class="navi">
             質問フォーム
         </a>
-        <a href="Ankeeto" class="navi">
+        <a href="Manager_Ankeeto" class="navi">
             アンケート機能
         </a>
-        <a href="Setting" class="navi">
+        <a href="Manager_Setting" class="navi">
             設 定
         </a>
     </nav>
