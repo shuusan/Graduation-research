@@ -17,6 +17,10 @@ public class User_DTO {
 		this.text = text;
 		this.text1 = text1;
 	}
+	public User_DTO(String text) {
+		super();
+		this.text = text;
+	}
 	public int getNum() {
 		return num;
 	}

@@ -45,8 +45,7 @@ public class User_SelectDAO {
 		return resultList;
 	}
 
-	public static HashMap<Integer, ArrayList<User_DTO>> middle_event(){
-		HashMap<Integer, ArrayList<User_DTO>> map = new HashMap<>();
+	public static ArrayList<User_DTO> middle_event(int num){
 		ArrayList<User_DTO> list = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -57,16 +56,14 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT * FROM middle_event";
+			String sql = "SELECT * FROM middle_event WHERE top_eventID = ?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
 			rs.next();
 			do {
-				int id = rs.getInt("id");
-				int top_eventID = rs.getInt("top_eventID");
 				String title = rs.getString("title");
-				list.add(new User_DTO(id, title));
-				map.put(top_eventID, list);
+				list.add(new User_DTO(title));
 			}while(rs.next() == true );
 			con.close();
 		} catch (SQLException e){
@@ -74,7 +71,7 @@ public class User_SelectDAO {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return map;
+		return list;
 	}
 
 	public static HashMap<Integer, ArrayList<User_DTO>> bottom_event(){
@@ -100,8 +97,13 @@ public class User_SelectDAO {
 				String title = rs.getString("title");
 				String contents = rs.getString("contents");
 				int authority = rs.getInt("authority");
-				list.add(new User_DTO(id, display_flg,title,contents,authority));
-				map.put(middle_eventID, list);
+				if(null!=map.get(middle_eventID)) {
+					map.get(middle_eventID).add(new User_DTO(id, display_flg,title,contents,authority));
+				}else {
+					list.add(new User_DTO(id, display_flg,title,contents,authority));
+					map.put(middle_eventID, list);
+					list = new ArrayList<>();
+				}
 			}while(rs.next() == true );
 			con.close();
 		} catch (SQLException e){

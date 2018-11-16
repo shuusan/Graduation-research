@@ -23,12 +23,14 @@ public class User_Timetable extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		String view = "/WEB-INF/user/timetable.jsp";
 		ArrayList<User_DTO> hl = User_SelectDAO.top_event();
-		HashMap<Integer, ArrayList<User_DTO>> mel = User_SelectDAO.middle_event();
-		HttpSession session = request.getSession();
+		ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1);
+		HashMap<Integer, ArrayList<User_DTO>> bel = User_SelectDAO.bottom_event();
 		session.setAttribute("hl", hl);
 		session.setAttribute("mel", mel);
+		session.setAttribute("bel", bel);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

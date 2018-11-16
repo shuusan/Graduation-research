@@ -6,7 +6,10 @@
     ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
 
     @SuppressWarnings("unchecked")
-    HashMap<Integer, ArrayList<User_DTO>> mel = (HashMap<Integer, ArrayList<User_DTO>>)session.getAttribute("mel");
+    ArrayList<User_DTO> mel = (ArrayList<User_DTO>)session.getAttribute("mel");
+
+    @SuppressWarnings("unchecked")
+    HashMap<Integer, ArrayList<User_DTO>> bel = (HashMap<Integer, ArrayList<User_DTO>>)session.getAttribute("bel");
 %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -93,28 +96,28 @@ timetable階層構造
     }
 -->
 	<main>
-	<%int sa_width = mel.get(1).size() * 300 + 20; %>
-	<div id="subevent-area" style="width: <%=sa_width %>">
+	<%int se_num = mel.size(); %>
+	<div id="subevent-area" style="width: calc(20px + 300px * <%=se_num %>)">
 		<p id="subevent-blank"></p>
-		<%for(int i =0; i < mel.get(1).size(); i++){%>
-		<p class="subevent-title"><%=mel.get(1).get(i).getText() %></p>
+		<%for(int i =0; i < mel.size(); i++){%>
+		<p class="subevent-title"><%=mel.get(i).getText() %></p>
 		<%} %>
 	</div>
-	<div id="event" style="width: calc(20px + 300px * 6)">
+	<div id="event" style="width: calc(20px + 300px * <%=se_num %>)">
 		<div id="time-area">
 			<%for(int i = 0; i<24; i++){ %>
 			<p class="constant-hour"><%=i%></p>
 			<%} %>
 		</div>
-		<div id="event-area" style="width: calc(300px * 6)">
-			<%for(int i = 0; i<6; i++){%>
+		<div id="event-area" style="width: calc(300px * <%=se_num %>)">
+			<%for(int i = 1; i<se_num+1; i++){%>
 			<div class="event-contents">
-				<%for(int j = 0; j < 24; j++){ %>
+				<%for(int j = 0; j < bel.get(i).size(); j++){ %>
 				<button type="button" class="event-button" style="height: 300px">
 					<p class="event-time">00</p>
 					<div class="event-division">
-						<p class="event-title" id="event1">盛岡情報ビジネス専門学校デザイン情報館玄関前集合</p>
-						<p>持ち物:筆記用具</p>
+						<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
+						<p><%=bel.get(i).get(j).getText1() %></p>
 					</div>
 				</button>
 				<%} %>
