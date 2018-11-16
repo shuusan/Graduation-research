@@ -1,25 +1,52 @@
 package dto;
 
 public class User_DTO {
-	int id;
-	String name;
+	int num,num1,num2;
+	String text,text1;
 	public User_DTO() {}
-	public User_DTO(int id, String name) {
+	public User_DTO(int num, String text) {
 		super();
-		this.id = id;
-		this.name = name;
+		this.num = num;
+		this.text = text;
 	}
-	public int getId() {
-		return id;
+	public User_DTO(int num, int num1, String text, String text1, int num2) {
+		super();
+		this.num = num;
+		this.num1 = num1;
+		this.num2 = num2;
+		this.text = text;
+		this.text1 = text1;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public int getNum() {
+		return num;
 	}
-	public String getName() {
-		return name;
+	public void setNum(int num) {
+		this.num = num;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public String getText() {
+		return text;
 	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	public int getNum1() {
+		return num1;
+	}
+	public void setNum1(int num1) {
+		this.num1 = num1;
+	}
+	public int getNum2() {
+		return num2;
+	}
+	public void setNum2(int num2) {
+		this.num2 = num2;
+	}
+	public String getText1() {
+		return text1;
+	}
+	public void setText1(String text1) {
+		this.text1 = text1;
+	}
+
 
 }

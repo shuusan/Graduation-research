@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="dto.User_DTO,java.util.ArrayList"%>
+	import="dto.User_DTO,java.util.ArrayList,java.util.HashMap"%>
 <%
     @SuppressWarnings("unchecked")
-    ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("humburger_list");
+    ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
+
+    @SuppressWarnings("unchecked")
+    HashMap<Integer, ArrayList<User_DTO>> mel = (HashMap<Integer, ArrayList<User_DTO>>)session.getAttribute("mel");
 %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -29,11 +32,11 @@
 				<%for (int i = 0; i < humburger_list.size(); i++) {
 
 						if (0 == i) {%>
-							<a href="#" class="nav" id="here"><%=humburger_list.get(i).getName()%></a>
+							<a href="#" class="nav" id="here"><%=humburger_list.get(i).getText()%></a>
 
 						<%} else {%>
 
-				<a href="#" class="nav"><%=humburger_list.get(i).getName()%></a>
+				<a href="#" class="nav"><%=humburger_list.get(i).getText()%></a>
 				<%
 						}
 					}
@@ -90,14 +93,12 @@ timetable階層構造
     }
 -->
 	<main>
-	<div id="subevent-area" style="width: calc(20px + 300px * 6)">
+	<%int sa_width = mel.get(1).size() * 300 + 20; %>
+	<div id="subevent-area" style="width: <%=sa_width %>">
 		<p id="subevent-blank"></p>
-		<p class="subevent-title">卓球</p>
-		<p class="subevent-title">バスケットボール</p>
-		<p class="subevent-title">フットサル</p>
-		<p class="subevent-title">バレーボール</p>
-		<p class="subevent-title">バトミントン</p>
-		<p class="subevent-title">ドッチビー</p>
+		<%for(int i =0; i < mel.get(1).size(); i++){%>
+		<p class="subevent-title"><%=mel.get(1).get(i).getText() %></p>
+		<%} %>
 	</div>
 	<div id="event" style="width: calc(20px + 300px * 6)">
 		<div id="time-area">
@@ -106,9 +107,9 @@ timetable階層構造
 			<%} %>
 		</div>
 		<div id="event-area" style="width: calc(300px * 6)">
-			<%for(int j = 0; j<6; j++){%>
+			<%for(int i = 0; i<6; i++){%>
 			<div class="event-contents">
-				<%for(int k = 0; k < 24; k++){ %>
+				<%for(int j = 0; j < 24; j++){ %>
 				<button type="button" class="event-button" style="height: 300px">
 					<p class="event-time">00</p>
 					<div class="event-division">

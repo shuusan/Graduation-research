@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,9 +24,11 @@ public class User_Timetable extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String view = "/WEB-INF/user/timetable.jsp";
-		ArrayList<User_DTO> humburger_list = User_SelectDAO.top_event();
+		ArrayList<User_DTO> hl = User_SelectDAO.top_event();
+		HashMap<Integer, ArrayList<User_DTO>> mel = User_SelectDAO.middle_event();
 		HttpSession session = request.getSession();
-		session.setAttribute("humburger_list", humburger_list);
+		session.setAttribute("hl", hl);
+		session.setAttribute("mel", mel);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
