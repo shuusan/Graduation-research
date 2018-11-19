@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -75,6 +79,8 @@ public class User_SelectDAO {
 	}
 
 	public static HashMap<Integer, ArrayList<User_DTO>> bottom_event(){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		HashMap<Integer, ArrayList<User_DTO>> map = new HashMap<>();
 		ArrayList<User_DTO> list = new ArrayList<>();
 		Connection con = null;
@@ -97,18 +103,29 @@ public class User_SelectDAO {
 				String title = rs.getString("title");
 				String contents = rs.getString("contents");
 				int authority = rs.getInt("authority");
+
+				String start_datetime = rs.getString("start_datetime").substring(0,16);
+				String end_datetime = rs.getString("end_datetime").substring(0,16);
+				long start = sdf.parse(start_datetime).getTime();
+	            long end = sdf.parse(end_datetime).getTime();
+	            LocalDateTime ldt = LocalDateTime.parse(start_datetime,dtf);
+	            int min = ldt.getMinute();
+
 				if(null!=map.get(middle_eventID)) {
-					map.get(middle_eventID).add(new User_DTO(id, display_flg,title,contents,authority));
+					map.get(middle_eventID).add(new User_DTO(id, display_flg,title,contents,authority,start,end,min));
 				}else {
-					list.add(new User_DTO(id, display_flg,title,contents,authority));
+					list.add(new User_DTO(id, display_flg,title,contents,authority,start,end,min));
 					map.put(middle_eventID, list);
 					list = new ArrayList<>();
 				}
-			}while(rs.next() == true );
+			}while(rs.next() == true);
 			con.close();
 		} catch (SQLException e){
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 		return map;
