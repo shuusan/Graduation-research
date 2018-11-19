@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="dto.User_DTO,java.util.ArrayList,java.util.HashMap,java.util.Date"%>
+	import="dto.User_DTO,culculator.Calc_con,java.util.ArrayList,java.util.HashMap,java.util.Date"%>
 <%
     @SuppressWarnings("unchecked")
     ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
@@ -12,7 +12,7 @@
     HashMap<Integer, ArrayList<User_DTO>> bel = (HashMap<Integer, ArrayList<User_DTO>>)session.getAttribute("bel");
 
     @SuppressWarnings("unchecked")
-    HashMap<Integer,ArrayList<Integer>> interval = (HashMap<Integer,ArrayList<Integer>>)session.getAttribute("interval");
+    HashMap<Integer,ArrayList<Calc_con>> interval = (HashMap<Integer,ArrayList<Calc_con>>)session.getAttribute("interval");
 %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -115,22 +115,17 @@ timetable階層構造
 			<%for(int i = 1; i<mel.size()+1; i++){%>
 			<div class="event-contents">
 				<%
-				int count = 0;
-				for(int j = 0; j < bel.get(i).size(); j++){
-				if(0 == (interval.get(i).get(count+1)) || count == 0){%>
-						<button type="button" class="event-button" style="height: <%=interval.get(i).get(count)%>px">
-							<p class="event-time"><%=interval.get(i).get(count+2)%></p>
+				for(int j = 0; j < bel.get(i).size(); j++){%>
+						<button type="button" class="event-button" style="
+						height: <%=interval.get(i).get(j).getButton_height()%>px;
+						margin-bottom: <%=interval.get(i).get(j).getSpace_height()%>">
+							<p class="event-time"><%=bel.get(i).get(j).getNum3()%></p>
 							<div class="event-division">
 								<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
-								<p><%=bel.get(i).get(j).getText1()+bel.get(i).get(j).getNum()%></p>
+								<p><%=bel.get(i).get(j).getText1()%></p>
 							</div>
 						</button>
-					<%}else{%>
-						<button type="button" class="event-button" style="height: <%=interval.get(i).get(count)%>px; margin: 0px">
-						</button>
-				<%}
-				count = count + 3;
-				} %>
+				<%} %>
 			</div>
 			<%}%>
 		</div>
