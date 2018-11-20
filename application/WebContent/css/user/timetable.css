@@ -106,14 +106,12 @@ main {
 /*イベント領域*/
 #event-area {
     display: flex;
-    height: 7223px;
     margin-left: 20px;
 }
 
 /*イベントごとの領域*/
 .event-contents {
     width: 300px;
-    height: 7223px;
     overflow: hidden;
     border-right: 1px solid lightgray;
 }
@@ -121,8 +119,15 @@ main {
 /*ボタン*/
 .event-button {
     width: 100%;
-    margin-bottom: 1px;
     background-color: aliceblue;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightgray;
+}
+/*空き時間表示*/
+.time-brank{
+	margin: 0;
+	width: 100%;
     border: none;
     outline: none;
     border-bottom: 1px solid lightgray;
