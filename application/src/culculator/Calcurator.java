@@ -15,11 +15,11 @@ public class Calcurator {
 			end = list.get(i).get(0).getLnum();
 			for(int j = 0; j < list.get(i).size(); j++) {
 				start = list.get(i).get(j).getLnum();
-				result = ((end - start)/1000)/3600;
-				space_height = (int)(300*(result-result%0.25));
+				result = -1*((double)(end - start)/1000)/3600;
+				space_height = (int)(300*result);
 				end = list.get(i).get(j).getLnum1();
-				result = (-1*(start - end)/1000)/3600;
-				button_height=(int)(300*(result-result%0.25));
+				result = -1*((double)(start - end)/1000)/3600;
+				button_height=(int)(300*result);
 				System.out.println(space_height+"と"+button_height);
 				if(null!=resultmap.get(i)) {
 					resultmap.get(i).add(new Calc_con(space_height, button_height));

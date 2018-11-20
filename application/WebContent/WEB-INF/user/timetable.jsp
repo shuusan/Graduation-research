@@ -118,7 +118,7 @@ timetable階層構造
 				for(int j = 0; j < bel.get(i).size(); j++){%>
 						<button type="button" class="event-button" style="
 						height: <%=interval.get(i).get(j).getButton_height()%>px;
-						margin-bottom: <%=interval.get(i).get(j).getSpace_height()%>">
+						margin-bottom: <%=interval.get(i).get(j).getSpace_height()%>px">
 							<p class="event-time"><%=bel.get(i).get(j).getNum3()%></p>
 							<div class="event-division">
 								<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
