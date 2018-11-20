@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="dto.User_DTO,culculator.Calc_con,java.util.ArrayList,java.util.HashMap,java.util.Date"%>
+	import=
+	"dto.User_DTO,
+	culculator.Calc_con,
+	java.util.ArrayList,
+	java.util.HashMap"%>
 <%
     @SuppressWarnings("unchecked")
     ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
@@ -13,13 +17,15 @@
 
     @SuppressWarnings("unchecked")
     HashMap<Integer,ArrayList<Calc_con>> interval = (HashMap<Integer,ArrayList<Calc_con>>)session.getAttribute("interval");
+
+	int timeCount=0;
 %>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/manager/timetable.css">
+<link rel="stylesheet" href="css/user/timetable.css">
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/jQueryUI-v1.12.1.js"></script>
 <!--  カレンダーの日本語化  -->
@@ -107,25 +113,35 @@ timetable階層構造
 	</div>
 	<div id="event" style="width: calc(20px + 300px * <%=mel.size() %>)">
 		<div id="time-area">
-			<%for(int i = 0; i<24; i++){ %>
-			<p class="constant-hour"><%=i%></p>
-			<%} %>
+			<%for(int i = interval.get(0).get(0).getSpace_height(); i < interval.get(0).get(0).getButton_height(); i++){ %>
+			<p class="constant-hour"><%=i %></p>
+			<%timeCount++;
+			} %>
 		</div>
-		<div id="event-area" style="width: calc(300px * <%=mel.size() %>)">
+		<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size() %>)">
 			<%for(int i = 1; i<mel.size()+1; i++){%>
-			<div class="event-contents">
+			<div class="event-contents" style="height: calc(300px * <%=timeCount %>)">
 				<%
-				for(int j = 0; j < bel.get(i).size(); j++){%>
-						<button type="button" class="event-button" style="
-						height: <%=interval.get(i).get(j).getButton_height()%>px;
-						margin-bottom: <%=interval.get(i).get(j).getSpace_height()%>px">
+				for(int j = 0; j < bel.get(i).size(); j++){
+				if(0==interval.get(i).get(j).getSpace_height()){%>
+						<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
 							<p class="event-time"><%=bel.get(i).get(j).getNum3()%></p>
 							<div class="event-division">
 								<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
 								<p><%=bel.get(i).get(j).getText1()%></p>
 							</div>
 						</button>
-				<%} %>
+				<%}else{%>
+					<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
+					<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+							<p class="event-time"><%=bel.get(i).get(j).getNum3()%></p>
+							<div class="event-division">
+								<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
+								<p><%=bel.get(i).get(j).getText1()%></p>
+							</div>
+					</button>
+				<%}
+				}%>
 			</div>
 			<%}%>
 		</div>
