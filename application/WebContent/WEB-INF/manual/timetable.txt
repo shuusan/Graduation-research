@@ -1,0 +1,65 @@
+timetable階層構造
+    main {
+        #subevent-area {
+        //width: calc(20px + 300px * ミドルイベント数)
+            #subevent-brank
+            for(サブイベントの回数分){
+	            .subevent-title
+	            //ミドルイベント名の表示
+	            }
+        }
+        #event {
+        //width: calc(20px + 300px * ミドルイベント数)
+            #time-area {
+            	for(イベント開始時刻からイベント終了時刻まで){
+	                .constant-hour
+	                //時間表示
+            	}
+            }
+            #event-area {
+            //width: calc(300px * .constant-hourの個数)
+                .event-contents {
+                //height: calc(300px * .constant-hourの個数) width: calc(300px * .constant-hourの個数)
+                    for(イベントの個数){
+                    	if(イベントの先頭要素の時){
+		                    .event-button {
+		                    //height: Calcuratorで計算したボタン領域分
+		                    	.event-time
+		                    	//イベント分表記
+		                        .event-division {
+		                            .event-title
+		                            //イベント名
+		                            <p>
+		                            //イベント内容
+		                        }
+		                    }
+	                    }else if(間隙時間が存在しないとき){
+							.event-button {
+		                    //height: Calcuratorで計算したボタン領域分
+		                    	.event-time
+		                    	//イベント分表記
+		                        .event-division {
+		                            .event-title
+		                            //イベント名
+		                            <p>
+		                            //イベント内容
+		                        }
+	                    }else{
+	                    	.time-brank
+	                    	//間隙時間表示
+							.event-button {
+		                    //height: Calcuratorで計算したボタン領域分
+		                    	.event-time
+		                    	//イベント分表示
+		                        .event-division {
+		                            .event-title
+		                            //イベント名
+		                            <p>
+		                            //イベント内容
+		                        }
+	                    }
+	                }
+                }
+            }
+        }
+    }

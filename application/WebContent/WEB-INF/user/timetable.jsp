@@ -80,80 +80,66 @@
             </script>
 		</p>
 	</header>
-	<!--
-timetable階層構造
-    main {
-        #subevent-area {
-            #subevent-brank
-            .subevent-title
-        }
-        #event {
-            #time-area {
-                .constant-hour
-            }
-            #event-area {
-                .event-contents {
-                    .event-button {
-                        .event-division {
-                            .event-title
-                            <p>
-                        }
-                    }
-                }
-            }
-        }
-    }
--->
+
 	<main>
-	<div id="subevent-area" style="width: calc(20px + 300px * <%=mel.size() %>)">
-		<p id="subevent-blank"></p>
-		<%for(int i =0; i < mel.size(); i++){%>
-		<p class="subevent-title"><%=mel.get(i).getText() %></p>
-		<%} %>
-	</div>
-	<div id="event" style="width: calc(20px + 300px * <%=mel.size() %>)">
-		<div id="time-area">
-			<%for(int i = interval.get(0).get(0).getSpace_height(); i < interval.get(0).get(0).getButton_height(); i++){ %>
-			<p class="constant-hour"><%=i %></p>
-			<%timeCount++;
-			} %>
+		<div id="subevent-area" style="width: calc(20px + 300px * <%=mel.size() %>)">
+			<p id="subevent-blank"></p>
+			<%for(int i =0; i < mel.size(); i++){%>
+			<p class="subevent-title"><%=mel.get(i).getText() %></p>
+			<%} %>
 		</div>
-		<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size() %>)">
-			<%for(int i = 1; i<mel.size()+1; i++){%>
-			<div class="event-contents" style="height: calc(300px * <%=timeCount %>)">
-				<%
-				for(int j = 0; j < bel.get(i).size(); j++){
-				if(0==interval.get(i).get(j).getSpace_height()){%>
-						<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
-							<p class="event-time"><%=bel.get(i).get(j).getNum3()%></p>
-							<div class="event-division">
-								<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
-								<p><%=bel.get(i).get(j).getText1()%></p>
-							</div>
-						</button>
-				<%}else{%>
-					<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
-					<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
-							<p class="event-time"><%=bel.get(i).get(j).getNum3()%></p>
-							<div class="event-division">
-								<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
-								<p><%=bel.get(i).get(j).getText1()%></p>
-							</div>
-					</button>
-				<%}
-				}%>
+		<div id="event" style="width: calc(20px + 300px * <%=mel.size() %>)">
+			<div id="time-area">
+				<%for(int i = interval.get(0).get(0).getSpace_height(); i < interval.get(0).get(0).getButton_height()+1; i++){ %>
+				<p class="constant-hour"><%=i %></p>
+				<%timeCount++;
+				} %>
 			</div>
-			<%}%>
+			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size() %>)">
+				<%for(int i = 1; i<mel.size()+1; i++){%>
+				<div class="event-contents" style="height: calc(300px * <%=timeCount %>)">
+					<%
+					for(int j = 0; j < bel.get(i).size(); j++){
+					if(0==bel.get(i).get(j).getNum3()){%>
+						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
+						<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
+								<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+								<div class="event-division">
+									<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
+									<p><%=bel.get(i).get(j).getText1()%></p>
+								</div>
+							</button>
+					<%}else if(0==interval.get(i).get(j).getSpace_height()){%>
+							<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+								<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+								<div class="event-division">
+									<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
+									<p><%=bel.get(i).get(j).getText1()%></p>
+								</div>
+							</button>
+					<%}else{%>
+						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
+						<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+								<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+								<div class="event-division">
+									<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
+									<p><%=bel.get(i).get(j).getText1()%></p>
+								</div>
+						</button>
+					<%}
+					}%>
+				</div>
+				<%}%>
+			</div>
 		</div>
-	</div>
-	<div id="date-drawer">
-		<input id="date-input" type="checkbox" class="date-unshown"> <label
-			id="date-open" for="date-input"><span></span></label> <label
-			class="date-unshown" id="date-close" for="date-input"></label>
-		<div id="date-content">
-			<div id="datepicker"></div>
+		<div id="date-drawer">
+			<input id="date-input" type="checkbox" class="date-unshown"> <label
+				id="date-open" for="date-input"><span></span></label> <label
+				class="date-unshown" id="date-close" for="date-input"></label>
+			<div id="date-content">
+				<div id="datepicker"></div>
+			</div>
 		</div>
-	</div>
 	</main>
 	<nav>
 		<a href="Manager_Timetable" class="navi"> タイムテーブル </a> <a

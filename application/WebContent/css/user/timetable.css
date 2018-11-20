@@ -119,7 +119,6 @@ main {
 /*ボタン*/
 .event-button {
     width: 100%;
-    margin-bottom: 1px;
     background-color: aliceblue;
     border: none;
     outline: none;

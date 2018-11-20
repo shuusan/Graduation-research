@@ -26,15 +26,21 @@ public class User_Timetable extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String view = "/WEB-INF/user/timetable.jsp";
+		//トップイベントリスト
 		ArrayList<User_DTO> hl = User_SelectDAO.top_event();
+		//ミドルイベントリスト
 		ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1);
+		//ボトムイベントリスト
 		HashMap<Integer, ArrayList<User_DTO>> bel = User_SelectDAO.bottom_event();
+		//イベントや間隙の領域リスト
 		HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(mel.size(), bel);
+		//セッション打ち上げ
 		session.setAttribute("hl", hl);
 		session.setAttribute("mel", mel);
 		session.setAttribute("bel", bel);
 		session.setAttribute("interval", interval);
+
+		String view = "/WEB-INF/user/timetable.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
