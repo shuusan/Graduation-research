@@ -107,9 +107,9 @@ public class User_SelectDAO {
 				String start_datetime = rs.getString("start_datetime").substring(0,16);
 				String end_datetime = rs.getString("end_datetime").substring(0,16);
 				long start = sdf.parse(start_datetime).getTime();
-	            long end = sdf.parse(end_datetime).getTime();
-	            LocalDateTime ldt = LocalDateTime.parse(start_datetime,dtf);
-	            int min = ldt.getMinute();
+				long end = sdf.parse(end_datetime).getTime();
+				LocalDateTime ldt = LocalDateTime.parse(start_datetime,dtf);
+				int min = ldt.getMinute();
 
 				if(null!=map.get(middle_eventID)) {
 					map.get(middle_eventID).add(new User_DTO(id, display_flg,title,contents,authority,start,end,min));
@@ -189,5 +189,35 @@ public class User_SelectDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	public static User_DTO coResponse(int num){
+		User_DTO dto = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT id,title,content,answer FROM question WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int id = rs.getInt("id");
+			String title = rs.getString("title");
+			String content= rs.getString("content");
+			String answer = rs.getString("answer");
+			dto = new User_DTO(id,title,content,answer);
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return dto;
 	}
 }

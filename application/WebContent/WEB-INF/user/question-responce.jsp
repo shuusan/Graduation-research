@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="dto.User_DTO"%>
+    <%
+    User_DTO dto = (User_DTO)request.getAttribute("answer");
+    %>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -25,24 +28,15 @@
         </ul>
     </header>
     <main>
-        <h2>全体スケジュールについて・・・</h2>
-        <div id="responce-main">
-            <h3>Q.</h3>
-            <p>全体スケジュールについて不備を発見したのですが、どこに届け出ればよいでしょうか？</p>
-        </div>
-        <div id="responce-sub">
-            <h3>A.</h3>
-            <p>
-                不備を発見していただき、大変助かりました。
-                ありがとうございます。
-                本部に届け出ていただければ幸いです。
-                よろしくお願いいたします。
-            </p>
-        </div>
-        <div id="control">
-            <a href="#" class="square_btn">前の質問</a>
-            <a href="Question_common" class="square_btn" id="return">戻る</a>
-            <a href="#" class="square_btn">次の質問</a>
+    	<div id="cqa">
+	        <p id="title"><%=dto.getText() %></p>
+	        <textarea class="textarea" id="responce-main" cols="" rows="" readonly><%=dto.getText1() %></textarea>
+	        <textarea class="textarea" id="responce-sub" cols="" rows="" readonly><%=dto.getText2() %></textarea>
+	        <div id="control">
+	            <a href="#" class="square_btn">前の質問</a>
+	            <a href="User_Question_common" class="square_btn" id="return">戻る</a>
+	            <a href="#" class="square_btn">次の質問</a>
+	        </div>
         </div>
     </main>
     <nav>

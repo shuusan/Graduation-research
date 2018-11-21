@@ -25,10 +25,23 @@
         </ul>
     </header>
     <main>
+    <form action=""></form>
         <table id="question2">
             <tbody>
                 <tr>
-                    <th><a href=User_Question_submit><img src="photo/icon_141860_256.png" alt="1"></a></th>
+                    <th><button type="submit"  value="1"  name="selectButton"><img src="photo/icon_141860_256.png" alt="1"></button></th>
+                    <th><button type="submit"  value="2"  name="selectButton"><img src="photo/icon_141850_256.png" alt="2"></button></th>
+                    <th><button type="submit"  value="3"  name="selectButton"><img src="photo/icon_141860_256.png" alt="3"></button></th>
+                    <th><button type="submit"  value="4"  name="selectButton"><img src="photo/icon_142030_256.png" alt="4"></button></th>
+                </tr>
+                <tr>
+                    <th><button type="submit"  value="5"  name="selectButton"><img src="photo/icon_141860_256.png" alt="1"></button></th>
+                    <th><button type="submit"  value="6"  name="selectButton"><img src="photo/icon_141850_256.png" alt="2"></button></th>
+                    <th><button type="submit"  value="7"  name="selectButton"><img src="photo/icon_141860_256.png" alt="3"></button></th>
+                    <th><button type="submit"  value="8"  name="selectButton"><img src="photo/icon_142030_256.png" alt="4"></button></th>
+                </tr>
+                <!-- <tr>
+                    <th></th>
                     <th><a href=User_Question_submit><img src="photo/icon_141850_256.png" alt="2"></a></th>
                     <th><a href=User_Question_submit><img src="photo/icon_141860_256.png" alt="3"></a></th>
                     <th><a href=User_Question_submit><img src="photo/icon_142030_256.png" alt="4"></a></th>
@@ -38,7 +51,7 @@
                     <th><a href=User_Question_submit><img src="photo/icon_141850_256.png" alt="6"></a></th>
                     <th><a href=User_Question_submit><img src="photo/icon_141860_256.png" alt="7"></a></th>
                     <th><a href=User_Question_submit><img src="photo/icon_142030_256.png" alt="8"></a></th>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <h2 id="label">質問事項を選択して下さい。</h2>

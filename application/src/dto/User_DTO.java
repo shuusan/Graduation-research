@@ -2,7 +2,7 @@ package dto;
 
 public class User_DTO {
 	int num,num1,num2,num3;
-	String text,text1;
+	String text,text1,text2;
 	long lnum,lnum1;
 	public User_DTO() {}
 	public User_DTO(int num, int num1, String text, String text1, int num2, long lnum, long lnum1,int num3) {
@@ -24,6 +24,14 @@ public class User_DTO {
 	public User_DTO(String text) {
 		super();
 		this.text = text;
+	}
+
+	public User_DTO(int num, String text, String text1, String text2) {
+		super();
+		this.num = num;
+		this.text = text;
+		this.text1 = text1;
+		this.text2 = text2;
 	}
 	public int getNum() {
 		return num;
@@ -61,6 +69,12 @@ public class User_DTO {
 	}
 	public void setText1(String text1) {
 		this.text1 = text1;
+	}
+	public String getText2() {
+		return text2;
+	}
+	public void setText2(String text2) {
+		this.text2 = text2;
 	}
 	public long getLnum() {
 		return lnum;

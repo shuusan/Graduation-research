@@ -17,7 +17,7 @@
     <title>メインページ</title>
 </head>
 
-<form action="/application/User_Question_responce" method="post" name="form">
+<form action="User_Question_responce" method="post" name="form">
 
 	<body>
 	    <header>
