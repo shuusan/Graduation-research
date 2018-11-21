@@ -34,12 +34,13 @@ main {
 }
 
 #question {
-    height: 73%;
+    height: 100%;
     overflow-y: scroll;
     -ms-overflow-style: none;
     border: 2px solid darkgray;
     border-radius: 3px;
-    margin-top: 1em;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 #question::-webkit-scrollbar {

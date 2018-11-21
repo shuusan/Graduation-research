@@ -130,4 +130,64 @@ public class User_SelectDAO {
 		}
 		return map;
 	}
+
+	/*question*/
+
+	public static ArrayList<User_DTO> tagList(){
+		ArrayList<User_DTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM tag";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			do {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				list.add(new User_DTO(id,name));
+			}while(rs.next() == true );
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public static ArrayList<User_DTO> cqList(int num){
+		ArrayList<User_DTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT id,title FROM question WHERE top_eventNo = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			do {
+				int id = rs.getInt("id");
+				String title = rs.getString("title");
+				list.add(new User_DTO(id,title));
+			}while(rs.next() == true );
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
