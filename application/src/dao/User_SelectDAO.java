@@ -60,7 +60,7 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT * FROM middle_event WHERE top_eventID = ?";
+			String sql = "SELECT title FROM middle_event WHERE top_eventID = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();

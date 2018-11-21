@@ -52,11 +52,9 @@
 	            <a id="square_btn" href="User_Question_select">直接質問する</a>
 	        </div>
 	        <div id="question">
-	            <ul id="common-contents">
-		            	<%for(int i=0; i<cq.size();i++){ %>
-		                		<li value="<%=cq.get(i).getNum()%>"><a href="javascript:form.submit()"><%=cq.get(i).getText()%></a></li>
-		                	<%} %>
-	            </ul>
+		            <%for(int i=0; i<cq.size();i++){ %>
+		            		<button type="submit" value="<%=cq.get(i).getNum()%>" name="buttonLink" class="liSubmit"><%=cq.get(i).getText()%></button>
+		               	<%} %>
 	        </div>
 	    </main>
 	    <nav>

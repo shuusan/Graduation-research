@@ -47,24 +47,26 @@ main {
     display: none;
 }
 
-#common-contents {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    list-style: none;
-    text-align: left;
-    /*    background-color: aqua;*/
-}
-
 #common-contents li {
     width: 90%;
     font-size: 2em;
     border-bottom: 1px dotted darkgray;
     margin-bottom: 5px;
 }
+.liSubmit{
+	border: none;
+	 width: 90%;
+    font-size: 2em;
+    color:blue;
+    transition: .3s;
+    border-bottom: 1px dotted darkgray;
+	background-color: whitesmoke;
+    margin-bottom: 5px;
+    text-align: left;
+}
 
-#common-contents li a {
-    text-decoration: none;
+.liSubmit:hover{
+	color: violet;
 }
 
 .breadcrumb {
