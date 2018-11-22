@@ -49,7 +49,6 @@ public class Calcurator {
 				if(0==j) {
 					space_height = (int)(300*min);
 				}
-				System.out.println(space_height+"  "+button_height);
 				if(null!=resultmap.get(i)) {
 					//result_listに追加
 					resultmap.get(i).add(new Calc_con(space_height, button_height));

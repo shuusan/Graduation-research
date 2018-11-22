@@ -26,8 +26,12 @@ img {
     border: 5px solid darkgray;
     border-radius: 8px;
 }
-
-th a :hover {
+button{
+	outline: none;
+	background-color: whitesmoke;
+	border: none;
+}
+th button :hover {
     border: 5px solid #AFB5F3;
     border-radius: 8px;
 }
