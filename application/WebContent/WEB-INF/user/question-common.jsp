@@ -3,7 +3,7 @@
     pageEncoding="UTF-8" import="java.util.ArrayList"%>
     <%
     @SuppressWarnings("unchecked")
-    ArrayList<User_DTO> tag = (ArrayList<User_DTO>)request.getAttribute("tag");
+    ArrayList<User_DTO> tag = (ArrayList<User_DTO>)session.getAttribute("tag");
 
     @SuppressWarnings("unchecked")
     ArrayList<User_DTO> cq = (ArrayList<User_DTO>)request.getAttribute("cqList");
@@ -52,9 +52,9 @@
 	            <a id="square_btn" href="User_Question_select">直接質問する</a>
 	        </div>
 	        <div id="question">
-		            <%for(int i=0; i<cq.size();i++){ %>
-		            		<button type="submit" value="<%=cq.get(i).getNum()%>" name="buttonLink" class="liSubmit"><%=cq.get(i).getText()%></button>
-		               	<%} %>
+	            <%for(int i=0; i<cq.size();i++){ %>
+	            		<button type="submit" value="<%=cq.get(i).getNum()%>" name="buttonLink" class="liSubmit"><%=cq.get(i).getText()%></button>
+	               	<%} %>
 	        </div>
 	    </main>
 	    <nav>

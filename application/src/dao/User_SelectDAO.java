@@ -172,7 +172,7 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT id,title FROM question WHERE top_eventNo = ?";
+			String sql = "SELECT id,title FROM question WHERE top_eventNo = ? AND cflg = 0";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
