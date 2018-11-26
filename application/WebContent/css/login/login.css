@@ -3,14 +3,15 @@
 
 #title {
     text-align: center;
-    font-size: 60px;
-    line-height: 0cm;
+    font-size: 2em;
+    line-height: 0;
+    margin-top: 10%;
 }
 
 #area {
     width: 400px;
     height: 400px;
-    margin: 0% 35% 10% 35%;
+    margin: 0 auto;
     background-color: #ffffff;
 }
 
