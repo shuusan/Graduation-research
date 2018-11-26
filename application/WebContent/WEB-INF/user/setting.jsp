@@ -32,21 +32,25 @@
         </div>
         <div id="sub">
             <div id="scroll">
-                <div id="Password" class="contents">
-                    <div class="title">
-                        <h2>Password</h2><br>
-                    </div>
-                    <input type="text" class="text" placeholder="新しいパスワードの入力"><br>
-                    <input type="text" class="text" placeholder="新しいパスワードをもう一度入力">
-                    <a href="#" class="square_btn">変更</a>
-                </div>
-                <div id="Mail" class="contents">
-                    <div class="title">
-                        <h2>Mail</h2><br>
-                    </div>
-                    <input type="text" class="text" placeholder="新しいメールアドレスの入力">
-                    <a href="#" class="square_btn">変更</a>
-                </div>
+            	<form action="User_Setting" method="post" name="passwordForm">
+	                <div id="Password" class="contents">
+	                    <div class="title">
+	                        <h2>Password</h2><p><%=request.getAttribute("cautionPass") %><br>
+	                    </div>
+	                    <input type="password" name="password" class="text" placeholder="新しいパスワードの入力" required="required"><br>
+	                    <input type="password" name="check" class="text" placeholder="新しいパスワードをもう一度入力" required="required">
+	                    <button type="submit" class="square_btn" value="0" name="dif">変更</button>
+	                </div>
+                </form>
+                <form action="User_Setting" method="post">
+	                <div id="javascript:mailForm.summit()" class="contents">
+	                    <div class="title">
+	                        <h2>Mail</h2><p><%=request.getAttribute("cautionMail") %></p><br>
+	                    </div>
+	                    <input type="email" name="mail" class="text" placeholder="新しいメールアドレスの入力">
+	                    <button type="submit" class="square_btn" value="1" name="dif">変更</button>
+	                </div>
+                </form>
             </div>
         </div>
     </main>
