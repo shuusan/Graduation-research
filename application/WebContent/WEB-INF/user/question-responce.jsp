@@ -31,7 +31,7 @@
     	<div id="cqa">
 	        <p id="title"><%=dto.getText() %></p>
 	        <textarea class="textarea" id="responce-main" cols="" rows="" readonly><%=dto.getText1() %></textarea>
-	        <textarea class="textarea" id="responce-sub" cols="" rows="" readonly><%=dto.getText2() %></textarea>
+	        <textarea class="textarea" id="responce-sub" cols="" rows="" readonly><%=("null".equals(dto.getText2()))?"　":dto.getText2() %></textarea>
 	        <div id="control">
 	            <a href="#" class="square_btn">前の質問</a>
 	            <a href="User_Question_common" class="square_btn" id="return">戻る</a>

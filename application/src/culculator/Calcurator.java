@@ -62,4 +62,13 @@ public class Calcurator {
 		}
 		return resultmap;
 	}
+	public static String tag(int num,ArrayList<User_DTO> list) {
+		String result="";
+		for(int i=0;i<list.size();i++) {
+			if(num==list.get(i).getNum()) {
+				result=list.get(i).getText();
+			}
+		}
+		return result;
+	}
 }

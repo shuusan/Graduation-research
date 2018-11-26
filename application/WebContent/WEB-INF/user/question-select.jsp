@@ -25,7 +25,7 @@
         </ul>
     </header>
     <main>
-	    <form action="User_Question_submit"	method="post">
+	    <form action="User_Question_submit"	method="get">
 	        <table id="question2">
 	            <tbody>
 	                <tr>

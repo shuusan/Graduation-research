@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,dto.User_DTO"%>
    <%
+   @SuppressWarnings("unchecked")
+   ArrayList<User_DTO> list = (ArrayList<User_DTO>)session.getAttribute("tag");
    %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -32,21 +34,27 @@
         </ul>
     </header>
     <main>
-        <h2>ここは時間に関する質問フォームです。</h2>
+        <h2>ここは<%=request.getAttribute("question") %>に関する質問フォームです。</h2>
         <div id="contents2">
             <p>質問分類</p>
             <br>
-            <select id="select2">
-                <option selected>競技時間について</option>
-                <option>全体スケジュールについて</option>
-                <option>日程について</option>
-                <option>その他</option>
-            </select>
-            <br><br>
-            <p>質問内容を入力して下さい</p>
-            <br>
-            <textarea></textarea>
-            <a href="#" id="square_btn">送信！</a>
+
+            <form action="User_Question_submit" method="post">
+	            <select id="select2" name="select" required="required">
+	                <option value="<%=request.getAttribute("questionNo") %>" selected><%=request.getAttribute("question") %>について</option>
+	                <%for(int i=0;i<list.size();i++){ %>
+	                	<option value="<%=list.get(i).getNum() %>"><%=list.get(i).getText() %>について</option>
+	                <%} %>
+	            </select>
+	            <p>タイトル</p>
+	            	<br>
+	            <input type="text" name="title" placeholder="タイトル" required="required">
+	            <br>
+	            	<p>質問内容を入力して下さい</p>
+	            <br>
+	            <textarea name="question" placeholder="質問内容を入力してください" required="required"></textarea>
+	            <button type="submit" id="square_btn">送信！</button>
+            </form>
         </div>
     </main>
     <nav>
