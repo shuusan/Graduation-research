@@ -27,6 +27,13 @@
 				<a href="#" class="nav" id="here">スポーツ大会</a> <a href="#" class="nav">オープンキャンパス</a>
 			</div>
 		</div>
+		<ul class="breadcrumb">
+			<li itemscope="itemscope"
+				itemtype="http://data-vocabulary.org/Breadcrumb"><a
+				href="User_Question_common" itemprop="url"> <span
+					itemprop="title">>質問-メインページ</span>
+			</a></li>
+		</ul>
 	</header>
 	<main>
 	<p id="title">よくある質問</p>
@@ -41,13 +48,11 @@
 		<a href="#" class="square_btn">送信！</a>
 		<a class="square_btn" href="User_Question_select">直接質問する</a>
 	</div>
-	<form action="User_Question_responce" method="post">
-		<div id="question">
+	<form action="User_Question_responce" method="post" id="question">
 			<%for(int i=0; i<cq.size();i++){ %>
 			<button type="submit" value="<%=cq.get(i).getNum()%>"
 				name="buttonLink" class="liSubmit"><%=cq.get(i).getText()%></button>
 			<%} %>
-		</div>
 	</form>
 	</main>
 	<nav>
