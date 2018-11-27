@@ -1,8 +1,22 @@
 @charset "UTF-8";
 @import url(index.css);
-@import url(hamburger.css);
 
-main {
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .1);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, .5);
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .3);
+}
+
+main{
     margin: 0 auto;
     text-align: center;
 }
@@ -13,31 +27,24 @@ main {
     margin: 0;
     height: 100%;
 }
-
-table {
-    width: 50%;
-    height: 50%;
-    margin: 0 auto;
+form{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
 }
 
-img {
-    width: 80%;
-    height: 80%;
-    border: 5px solid darkgray;
-    border-radius: 8px;
+#area{
+	height: 85%;
+	overflow-y: scroll;
 }
+
 button{
-	outline: none;
-	background-color: whitesmoke;
-	border: none;
-}
-th button :hover {
-    border: 5px solid #AFB5F3;
-    border-radius: 8px;
+	height: 50%;
+	width: 25%;
+	float: left;
 }
 
-h2 {
-    display: inline;
-    text-align: center;
-    color: gray;
+img{
+	height: 100%;
+	width: 100%;
 }
