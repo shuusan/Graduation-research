@@ -13,7 +13,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/user/question.css">
+    <link rel="stylesheet" href="css/user/question-common.css">
     <title>メインページ</title>
 </head>
 
@@ -39,8 +39,8 @@
 	        </ul>
 	    </header>
 	    <main>
-	        <h2>よくある質問</h2>
 	        <div id="search">
+	        <p id="title">よくある質問</p>
 	            <select id="select">
 	                <option selected>ソート</option>
 	            <%for(int i = 0; i < tag.size(); i++){ %>
