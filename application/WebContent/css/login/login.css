@@ -1,16 +1,27 @@
 @charset "UTF-8";
 @import url(index.css);
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance:textfield;
+}
+
 #title {
     text-align: center;
-    font-size: 60px;
-    line-height: 0cm;
+    font-size: 2em;
+    line-height: 0;
+    margin-top: 10%;
 }
 
 #area {
     width: 400px;
     height: 400px;
-    margin: 0% 35% 10% 35%;
+    margin: 0 auto;
     background-color: #ffffff;
 }
 
@@ -59,4 +70,10 @@
     margin-left: 48px;
     line-height: 40px;
     color: #84a2d4;
+}
+
+#caution{
+	display: flex;
+	margin: 0;
+	color: red;
 }

@@ -1,27 +1,67 @@
 @charset "UTF-8";
+@import url(hamburger.css);
 
+html,
 body {
-    height: 37em;
-    display: block;
-    align-content: center;
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
-    background-color: #e5e4e6;
+    overflow: hidden;
+    background-color: whitesmoke;
 }
 
 header {
-    padding: 10px;
+    height: 5%;
+    width: 100%;
+    display: flex;
     background-color: whitesmoke;
+
 }
 
 main {
-    height: 90%;
-    margin: 0 auto 5px auto;
+    height: 83.7%;
+    width: 90%;
     background-color: whitesmoke;
+
+}
+
+nav {
+    width: 100%;
+    height: 6%;
+    display: flex;
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    background-color: #6B74D9;
+}
+
+.navi {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    line-height: 200%;
+    color: whitesmoke;
+    border-left: 1px solid whitesmoke;
 }
 
 footer {
     width: 100%;
-    height: 2em;
-    margin: 0;
+    height: 5%;
+    display: flex;
     background-color: whitesmoke;
+}
+
+#scroll {
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+}
+
+#scroll::-webkit-scrollbar {
+    display: none;
 }
