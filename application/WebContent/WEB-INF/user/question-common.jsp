@@ -41,12 +41,14 @@
 		<a href="#" class="square_btn">送信！</a>
 		<a class="square_btn" href="User_Question_select">直接質問する</a>
 	</div>
-	<div id="question">
-		<%for(int i=0; i<cq.size();i++){ %>
-		<button type="submit" value="<%=cq.get(i).getNum()%>"
-			name="buttonLink" class="liSubmit"><%=cq.get(i).getText()%></button>
-		<%} %>
-	</div>
+	<form action="User_Question_responce" method="post">
+		<div id="question">
+			<%for(int i=0; i<cq.size();i++){ %>
+			<button type="submit" value="<%=cq.get(i).getNum()%>"
+				name="buttonLink" class="liSubmit"><%=cq.get(i).getText()%></button>
+			<%} %>
+		</div>
+	</form>
 	</main>
 	<nav>
         <a href="User_Timetable" class="navi"> タイムテーブル </a>
