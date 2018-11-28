@@ -22,7 +22,6 @@ public class Calcurator {
 
 		//HashMapの鍵番号for
 		for(int i = 1; i < num; i++) {
-			System.out.println(list.get(i).get(0).getLnum());
 			end = list.get(i).get(0).getLnum();
 			//ArrayList<Calc_con>の番地for
 			for(int j = 0; j < list.get(i).size(); j++) {
