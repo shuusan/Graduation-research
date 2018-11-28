@@ -31,6 +31,7 @@
 <!--  カレンダーの日本語化  -->
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<script type="text/javascript" src="js/dateSubmit.js"></script>
 <title>メインページ</title>
 </head>
 
@@ -136,9 +137,10 @@
 			<input id="date-input" type="checkbox" class="date-unshown"> <label
 				id="date-open" for="date-input"><span></span></label> <label
 				class="date-unshown" id="date-close" for="date-input"></label>
-			<div id="date-content">
+			<form action="User_Timetable" method="post" id="date-content" name="form1">
 				<div id="datepicker"></div>
-			</div>
+				<input type="text" id="date" name="date" readonly="readonly" >
+			</form>
 		</div>
 	</main>
 	<nav>
@@ -155,10 +157,9 @@
             設 定
         </a>
     </nav>
-	<footer> </footer>
+	<footer></footer>
 </body>
 <script type="text/javascript" src="js/syncscroll.js"></script>
 <script type="text/javascript" src="js/datepicker.js"></script>
-<script type="text/javascript" src="realtime.js"></script>
 
 </html>
