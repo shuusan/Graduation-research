@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class User_InsertDAO {
-	public static void questionInsert(String text, String text1,int num){
+	public static void questionInsert(String text, String text1,int num, int num1){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try{
@@ -15,11 +15,12 @@ public class User_InsertDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "INSERT INTO question VALUES (null,4171204,1,?,?,null,1,?)";
+			String sql = "INSERT INTO question VALUES (null,?,1,?,?,null,1,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, text);
-			pstmt.setString(2, text1);
-			pstmt.setInt(3, num);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, text);
+			pstmt.setString(3, text1);
+			pstmt.setInt(4, num1);
 			pstmt.executeUpdate();
 			con.close();
 		} catch (SQLException e){

@@ -32,10 +32,8 @@ public class User_Question_submit extends HttpServlet {
 		dispatcher.forward(request, response);
 		}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("title"));
-		System.out.println(request.getParameter("question"));
-		System.out.println(Integer.parseInt(request.getParameter("select")));
-		User_InsertDAO.questionInsert(request.getParameter("title"),request.getParameter("question"),Integer.parseInt(request.getParameter("select")));
+		HttpSession session = request.getSession();
+		User_InsertDAO.questionInsert(request.getParameter("title"),request.getParameter("question"),Integer.parseInt((String)session.getAttribute("userId")),Integer.parseInt(request.getParameter("select")));
 		String view = "/WEB-INF/user/question-select.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

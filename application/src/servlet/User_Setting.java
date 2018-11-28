@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.User_UpdateDAO;
 
@@ -26,20 +27,21 @@ public class User_Setting extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		request.setAttribute("cautionPass", "　");
 		request.setAttribute("cautionMail", "　");
 		if(0==Integer.parseInt(request.getParameter("dif"))) {
 			String password = request.getParameter("password");
 			String check = request.getParameter("check");
 			if(password.equals(check)) {
-				User_UpdateDAO.passwordUpdate(password, 4171204);
+				User_UpdateDAO.passwordUpdate(password, Integer.parseInt((String)session.getAttribute("userId")));
 				request.setAttribute("cautionPass", "パスワードが変更されました。");
 			}else {
 				request.setAttribute("cautionPass", "入力された２つのパスワードが一致しません。");
 			}
 		}else{
 			String mail = request.getParameter("mail");
-			User_UpdateDAO.mailUpdate(mail, 4171204);
+			User_UpdateDAO.mailUpdate(mail, Integer.parseInt((String)session.getAttribute("userId")));
 			request.setAttribute("cautionMail", "変更されました。");
 		}
 		String view = "/WEB-INF/user/setting.jsp";
