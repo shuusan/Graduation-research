@@ -37,17 +37,17 @@
 	</header>
 	<main>
 	<p id="title">よくある質問</p>
-	<div id="search">
-		<select id="select">
+	<form action="User_Question_common" method="post" id="search">
+		<select id="select" name="select">
 			<option selected>ソート</option>
 			<%for(int i = 0; i < tag.size(); i++){ %>
 			<option value="<%=tag.get(i).getNum() %>"><%=tag.get(i).getText() %></option>
 			<%} %>
 		</select>
-		<input type="text" placeholder="検索する" id="textfield">
-		<a href="#" class="square_btn">送信！</a>
+		<input type="text" placeholder="検索する" id="textfield" name="text" required="required">
+		<button type="submit" class="square_btn">送信！</button>
 		<a class="square_btn" href="User_Question_select">直接質問する</a>
-	</div>
+	</form>
 	<form action="User_Question_responce" method="post" id="question">
 			<%for(int i=0; i<cq.size();i++){ %>
 			<button type="submit" value="<%=cq.get(i).getNum()%>"
