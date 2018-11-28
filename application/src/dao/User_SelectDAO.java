@@ -251,6 +251,37 @@ public class User_SelectDAO {
 		return dto;
 	}
 
+	public static ArrayList<User_DTO> questionSearch(int num,String text){
+		ArrayList<User_DTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT id,title,content,answer,tagID FROM question WHERE top_eventNo = ? AND ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, text);
+			rs = pstmt.executeQuery();
+			rs.next();
+			do {
+				int id = rs.getInt("id");
+				String title = rs.getString("title");
+				list.add(new User_DTO(id,title));
+			}while(rs.next() == true );
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 	/*ankeeto*/
 	public static ArrayList<User_DTO> ankketo(int num){
 		ArrayList<User_DTO> list = new ArrayList<>();
@@ -283,4 +314,5 @@ public class User_SelectDAO {
 		}
 		return list;
 	}
+
 }
