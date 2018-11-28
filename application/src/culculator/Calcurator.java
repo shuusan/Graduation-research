@@ -13,24 +13,10 @@ public class Calcurator {
 		ArrayList<Calc_con> resultlist = new ArrayList<>();
 		Instant instant;
 		LocalDateTime ldt;
-		/* ArrayList<Calc_con>の、1番目のリストの
-		 * 0番目のCalc_conのgetLnum1()を取得*/
-		instant = Instant.ofEpochMilli(list.get(1).get(0).getLnum());
-		ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-		int timeStart = ldt.getHour();
-		double min = ldt.getMinute()/60.0;
-		/* ArrayList<Calc_con>の、「ミドルイベントの数」番目のリストの
-		 * 「リストの最大値」番目のCalc_conのgetLnum1()を取得*/
-		instant = Instant.ofEpochMilli(list.get(num). get( list.get(num).size()-1 ).getLnum1());
-		ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-		int timeEnd = ldt.getHour();
-		//リストに追加
-		resultlist.add(new Calc_con(timeStart, timeEnd));
-		resultmap.put(0, resultlist);
 
 		//ボタンと空き時間のサイズ
 		int space_height=0,button_height=0;
-		long start = 0,end = 0;
+		long start = 999999999,end = 0,timeStart=0,timeEnd=0;;
 		double result = 0;
 		resultlist = new ArrayList<>();
 
@@ -43,11 +29,15 @@ public class Calcurator {
 				result = -1*((double)(end - start)/1000)/3600;
 				space_height = (int)(300*result);
 				end = list.get(i).get(j).getLnum1();
+				timeStart = (start<timeStart)?start:timeStart;
+				timeEnd = (end>timeEnd)?end:timeEnd;
 				result = -1*((double)(start - end)/1000)/3600;
 				button_height=(int)(300*result);
 				//タイムテーブルの先頭要素に対する間隙領域指定
 				if(0==j) {
-					space_height = (int)(300*min);
+					instant = Instant.ofEpochMilli(list.get(i).get(0).getLnum());
+					ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+					space_height = (int)(300*(ldt.getMinute()/60.0));
 				}
 				if(null!=resultmap.get(i)) {
 					//result_listに追加
@@ -60,6 +50,16 @@ public class Calcurator {
 				}
 			}
 		}
+		instant = Instant.ofEpochMilli(timeStart);
+		ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+		int a = ldt.getHour()+1;
+		instant = Instant.ofEpochMilli(timeEnd);
+		ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+		int b = ldt.getHour();
+		System.out.println(a);
+		System.out.println(b);
+		resultlist.add(new Calc_con(a, b));
+		resultmap.put(0, resultlist);
 		return resultmap;
 	}
 	public static String tag(int num,ArrayList<User_DTO> list) {
