@@ -97,7 +97,7 @@
 				} %>
 			</div>
 			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size() %>)">
-				<%for(int i = 1; i<mel.size()+1; i++){%>
+				<%for(int i = 1; i<mel.size(); i++){%>
 				<div class="event-contents" style="height: calc(300px * <%=timeCount %>)">
 					<%
 					for(int j = 0; j < bel.get(i).size(); j++){
