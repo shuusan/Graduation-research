@@ -39,7 +39,6 @@ public class User_Timetable extends HttpServlet {
 		session.setAttribute("mel", mel);
 		session.setAttribute("bel", bel);
 		session.setAttribute("interval", interval);
-
 		String view = "/WEB-INF/user/timetable.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

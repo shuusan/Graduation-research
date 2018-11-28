@@ -92,7 +92,7 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT * FROM bottom_event";
+			String sql = "SELECT * FROM bottom_event ORDER BY start_datetime ASC";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			rs.next();
@@ -132,7 +132,6 @@ public class User_SelectDAO {
 	}
 
 	/*question*/
-
 	public static ArrayList<User_DTO> tagList(){
 		ArrayList<User_DTO> list = new ArrayList<>();
 		Connection con = null;

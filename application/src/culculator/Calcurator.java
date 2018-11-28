@@ -56,12 +56,11 @@ public class Calcurator {
 		instant = Instant.ofEpochMilli(timeEnd);
 		ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
 		int b = ldt.getHour();
-		System.out.println(a);
-		System.out.println(b);
 		resultlist.add(new Calc_con(a, b));
 		resultmap.put(0, resultlist);
 		return resultmap;
 	}
+
 	public static String tag(int num,ArrayList<User_DTO> list) {
 		String result="";
 		for(int i=0;i<list.size();i++) {
