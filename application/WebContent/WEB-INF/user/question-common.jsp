@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.ArrayList"%>
 <%
+	request.setCharacterEncoding("UTF-8");
+
     @SuppressWarnings("unchecked")
     ArrayList<User_DTO> tag = (ArrayList<User_DTO>)session.getAttribute("tag");
 
@@ -39,20 +41,20 @@
 	<p id="title">よくある質問</p>
 	<form action="User_Question_common" method="post" id="search">
 		<select id="select" name="select">
-			<option selected>ソート</option>
+			<option selected value="404">ソート</option>
 			<%for(int i = 0; i < tag.size(); i++){ %>
 			<option value="<%=tag.get(i).getNum() %>"><%=tag.get(i).getText() %></option>
 			<%} %>
 		</select>
-		<input type="text" placeholder="検索する" id="textfield" name="text" required="required">
+		<input type="text" placeholder="検索する" id="textfield" name="text">
 		<button type="submit" class="square_btn">送信！</button>
 		<a class="square_btn" href="User_Question_select">直接質問する</a>
 	</form>
 	<form action="User_Question_responce" method="post" id="question">
-			<%for(int i=0; i<cq.size();i++){ %>
+		<%for(int i=0; i<cq.size();i++){ %>
 			<button type="submit" value="<%=cq.get(i).getNum()%>"
 				name="buttonLink" class="liSubmit"><%=cq.get(i).getText()%></button>
-			<%} %>
+		<%} %>
 	</form>
 	</main>
 	<nav>

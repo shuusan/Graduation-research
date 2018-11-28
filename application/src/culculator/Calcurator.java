@@ -71,4 +71,22 @@ public class Calcurator {
 		}
 		return result;
 	}
+
+	public static String search(String[] array, String text) {
+		String result="";
+		String[] sa = text.split("[　 ]");
+		if(0!=sa.length) {
+			for(int i=0;i<sa.length;i++) {
+				result = result+"(";
+				for(int j=0;j<array.length;j++) {
+					result = result + array[j] + " LIKE '%" + sa[i] + "%' OR ";
+				}
+				result = result+") AND ";
+			}
+			result = result.substring(0, result.length()-11)+")";
+		}else {
+			result="null";
+		}
+		return result;
+	}
 }

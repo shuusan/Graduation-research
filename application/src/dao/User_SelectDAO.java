@@ -251,7 +251,7 @@ public class User_SelectDAO {
 		return dto;
 	}
 
-	public static ArrayList<User_DTO> questionSearch(int num,String text){
+	public static ArrayList<User_DTO> questionSearch(int num, int num1, String text){
 		ArrayList<User_DTO> list = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -262,17 +262,19 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT id,title,content,answer,tagID FROM question WHERE top_eventNo = ? AND ?";
+			String sql = "SELECT id,top_eventNo,title FROM question WHERE ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			pstmt.setString(2, text);
+			pstmt.setString(1, text);
 			rs = pstmt.executeQuery();
-			rs.next();
-			do {
-				int id = rs.getInt("id");
-				String title = rs.getString("title");
-				list.add(new User_DTO(id,title));
-			}while(rs.next() == true );
+			while(rs.next()){
+				System.out.println(num1);
+				System.out.println(rs.getInt("top_eventNo"));
+				if(num==rs.getInt("top_eventNo")&&num1==rs.getInt("top_eventNo")) {
+					int id = rs.getInt("id");
+					String title = rs.getString("title");
+					list.add(new User_DTO(id,title));
+				}
+			}
 			con.close();
 		} catch (SQLException e){
 			e.printStackTrace();
@@ -281,6 +283,73 @@ public class User_SelectDAO {
 		}
 		return list;
 	}
+
+	public static ArrayList<User_DTO> tagSearch(int num, int num1){
+		ArrayList<User_DTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT id,top_eventNo,title FROM question WHERE tagID = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				if(num1==rs.getInt("top_eventNo")) {
+					int id = rs.getInt("id");
+					String title = rs.getString("title");
+					list.add(new User_DTO(id,title));
+				}
+			}
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public static ArrayList<User_DTO> textSearch(int num, String text){
+		ArrayList<User_DTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			if("null".equals(text)) {
+				list.add(new User_DTO(404,"検索結果の結果、対象となるものが見つかりませんでした。"));
+				return list;
+			}
+			System.out.println(text);
+			String sql = "SELECT id,top_eventNo,title FROM question WHERE top_eventNo = ? AND ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, text);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				int id = rs.getInt("id");
+				String title = rs.getString("title");
+				list.add(new User_DTO(id,title));
+			}
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 
 	/*ankeeto*/
 	public static ArrayList<User_DTO> ankketo(int num){
