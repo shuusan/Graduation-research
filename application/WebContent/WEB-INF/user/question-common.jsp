@@ -8,7 +8,7 @@
     ArrayList<User_DTO> tag = (ArrayList<User_DTO>)session.getAttribute("tag");
 
     @SuppressWarnings("unchecked")
-    ArrayList<User_DTO> cq = (ArrayList<User_DTO>)request.getAttribute("cqList");
+    ArrayList<User_DTO> cq = (ArrayList<User_DTO>)session.getAttribute("cqList");
     %>
 <!DOCTYPE html>
 <html lang="ja">

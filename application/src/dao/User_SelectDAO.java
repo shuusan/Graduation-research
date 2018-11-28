@@ -171,16 +171,15 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT id,title FROM question WHERE top_eventNo = ? AND cflg = 0";
+			String sql = "SELECT id,title FROM question WHERE top_eventNo = ? AND cflg = 1";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
-			rs.next();
-			do {
+			while(rs.next()) {
 				int id = rs.getInt("id");
 				String title = rs.getString("title");
 				list.add(new User_DTO(id,title));
-			}while(rs.next() == true );
+			}
 			con.close();
 		} catch (SQLException e){
 			e.printStackTrace();

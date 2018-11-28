@@ -23,7 +23,7 @@ public class User_Question_common extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.setAttribute("tag", User_SelectDAO.tagList());
-		request.setAttribute("cqList", User_SelectDAO.cqList(1));
+		session.setAttribute("cqList", User_SelectDAO.cqList(1));
 		String view = "/WEB-INF/user/question-common.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="dto.User_DTO"%>
+	pageEncoding="UTF-8" import="dto.User_DTO,java.util.ArrayList"%>
 <%
     User_DTO dto = (User_DTO)request.getAttribute("answer");
-    %>
+
+	@SuppressWarnings("unchecked")
+	ArrayList<User_DTO> cq = (ArrayList<User_DTO>)session.getAttribute("cqList");
+
+%>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -39,10 +43,21 @@
 		<textarea class="textarea" id="responce-sub" cols="80" rows="20"
 			readonly><%=("null".equals(dto.getText2()))?"　":dto.getText2() %></textarea>
 	</div>
-	<div id="control">
-		<a href="#" class="square_btn">前の質問</a> <a href="User_Question_common"
-			class="square_btn" id="return">戻る</a> <a href="#" class="square_btn">次の質問</a>
-	</div>
+	<form action="User_Question_responce" method="post" id="control">
+		<%if(1==Integer.parseInt(String.valueOf(request.getAttribute("id")))){ %>
+			<button type="button" class="square_btn">　　　　</button>
+		<%}else{ %>
+			<button type="submit" class="square_btn" value="<%=Integer.parseInt(String.valueOf(request.getAttribute("id")))-1 %>" name="buttonLink">前の質問</button>
+		<%} %>
+		<a href="User_Question_common" class="square_btn" id="return">戻る</a>
+		<%if(cq.size()==Integer.parseInt(String.valueOf(request.getAttribute("id")))){ %>
+			<button type="button" class="square_btn">　　　　</button>
+		<%}else{ %>
+			<button type="submit" class="square_btn" value="<%=Integer.parseInt(String.valueOf(request.getAttribute("id")))+1 %>" name="buttonLink">次の質問</button>
+
+		<%} %>
+
+	</form>
 	</main>
 	<nav>
 		<a href="User_Timetable" class="navi"> タイムテーブル </a> <a
