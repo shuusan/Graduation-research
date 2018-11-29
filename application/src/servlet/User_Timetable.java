@@ -29,7 +29,7 @@ public class User_Timetable extends HttpServlet {
 		//トップイベントリスト
 		ArrayList<User_DTO> hl = User_SelectDAO.top_event();
 		//ミドルイベントリスト
-		ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1);
+		ArrayList<User_DTO> mel = User_SelectDAO.middle_event(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId"))));
 		//ボトムイベントリスト
 		HashMap<Integer, ArrayList<User_DTO>> bel = User_SelectDAO.bottom_event();
 		//イベントや間隙の領域リスト
@@ -39,6 +39,8 @@ public class User_Timetable extends HttpServlet {
 		session.setAttribute("mel", mel);
 		session.setAttribute("bel", bel);
 		session.setAttribute("interval", interval);
+		session.setAttribute("place", "User_Timetable");
+		session.setAttribute("top_eventId", 1);
 
 		String view = "/WEB-INF/user/timetable.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

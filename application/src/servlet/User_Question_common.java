@@ -22,8 +22,9 @@ public class User_Question_common extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		session.setAttribute("place", "User_Question_common");
 		session.setAttribute("tag", User_SelectDAO.tagList());
-		session.setAttribute("cqList", User_SelectDAO.cqList(1));
+		session.setAttribute("cqList", User_SelectDAO.cqList(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
 		String view = "/WEB-INF/user/question-common.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

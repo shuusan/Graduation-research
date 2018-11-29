@@ -66,6 +66,7 @@ public class Login_Main extends HttpServlet {
 			session.setAttribute("bel", bel);
 			session.setAttribute("interval", interval);
 			session.setAttribute("userId", request.getParameter("id"));
+			session.setAttribute("top_eventId", 1);
 			view = "/WEB-INF/user/timetable.jsp";
 		}else {
 			request.setAttribute("caution", "学籍番号 または パスワードが間違っています。");

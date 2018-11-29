@@ -22,6 +22,8 @@ public class User_Setting extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("cautionPass", "　");
 		request.setAttribute("cautionMail", "　");
+		HttpSession session = request.getSession();
+		session.setAttribute("place", "User_Setting");
 		String view = "/WEB-INF/user/setting.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

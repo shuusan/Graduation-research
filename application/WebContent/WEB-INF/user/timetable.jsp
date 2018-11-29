@@ -41,20 +41,16 @@
 			<input id="nav-input" type="checkbox" class="nav-unshown"> <label
 				id="nav-open" for="nav-input"><span></span></label> <label
 				class="nav-unshown" id="nav-close" for="nav-input"></label>
-			<div id="nav-content">
+			<form action="Connecting" method="post" id="nav-content">
 				<%for (int i = 0; i < humburger_list.size(); i++) {
-
-						if (0 == i) {%>
-							<a href="#" class="nav" id="here"><%=humburger_list.get(i).getText()%></a>
-
-						<%} else {%>
-
-				<a href="#" class="nav"><%=humburger_list.get(i).getText()%></a>
-				<%
-						}
+					if (0 == i) {%>
+						<button type="submit" name="hc" class="nav" id="here" value="<%=humburger_list.get(i).getNum()%>"><%=humburger_list.get(i).getText()%></button>
+					<%} else {%>
+						<button type="submit" name="hc" class="nav" value="<%=humburger_list.get(i).getNum()%>"><%=humburger_list.get(i).getText()%></button>
+				<%		}
 					}
 				%>
-			</div>
+			</form>
 		</div>
 		<p id="timer">
 			<span id="timertext">2018年11月9日 10時8分8秒</span><br>

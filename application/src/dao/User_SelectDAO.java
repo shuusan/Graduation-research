@@ -28,7 +28,7 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT * FROM top_event";
+			String sql = "SELECT * FROM top_event ORDER BY id ASC";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			rs.next();
@@ -64,11 +64,10 @@ public class User_SelectDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
-			rs.next();
-			do {
+			while(rs.next()) {
 				String title = rs.getString("title");
 				list.add(new User_DTO(title));
-			}while(rs.next() == true );
+			}
 			con.close();
 		} catch (SQLException e){
 			e.printStackTrace();
