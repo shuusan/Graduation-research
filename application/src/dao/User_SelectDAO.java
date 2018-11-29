@@ -364,14 +364,13 @@ public class User_SelectDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
-			rs.next();
-			do {
+			while(rs.next()){
 				String title = rs.getString("title");
 				String url = rs.getString("url");
 				String start_datetime = rs.getString("start_datetime").substring(0,16);
 				String end_datetime = rs.getString("end_datetime").substring(0,16);
 				list.add(new User_DTO(title,url,start_datetime,end_datetime));
-			}while(rs.next() == true );
+			}
 			con.close();
 		} catch (SQLException e){
 			e.printStackTrace();

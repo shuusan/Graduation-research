@@ -30,6 +30,8 @@ public class User_Question_common extends HttpServlet {
 		dispatcher.forward(request, response);
 		}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		session.setAttribute("place", "User_Question_common");
 		request.setCharacterEncoding("UTF-8");
 		String[] column = {"title","content","answer"};
 

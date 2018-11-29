@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,dto.User_DTO"%>
+<%
+@SuppressWarnings("unchecked")
+ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
+%>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -11,15 +15,7 @@
 
 <body>
     <header>
-        <div id="nav-drawer">
-            <input id="nav-input" type="checkbox" class="nav-unshown">
-            <label id="nav-open" for="nav-input"><span></span></label>
-            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-            <div id="nav-content">
-                <a href="#" class="nav" id="here">スポーツ大会</a>
-                <a href="#" class="nav">オープンキャンパス</a>
-            </div>
-        </div>
+
     </header>
     <main>
         <div id="nav">

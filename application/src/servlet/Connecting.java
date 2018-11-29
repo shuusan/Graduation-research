@@ -38,15 +38,11 @@ public class Connecting extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User_DTO dto = null;
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 	    ArrayList<User_DTO> hl = (ArrayList<User_DTO>)session.getAttribute("hl");
-	    dto = hl.get(0);
-	    hl.set(0, hl.get(Integer.parseInt(request.getParameter("hc"))-1));
-	    hl.set(Integer.parseInt(request.getParameter("hc"))-1, dto);
-	    session.setAttribute("hl", hl);
-	    session.setAttribute("top_eventId", request.getParameter("hc"));
+	    session.setAttribute("here", Integer.parseInt(request.getParameter("hc")));
+	    session.setAttribute("top_eventId", hl.get(Integer.parseInt(request.getParameter("hc"))).getNum());
 	    response.sendRedirect(String.valueOf(session.getAttribute("place")));
 	}
 

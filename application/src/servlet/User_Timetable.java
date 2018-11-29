@@ -40,7 +40,6 @@ public class User_Timetable extends HttpServlet {
 		session.setAttribute("bel", bel);
 		session.setAttribute("interval", interval);
 		session.setAttribute("place", "User_Timetable");
-		session.setAttribute("top_eventId", 1);
 
 		String view = "/WEB-INF/user/timetable.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

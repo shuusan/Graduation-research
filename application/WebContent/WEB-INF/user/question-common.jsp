@@ -9,6 +9,9 @@
 
     @SuppressWarnings("unchecked")
     ArrayList<User_DTO> cq = (ArrayList<User_DTO>)session.getAttribute("cqList");
+
+    @SuppressWarnings("unchecked")
+    ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
     %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -25,9 +28,16 @@
 			<input id="nav-input" type="checkbox" class="nav-unshown"> <label
 				id="nav-open" for="nav-input"><span></span></label> <label
 				class="nav-unshown" id="nav-close" for="nav-input"></label>
-			<div id="nav-content">
-				<a href="#" class="nav" id="here">スポーツ大会</a> <a href="#" class="nav">オープンキャンパス</a>
-			</div>
+			<form action="Connecting" method="post" id="nav-content">
+				<%for (int i = 0; i < humburger_list.size(); i++) {
+					if (Integer.parseInt(String.valueOf(session.getAttribute("here"))) == i) {%>
+						<button type="submit" name="hc" class="nav" id="here" value="<%=i%>"><%=humburger_list.get(i).getText()%></button>
+					<%} else {%>
+						<button type="submit" name="hc" class="nav" value="<%=i%>"><%=humburger_list.get(i).getText()%></button>
+				<%		}
+					}
+				%>
+			</form>
 		</div>
 		<ul class="breadcrumb">
 			<li itemscope="itemscope"

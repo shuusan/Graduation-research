@@ -5,9 +5,8 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>ログイン</title>
 <link rel="stylesheet" href="css/login/login.css">
-<title>ログイン画面</title>
 </head>
 
 <body>

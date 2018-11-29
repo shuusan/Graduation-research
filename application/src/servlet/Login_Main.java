@@ -56,7 +56,7 @@ public class Login_Main extends HttpServlet {
 			ArrayList<User_DTO> hl = User_SelectDAO.top_event();
 			//ミドルイベントリスト
 			ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1);
-			//ボトムイベントリスト
+			//ボトムイベントリストr
 			HashMap<Integer, ArrayList<User_DTO>> bel = User_SelectDAO.bottom_event();
 			//イベントや間隙の領域リスト
 			HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(mel.size(), bel);
@@ -65,6 +65,8 @@ public class Login_Main extends HttpServlet {
 			session.setAttribute("mel", mel);
 			session.setAttribute("bel", bel);
 			session.setAttribute("interval", interval);
+			session.setAttribute("place", "User_Timetable");
+			session.setAttribute("here", 0);
 			session.setAttribute("userId", request.getParameter("id"));
 			session.setAttribute("top_eventId", 1);
 			view = "/WEB-INF/user/timetable.jsp";

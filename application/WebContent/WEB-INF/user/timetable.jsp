@@ -43,10 +43,10 @@
 				class="nav-unshown" id="nav-close" for="nav-input"></label>
 			<form action="Connecting" method="post" id="nav-content">
 				<%for (int i = 0; i < humburger_list.size(); i++) {
-					if (0 == i) {%>
-						<button type="submit" name="hc" class="nav" id="here" value="<%=humburger_list.get(i).getNum()%>"><%=humburger_list.get(i).getText()%></button>
+					if (Integer.parseInt(String.valueOf(session.getAttribute("here"))) == i) {%>
+						<button type="submit" name="hc" class="nav" id="here" value="<%=i%>"><%=humburger_list.get(i).getText()%></button>
 					<%} else {%>
-						<button type="submit" name="hc" class="nav" value="<%=humburger_list.get(i).getNum()%>"><%=humburger_list.get(i).getText()%></button>
+						<button type="submit" name="hc" class="nav" value="<%=i%>"><%=humburger_list.get(i).getText()%></button>
 				<%		}
 					}
 				%>
@@ -79,20 +79,20 @@
 	</header>
 
 	<main>
-		<div id="subevent-area" style="width: calc(20px + 300px * <%=mel.size() %>)">
+		<div id="subevent-area" style="width: calc(20px + 300px * <%=mel.size()-1 %>)">
 			<p id="subevent-blank"></p>
-			<%for(int i =0; i < mel.size(); i++){%>
+			<%for(int i =0; i < mel.size()-1; i++){%>
 			<p class="subevent-title"><%=mel.get(i).getText() %></p>
 			<%} %>
 		</div>
-		<div id="event" style="width: calc(20px + 300px * <%=mel.size() %>)">
+		<div id="event" style="width: calc(20px + 300px * <%=mel.size()-1 %>)">
 			<div id="time-area">
 				<%for(int i = interval.get(0).get(0).getSpace_height(); i < interval.get(0).get(0).getButton_height()+1; i++){ %>
 				<p class="constant-hour"><%=i %></p>
 				<%timeCount++;
 				} %>
 			</div>
-			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size() %>)">
+			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size()-1 %>)">
 				<%for(int i = 1; i<mel.size(); i++){%>
 				<div class="event-contents" style="height: calc(300px * <%=timeCount %>)">
 					<%
