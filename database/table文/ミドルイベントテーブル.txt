@@ -2,6 +2,8 @@ CREATE TABLE middle_event (
 id TINYINT UNSIGNED AUTO_INCREMENT,
 top_eventID TINYINT UNSIGNED,
 title VARCHAR(63),
+start_datetime DATETIME,
+end_datetime DATETIME,
 PRIMARY KEY (id),
 FOREIGN KEY (top_eventID)
 REFERENCES top_event(id)

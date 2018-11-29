@@ -25,6 +25,7 @@ public class User_Question_responce extends HttpServlet {
 		}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("buttonLink"));
+		request.setAttribute("id", id);
 		request.setAttribute("answer", User_SelectDAO.coResponse(id));
 		String view = "/WEB-INF/user/question-responce.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

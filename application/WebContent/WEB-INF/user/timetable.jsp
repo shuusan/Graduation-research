@@ -31,7 +31,8 @@
 <!--  カレンダーの日本語化  -->
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-<title>メインページ</title>
+<script type="text/javascript" src="js/dateSubmit.js"></script>
+<title>タイムテーブル</title>
 </head>
 
 <body>
@@ -40,20 +41,16 @@
 			<input id="nav-input" type="checkbox" class="nav-unshown"> <label
 				id="nav-open" for="nav-input"><span></span></label> <label
 				class="nav-unshown" id="nav-close" for="nav-input"></label>
-			<div id="nav-content">
+			<form action="Connecting" method="post" id="nav-content">
 				<%for (int i = 0; i < humburger_list.size(); i++) {
-
-						if (0 == i) {%>
-							<a href="#" class="nav" id="here"><%=humburger_list.get(i).getText()%></a>
-
-						<%} else {%>
-
-				<a href="#" class="nav"><%=humburger_list.get(i).getText()%></a>
-				<%
-						}
+					if (Integer.parseInt(String.valueOf(session.getAttribute("here"))) == i) {%>
+						<button type="submit" name="hc" class="nav" id="here" value="<%=i%>"><%=humburger_list.get(i).getText()%></button>
+					<%} else {%>
+						<button type="submit" name="hc" class="nav" value="<%=i%>"><%=humburger_list.get(i).getText()%></button>
+				<%		}
 					}
 				%>
-			</div>
+			</form>
 		</div>
 		<p id="timer">
 			<span id="timertext">2018年11月9日 10時8分8秒</span><br>
@@ -82,21 +79,21 @@
 	</header>
 
 	<main>
-		<div id="subevent-area" style="width: calc(20px + 300px * <%=mel.size() %>)">
+		<div id="subevent-area" style="width: calc(20px + 300px * <%=mel.size()-1 %>)">
 			<p id="subevent-blank"></p>
-			<%for(int i =0; i < mel.size(); i++){%>
+			<%for(int i =0; i < mel.size()-1; i++){%>
 			<p class="subevent-title"><%=mel.get(i).getText() %></p>
 			<%} %>
 		</div>
-		<div id="event" style="width: calc(20px + 300px * <%=mel.size() %>)">
+		<div id="event" style="width: calc(20px + 300px * <%=mel.size()-1 %>)">
 			<div id="time-area">
 				<%for(int i = interval.get(0).get(0).getSpace_height(); i < interval.get(0).get(0).getButton_height()+1; i++){ %>
 				<p class="constant-hour"><%=i %></p>
 				<%timeCount++;
 				} %>
 			</div>
-			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size() %>)">
-				<%for(int i = 1; i<mel.size()+1; i++){%>
+			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size()-1 %>)">
+				<%for(int i = 1; i<mel.size(); i++){%>
 				<div class="event-contents" style="height: calc(300px * <%=timeCount %>)">
 					<%
 					for(int j = 0; j < bel.get(i).size(); j++){
@@ -136,21 +133,29 @@
 			<input id="date-input" type="checkbox" class="date-unshown"> <label
 				id="date-open" for="date-input"><span></span></label> <label
 				class="date-unshown" id="date-close" for="date-input"></label>
-			<div id="date-content">
+			<form action="User_Timetable" method="post" id="date-content" name="form1">
 				<div id="datepicker"></div>
-			</div>
+				<input type="text" id="date" name="date" readonly="readonly" >
+			</form>
 		</div>
 	</main>
 	<nav>
-		<a href="Manager_Timetable" class="navi"> タイムテーブル </a> <a
-			href="Manager_Question_answer" class="navi"> 質問フォーム </a> <a
-			href="Manager_Ankeeto" class="navi"> アンケート機能 </a> <a
-			href="Manager_Setting" class="navi"> 設 定 </a>
-	</nav>
-	<footer> </footer>
+        <a href="User_Timetable" class="navi">
+            タイムテーブル
+        </a>
+        <a href="User_Question_common" class="navi">
+            質問フォーム
+        </a>
+        <a href="User_Ankeeto" class="navi">
+            アンケート機能
+        </a>
+        <a href="User_Setting" class="navi">
+            設 定
+        </a>
+    </nav>
+	<footer></footer>
 </body>
 <script type="text/javascript" src="js/syncscroll.js"></script>
 <script type="text/javascript" src="js/datepicker.js"></script>
-<script type="text/javascript" src="realtime.js"></script>
 
 </html>

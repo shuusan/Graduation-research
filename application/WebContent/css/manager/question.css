@@ -2,6 +2,21 @@
 @import url(index.css);
 @import url(hamburger.css);
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .1);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, .5);
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .3);
+}
+
 main {
     margin: 0 auto;
     text-align: center;
@@ -13,46 +28,10 @@ main {
     margin: 0 auto;
 }
 
-#search {
-    width: 100%;
-    height: 9%;
-    display: flex;
-    text-align: center;
-}
 
-#select {
-    width: 24%;
-    font-size: 1.2em;
-    color: gray;
-    /*    background-color: aqua;*/
-}
-
-#textfield {
-    width: 57%;
-    font-size: 1.2em;
-    margin-left: 1px;
-}
-
-#question {
-    height: 73%;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    border: 2px solid darkgray;
-    border-radius: 3px;
-    margin-top: 1em;
-}
 
 #question::-webkit-scrollbar {
     display: none;
-}
-
-#common-contents {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    list-style: none;
-    text-align: left;
-    /*    background-color: aqua;*/
 }
 
 #common-contents li {
@@ -60,10 +39,6 @@ main {
     font-size: 2em;
     border-bottom: 1px dotted darkgray;
     margin-bottom: 5px;
-}
-
-#common-contents li a {
-    text-decoration: none;
 }
 
 .breadcrumb {
@@ -86,7 +61,12 @@ p {
     color: gray;
     font-size: 20px;
 }
-
+#cqa{
+	width: 100%;
+	height: 90%;
+	display: block;
+	margin: 0;
+}
 #select2 {
     width: 100%;
     height: 40px;
@@ -133,26 +113,26 @@ button {
     margin-bottom: 0.5em;
     /*    background-color: blue;*/
 }
-
-h3 {
-    display: inline;
-    color: gray;
-}
-
 #responce-sub p {
-    display: inline;
+	height: 20%;
     color: black;
+    overflow: scroll;
 }
 
 #responce-main p {
-    display: inline;
+	height: 40%;
     color: black;
+    overflow: scroll;
 }
 
 #control {
     width: 73%;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
     text-align: center;
+}
+.textarea{
+	outline: none;
+	resize: none;
 }
 
 .square_btn {
@@ -179,10 +159,12 @@ h3 {
 
 /*共通設定*/
 
-h2 {
-    display: inline;
+#title {
+	display: block;
+	width: 100%;
     text-align: center;
     color: gray;
+    font-weight: bold;
 }
 
 #square_btn {

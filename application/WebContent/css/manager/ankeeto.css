@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@import url(index.css);
+@import url(hamburger.css);
+
+main {
+    margin: 0 auto;
+}
+
+.form {
+    height: 25%;
+    width: 90%;
+    border: 0.1em solid lightgray;
+    border-radius: 1em;
+    margin: 0 auto 0.5em auto;
+    padding: 0.5em;
+}
+
+h2 {
+    margin: 0;
+    padding: 0.2em;
+}
+
+.link {
+    font-size: 2em;
+}
+
+p {
+    color: grey;
+    text-overflow: ellipsis;
+}

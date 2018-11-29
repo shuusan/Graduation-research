@@ -5,9 +5,8 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>ログイン</title>
 <link rel="stylesheet" href="css/login/login.css">
-<title>ログイン画面</title>
 </head>
 
 <body>
@@ -26,7 +25,7 @@
 			<button type="submit" id="Login">ログイン</button>
 		</form>
 		<br> <a href="#" class="position">パスワードを忘れた方</a><br> <a
-			href="#" class="position">新規ログイン</a><br>
+			href="#" class="position">アカウントの新規作成</a><br>
 	</div>
 </body>
 

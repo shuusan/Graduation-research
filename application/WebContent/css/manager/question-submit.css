@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+@import url(index.css);
+
+@import url(hamburger.css);
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, .1);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(128, 128, 128, .5);
+	border-radius: 10px;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, .3);
+}
+
+main {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.breadcrumb {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	height: 100%;
+}
+
+h2 {
+	display: inline;
+	height: 10%;
+	width: 100%;
+}
+p{
+	font-size: 1.3em;
+	margin: 0;
+	margin-top: 1%;
+}
+form {
+	height: 90%;
+	width100%;
+	display: block;
+}
+
+textarea {
+	resize: none;
+	font-size: 1.2em;
+	width: 50%;
+}
+
+input{
+	width: 50%;
+	font-size: 1.2em;
+}
+
+#select{
+	width: 50%;
+	font-size: 1.2em;
+	line-height: inherit;
+}
+
+.square_btn {
+	height: 10%;
+	width: 10%;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: darkgray;
+    border: solid 2px darkgray;
+    border-radius: 3px;
+    transition: .4s;
+    text-align: center;
+    background-color: white;
+}
+
+.square_btn:hover {
+    background: lightblue;
+    color: white;
+}

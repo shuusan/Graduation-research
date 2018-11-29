@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,dto.User_DTO"%>
+<%
+@SuppressWarnings("unchecked")
+ArrayList<User_DTO> list = (ArrayList<User_DTO>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/manager/anke-to.css">
-    <title>メインページ</title>
+    <link rel="stylesheet" href="css/user/ankeeto.css">
+    <title>アンケート</title>
 </head>
 
 <body>
@@ -24,43 +28,25 @@
     <main>
         <div id="scroll">
             <div class="form">
-                <h2>・・についてアンケートお願いします。</h2>
-                <a href="https://github.com/shuusan/Graduation-research.git" class="link">https://github.com/shuusan/Graduation-research.git</a>
-                <p>回収期間：2018年10月23日0:00～2019年10月22日23:59</p>
-            </div>
-            <div class="form">
-                <h2>・・についてアンケートお願いします。</h2>
-                <a href="https://github.com/shuusan/Graduation-research.git" class="link">https://github.com/shuusan/Graduation-research.git</a>
-                <p>回収期間：2018年10月23日0:00～2019年10月22日23:59</p>
-            </div>
-            <div class="form">
-                <h2>・・についてアンケートお願いします。</h2>
-                <a href="https://github.com/shuusan/Graduation-research.git" class="link">https://github.com/shuusan/Graduation-research.git</a>
-                <p>回収期間：2018年10月23日0:00～2019年10月22日23:59</p>
-            </div>
-            <div class="form">
-                <h2>・・についてアンケートお願いします。</h2>
-                <a href="https://github.com/shuusan/Graduation-research.git" class="link">https://github.com/shuusan/Graduation-research.git</a>
-                <p>回収期間：2018年10月23日0:00～2019年10月22日23:59</p>
-            </div>
-            <div class="form">
-                <h2>・・についてアンケートお願いします。</h2>
-                <a href="https://github.com/shuusan/Graduation-research.git" class="link">https://github.com/shuusan/Graduation-research.git</a>
-                <p>回収期間：2018年10月23日0:00～2019年10月22日23:59</p>
+            <%for(int i=0; i<list.size(); i++){ %>
+	                <h2><%=list.get(i).getText() %></h2>
+	                <a href="<%=list.get(i).getText1() %>" class="link"><%=list.get(i).getText1().substring(0,50)+"..." %></a>
+	                <p>回収期間：<%=list.get(i).getText2()+" ～ "+list.get(i).getText3()%></p>
+                <%} %>
             </div>
         </div>
     </main>
     <nav>
-        <a href="Manager_Timetable" class="navi">
+        <a href="User_Timetable" class="navi">
             タイムテーブル
         </a>
-        <a href="Manager_Question_answer" class="navi">
+        <a href="User_Question_common" class="navi">
             質問フォーム
         </a>
-        <a href="Manager_Ankeeto" class="navi">
+        <a href="User_Ankeeto" class="navi">
             アンケート機能
         </a>
-        <a href="Manager_Setting" class="navi">
+        <a href="User_Setting" class="navi">
             設 定
         </a>
     </nav>
