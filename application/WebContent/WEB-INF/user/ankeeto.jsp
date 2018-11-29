@@ -10,7 +10,7 @@ ArrayList<User_DTO> list = (ArrayList<User_DTO>)request.getAttribute("list");
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/user/ankeeto.css">
-    <title>メインページ</title>
+    <title>アンケート</title>
 </head>
 
 <body>

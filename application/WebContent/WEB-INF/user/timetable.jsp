@@ -32,7 +32,7 @@
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
 <script type="text/javascript" src="js/dateSubmit.js"></script>
-<title>メインページ</title>
+<title>タイムテーブル</title>
 </head>
 
 <body>

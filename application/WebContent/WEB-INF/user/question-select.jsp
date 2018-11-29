@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/user/question-select.css">
-    <title>メインページ</title>
+    <title>質問分類選択</title>
 </head>
 
 <body>

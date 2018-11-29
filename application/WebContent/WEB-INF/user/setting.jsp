@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/user/setting.css">
-    <title>メインページ</title>
+    <title>設定</title>
 </head>
 
 <body>

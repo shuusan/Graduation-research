@@ -13,7 +13,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/user/question-responce.css">
-<title>メインページ</title>
+<title>回答閲覧</title>
 </head>
 
 <body>

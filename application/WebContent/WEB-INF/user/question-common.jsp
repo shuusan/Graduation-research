@@ -16,7 +16,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/user/question-common.css">
-<title>メインページ</title>
+<title>よくある質問</title>
 </head>
 
 <body>
