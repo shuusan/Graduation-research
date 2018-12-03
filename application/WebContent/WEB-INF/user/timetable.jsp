@@ -7,7 +7,7 @@
 	java.util.HashMap"%>
 <%
     @SuppressWarnings("unchecked")
-    ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
+    ArrayList<User_DTO> hl = (ArrayList<User_DTO>)session.getAttribute("hl");
 
     @SuppressWarnings("unchecked")
     ArrayList<User_DTO> mel = (ArrayList<User_DTO>)session.getAttribute("mel");
@@ -17,8 +17,6 @@
 
     @SuppressWarnings("unchecked")
     HashMap<Integer,ArrayList<Calc_con>> interval = (HashMap<Integer,ArrayList<Calc_con>>)session.getAttribute("interval");
-
-	int timeCount=0;
 %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -42,11 +40,11 @@
 				id="nav-open" for="nav-input"><span></span></label> <label
 				class="nav-unshown" id="nav-close" for="nav-input"></label>
 			<form action="Connecting" method="post" id="nav-content">
-				<%for (int i = 0; i < humburger_list.size(); i++) {
+				<%for (int i = 0; i < hl.size(); i++) {
 					if (Integer.parseInt(String.valueOf(session.getAttribute("here"))) == i) {%>
-						<button type="submit" name="hc" class="nav" id="here" value="<%=i%>"><%=humburger_list.get(i).getText()%></button>
+						<button type="submit" name="hc" class="nav" id="here" value="<%=i%>"><%=hl.get(i).getText()%></button>
 					<%} else {%>
-						<button type="submit" name="hc" class="nav" value="<%=i%>"><%=humburger_list.get(i).getText()%></button>
+						<button type="submit" name="hc" class="nav" value="<%=i%>"><%=hl.get(i).getText()%></button>
 				<%		}
 					}
 				%>
@@ -79,21 +77,22 @@
 	</header>
 
 	<main>
-		<div id="subevent-area" style="width: calc(20px + 300px * <%=mel.size()-1 %>)">
+		<div id="subevent-area" style="width: calc(20px + 300px * <%=bel.size() %>)">
 			<p id="subevent-blank"></p>
-			<%for(int i =0; i < mel.size()-1; i++){%>
+			<%for(int i =0; i < bel.size(); i++){%>
 			<p class="subevent-title"><%=mel.get(i).getText() %></p>
-			<%} %>
+			<%}%>
 		</div>
-		<div id="event" style="width: calc(20px + 300px * <%=mel.size()-1 %>)">
+		<%int timeCount=0; %>
+		<div id="event" style="width: calc(20px + 300px * <%=bel.size() %>)">
 			<div id="time-area">
-				<%for(int i = interval.get(0).get(0).getSpace_height(); i < interval.get(0).get(0).getButton_height()+1; i++){ %>
+				<%for(int i = interval.get(bel.size()).get(0).getSpace_height(); i < interval.get(bel.size()).get(0).getButton_height()+1; i++){ %>
 				<p class="constant-hour"><%=i %></p>
 				<%timeCount++;
 				} %>
 			</div>
-			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size()-1 %>)">
-				<%for(int i = 1; i<mel.size(); i++){%>
+			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=bel.size() %>)">
+				<%for(int i = 0; i<bel.size(); i++){%>
 				<div class="event-contents" style="height: calc(300px * <%=timeCount %>)">
 					<%
 					for(int j = 0; j < bel.get(i).size(); j++){
