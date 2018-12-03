@@ -1,5 +1,6 @@
 CREATE TABLE bottom_event (
 id SMALLINT UNSIGNED AUTO_INCREMENT,
+top_eventID TINYINT UNSIGNED,
 middle_eventID TINYINT UNSIGNED,
 display_flg TINYINT(1) UNSIGNED NOT NULL,
 title VARCHAR(63),
@@ -8,6 +9,9 @@ authority TINYINT(10) UNSIGNED NOT NULL,
 start_datetime DATETIME,
 end_datetime DATETIME,
 PRIMARY KEY (id),
+FOREIGN KEY (top_eventID)
+REFERENCES middle_event(top_eventID)
+ON DELETE CASCADE,
 FOREIGN KEY (middle_eventID)
 REFERENCES middle_event(id)
 ON DELETE CASCADE,
