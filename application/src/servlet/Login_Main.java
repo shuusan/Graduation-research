@@ -57,9 +57,9 @@ public class Login_Main extends HttpServlet {
 			//ミドルイベントリスト
 			ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1);
 			//ボトムイベントリストr
-			HashMap<Integer, ArrayList<User_DTO>> bel = User_SelectDAO.bottom_event();
+			HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event());
 			//イベントや間隙の領域リスト
-			HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(mel.size(), bel);
+			HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(bel);
 			//セッション打ち上げ
 			session.setAttribute("hl", hl);
 			session.setAttribute("mel", mel);

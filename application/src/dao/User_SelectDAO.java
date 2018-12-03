@@ -94,8 +94,8 @@ public class User_SelectDAO {
 			String sql = "SELECT * FROM bottom_event ORDER BY start_datetime ASC";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			rs.next();
-			do {
+//			int count = 0;
+			while(rs.next()){
 				int id = rs.getInt("id");
 				int middle_eventID = rs.getInt("middle_eventID");
 				int display_flg = rs.getInt("display_flg");
@@ -117,7 +117,7 @@ public class User_SelectDAO {
 					map.put(middle_eventID, list);
 					list = new ArrayList<>();
 				}
-			}while(rs.next() == true);
+			}
 			con.close();
 		} catch (SQLException e){
 			e.printStackTrace();
