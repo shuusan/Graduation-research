@@ -31,7 +31,7 @@ public class User_Timetable extends HttpServlet {
 		//ミドルイベントリスト
 		ArrayList<User_DTO> mel = User_SelectDAO.middle_event(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId"))));
 		//ボトムイベントリスト
-		HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event());
+		HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
 		//イベントや間隙の領域リスト
 		HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(bel);
 		//セッション打ち上げ

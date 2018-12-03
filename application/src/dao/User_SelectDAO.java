@@ -77,7 +77,7 @@ public class User_SelectDAO {
 		return list;
 	}
 
-	public static HashMap<Integer, ArrayList<User_DTO>> bottom_event(){
+	public static HashMap<Integer, ArrayList<User_DTO>> bottom_event(int num){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		HashMap<Integer, ArrayList<User_DTO>> map = new HashMap<>();
@@ -91,10 +91,10 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT * FROM bottom_event ORDER BY start_datetime ASC";
+			String sql = "SELECT * FROM bottom_event WHERE top_eventID = ? ORDER BY start_datetime ASC";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
-//			int count = 0;
 			while(rs.next()){
 				int id = rs.getInt("id");
 				int middle_eventID = rs.getInt("middle_eventID");

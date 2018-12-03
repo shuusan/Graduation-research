@@ -56,7 +56,6 @@ public class Calcurator {
 		instant = Instant.ofEpochMilli(timeEnd);
 		ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
 		int b = ldt.getHour();
-		System.out.println(a+"と"+b);
 		resultlist.add(new Calc_con(a, b));
 		resultmap.put(map.size(), resultlist);
 		return resultmap;
