@@ -26,8 +26,9 @@
     color: gray;
 }
 
-#btn {
-    margin-right: 2%;
+.close {
+    width: 90%;
+    height: 85%;
 }
 
 .bar-body {

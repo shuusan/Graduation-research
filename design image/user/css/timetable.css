@@ -289,7 +289,7 @@ main {
     right: 0;
     bottom: 0;
     height: 100%;
-    width: 20%;
+    width: 300px;
     background: whitesmoke;
 }
 
@@ -299,18 +299,52 @@ main {
     color: white;
 }
 
-.top {
+.bar-head {
     width: 100%;
-    height: 10%;
+    height: 5%;
     display: flex;
 }
 
 .silabel {
+    margin: 0;
     width: 100%;
-    font-size: 2em;
+    font-size: 1.5em;
     color: gray;
 }
 
-#btn {
-    margin-right: 2%;
+.close {
+    width: 90%;
+    height: 85%;
+}
+
+.bar-body {
+    display: block;
+    width: 100%;
+    height: 90%;
+    margin-top: 5%;
+}
+
+.bar-time,
+.bar-title,
+.bar-contents {
+    margin: 10% auto;
+    width: 90%;
+}
+
+.bar-title {
+    font-weight: bold;
+    color: #2e2930;
+    border-bottom: 5px dotted #6B74D9;
+}
+
+.bar-time {
+    font-size: 1em;
+    color: gray;
+    border-bottom: 5px dotted #6B74D9;
+}
+
+.bar-contents {
+    height: 70%;
+    color: gray;
+    border-bottom: 5px dotted #6B74D9;
 }
