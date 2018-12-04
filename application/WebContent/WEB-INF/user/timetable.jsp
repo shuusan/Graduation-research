@@ -106,15 +106,15 @@
 									<p class="event-title"><%=bel.get(i).get(j).getText() %></p>
 									<p><%=bel.get(i).get(j).getText1()%></p>
 								</div>
-							</button>
+						</button>
 					<%}else if(0==interval.get(i).get(j).getSpace_height()){%>
-							<button type="button" class="btn btn-primary" data-action="toggle" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
-								<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-								<div class="event-division">
-									<p class="event-title"><%=bel.get(i).get(j).getText() %></p>
-									<p><%=bel.get(i).get(j).getText1()%></p>
-								</div>
-							</button>
+						<button type="button" class="btn btn-primary" data-action="toggle" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+							<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+							<div class="event-division">
+								<p class="event-title"><%=bel.get(i).get(j).getText() %></p>
+								<p><%=bel.get(i).get(j).getText1()%></p>
+							</div>
+						</button>
 					<%}else{%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
 						<button type="button" class="btn btn-primary" data-action="toggle" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
@@ -144,7 +144,7 @@
                 <div class="bar-head">
                     <p class="silabel">イベント概要</p>
                     <a class="btn btn-danger" data-action="close" data-side="right">
-                        <img src="image/close.png" alt="close" class="close">
+                        <img src="photo/close.png" alt="close" class="close">
                     </a>
                 </div>
                 <div class="bar-body">

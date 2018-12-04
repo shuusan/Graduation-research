@@ -121,7 +121,7 @@ main {
 }
 
 /*ボタン*/
-.event-button {
+.btn.btn-primary {
 	width: 100%;
 	background-color: aliceblue;
 	border: none;
@@ -349,17 +349,17 @@ main {
 .bar-title {
     font-weight: bold;
     color: #2e2930;
-    border-bottom: 5px dotted #6B74D9;
+    border-bottom: 5px dotted lime;
 }
 
 .bar-time {
     font-size: 1em;
     color: gray;
-    border-bottom: 5px dotted #6B74D9;
+    border-bottom: 5px dotted lime;
 }
 
 .bar-contents {
     height: 70%;
     color: gray;
-    border-bottom: 5px dotted #6B74D9;
+    border-bottom: 5px dotted lime;
 }
