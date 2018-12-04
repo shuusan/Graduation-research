@@ -119,7 +119,7 @@ main {
 }
 
 /*ボタン*/
-.event-button {
+.btn.btn-primary {
     width: 100%;
     margin-bottom: 1px;
     background-color: aliceblue;
@@ -281,4 +281,36 @@ main {
     color: white;
     border-bottom: 2px solid white;
     background-color: black;
+}
+
+/*サイドバー*/
+.sidebar.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 20%;
+    background: whitesmoke;
+}
+
+.sidebars > .sidebar {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.64);
+    position: fixed;
+    color: white;
+}
+
+.top {
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+
+.silabel {
+    width: 100%;
+    font-size: 2em;
+    color: gray;
+}
+
+#btn {
+    margin-right: 2%;
 }
