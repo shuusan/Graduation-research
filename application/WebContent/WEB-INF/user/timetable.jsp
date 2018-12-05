@@ -32,6 +32,7 @@
 <script type="text/javascript" src="js/dateSubmit.js"></script>
 <script type="text/javascript" src="js/jquery.sidebar.js"></script>
 <script type="text/javascript" src="js/sidebar.js"></script>
+    <script type="text/javascript" src="js/replace.js"></script>
 <title>タイムテーブル</title>
 </head>
 
@@ -82,7 +83,7 @@
 		<div id="subevent-area" style="width: calc(20px + 300px * <%=bel.size() %>)">
 			<p id="subevent-blank"></p>
 			<%for(int i =0; i < bel.size(); i++){%>
-			<p class="subevent-title"><%=mel.get(i).getText() %></p>
+			<p class="subevent-title" id="set<%=i%>"><%=mel.get(i).getText() %></p>
 			<%}%>
 		</div>
 		<%int timeCount=0; %>
@@ -100,28 +101,28 @@
 					for(int j = 0; j < bel.get(i).size(); j++){
 					if(0==bel.get(i).get(j).getNum3()){%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
-						<button type="button" class="btn btn-primary" data-action="toggle" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
-								<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
+								<p class="event-time" id="time<%=i%><%=j%>"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
 								<div class="event-division">
-									<p class="event-title"><%=bel.get(i).get(j).getText() %></p>
-									<p><%=bel.get(i).get(j).getText1()%></p>
+									<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
+									<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
 								</div>
 						</button>
 					<%}else if(0==interval.get(i).get(j).getSpace_height()){%>
-						<button type="button" class="btn btn-primary" data-action="toggle" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
-							<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+							<p class="event-time" id="time<%=i%><%=j%>"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
 							<div class="event-division">
-								<p class="event-title"><%=bel.get(i).get(j).getText() %></p>
-								<p><%=bel.get(i).get(j).getText1()%></p>
+								<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
+								<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
 							</div>
 						</button>
 					<%}else{%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
-						<button type="button" class="btn btn-primary" data-action="toggle" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
-								<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+								<p class="event-time" id="time<%=i%><%=j%>"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
 								<div class="event-division">
-									<p class="event-title"><%=bel.get(i).get(j).getText() %></p>
-									<p><%=bel.get(i).get(j).getText1()%></p>
+									<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
+									<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
 								</div>
 						</button>
 					<%}
@@ -148,9 +149,10 @@
                     </a>
                 </div>
                 <div class="bar-body">
-                    <p class="bar-title">盛岡情報ビジネス専門学校デザイン情報館玄関前集合</p>
-                    <p class="bar-time">12月4日13:41~12月4日13:41</p>
-                    <p class=" bar-contents">持ち物:筆記用具</p>
+                	<p class="bar-event"></p>
+                    <p class="bar-title"></p>
+                    <p class="bar-time"></p>
+                    <p class="bar-contents"></p>
                 </div>
             </div>
         </div>

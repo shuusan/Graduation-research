@@ -339,11 +339,18 @@ main {
     margin-top: 5%;
 }
 
+.bar-event,
 .bar-time,
 .bar-title,
 .bar-contents {
     margin: 10% auto;
     width: 90%;
+}
+
+.bar-event {
+    font-weight: bold;
+    color: #2e2930;
+    border-bottom: 5px dotted lime;
 }
 
 .bar-title {
@@ -359,7 +366,7 @@ main {
 }
 
 .bar-contents {
-    height: 70%;
+    height: 65%;
     color: gray;
     border-bottom: 5px dotted lime;
 }
