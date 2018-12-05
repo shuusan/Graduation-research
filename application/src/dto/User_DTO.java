@@ -5,16 +5,19 @@ public class User_DTO {
 	String text,text1,text2,text3;
 	long lnum,lnum1;
 	public User_DTO() {}
-	public User_DTO(int num, int num1, String text, String text1, int num2, long lnum, long lnum1,int num3) {
+	public User_DTO(int num, int num1, String text, String text1, int num2, long lnum, long lnum1, int num3,
+			String text2, String text3) {
 		super();
 		this.num = num;
 		this.num1 = num1;
-		this.num2 = num2;
 		this.text = text;
-		this.lnum= lnum;
-		this.lnum1= lnum1;
 		this.text1 = text1;
+		this.num2 = num2;
+		this.lnum = lnum;
+		this.lnum1 = lnum1;
 		this.num3 = num3;
+		this.text2 = text2;
+		this.text3 = text3;
 	}
 	public User_DTO(int num, String text) {
 		super();

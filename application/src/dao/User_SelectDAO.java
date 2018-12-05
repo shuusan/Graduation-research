@@ -111,9 +111,9 @@ public class User_SelectDAO {
 				int min = ldt.getMinute();
 
 				if(null!=map.get(middle_eventID)) {
-					map.get(middle_eventID).add(new User_DTO(id, display_flg,title,contents,authority,start,end,min));
+					map.get(middle_eventID).add(new User_DTO(id, display_flg,title,contents,authority,start,end,min,start_datetime,end_datetime));
 				}else {
-					list.add(new User_DTO(id, display_flg,title,contents,authority,start,end,min));
+					list.add(new User_DTO(id, display_flg,title,contents,authority,start,end,min,start_datetime,end_datetime));
 					map.put(middle_eventID, list);
 					list = new ArrayList<>();
 				}

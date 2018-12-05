@@ -138,11 +138,20 @@ main {
 }
 
 /*イベント開始時間*/
-.event-time {
+.event-time1 {
 	margin: 0;
 	padding: 4px 0 0 0;
 	float: left;
 	color: gray;
+}
+
+.event-time2 {
+	height:1px;
+	width:1px;
+	margin: 0;
+	overflow: hidden;
+	float: left;
+	visibility:hidden;
 }
 
 /*イベント詳細領域*/
@@ -345,11 +354,11 @@ main {
 .bar-contents {
     margin: 10% auto;
     width: 90%;
+    color: #2e2930;
 }
 
 .bar-event {
     font-weight: bold;
-    color: #2e2930;
     border-bottom: 5px dotted lime;
 }
 
@@ -361,12 +370,10 @@ main {
 
 .bar-time {
     font-size: 1em;
-    color: gray;
     border-bottom: 5px dotted lime;
 }
 
 .bar-contents {
     height: 65%;
-    color: gray;
     border-bottom: 5px dotted lime;
 }
