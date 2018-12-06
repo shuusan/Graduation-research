@@ -103,10 +103,10 @@ public class User_SelectDAO {
 				String contents = rs.getString("contents");
 				int authority = rs.getInt("authority");
 
-				String start_datetime = rs.getString("start_datetime").substring(0,16);
-				String end_datetime = rs.getString("end_datetime").substring(0,16);
-				long start = sdf.parse(start_datetime).getTime();
-				long end = sdf.parse(end_datetime).getTime();
+				StringBuilder start_datetime = new StringBuilder(rs.getString("start_datetime").substring(0,16));
+				StringBuilder end_datetime = new StringBuilder(rs.getString("end_datetime").substring(0,16));
+				long start = sdf.parse(start_datetime.toString()).getTime();
+				long end = sdf.parse(end_datetime.toString()).getTime();
 				LocalDateTime ldt = LocalDateTime.parse(start_datetime,dtf);
 				int min = ldt.getMinute();
 

@@ -103,7 +103,7 @@
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
 						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
 								<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getText2().substring(5)%>～<%=bel.get(i).get(j).getText3().substring(11) %></p>
+							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %></p>
 								<div class="event-division">
 									<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
 									<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
@@ -112,7 +112,7 @@
 					<%}else if(0==interval.get(i).get(j).getSpace_height()){%>
 						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getText2().substring(5)%>～<%=bel.get(i).get(j).getText3().substring(11) %></p>
+							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %></p>
 							<div class="event-division">
 								<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
 								<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
@@ -122,7 +122,7 @@
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
 						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getText2().substring(5)%>～<%=bel.get(i).get(j).getText3().substring(11) %></p>
+							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %></p>
 							<div class="event-division">
 								<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
 								<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
