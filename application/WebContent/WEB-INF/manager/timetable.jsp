@@ -23,7 +23,7 @@
 
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/user/timetable.css">
+<link rel="stylesheet" href="css/manager/timetable.css">
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/jQueryUI-v1.12.1.js"></script>
 <!--  カレンダーの日本語化  -->

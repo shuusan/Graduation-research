@@ -9,7 +9,7 @@ ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/user/setting.css">
+    <link rel="stylesheet" href="css/manager/setting.css">
     <title>設定</title>
 </head>
 

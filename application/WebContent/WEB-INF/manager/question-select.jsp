@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/user/question-select.css">
+    <link rel="stylesheet" href="css/manager/question-select.css">
     <title>質問分類選択</title>
 </head>
 

@@ -12,7 +12,7 @@
 
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/user/question-responce.css">
+<link rel="stylesheet" href="css/manager/question-responce.css">
 <title>回答閲覧</title>
 </head>
 

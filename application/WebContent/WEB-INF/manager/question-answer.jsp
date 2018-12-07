@@ -19,7 +19,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/user/question-common.css">
-<title>よくある質問</title>
+<title>回答フォーム</title>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
 		</ul>
 	</header>
 	<main>
-	<p id="title">よくある質問</p>
+	<p id="title">回答フォーム</p>
 	<form action="User_Question_common" method="post" id="search">
 		<select id="select" name="select">
 			<option selected value="404">ソート</option>
@@ -57,7 +57,7 @@
 			<%} %>
 		</select>
 		<input type="text" placeholder="検索する" id="textfield" name="text">
-		<button type="submit" class="square_btn">送信！</button>
+		<button type="submit" class="square_btn">検索！</button>
 		<a id="square_btn" href="Manager_Question_common">よくある質問</a>
 	</form>
 	<form action="User_Question_responce" method="post" id="question">

@@ -9,7 +9,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/user/question-submit.css">
+    <link rel="stylesheet" href="css/manager/question-submit.css">
     <title>質問送信</title>
 </head>
 
