@@ -25,7 +25,7 @@
         </ul>
     </header>
     <main>
-	    <form action="User_Question_submit"	metdod="get">
+	    <form action="Manager_Question_submit"	metdod="get">
 	    	<div id="area">
                 <button type="submit"  value="1"  name="selectButton"><img src="photo/ankeeto.png" alt="1"></button>
                 <button type="submit"  value="2"  name="selectButton"><img src="photo/bag.png" alt="2"></button>
