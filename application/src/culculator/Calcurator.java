@@ -63,14 +63,16 @@ public class Calcurator {
 
 	public static HashMap<Integer, ArrayList<User_DTO>> reKey(HashMap<Integer, ArrayList<User_DTO>> map){
 		HashMap<Integer, ArrayList<User_DTO>> result = new HashMap<>();
-		String text="";
-		text=String.valueOf(map.keySet()).substring(1);
-		text=text.substring(0,text.length()-1);
-		text=text.trim();
-		String[] numberList = text.split(",");
-		result.put(0, map.get(Integer.parseInt(numberList[0])));
-		for(int i=1; i<numberList.length;i++) {
-			result.put(i, map.get(Integer.parseInt(numberList[i].substring(1))));
+		if(!map.isEmpty()) {
+			String text="";
+			text=String.valueOf(map.keySet()).substring(1);
+			text=text.substring(0,text.length()-1);
+			text=text.trim();
+			String[] numberList = text.split(",");
+			result.put(0, map.get(Integer.parseInt(numberList[0])));
+			for(int i=1; i<numberList.length;i++) {
+				result.put(i, map.get(Integer.parseInt(numberList[i].substring(1))));
+			}
 		}
 		return result;
 	}

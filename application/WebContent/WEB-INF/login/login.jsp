@@ -13,15 +13,13 @@
 	<p id="title">イベント管理タイムテーブル</p>
 	<div id="area">
 		<p id="userlog">ログイン</p>
-		<form action="Login_Main" method="post">
-			<div id="text">
-				<p style="color: red">
-					<input type="number" name="id" placeholder="学籍番号(半角数字7桁)" class="textfield"  required><br>
-					<br>
-					<input type="password" name="pass" placeholder="パスワード" class="textfield" maxlength='30' required><br>
-					<%=request.getAttribute("caution") %>
-				</p>
-			</div>
+		<form action="Login_Main" method="post" id="text">
+			<p style="color: red">
+				<input type="number" name="id" placeholder="学籍番号(半角数字7桁)" class="textfield"  required><br>
+				<br>
+				<input type="password" name="pass" placeholder="パスワード" class="textfield" maxlength='30' required><br>
+				<%=request.getAttribute("caution") %>
+			</p>
 			<button type="submit" id="Login">ログイン</button>
 		</form>
 		<br> <a href="#" class="position">パスワードを忘れた方</a><br> <a

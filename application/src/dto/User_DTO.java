@@ -1,20 +1,24 @@
 package dto;
 
 public class User_DTO {
-	int num,num1,num2,num3;
-	String text,text1,text2,text3;
-	long lnum,lnum1;
+	private int num,num1,num2,num3;
+	private String text,text1,text2,text3;
+	private StringBuilder sb,sb1;
+	private long lnum,lnum1;
 	public User_DTO() {}
-	public User_DTO(int num, int num1, String text, String text1, int num2, long lnum, long lnum1,int num3) {
+	public User_DTO(int num, int num1, String text, String text1, int num2, long lnum, long lnum1, int num3,
+			StringBuilder sb, StringBuilder sb1) {
 		super();
 		this.num = num;
 		this.num1 = num1;
-		this.num2 = num2;
 		this.text = text;
-		this.lnum= lnum;
-		this.lnum1= lnum1;
 		this.text1 = text1;
+		this.num2 = num2;
+		this.lnum = lnum;
+		this.lnum1 = lnum1;
 		this.num3 = num3;
+		this.sb = sb;
+		this.sb1 = sb1;
 	}
 	public User_DTO(int num, String text) {
 		super();
@@ -101,5 +105,16 @@ public class User_DTO {
 	public void setLnum1(long lnum1) {
 		this.lnum1 = lnum1;
 	}
-
+	public StringBuilder getSb() {
+		return sb;
+	}
+	public void setSb(StringBuilder sb) {
+		this.sb = sb;
+	}
+	public StringBuilder getSb1() {
+		return sb1;
+	}
+	public void setSb1(StringBuilder sb1) {
+		this.sb1 = sb1;
+	}
 }

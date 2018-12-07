@@ -30,6 +30,9 @@
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
 <script type="text/javascript" src="js/dateSubmit.js"></script>
+<script type="text/javascript" src="js/jquery.sidebar.js"></script>
+<script type="text/javascript" src="js/sidebar.js"></script>
+    <script type="text/javascript" src="js/replace.js"></script>
 <title>タイムテーブル</title>
 </head>
 
@@ -50,16 +53,13 @@
 				%>
 			</form>
 		</div>
+		<p id="date"><%=String.valueOf(session.getAttribute("date"))%></p>
 		<p id="timer">
 			<span id="timertext">2018年11月9日 10時8分8秒</span><br>
 			<script>// <![CDATA[
                 function showClock2() {
                   var dd = new Date();
-                  var text = dd.getFullYear() + "/";
-                  text += (dd.getMonth() + 1) + "/";
-                  text += dd.getDate();
-                  text += " ";
-                  text += dd.getHours() + ":";
+                  var text = dd.getHours() + ":";
                   text += dd.getMinutes() + ":";
                   text += dd.getSeconds();
                   document.getElementById("timertext").innerHTML = text;
@@ -78,9 +78,11 @@
 
 	<main>
 		<div id="subevent-area" style="width: calc(20px + 300px * <%=bel.size() %>)">
-			<p id="subevent-blank"></p>
-			<%for(int i =0; i < bel.size(); i++){%>
-			<p class="subevent-title"><%=mel.get(i).getText() %></p>
+			<%if(0!=bel.size()){ %>
+				<p id="subevent-blank"></p>
+			<%}
+			for(int i =0; i < bel.size(); i++){%>
+			<p class="subevent-title" id="set<%=i%>"><%=mel.get(i).getText() %></p>
 			<%}%>
 		</div>
 		<%int timeCount=0; %>
@@ -98,29 +100,32 @@
 					for(int j = 0; j < bel.get(i).size(); j++){
 					if(0==bel.get(i).get(j).getNum3()){%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
-						<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
-								<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
+								<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %></p>
 								<div class="event-division">
-									<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
-									<p><%=bel.get(i).get(j).getText1()%></p>
+									<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
+									<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
 								</div>
-							</button>
+						</button>
 					<%}else if(0==interval.get(i).get(j).getSpace_height()){%>
-							<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
-								<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-								<div class="event-division">
-									<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
-									<p><%=bel.get(i).get(j).getText1()%></p>
-								</div>
-							</button>
+						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %></p>
+							<div class="event-division">
+								<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
+								<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
+							</div>
+						</button>
 					<%}else{%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
-						<button type="button" class="event-button" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
-								<p class="event-time"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-								<div class="event-division">
-									<p class="event-title" id="event1"><%=bel.get(i).get(j).getText() %></p>
-									<p><%=bel.get(i).get(j).getText1()%></p>
-								</div>
+						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %></p>
+							<div class="event-division">
+								<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
+								<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
+							</div>
 						</button>
 					<%}
 					}%>
@@ -134,9 +139,25 @@
 				class="date-unshown" id="date-close" for="date-input"></label>
 			<form action="User_Timetable" method="post" id="date-content" name="form1">
 				<div id="datepicker"></div>
-				<input type="text" id="date" name="date" readonly="readonly" >
+				<input type="text" id="display" name="date" readonly="readonly" >
 			</form>
 		</div>
+		<div class="sidebars">
+            <div class="sidebar right">
+                <div class="bar-head">
+                    <p class="silabel">イベント概要</p>
+                    <a class="btn btn-danger" data-action="close" data-side="right">
+                        <img src="photo/close.png" alt="close" class="close">
+                    </a>
+                </div>
+                <div class="bar-body">
+                	<p class="bar-event"></p>
+                    <p class="bar-title"></p>
+                    <p class="bar-time"></p>
+                    <p class="bar-contents"></p>
+                </div>
+            </div>
+        </div>
 	</main>
 	<nav>
         <a href="User_Timetable" class="navi">
