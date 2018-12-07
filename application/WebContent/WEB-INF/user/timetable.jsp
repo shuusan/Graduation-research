@@ -53,16 +53,13 @@
 				%>
 			</form>
 		</div>
+		<p id="date"><%=String.valueOf(session.getAttribute("date"))%></p>
 		<p id="timer">
 			<span id="timertext">2018年11月9日 10時8分8秒</span><br>
 			<script>// <![CDATA[
                 function showClock2() {
                   var dd = new Date();
-                  var text = dd.getFullYear() + "/";
-                  text += (dd.getMonth() + 1) + "/";
-                  text += dd.getDate();
-                  text += " ";
-                  text += dd.getHours() + ":";
+                  var text = dd.getHours() + ":";
                   text += dd.getMinutes() + ":";
                   text += dd.getSeconds();
                   document.getElementById("timertext").innerHTML = text;
@@ -81,8 +78,10 @@
 
 	<main>
 		<div id="subevent-area" style="width: calc(20px + 300px * <%=bel.size() %>)">
-			<p id="subevent-blank"></p>
-			<%for(int i =0; i < bel.size(); i++){%>
+			<%if(0!=bel.size()){ %>
+				<p id="subevent-blank"></p>
+			<%}
+			for(int i =0; i < bel.size(); i++){%>
 			<p class="subevent-title" id="set<%=i%>"><%=mel.get(i).getText() %></p>
 			<%}%>
 		</div>
@@ -140,7 +139,7 @@
 				class="date-unshown" id="date-close" for="date-input"></label>
 			<form action="User_Timetable" method="post" id="date-content" name="form1">
 				<div id="datepicker"></div>
-				<input type="text" id="date" name="date" readonly="readonly" >
+				<input type="text" id="display" name="date" readonly="readonly" >
 			</form>
 		</div>
 		<div class="sidebars">

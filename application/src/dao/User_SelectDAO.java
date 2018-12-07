@@ -49,7 +49,7 @@ public class User_SelectDAO {
 		return resultList;
 	}
 
-	public static ArrayList<User_DTO> middle_event(int num){
+	public static ArrayList<User_DTO> middle_event(int num,String date){
 		ArrayList<User_DTO> list = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -60,9 +60,10 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT title FROM middle_event WHERE top_eventID = ?";
+			String sql = "SELECT title FROM middle_event WHERE top_eventID = ? AND start_datetime LIKE ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
+			pstmt.setString(2, date+"%");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				String title = rs.getString("title");
@@ -77,7 +78,7 @@ public class User_SelectDAO {
 		return list;
 	}
 
-	public static HashMap<Integer, ArrayList<User_DTO>> bottom_event(int num){
+	public static HashMap<Integer, ArrayList<User_DTO>> bottom_event(int num,String date){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		HashMap<Integer, ArrayList<User_DTO>> map = new HashMap<>();
@@ -91,9 +92,10 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT * FROM bottom_event WHERE top_eventID = ? ORDER BY start_datetime ASC";
+			String sql = " SELECT * FROM bottom_event WHERE top_eventID = ? AND start_datetime LIKE ? ORDER BY start_datetime ASC";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
+			pstmt.setString(2, date+"%");
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				int id = rs.getInt("id");

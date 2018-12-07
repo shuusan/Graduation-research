@@ -285,12 +285,9 @@ main {
 	border: none;
 }
 
-#date {
+#display {
 	/*color:white;*/
-	cursor:default;
-	-webkit-appearance: none;
-	background-color: white;
-	border: 6px solid white;
+	visibility: hidden;
 }
 
 /*タイマー*/
@@ -298,7 +295,16 @@ main {
 	margin: 0;
 	font-weight: bolder;
 }
-
+#date{
+	height: 90%;
+	margin: 0;
+	padding-right:10px;
+	font-size: 20px;
+	color: white;
+	font-weight:bold;
+	border-bottom: 2px solid white;
+	background-color: black;
+}
 #timer {
 	height: 90%;
 	margin: 0;

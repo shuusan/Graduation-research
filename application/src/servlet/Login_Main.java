@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -48,16 +50,17 @@ public class Login_Main extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		LocalDate ld = LocalDate.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		String view="";
 		if(Login_DAO.login(Integer.parseInt(request.getParameter("id")), request.getParameter("pass"))) {
 			HttpSession session = request.getSession();
-			session.setAttribute("userId", request.getParameter("id"));
 			//トップイベントリスト
 			ArrayList<User_DTO> hl = User_SelectDAO.top_event();
 			//ミドルイベントリスト
-			ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1);
-			//ボトムイベントリストr
-			HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event(1));
+			ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1,dtf.format(ld));
+			//ボトムイベントリスト
+			HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event(1,dtf.format(ld)));
 			//イベントや間隙の領域リスト
 			HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(bel);
 			//セッション打ち上げ
@@ -69,6 +72,8 @@ public class Login_Main extends HttpServlet {
 			session.setAttribute("here", 0);
 			session.setAttribute("userId", request.getParameter("id"));
 			session.setAttribute("top_eventId", 1);
+			session.setAttribute("date", dtf.format(ld).replace("-", "/"));
+			System.out.println(dtf.format(ld).replace("-", "/"));
 			view = "/WEB-INF/user/timetable.jsp";
 		}else {
 			request.setAttribute("caution", "学籍番号 または パスワードが間違っています。");
