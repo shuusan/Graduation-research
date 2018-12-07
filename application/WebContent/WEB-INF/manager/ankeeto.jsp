@@ -47,16 +47,16 @@ ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("
         </div>
     </main>
     <nav>
-        <a href="User_Timetable" class="navi">
+        <a href="Manager_Timetable" class="navi">
             タイムテーブル
         </a>
-        <a href="User_Question_common" class="navi">
+        <a href="Manager_Question_answer" class="navi">
             質問フォーム
         </a>
-        <a href="User_Ankeeto" class="navi">
+        <a href="Manager_Ankeeto" class="navi">
             アンケート機能
         </a>
-        <a href="User_Setting" class="navi">
+        <a href="Manager_Setting" class="navi">
             設 定
         </a>
     </nav>
