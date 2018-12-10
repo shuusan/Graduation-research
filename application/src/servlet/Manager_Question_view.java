@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.User_SelectDAO;
+import dao.Manager_DAO;
 
 /**
  * Servlet implementation class Question_view
@@ -30,15 +30,18 @@ public class Manager_Question_view extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "/WEB-INF/user/question-responce.jsp";
+		int id = Integer.parseInt(request.getParameter("buttonLink"));
+		request.setAttribute("id", id);
+		request.setAttribute("answer", Manager_DAO.anResponse(id));
+		String view = "/WEB-INF/manager/question-view.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("buttonLink"));
 		request.setAttribute("id", id);
-		request.setAttribute("answer", User_SelectDAO.coResponse(id));
-		String view = "/WEB-INF/user/question-responce.jsp";
+		request.setAttribute("answer", Manager_DAO.anResponse(id));
+		String view = "/WEB-INF/manager/question-view.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

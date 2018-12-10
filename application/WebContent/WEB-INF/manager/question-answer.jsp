@@ -1,4 +1,4 @@
-<%@page import="dto.User_DTO"%>
+<%@page import="dto.User_DTO,dto.Manager_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.ArrayList"%>
 <%
@@ -8,7 +8,7 @@
     ArrayList<User_DTO> tag = (ArrayList<User_DTO>)session.getAttribute("tag");
 
     @SuppressWarnings("unchecked")
-    ArrayList<User_DTO> aq = (ArrayList<User_DTO>)session.getAttribute("aqList");
+    ArrayList<Manager_DTO> aq = (ArrayList<Manager_DTO>)session.getAttribute("aqList");
 
     @SuppressWarnings("unchecked")
     ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
@@ -60,7 +60,7 @@
 		<button type="submit" class="square_btn">検索！</button>
 		<a class="square_btn" href="Manager_Question_common">よくある質問</a>
 	</form>
-	<form action="User_Question_view" method="post" id="question">
+	<form action="Manager_Question_view" method="post" id="question">
 		<%for(int i=0; i<aq.size();i++){ %>
 			<button type="submit" value="<%=aq.get(i).getNum()%>"
 				name="buttonLink" class="liSubmit"><%=aq.get(i).getText()%></button>

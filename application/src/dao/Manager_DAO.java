@@ -7,12 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dto.User_DTO;
+import dto.Manager_DTO;
 
 public class Manager_DAO {
 
-	public static ArrayList<User_DTO> aqList(int num){
-		ArrayList<User_DTO> list = new ArrayList<>();
+	public static ArrayList<Manager_DTO> aqList(int num){
+		ArrayList<Manager_DTO> list = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -29,7 +29,7 @@ public class Manager_DAO {
 			while(rs.next()) {
 				int id = rs.getInt("id");
 				String title = rs.getString("title");
-				list.add(new User_DTO(id,title));
+				list.add(new Manager_DTO(id,title));
 			}
 			con.close();
 		} catch (SQLException e){
@@ -39,4 +39,35 @@ public class Manager_DAO {
 		}
 		return list;
 	}
+
+	public static Manager_DTO anResponse(int num){
+		Manager_DTO dto = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT id,title,content,answer FROM question WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int id = rs.getInt("id");
+			String title = rs.getString("title");
+			String content= rs.getString("content");
+			String answer= rs.getString("answer");
+			dto = new Manager_DTO(id,title,content,answer);
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
+
 }
