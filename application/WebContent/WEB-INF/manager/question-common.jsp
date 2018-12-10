@@ -58,7 +58,7 @@
 		</select>
 		<input type="text" placeholder="検索する" id="textfield" name="text">
 		<button type="submit" class="square_btn">送信！</button>
-		<a id="square_btn" href="Manager_Question_answer">回答する</a>
+		<a class="square_btn" href="Manager_Question_answer">回答する</a>
 	</form>
 	<form action="User_Question_responce" method="post" id="question">
 		<%for(int i=0; i<cq.size();i++){ %>

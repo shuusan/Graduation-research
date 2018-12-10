@@ -18,7 +18,7 @@
 
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/user/question-common.css">
+<link rel="stylesheet" href="css/manager/question_answer.css">
 <title>回答フォーム</title>
 </head>
 
@@ -58,7 +58,7 @@
 		</select>
 		<input type="text" placeholder="検索する" id="textfield" name="text">
 		<button type="submit" class="square_btn">検索！</button>
-		<a id="square_btn" href="Manager_Question_common">よくある質問</a>
+		<a class="square_btn" href="Manager_Question_common">よくある質問</a>
 	</form>
 	<form action="User_Question_responce" method="post" id="question">
 		<%for(int i=0; i<cq.size();i++){ %>
