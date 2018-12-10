@@ -60,7 +60,7 @@
 		<button type="submit" class="square_btn">検索！</button>
 		<a class="square_btn" href="Manager_Question_common">よくある質問</a>
 	</form>
-	<form action="Manager_Question_view" method="post" id="question">
+	<form action="Manager_Question_view" method="get" id="question">
 		<%for(int i=0; i<aq.size();i++){ %>
 			<button type="submit" value="<%=aq.get(i).getNum()%>"
 				name="buttonLink" class="liSubmit"><%=aq.get(i).getText()%></button>
