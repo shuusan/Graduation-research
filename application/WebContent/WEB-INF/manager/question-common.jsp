@@ -72,7 +72,7 @@
             タイムテーブル
         </a>
         <a href="Manager_Question_answer" class="navi">
-            質問フォーム
+            回答フォーム
         </a>
         <a href="Manager_Ankeeto" class="navi">
             アンケート機能
