@@ -60,7 +60,7 @@
 		<button type="submit" class="square_btn">送信！</button>
 		<a class="square_btn" href="Manager_Question_answer">回答する</a>
 	</form>
-	<form action="User_Question_responce" method="post" id="question">
+	<form action="Manager_Question_responce" method="post" id="question">
 		<%for(int i=0; i<cq.size();i++){ %>
 			<button type="submit" value="<%=cq.get(i).getNum()%>"
 				name="buttonLink" class="liSubmit"><%=cq.get(i).getText()%></button>

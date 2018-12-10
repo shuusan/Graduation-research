@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import culculator.Calcurator;
+import dao.Manager_DAO;
 import dao.User_SelectDAO;
 
 /**
@@ -35,7 +36,7 @@ public class Manager_Question_answer extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("place", "Manager_Question_answer");
 		session.setAttribute("tag", User_SelectDAO.tagList());
-		session.setAttribute("cqList", User_SelectDAO.cqList(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
+		session.setAttribute("aqList", Manager_DAO.aqList(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
 		String view = "/WEB-INF/manager/question-answer.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
