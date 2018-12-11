@@ -54,7 +54,7 @@ public class Manager_Timetable extends HttpServlet {
 		session.setAttribute("mel", mel);
 		session.setAttribute("bel", bel);
 		session.setAttribute("interval", interval);
-		session.setAttribute("place", "User_Timetable");
+		session.setAttribute("place", "Manager_Timetable");
 		session.setAttribute("date", dtf.format(ld).replace("-", "/"));
 
 		String view = "/WEB-INF/manager/timetable.jsp";

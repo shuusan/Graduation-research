@@ -100,33 +100,33 @@
 					for(int j = 0; j < bel.get(i).size(); j++){
 					if(0==bel.get(i).get(j).getNum3()){%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
-						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
-								<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %></p>
+						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
+								<p class="event-time1" ><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%>"></p>
+							<input class="event-time2" id="time<%=i%><%=j%>" value="日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %>">
 								<div class="event-division">
-									<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
-									<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
+									<input class="event-title" id="title<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText() %>">
+									<input id="contents<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText1()%>">
 								</div>
-						</button>
+						</div>
 					<%}else if(0==interval.get(i).get(j).getSpace_height()){%>
-						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %></p>
+							<input type="text" class="event-time2" id="time<%=i%><%=j%>" value="日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %>">
 							<div class="event-division">
-								<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
-								<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
+								<input type="text" class="event-title" id="title<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText() %>">
+								<input type="text" id="contents<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText1()%>">
 							</div>
-						</button>
+						</div>
 					<%}else{%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
-						<button type="button" id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-							<p class="event-time2" id="time<%=i%><%=j%>">日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %></p>
+							<input type="text" class="event-time2" id="time<%=i%><%=j%>" value="日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %>">
 							<div class="event-division">
-								<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
-								<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
+								<input type="text" class="event-title" id="title<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText() %>">
+								<input type="text" id="contents<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText1()%>">
 							</div>
-						</button>
+						</div>
 					<%}
 					}%>
 				</div>
@@ -137,7 +137,7 @@
 			<input id="date-input" type="checkbox" class="date-unshown"> <label
 				id="date-open" for="date-input"><span></span></label> <label
 				class="date-unshown" id="date-close" for="date-input"></label>
-			<form action="User_Timetable" method="post" id="date-content" name="form1">
+			<form action="Manager_Timetable" method="post" id="date-content" name="form1">
 				<div id="datepicker"></div>
 				<input type="text" id="display" name="date" readonly="readonly" >
 			</form>
@@ -151,10 +151,10 @@
                     </a>
                 </div>
                 <div class="bar-body">
-                	<p class="bar-event"></p>
-                    <p class="bar-title"></p>
-                    <p class="bar-time"></p>
-                    <p class="bar-contents"></p>
+                	<input type="text" class="bar-event" name="bar-event">
+                    <input type="text" class="bar-title" name="bar-event">
+                    <input type="text" class="bar-time" name="bar-event">
+                    <input type="text" class="bar-contents" name="bar-event">
                 </div>
             </div>
         </div>
