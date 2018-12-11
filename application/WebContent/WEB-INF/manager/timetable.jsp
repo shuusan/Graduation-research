@@ -32,7 +32,7 @@
 <script type="text/javascript" src="js/dateSubmit.js"></script>
 <script type="text/javascript" src="js/jquery.sidebar.js"></script>
 <script type="text/javascript" src="js/sidebar.js"></script>
-    <script type="text/javascript" src="js/replace.js"></script>
+<script type="text/javascript" src="js/updateText.js"></script>
 <title>タイムテーブル</title>
 </head>
 
@@ -99,32 +99,52 @@
 					<%
 					for(int j = 0; j < bel.get(i).size(); j++){
 					if(0==bel.get(i).get(j).getNum3()){%>
+
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
+
 						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
-								<p class="event-time1" ><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%>"></p>
-							<input class="event-time2" id="time<%=i%><%=j%>" value="日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %>">
+
+								<p class="event-time1" ><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
+								<input type="text" class="visibility" id="timeDATA<%=i%><%=j%>" width="250px" value="<%=bel.get(i).get(j).getSb().toString()%>～<%=bel.get(i).get(j).getSb1().toString() %>">
+
 								<div class="event-division">
-									<input class="event-title" id="title<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText() %>">
-									<input id="contents<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText1()%>">
+									<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
+									<input class="visibility"  id="titleDATA<%=i%><%=j%>" readonly="readonly">
+
+									<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
+									<input class="visibility" id="contentsDATA<%=i%><%=j%>" readonly="readonly">
 								</div>
 						</div>
+
 					<%}else if(0==interval.get(i).get(j).getSpace_height()){%>
+
 						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-							<input type="text" class="event-time2" id="time<%=i%><%=j%>" value="日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %>">
+							<input type="text" class="visibility"  id="timeDATA<%=i%><%=j%>" value="<%=bel.get(i).get(j).getSb().toString()%>～<%=bel.get(i).get(j).getSb1().toString() %>">
+
 							<div class="event-division">
-								<input type="text" class="event-title" id="title<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText() %>">
-								<input type="text" id="contents<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText1()%>">
+								<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
+								<input type="text" class="visibility"  id="titleDATA<%=i%><%=j%>"  readonly="readonly">
+
+								<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
+								<input type="text" class="visibility" id="contentsDATA<%=i%><%=j%>" readonly="readonly">
 							</div>
 						</div>
+
 					<%}else{%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
+
 						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
-							<input type="text" class="event-time2" id="time<%=i%><%=j%>" value="日時：<%=bel.get(i).get(j).getSb().insert(10, "日").toString().substring(5).replace("-", "月")%>～<%=bel.get(i).get(j).getSb1().toString().substring(11) %>">
+							<input type="text" class="visibility" id="timeDATA<%=i%><%=j%>" value="<%=bel.get(i).get(j).getSb().toString()%>～<%=bel.get(i).get(j).getSb1().toString() %>">
+
 							<div class="event-division">
-								<input type="text" class="event-title" id="title<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText() %>">
-								<input type="text" id="contents<%=i%><%=j%>" value="<%=bel.get(i).get(j).getText1()%>">
+								<p class="event-title" id="title<%=i%><%=j%>"><%=bel.get(i).get(j).getText() %></p>
+								<input type="text" class="visibility" id="titleDATA<%=i%><%=j%>" readonly="readonly">
+
+								<p id="contents<%=i%><%=j%>"><%=bel.get(i).get(j).getText1()%></p>
+								<input type="text" class="visibility" id="contentsDATA<%=i%><%=j%>" readonly="readonly">
 							</div>
 						</div>
 					<%}
@@ -151,7 +171,7 @@
                     </a>
                 </div>
                 <div class="bar-body">
-                	<input type="text" class="bar-event" name="bar-event">
+                	<p class="bar-event"></p>
                     <input type="text" class="bar-title" name="bar-event">
                     <input type="text" class="bar-time" name="bar-event">
                     <input type="text" class="bar-contents" name="bar-event">
