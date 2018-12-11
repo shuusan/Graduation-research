@@ -11,17 +11,17 @@ $(document).ready(function () {
         id2 = "#title" + text;
         id3 = "#contents" + text;
         id4 = "#set" + text.slice(0,1);
+
         id5 = "#titleDATA" + text;
         id6 = "#contentsDATA" + text;
         var hoge1 = $(id1).val();
         var hoge2 = $(id2).text();
         var hoge3 = $(id3).text();
         var hoge4 = $(id4).text();
-        console.log(hoge1);
-        $('.bar-event').val(hoge4);
+        $('.bar-event').text(hoge4);
         $('.bar-title').val(hoge2);
         $('.bar-time').val(hoge1);
-        $('.bar-contents').text(hoge3);
+        $('.bar-contents').val(hoge3);
     })
 
     $('.bar-title').change(function () {

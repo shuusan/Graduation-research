@@ -140,7 +140,7 @@ main {
 /*イベント開始時間*/
 .event-time1 {
 	margin: 0;
-	padding: 4px 0 0 0;
+	padding: 1px 0 0 0;
 	float: left;
 	color: gray;
 }
@@ -358,28 +358,65 @@ main {
 .bar-time,
 .bar-title,
 .bar-contents {
-    margin: 10% auto;
+    margin: 5% auto;
     width: 90%;
     color: #2e2930;
 }
 
 .bar-event {
+    font-size: 1.5em;
     font-weight: bold;
     border-bottom: 5px dotted lime;
 }
 
 .bar-title {
+	height: 5%;
+    font-size: 1.1em;
     font-weight: bold;
     color: #2e2930;
-    border-bottom: 5px dotted lime;
+    resize: none;
+    outline: none;
+    margin-left: 5%;
+    background-color: whitesmoke;
 }
 
 .bar-time {
-    font-size: 1em;
-    border-bottom: 5px dotted lime;
+	height: 5%;
+    font-size: 1.1em;
+    font-weight:bold;
+    resize: none;
+    outline: none;
+    margin-left: 5%;
+    background-color: whitesmoke;
 }
 
 .bar-contents {
-    height: 65%;
-    border-bottom: 5px dotted lime;
+	height: 50%;
+    font-weight:bold;
+    resize: none;
+    outline: none;
+    margin-left: 5%;
+    background-color: whitesmoke;
+}
+
+#UF{
+	width: 100%;
+	height: 100%;
+}
+
+.square_btn {
+    display: inline-block;
+    padding: 0.25em 1em;
+    margin-left: 65%;
+    text-decoration: none;
+    color: gray;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    transition: .4s;
+    background-color: white;
+}
+
+.square_btn:hover {
+    background: #AFB5F3;
+    color: white;
 }
