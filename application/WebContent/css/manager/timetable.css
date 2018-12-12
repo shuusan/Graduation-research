@@ -55,7 +55,7 @@ main {
 
 /*内容*/
 .subevent-title {
-	width: 300px;
+	width: 299px;
 	height: 100%;
 	margin: 0;
 	line-height: 300%;
@@ -121,7 +121,7 @@ main {
 }
 
 /*ボタン*/
-.event-button {
+.btn.btn-primary {
 	width: 100%;
 	background-color: aliceblue;
 	border: none;
@@ -138,11 +138,20 @@ main {
 }
 
 /*イベント開始時間*/
-.event-time {
+.event-time1 {
 	margin: 0;
-	padding: 4px 0 0 0;
+	padding: 1px 0 0 0;
 	float: left;
 	color: gray;
+}
+
+.visibility {
+	height:1px;
+	width:1px;
+	margin: 0;
+	overflow: hidden;
+	float: left;
+	visibility:hidden;
 }
 
 /*イベント詳細領域*/
@@ -276,12 +285,9 @@ main {
 	border: none;
 }
 
-#date {
+#display {
 	/*color:white;*/
-	cursor:default;
-	-webkit-appearance: none;
-	background-color: white;
-	border: 6px solid white;
+	visibility: hidden;
 }
 
 /*タイマー*/
@@ -289,7 +295,16 @@ main {
 	margin: 0;
 	font-weight: bolder;
 }
-
+#date{
+	height: 90%;
+	margin: 0;
+	padding-right:10px;
+	font-size: 20px;
+	color: white;
+	font-weight:bold;
+	border-bottom: 2px solid white;
+	background-color: black;
+}
 #timer {
 	height: 90%;
 	margin: 0;
@@ -297,4 +312,111 @@ main {
 	color: white;
 	border-bottom: 2px solid white;
 	background-color: black;
+}
+/*サイドバー*/
+.sidebar.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 300px;
+    background: whitesmoke;
+}
+
+.sidebars > .sidebar {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.64);
+    position: fixed;
+    color: white;
+}
+
+.bar-head {
+    width: 100%;
+    height: 5%;
+    display: flex;
+}
+
+.silabel {
+    margin: 0;
+    width: 100%;
+    font-size: 1.5em;
+    color: gray;
+}
+
+.close {
+    width: 90%;
+    height: 85%;
+}
+
+.bar-body {
+    display: block;
+    width: 100%;
+    height: 90%;
+    margin-top: 5%;
+}
+
+.bar-event,
+.bar-time,
+.bar-title,
+.bar-contents {
+    margin: 5% auto;
+    width: 90%;
+    color: #2e2930;
+}
+
+.bar-event {
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: 5px dotted lime;
+}
+
+.bar-title {
+	height: 5%;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2e2930;
+    resize: none;
+    outline: none;
+    margin-left: 5%;
+    background-color: whitesmoke;
+}
+
+.bar-time {
+	height: 5%;
+    font-size: 1.1em;
+    font-weight:bold;
+    resize: none;
+    outline: none;
+    margin-left: 5%;
+    background-color: whitesmoke;
+}
+
+.bar-contents {
+	height: 50%;
+    font-weight:bold;
+    resize: none;
+    outline: none;
+    margin-left: 5%;
+    background-color: whitesmoke;
+}
+
+#UF{
+	width: 100%;
+	height: 100%;
+}
+
+.square_btn {
+    display: inline-block;
+    padding: 0.25em 1em;
+    margin-left: 65%;
+    text-decoration: none;
+    color: gray;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    transition: .4s;
+    background-color: white;
+}
+
+.square_btn:hover {
+    background: #AFB5F3;
+    color: white;
 }

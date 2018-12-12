@@ -1,25 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,dto.User_DTO"%>
+<%
+@SuppressWarnings("unchecked")
+ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
+%>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/user/setting.css">
+    <link rel="stylesheet" href="css/manager/setting.css">
     <title>設定</title>
 </head>
 
 <body>
     <header>
-        <div id="nav-drawer">
-            <input id="nav-input" type="checkbox" class="nav-unshown">
-            <label id="nav-open" for="nav-input"><span></span></label>
-            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-            <div id="nav-content">
-                <a href="#" class="nav" id="here">スポーツ大会</a>
-                <a href="#" class="nav">オープンキャンパス</a>
-            </div>
-        </div>
+
     </header>
     <main>
         <div id="nav">
@@ -55,16 +51,16 @@
         </div>
     </main>
     <nav>
-        <a href="User_Timetable" class="navi">
+        <a href="Manager_Timetable" class="navi">
             タイムテーブル
         </a>
-        <a href="User_Question_common" class="navi">
-            質問フォーム
+        <a href="Manager_Question_answer" class="navi">
+            回答フォーム
         </a>
-        <a href="User_Ankeeto" class="navi">
+        <a href="Manager_Ankeeto" class="navi">
             アンケート機能
         </a>
-        <a href="User_Setting" class="navi">
+        <a href="Manager_Setting" class="navi">
             設 定
         </a>
     </nav>

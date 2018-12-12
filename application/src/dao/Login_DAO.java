@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Login_DAO {
-	public static boolean login(int num, String text){
-		boolean flg = false;
+	public static int login(int num, String text){
+		int authority = 0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -18,15 +18,15 @@ public class Login_DAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT id,password FROM user WHERE id = ? AND password = ?";
+			String sql = "SELECT id,password,authority FROM user WHERE id = ? AND password = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, text);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				flg=true;
+				authority = rs.getInt("authority");
 			}else {
-				flg=false;
+				authority = 404;
 			}
 			con.close();
 		} catch (SQLException e){
@@ -34,6 +34,6 @@ public class Login_DAO {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return flg;
+		return authority;
 	}
 }

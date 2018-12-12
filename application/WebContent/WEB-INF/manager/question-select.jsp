@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/user/question-select.css">
+    <link rel="stylesheet" href="css/manager/question-select.css">
     <title>質問分類選択</title>
 </head>
 
@@ -25,7 +25,7 @@
         </ul>
     </header>
     <main>
-	    <form action="User_Question_submit"	metdod="get">
+	    <form action="Manager_Question_submit"	metdod="get">
 	    	<div id="area">
                 <button type="submit"  value="1"  name="selectButton"><img src="photo/ankeeto.png" alt="1"></button>
                 <button type="submit"  value="2"  name="selectButton"><img src="photo/bag.png" alt="2"></button>
@@ -40,16 +40,16 @@
 	    </form>
     </main>
     <nav>
-        <a href="User_Timetable" class="navi">
+        <a href="Manager_Timetable" class="navi">
             タイムテーブル
         </a>
-        <a href="User_Question_common" class="navi">
-            質問フォーム
+        <a href="Manager_Question_answer" class="navi">
+            回答フォーム
         </a>
-        <a href="User_Ankeeto" class="navi">
+        <a href="Manager_Ankeeto" class="navi">
             アンケート機能
         </a>
-        <a href="User_Setting" class="navi">
+        <a href="Manager_Setting" class="navi">
             設 定
         </a>
     </nav>
