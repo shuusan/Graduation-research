@@ -92,20 +92,42 @@ public class Manager_DAO {
 		}
 	}
 
-	public static void tiUpdate(String text,int id){
+	public static void tiUpdate(String[] text,int id){
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		String sql="";
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "UPDATE question SET ? WHERE id = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, text);
-			pstmt.setInt(2, id);
-			pstmt.executeUpdate();
+
+			if(null!=text[0]) {
+				sql = "UPDATE bottom_event SET title = ? WHERE id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, text[0]);
+				pstmt.setInt(2, id);
+				pstmt.executeUpdate();
+				pstmt = null;
+			}
+			if(null!=text[1]) {
+				String[] datetime = text[1].split("～");
+				sql = "UPDATE bottom_event SET start_datetime = ?, end_datetime = ? WHERE id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, datetime[0]);
+				pstmt.setString(2, datetime[1]);
+				pstmt.setInt(3, id);
+				pstmt.executeUpdate();
+				pstmt = null;
+			}
+			if(null!=text[2]) {
+				sql = "UPDATE bottom_event SET contents = ? WHERE id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, text[2]);
+				pstmt.setInt(2, id);
+				pstmt.executeUpdate();
+			}
 			con.close();
 		} catch (SQLException e){
 			e.printStackTrace();

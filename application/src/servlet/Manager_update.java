@@ -37,14 +37,13 @@ public class Manager_update extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		ArrayList<User_DTO> smel = (ArrayList<User_DTO>)session.getAttribute("mel");
@@ -54,25 +53,24 @@ public class Manager_update extends HttpServlet {
 		String title = "titleDATA";
 		String time = "timeDATA";
 		String contents = "contentsDATA";
-		String sql="";
+		String[] value = new String[3];
 
 		for(int i=0; i<smel.size();i++) {
-			for(int j=0; j<sbel.get(i).size();i++) {
+			for(int j=0; j < sbel.get(i).size();j++) {
 				title = title+i+j;
 				time = time+i+j;
 				contents = contents+i+j;
-				if(!(request.getParameter(title).isEmpty())||!(request.getParameter(time).isEmpty())||!(request.getParameter(contents).isEmpty())) {
+				if(null!=request.getParameter(title)||null!=request.getParameter(time)||null!=request.getParameter(contents)) {
 					if(!(request.getParameter(title).isEmpty())) {
-						sql = "title = " + request.getParameter(title) + " ";
+						value[0] = request.getParameter(title);
 					}
 					if(!(request.getParameter(time).isEmpty())) {
-						sql = "time = " + request.getParameter(time) + " ";
+						value[1] = request.getParameter(time);
 					}
 					if(!(request.getParameter(contents).isEmpty())) {
-						sql = "contents = " + request.getParameter(contents) + " ";
+						value[2] = request.getParameter(contents);
 					}
-					sql = sql.trim();
-					Manager_DAO.tiUpdate(sql, sbel.get(i).get(j).getNum());
+					Manager_DAO.tiUpdate(value, sbel.get(i).get(j).getNum());
 				}
 			}
 		}
@@ -80,9 +78,9 @@ public class Manager_update extends HttpServlet {
 		//トップイベントリスト
 		ArrayList<User_DTO> hl = User_SelectDAO.top_event();
 		//ミドルイベントリスト
-		ArrayList<User_DTO> mel = User_SelectDAO.middle_event(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId"))),request.getParameter("date"));
+		ArrayList<User_DTO> mel = User_SelectDAO.middle_event(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId"))),String.valueOf(session.getAttribute("date")));
 		//ボトムイベントリスト
-		HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId"))),request.getParameter("date")));
+		HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId"))),String.valueOf(session.getAttribute("date"))));
 		//イベントや間隙の領域リスト
 		HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(bel);
 		//セッション打ち上げ

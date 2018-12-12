@@ -53,7 +53,7 @@
 				%>
 			</form>
 		</div>
-		<p id="date"><%=String.valueOf(session.getAttribute("date"))%></p>
+		<p id="date"><%=String.valueOf(session.getAttribute("date")).replace("-", "/")%></p>
 		<p id="timer">
 			<span id="timertext">2018年11月9日 10時8分8秒</span><br>
 			<script>// <![CDATA[
@@ -87,7 +87,7 @@
 			<%}%>
 		</div>
 		<%int timeCount=0; %>
-		<form id="UF" name="UF" method="post">
+		<form id="UF" name="UF" method="post" action="Manager_update">
 		<div id="event" style="width: calc(20px + 300px * <%=bel.size() %>)">
 			<div id="time-area">
 				<%for(int i = interval.get(bel.size()).get(0).getSpace_height(); i < interval.get(bel.size()).get(0).getButton_height()+1; i++){ %>

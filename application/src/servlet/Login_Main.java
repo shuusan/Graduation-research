@@ -77,7 +77,7 @@ public class Login_Main extends HttpServlet {
 				session.setAttribute("here", 0);
 				session.setAttribute("userId", request.getParameter("id"));
 				session.setAttribute("top_eventId", 1);
-				session.setAttribute("date", dtf.format(ld).replace("-", "/"));
+				session.setAttribute("date", dtf.format(ld));
 				if(1==authority) {
 					view = "/WEB-INF/manager/timetable.jsp";
 				}else {
