@@ -1,7 +1,12 @@
 @charset "UTF-8";
+
 @import url(index.css);
+
 @import url(hamburger.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css);
+
+@import
+	url(https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css)
+	;
 /*
 timetable階層構造
     main {
@@ -28,256 +33,268 @@ timetable階層構造
         }
     }
 */
-
 main {
-    width: 100%;
-    overflow-x: scroll;
+	width: 100%;
+	overflow-x: scroll;
 }
 
 /*領域*/
 #subevent-area {
-    height: 10%;
-    width: 100%;
-    display: flex;
+	height: 10%;
+	width: 100%;
+	display: flex;
 }
 
 /*左側の時間表示分を埋める*/
 #subevent-blank {
-    width: 20px;
-    height: 100%;
-    margin: 0;
-    background-color: black;
+	width: 20px;
+	height: 100%;
+	margin: 0;
+	background-color: black;
 }
 
 /*内容*/
 .subevent-title {
-    width: 300px;
-    height: 100%;
-    margin: 0;
-    line-height: 300%;
-    color: white;
-    text-align: center;
-    border-left: 1px solid white;
-    word-wrap: break-word;
-    background-color: black;
+	width: 300px;
+	height: 100%;
+	margin: 0;
+	line-height: 300%;
+	color: white;
+	text-align: center;
+	border-left: 1px solid white;
+	word-wrap: break-word;
+	background-color: black;
 }
 
 /*縦スクロールするための領域*/
 #event {
-    height: 90%;
-    overflow-wrap: break-word;
-    display: flex;
-    overflow: auto;
-    /*    scrollバーの表示    */
-    -ms-overflow-style: none;
+	height: 90%;
+	overflow-wrap: break-word;
+	display: flex;
+	overflow: auto;
+	/*    scrollバーの表示    */
+	-ms-overflow-style: none;
 }
 
 /*scrollバーの非表示*/
 #event::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 /*時間領域*/
 #time-area {
-    width: 20px;
-    height: 73%;
-    position: fixed;
-    overflow-y: scroll;
-    /*    scrollバーの表示    */
-    -ms-overflow-style: none;
+	width: 20px;
+	height: 73%;
+	position: fixed;
+	overflow-y: scroll;
+	/*    scrollバーの表示    */
+	-ms-overflow-style: none;
 }
 
 /*scrollバーの非表示*/
 #time-area::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 /*時間内容*/
 .constant-hour {
-    height: 300px;
-    margin: 0;
-    color: white;
-    text-align: center;
-    line-height: 300px;
-    background-color: lime;
-    border-bottom: 1px solid white;
+	height: 300px;
+	margin: 0;
+	color: white;
+	text-align: center;
+	line-height: 300px;
+	background-color: lime;
+	border-bottom: 1px solid white;
 }
 
 /*イベント領域*/
 #event-area {
-    display: flex;
-    height: 7223px;
-    margin-left: 20px;
+	display: flex;
+	margin-left: 20px;
 }
 
 /*イベントごとの領域*/
 .event-contents {
-    width: 300px;
-    height: 7223px;
-    overflow: hidden;
-    border-right: 1px solid lightgray;
+	width: 300px;
+	overflow: hidden;
+	border-right: 1px solid lightgray;
 }
 
 /*ボタン*/
 .event-button {
-    width: 100%;
-    margin-bottom: 1px;
-    background-color: aliceblue;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid lightgray;
+	width: 100%;
+	background-color: aliceblue;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid lightgray;
+}
+/*空き時間表示*/
+.time-brank {
+	margin: 0;
+	width: 100%;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid lightgray;
 }
 
 /*イベント開始時間*/
 .event-time {
-    margin: 0;
-    padding: 4px 0 0 0;
-    float: left;
-    color: gray;
+	margin: 0;
+	padding: 4px 0 0 0;
+	float: left;
+	color: gray;
 }
 
 /*イベント詳細領域*/
 .event-division {
-    width: 96%;
-    padding: 0;
-    margin: 0 0 100% 5%;
+	width: 96%;
+	padding: 0;
+	margin: 0 0 100% 5%;
 }
 
 /*イベント名*/
 .event-title {
-    font-weight: bold;
-    word-wrap: break-word;
+	font-weight: bold;
+	word-wrap: break-word;
 }
 
 /*イベント内容*/
 .event-division p {
-    margin: 0;
-    height: 100%;
-    font-size: 15px;
-    text-align: left;
+	margin: 0;
+	height: 100%;
+	font-size: 15px;
+	text-align: left;
 }
 
 /*日時変更ボタン*/
 #date-drawer {
-    width: 1em;
-    height: 100%;
-    position: fixed;
-    top: 70%;
-    left: 90%;
+	width: 1em;
+	height: 100%;
+	position: fixed;
+	top: 70%;
+	left: 90%;
 }
 
 /*チェックボックス等は非表示に*/
 .date-unshown {
-    display: none;
+	display: none;
 }
 
 /*アイコンのスペース*/
 #date-open {
-    display: inline-block;
-    vertical-align: middle;
-    position: absolute;
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    background-image: url(../../photo/calendar.png);
-    background-size: 60% 60%;
-    background-repeat: no-repeat;
-    background-color: lime;
-    transition: .5s;
-    background-position: center center;
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-image: url(../../photo/calendar.png);
+	background-size: 60% 60%;
+	background-repeat: no-repeat;
+	background-color: lime;
+	transition: .5s;
+	background-position: center center;
 }
 
 /*閉じる用の薄黒カバー*/
 #date-close {
-    display: none;
-    /*はじめは隠しておく*/
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    /*全体に広がるように*/
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: 0;
-    transition: .3s ease-in-out;
+	display: none;
+	/*はじめは隠しておく*/
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	/*全体に広がるように*/
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0;
+	transition: .3s ease-in-out;
 }
 
 /*中身*/
 #date-content {
-    position: fixed;
-    top: 0;
-    left: 100%;
-    z-index: 9999;
-    /*最前面に*/
-    width: 90%;
-    /*右側に隙間を作る（閉じるカバーを表示）*/
-    max-width: 330px;
-    /*最大幅（調整してください）*/
-    height: 100%;
-    /*背景色*/
-    background-color: white;
-    transition: .3s ease-in-out;
-    /*滑らかに表示*/
-    -webkit-transform: translateX(105%);
-    transform: translateX(105%);
-    /*左に隠しておく*/
+	position: fixed;
+	top: 0;
+	left: 100%;
+	z-index: 9999;
+	/*最前面に*/
+	width: 90%;
+	/*右側に隙間を作る（閉じるカバーを表示）*/
+	max-width: 330px;
+	/*最大幅（調整してください）*/
+	height: 100%;
+	/*背景色*/
+	background-color: white;
+	transition: .3s ease-in-out;
+	/*滑らかに表示*/
+	-webkit-transform: translateX(105%);
+	transform: translateX(105%);
+	/*左に隠しておく*/
 }
 
 .date {
-    display: inline;
-    width: 99%;
-    height: 50px;
-    margin: 0;
-    word-wrap: break-word;
-    border: 1px solid white;
-    border-left: none;
-    background-color: #6B74D9;
+	display: inline;
+	width: 99%;
+	height: 50px;
+	margin: 0;
+	word-wrap: break-word;
+	border: 1px solid white;
+	border-left: none;
+	background-color: #6B74D9;
 }
 
 /*自分の現在いる場所を修飾*/
 #here {
-    width: 96.2%;
-    border-left: 10px solid yellow;
+	width: 96.2%;
+	border-left: 10px solid yellow;
 }
 
 /*チェックが入ったらもろもろ表示*/
 #date-input:checked ~ #date-close {
-    display: block;
-    /*カバーを表示*/
-    opacity: .5;
+	display: block;
+	/*カバーを表示*/
+	opacity: .5;
 }
 
 #date-input:checked ~ #date-content {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-    /*中身を表示（右へスライド）*/
-    box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+	/*中身を表示（右へスライド）*/
+	box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
 }
 
 /*カレンダーの大きさ*/
 .ui-datepicker {
-    width: 97%;
-    padding: .2em .2em 0;
-    display: none;
-    border: none;
+	width: 97%;
+	padding: .2em .2em 0;
+	display: none;
+	border: none;
 }
 
 .ui-widget.ui-widget-content {
-    border: none;
+	border: none;
+}
+
+#date {
+	/*color:white;*/
+	cursor:default;
+	-webkit-appearance: none;
+	background-color: white;
+	border: 6px solid white;
 }
 
 /*タイマー*/
 #timertext {
-    margin: 0;
-    font-weight: bolder;
+	margin: 0;
+	font-weight: bolder;
 }
 
 #timer {
-    height: 90%;
-    margin: 0;
-    font-size: 20px;
-    color: white;
-    border-bottom: 2px solid white;
-    background-color: black;
+	height: 90%;
+	margin: 0;
+	font-size: 20px;
+	color: white;
+	border-bottom: 2px solid white;
+	background-color: black;
 }

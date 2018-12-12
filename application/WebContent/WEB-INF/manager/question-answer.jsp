@@ -43,7 +43,7 @@
             </select>
             <input type="text" placeholder="検索する" id="textfield">
             <a href="#" id="square_btn">送信！</a>
-            <a id="square_btn" href="Question_common">よくある質問</a>
+            <a id="square_btn" href="Manager_Question_common">よくある質問</a>
         </div>
         <div id="question">
             <ul id="common-contents">

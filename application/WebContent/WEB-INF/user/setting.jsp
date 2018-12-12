@@ -1,25 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,dto.User_DTO"%>
+<%
+@SuppressWarnings("unchecked")
+ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("hl");
+%>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/user/setting.css">
-    <title>メインページ</title>
+    <title>設定</title>
 </head>
 
 <body>
     <header>
-        <div id="nav-drawer">
-            <input id="nav-input" type="checkbox" class="nav-unshown">
-            <label id="nav-open" for="nav-input"><span></span></label>
-            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-            <div id="nav-content">
-                <a href="#" class="nav" id="here">スポーツ大会</a>
-                <a href="#" class="nav">オープンキャンパス</a>
-            </div>
-        </div>
+
     </header>
     <main>
         <div id="nav">
@@ -32,21 +28,25 @@
         </div>
         <div id="sub">
             <div id="scroll">
-                <div id="Password" class="contents">
-                    <div class="title">
-                        <h2>Password</h2><br>
-                    </div>
-                    <input type="text" class="text" placeholder="新しいパスワードの入力"><br>
-                    <input type="text" class="text" placeholder="新しいパスワードをもう一度入力">
-                    <a href="#" class="square_btn">変更</a>
-                </div>
-                <div id="Mail" class="contents">
-                    <div class="title">
-                        <h2>Mail</h2><br>
-                    </div>
-                    <input type="text" class="text" placeholder="新しいメールアドレスの入力">
-                    <a href="#" class="square_btn">変更</a>
-                </div>
+            	<form action="User_Setting" method="post" name="passwordForm">
+	                <div id="Password" class="contents">
+	                    <div class="title">
+	                        <h2>Password</h2><p><%=request.getAttribute("cautionPass") %><br>
+	                    </div>
+	                    <input type="password" name="password" class="text" placeholder="新しいパスワードの入力" required="required"><br>
+	                    <input type="password" name="check" class="text" placeholder="新しいパスワードをもう一度入力" required="required">
+	                    <button type="submit" class="square_btn" value="0" name="dif">変更</button>
+	                </div>
+                </form>
+                <form action="User_Setting" method="post">
+	                <div id="javascript:mailForm.summit()" class="contents">
+	                    <div class="title">
+	                        <h2>Mail</h2><p><%=request.getAttribute("cautionMail") %></p><br>
+	                    </div>
+	                    <input type="email" name="mail" class="text" placeholder="新しいメールアドレスの入力">
+	                    <button type="submit" class="square_btn" value="1" name="dif">変更</button>
+	                </div>
+                </form>
             </div>
         </div>
     </main>
