@@ -20,7 +20,6 @@
                 <a href="#" class="nav">オープンキャンパス</a>
             </div>
         </div>
-
     </header>
     <main>
         <div id="search">
@@ -30,7 +29,7 @@
             <input type="button" value="削除" class="button">
         </div>
 
-        <table rules="all">
+        <table>
             <thead>
                 <tr>
                     <th class="space"></th>
@@ -53,108 +52,7 @@
                     <td class="item_body" contentEditable>システムエンジニア</td>
                     <td class="item_body" contentEditable>s.takahasi1712@...</td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body" contentEditable>4171138</td>
-                    <td class="item_body" contentEditable>高橋秀瑛</td>
-                    <td id="item_body" contentEditable>2</td>
-                    <td class="item_body" contentEditable>情報システム科</td>
-                    <td class="item_body" contentEditable>システムエンジニア</td>
-                    <td class="item_body" contentEditable>s.takahasi1712@...</td>
-                </tr>
-
-
-            </tbody>
+			</tbody>
         </table>
     </main>
 

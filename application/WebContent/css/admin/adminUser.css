@@ -130,3 +130,8 @@ tr {
 .space {
     width: 25px;
 }
+
+th,td{
+	border: 1px solid #dbd0e6;
+}
+
