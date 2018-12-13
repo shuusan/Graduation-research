@@ -135,3 +135,24 @@ th,td{
 	border: 1px solid #dbd0e6;
 }
 
+table input[type="text"],
+input[type="number"],
+input[type="email"]{
+	width: 90%;
+	height:70%;
+	font-size: 1.2em;
+	outline: none;
+	background-color: whitesmoke;
+	border: 1px solid lightgray;
+	margin: 0 auto;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance:textfield;
+}
