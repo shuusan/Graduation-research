@@ -63,7 +63,6 @@
 .sample1 {
     font-size: 300px;
     margin: 30px 0 0 20px;
-
 }
 
 .sample1::-moz-selection {
@@ -73,6 +72,8 @@
 .sample1::selection {
     text-shadow: 5px 5px 5px red;
 }
+
+
 
 .btn {
     display: inline-block;
