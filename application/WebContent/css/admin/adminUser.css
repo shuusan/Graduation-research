@@ -5,6 +5,7 @@
 
 main {
     margin-left: 10%;
+    display: block;
 }
 
 table {
@@ -76,7 +77,7 @@ footer {
     width: 18%;
 }
 
-#item_body {
+.item_number {
     width: 10%;
 }
 
@@ -96,7 +97,6 @@ footer {
     background-color: whitesmoke;
 }
 
-
 /*スクロールバー設定 */
 thead {
     display: block;
@@ -108,10 +108,6 @@ tbody {
     width: 100%;
     height: 89.4%;
     overflow-y: scroll;
-}
-
-#aaa {
-    width: auto;
 }
 
 tr {
@@ -155,4 +151,9 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
     -moz-appearance:textfield;
+}
+
+form{
+	width: 100%;
+	height: 100%;
 }
