@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/ankeeto_update.css">
+    <title>メインページ</title>
+</head>
+
+<body>
+    <header>
+        <div id="nav-drawer">
+            <input id="nav-input" type="checkbox" class="nav-unshown">
+            <label id="nav-open" for="nav-input"><span></span></label>
+            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+            <div id="nav-content">
+                <a href="#" class="nav" id="here">スポーツ大会</a>
+                <a href="#" class="nav">オープンキャンパス</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="text">
+            <p>タイトル名</p>
+            <input type="text" placeholder="例：〇〇〇についてアンケートお願いします。" class="game">
+        </div>
+        <div class="text">
+            <p>URL</p>
+            <input type="text" placeholder="例：https://github.com/shuusan/Graduation-research.git" class="url">
+
+        </div>
+        <div class="text">
+            <p>回収期間</p>
+            <input type="datetime-local" class="time">～<input type="datetime-local" class="time">
+        </div>
+        <div class="boder">
+            <input type="button" value="戻る" class="button">
+            <input type="button" value="登録" class="update">
+        </div>
+
+    </main>
+
+    <footer>
+    </footer>
+</body>
+
+</html>
