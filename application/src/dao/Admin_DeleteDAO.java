@@ -4,11 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.ArrayList;
 
-public class Admin_UpdateDAO {
-	public static void updateUser(HashMap<String, String> map) {
+public class Admin_DeleteDAO {
+	public static void deleteUser(ArrayList<Integer> list) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try{
@@ -18,13 +17,10 @@ public class Admin_UpdateDAO {
 					"adminuser",
 					"password");
 
-			for (Iterator<String> n = map.keySet().iterator(); n.hasNext();){
-				String column = n.next();
-				String[] array = column.split(" ");
-				String sql = "UPDATE user set "+ array[0] +" = ? where id = ?";
+			for(int i=0; i<list.size();i++) {
+				String sql = "DELETE FROM user where id = ?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, map.get(column));
-				pstmt.setInt(2, Integer.parseInt(array[1]));
+				pstmt.setInt(1, list.get(i));
 				pstmt.executeUpdate();
 				pstmt = null;
 			}
@@ -35,5 +31,4 @@ public class Admin_UpdateDAO {
 			e.printStackTrace();
 		}
 	}
-
 }

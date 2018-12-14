@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Admin_DeleteDAO;
 import dao.Admin_SelectDAO;
 import dao.Admin_UpdateDAO;
 import dto.Admin_DTO;
@@ -81,12 +82,15 @@ public class Admin_user extends HttpServlet {
 
 		//削除
 		}else if(null!=request.getParameter("delete")){
-//			for(int i=0; i<list.size(); i++) {
-//				ArrayList<Admin_DeleteDAO>
-//				if(null!=request.getParameter("change_check"+i)) {
-//
-//				}
-//			}
+			ArrayList<Integer> dl = new ArrayList<Integer>();
+			for(int i=0; i<list.size(); i++) {
+				if(null!=request.getParameter("change_check"+i)) {
+					dl.add(Integer.parseInt(request.getParameter("change_check"+i)));
+				}
+			}
+			Admin_DeleteDAO.deleteUser(dl);;
+			session.setAttribute("userList", Admin_SelectDAO.userView());
+
 		}else {
 			System.out.println("管理できません");
 		}
