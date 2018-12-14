@@ -1,0 +1,151 @@
+@charset "UTF-8";
+@import url(index.css);
+
+#title {
+    text-align: center;
+    font-size: 60px;
+    line-height: 0cm;
+}
+
+#area {
+    width: 400px;
+    height: 400px;
+    margin: 100px 35% 10px 35%;
+    background-color: dimgrey;
+}
+
+.assistant {
+    font-size: 35px;
+    text-align: center;
+    color: midnightblue;
+}
+
+.sample1 input[type="text"] {
+    margin: 15%;
+    width: 100%;
+    /* 一旦100%幅     */
+    max-width: 250px;
+    /* 入力域の最大幅 */
+    height: 47px;
+    /* 入力域の高さ   */
+    background: #ffffff;
+    /* 入力域の背景色 */
+    border: 2px solid #87a689;
+    /* 入力域の枠線   */
+    border-radius: 23px;
+    /* ←ここで角丸のサイズを指定 */
+    padding: 0 20px;
+    /* 入力文字の余白 */
+    font-size: 26px;
+    /* 入力文字サイズ */
+    color: #323d33;
+    /* 入力文字の色   */
+    font-weight: bold;
+    /* 入力文字の太字 */
+    letter-spacing: .1em;
+    /* 入力文字の間隔 */
+}
+
+/* --- 入力フィールドにフォーカスか来たら ---------------*/
+.sample1 input[type="text"]:focus {
+    border-color: #db4949;
+    /* 枠線色         */
+    background: #ffffcc;
+    /* 背景色         */
+    outline: 0;
+}
+
+/* --- 入力説明の文字(標準) -----------------------------*/
+.sample1 input[type="text"]:placeholder-shown {
+    color: #808080;
+    /* 文字色     */
+    font-size: 16px;
+    /* 少し小さく     */
+}
+
+/* --- 入力説明の文字(Chrome,Safari,Android,iOS等) ---- -*/
+.sample1 input[type="text"]::-webkit-input-placeholder {
+    color: #808080;
+    /* 文字色     */
+    font-size: 16px;
+    /* 少し小さく     */
+}
+
+/* --- 入力説明の文字(IE用) -----------------------------*/
+.sample1 input[type="text"]:-ms-input-placeholder {
+    color: #808080;
+    /* 文字色         */
+    font-size: 16px;
+    /* 少し小さく     */
+}
+
+/* --- IEの入力エリア右側×消し -------------------------*/
+.sample1 input[type="text"]::-ms-clear {
+    display: none;
+    /* ×を消す       */
+}
+
+.btn {
+    margin: 0 0 0 50px;
+    display: inline-block;
+    /* 改行なしのブロック要素 */
+    position: relative;
+    /* 相対位置指定 */
+    width: 300px;
+    /* 横幅 */
+    height: 40px;
+    /* 高さ */
+    text-align: center;
+    /* 水平方向は中央揃え */
+    line-height: 30px;
+    /* 行の高さ */
+}
+
+.btn span {
+    display: block;
+    /* ブロック要素 */
+    position: absolute;
+    /* 親要素の左上を基準位置 */
+    width: 100%;
+    /* 横幅 */
+    height: 100%;
+    /* 高さ */
+    border: 1px solid #333;
+    /* 罫線 */
+    transform-style: preserve-3d;
+    /* 重なりを3Dで表示 */
+    transition: 2.5s;
+    /* 変化時間 */
+}
+
+.btn span:nth-child(1) {
+    background-color: yellowgreen;
+    /* Buttonボタンの色 */
+    color: #00007f;
+    /* Buttonの文字の色 */
+    transform: rotateY(0deg);
+    /* 縦軸の回転なし */
+    transform-origin: 67% 0 -100px;
+    /* transformの起点 */
+}
+
+.btn span:nth-child(2) {
+    background-color: lawngreen;
+    /* Clickボタンの色 */
+    color: pink;
+    /* Clickの文字の色 */
+    transform: rotateY(90deg);
+    /* 縦軸で90度回転 */
+    transform-origin: 67% 0 -100px;
+    /* transformの起点 */
+}
+
+.btn:hover span:nth-child(1) {
+    transform: rotateY(-90deg);
+    /* 縦軸で前方に90度回転 */
+}
+
+.btn:hover span:nth-child(2) {
+    transform: rotateY(0deg);
+    /* 縦軸の回転なし */
+}
