@@ -1,0 +1,49 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import dto.Admin_DTO;
+
+public class Admin_InsertDAO {
+
+	public static Admin_DTO insertUser(String[] array) {
+		Admin_DTO result = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "INSERT INTO user VALUES (?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(array[0]));
+			pstmt.setInt(2, Integer.parseInt(array[1]));
+			pstmt.setString(3, array[2]);
+			pstmt.setString(4, "password");
+			pstmt.setInt(5, Integer.parseInt(array[3]));
+			pstmt.setInt(6, Integer.parseInt(array[4]));
+			pstmt.setString(7, array[5]);
+			pstmt.executeUpdate();
+			result = new Admin_DTO(
+					Integer.parseInt(array[0]),
+					Integer.parseInt(array[1]),
+					array[2],
+					"password",
+					Integer.parseInt(array[3]),
+					Integer.parseInt(array[4]),
+					array[5]
+				);
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+}

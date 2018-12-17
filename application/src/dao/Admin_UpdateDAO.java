@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import dto.Admin_DTO;
+
 public class Admin_UpdateDAO {
 	public static void updateUser(HashMap<String, String> map) {
 		Connection con = null;
@@ -34,6 +36,43 @@ public class Admin_UpdateDAO {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static Admin_DTO updateUser2(String[] array) {
+		Admin_DTO result = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "UPDATE user SET department_id = ?, name = ?, grade = ?, authority = ?, mail = ? WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(array[0]));
+			pstmt.setString(2, array[1]);
+			pstmt.setInt(3, Integer.parseInt(array[2]));
+			pstmt.setInt(4, Integer.parseInt(array[3]));
+			pstmt.setString(5, array[4]);
+			pstmt.setInt(6, Integer.parseInt(array[5]));
+			pstmt.executeUpdate();
+			result = new Admin_DTO(
+					Integer.parseInt(array[5]),
+					Integer.parseInt(array[0]),
+					array[1],
+					"password",
+					Integer.parseInt(array[2]),
+					Integer.parseInt(array[3]),
+					array[4]
+				);
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }
