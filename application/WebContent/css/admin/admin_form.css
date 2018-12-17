@@ -112,3 +112,7 @@ tbody {
     overflow-y: scroll;
     height: 450px;
 }
+
+#search{
+	display: inline;
+}

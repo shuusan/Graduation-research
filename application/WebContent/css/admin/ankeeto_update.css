@@ -5,10 +5,16 @@
 
 main {
     height: 90%;
-    margin: 20px auto 5px auto;
-    margin-left: 10%;
+    margin: 0 auto 0 auto;
     background-color: whitesmoke;
 }
+
+#contents{
+	height: 100%;
+	width: 80%;
+	margin: 0 auto;
+}
+
 
 table {
     margin-top: 20px;
@@ -51,7 +57,6 @@ footer {
 
 .time {
     font-size: 2em;
-    width: 24.5%;
     height: 35px;
     border: 2px solid #dbd0e6;
     outline: 0;
@@ -59,8 +64,6 @@ footer {
 }
 
 .button {
-    height: 37px;
-    width: 75px;
     background-color: #e5e4e6;
     border: 2px solid #dbd0e6;
     margin-left: 20px;
@@ -71,21 +74,41 @@ footer {
     border: 2px solid #b3ada0;
 }
 
+.update {
+	height: 50%;
+	font-size: 1em;
+    background-color: #e5e4e6;
+    border: 2px solid #dbd0e6;
+    margin-left: 40%;
+}
+
 .update:hover {
     background-color: #e5e4e6;
     border: 2px solid #b3ada0;
 }
 
-.update {
-    height: 37px;
-    width: 75px;
-    background-color: #e5e4e6;
-    border: 2px solid #dbd0e6;
-    margin-left: 45%;
+.boder {
+	height:3em;
+	font-size: 1.5em;
+	width: 100%;
+    margin-top: 5%;
 }
 
-.boder {
-    margin-top: 5%;
+#back{
+	height: 100%;
+	padding:0 1em 0 1em;
+	text-decoration: none;
+    outline: none;
+    color: black;
+    height: 100%;
+    background-color: #e5e4e6;
+    border: 2px solid #dbd0e6;
+    margin-left: 5%;
+}
+
+#back:hover {
+    background-color: #e5e4e6;
+    border: 2px solid #b3ada0;
 }
 
 .pull {

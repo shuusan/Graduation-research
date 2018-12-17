@@ -21,9 +21,9 @@
         </div>
     </header>
     <main>
-        <div class="scroll" class="bbb">
+        <div class="scroll">
             <span>登録完了しました。</span>
         </div>
     </main>
-    <footer><a class="btn" href="***.html"><span>ここを押すと</span><span>戻る</span></a></footer>
+    <footer><a class="btn" href="Admin_ankeeto"><span>フォームへ</span><span>戻る</span></a><a class="btn" href="Admin_ankeeto_resist"><span>続けて登録する</span><span>登録</span></a></footer>
 </body>

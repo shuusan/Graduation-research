@@ -141,4 +141,35 @@ public class Admin_SelectDAO {
 		}
 		return result;
 	}
+
+	public static ArrayList<Admin_DTO> ankeetoView(){
+		//学年学科コースの取得
+		ArrayList<Admin_DTO> resultList = new ArrayList<Admin_DTO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM ankeeto";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				int id = rs.getInt("id");
+				String title = rs.getString("title");
+				resultList.add(new Admin_DTO(id, title));
+			}
+			con.close();
+		} catch (SQLException e){
+			if(rs==null){
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return resultList;
+	}
 }

@@ -1,11 +1,16 @@
+<%@page import="dto.Admin_DTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%	@SuppressWarnings("unchecked")
+	ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)session.getAttribute("adlist"); %>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/ankeeto.css">
+    <link rel="stylesheet" href="css/admin/admin_form.css">
     <title>メインページ</title>
 </head>
 
@@ -23,66 +28,25 @@
 
     </header>
     <main>
-        <input type="text" placeholder="キーワードを入力" id="textfield">
-        <input type="submit" value="検索" id="button">
-        <input type="button" value="新規作成" class="button">
-        <input type="button" value="削除" class="button">
-
+    	<form action="<%String.valueOf(session.getAttribute("fa"));%>" method="post" id="search">
+    	<input type="text" placeholder="キーワードを入力" id="textfield" name="sw">
+        <button type="submit" value="search" id="button" name="sb">検索</button>
+    	</form>
+        <form action="<%String.valueOf(session.getAttribute("fa"));%>" method="post">
+        	<button type="submit" value="resist" class="button" name="sb">新規作成</button>
+        	<button type="submit" value="delete" class="button" name="sb">削除</button>
         <table>
             <tbody>
+            <%for(int i=0; i<list.size();i++){ %>
                 <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
+                    <td><input type="checkbox" class="check" value="<%=list.get(i).getText() %>" name="cbx<%=i%>"></td>
+                    <td class="item_body"><%=list.get(i).getText() %></td>
+                    <td><button type="submit" class="editing" value="<%=list.get(i).getText() %>" name="btn<%=i%>">更新する</button></td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="check"></td>
-                    <td class="item_body">・・についてアンケートお願いします。</td>
-                    <td><input type="button" class="editing" value="更新"></td>
-                </tr>
+            <%} %>
             </tbody>
         </table>
-
+        </form>
     </main>
 
     <footer>

@@ -46,4 +46,29 @@ public class Admin_InsertDAO {
 		}
 		return result;
 	}
+
+	public static void ankeetoInsert(String[] array){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "INSERT INTO ankeeto VALUES (null,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(array[0]));
+			pstmt.setString(2, array[1]);
+			pstmt.setString(3, array[2]);
+			pstmt.setString(4, array[3]);
+			pstmt.setString(5, array[4]);
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }
