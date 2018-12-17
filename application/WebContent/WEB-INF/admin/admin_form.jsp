@@ -39,7 +39,7 @@
             <tbody>
             <%for(int i=0; i<list.size();i++){ %>
                 <tr>
-                    <td><input type="checkbox" class="check" value="<%=list.get(i).getText() %>" name="cbx<%=i%>"></td>
+                    <td><input type="checkbox" class="check" value="<%=list.get(i).getNum() %>" name="cbx<%=i%>"></td>
                     <td class="item_body"><%=list.get(i).getText() %></td>
                     <td><button type="submit" class="editing" value="<%=list.get(i).getText() %>" name="btn<%=i%>">更新する</button></td>
                 </tr>

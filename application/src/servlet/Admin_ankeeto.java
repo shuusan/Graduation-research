@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Admin_DeleteDAO;
 import dao.Admin_SelectDAO;
+import dto.Admin_DTO;
 
 /**
  * Servlet implementation class Admin_form
@@ -19,13 +22,13 @@ import dao.Admin_SelectDAO;
 public class Admin_ankeeto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Admin_ankeeto() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Admin_ankeeto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -56,6 +59,13 @@ public class Admin_ankeeto extends HttpServlet {
 			response.sendRedirect("Admin_ankeeto_resist");
 			break;
 		case "delete":
+			System.out.println("delete");
+			ArrayList<Admin_DTO> list = Admin_SelectDAO.ankeetoView();
+			for(int i=0; i<list.size();i++) {
+				if(null!=request.getParameter("cbx"+i)) {
+					Admin_DeleteDAO.deleteAnkeeto(Integer.parseInt(request.getParameter("cbx"+i)));
+				}
+			}
 			session.setAttribute("adlist", Admin_SelectDAO.ankeetoView());
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
