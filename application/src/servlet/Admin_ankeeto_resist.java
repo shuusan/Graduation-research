@@ -41,7 +41,7 @@ public class Admin_ankeeto_resist extends HttpServlet {
 		request.setAttribute("labottom", "回収期間");
 		request.setAttribute("edst", "");
 		request.setAttribute("eden", "");
-		request.setAttribute("sb", "登録する");
+		request.setAttribute("sbt", "登録する");
 		String view = "/WEB-INF/admin/admin_edit.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

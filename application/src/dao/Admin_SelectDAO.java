@@ -172,4 +172,72 @@ public class Admin_SelectDAO {
 		}
 		return resultList;
 	}
+
+	public static Admin_DTO ankeetoSearch(int num){
+		Admin_DTO result = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM ankeeto WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int id = rs.getInt("id");
+			int top_eventID = rs.getInt("top_eventID");
+			String title = rs.getString("title");
+			String url = rs.getString("url");
+			String start_datetime = rs.getString("start_datetime");
+			String end_datetime = rs.getString("end_datetime");
+			result = new Admin_DTO(id, top_eventID, title, url, start_datetime, end_datetime);
+			con.close();
+		} catch (SQLException e){
+			if(rs==null){
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public static Admin_DTO tes(int num){
+		Admin_DTO result = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM top_event WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int id = rs.getInt("id");
+			String name = rs.getString("name");
+			result = new Admin_DTO(id,name);
+			con.close();
+		} catch (SQLException e){
+			if(rs==null){
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

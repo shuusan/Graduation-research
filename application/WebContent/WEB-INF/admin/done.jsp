@@ -22,8 +22,8 @@
     </header>
     <main>
         <div class="scroll">
-            <span>登録完了しました。</span>
+            <span><%=String.valueOf(request.getAttribute("done")) %>完了しました</span>
         </div>
     </main>
-    <footer><a class="btn" href="Admin_ankeeto"><span>フォームへ</span><span>戻る</span></a><a class="btn" href="Admin_ankeeto_resist"><span>続けて登録する</span><span>登録</span></a></footer>
+    <footer><a class="btn" href="Admin_ankeeto"><span>フォームへ</span><span>戻る</span></a><a class="btn" href="Admin_ankeeto_resist"><span>続けて<%=String.valueOf(request.getAttribute("done")) %>する</span><span><%=String.valueOf(request.getAttribute("done")) %></span></a></footer>
 </body>

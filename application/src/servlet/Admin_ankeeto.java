@@ -46,10 +46,12 @@ public class Admin_ankeeto extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		String view = "/WEB-INF/admin/admin_form.jsp";
+		ArrayList<Admin_DTO> list = Admin_SelectDAO.ankeetoView();
 		RequestDispatcher dispatcher = null;
-		switch(request.getParameter("sb")) {
+		switch(null!=request.getParameter("sb")?request.getParameter("sb"):"update") {
 		case "search":
 			session.setAttribute("adlist", Admin_SelectDAO.ankeetoView());
 			dispatcher = request.getRequestDispatcher(view);
@@ -59,8 +61,6 @@ public class Admin_ankeeto extends HttpServlet {
 			response.sendRedirect("Admin_ankeeto_resist");
 			break;
 		case "delete":
-			System.out.println("delete");
-			ArrayList<Admin_DTO> list = Admin_SelectDAO.ankeetoView();
 			for(int i=0; i<list.size();i++) {
 				if(null!=request.getParameter("cbx"+i)) {
 					Admin_DeleteDAO.deleteAnkeeto(Integer.parseInt(request.getParameter("cbx"+i)));
@@ -70,8 +70,16 @@ public class Admin_ankeeto extends HttpServlet {
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;
-		default://update
-			response.sendRedirect(String.valueOf(session.getAttribute("place")));
+		case "update"://update
+			for(int i=0; i<list.size();i++) {
+				if(null!=request.getParameter("btn"+i)) {
+					Admin_DTO dto = Admin_SelectDAO.ankeetoSearch(Integer.parseInt(request.getParameter("btn"+i)));
+					session.setAttribute("anten", Admin_SelectDAO.tes(dto.getNum1()));
+					session.setAttribute("anup", dto);
+					break;
+				}
+			}
+			response.sendRedirect("Admin_ankeeto_update");
 		}
 
 	}

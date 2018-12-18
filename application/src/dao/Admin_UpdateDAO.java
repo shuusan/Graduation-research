@@ -75,4 +75,30 @@ public class Admin_UpdateDAO {
 		return result;
 	}
 
+	public static void updateAnkeeto(String[] array, int id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "UPDATE ankeeto SET top_eventID = ?, title = ?, url = ?, start_datetime = ?, end_datetime = ? WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(array[0]));
+			pstmt.setString(2, array[1]);
+			pstmt.setString(3, array[2]);
+			pstmt.setString(4, array[3]);
+			pstmt.setString(5, array[4]);
+			pstmt.setInt(6, id);
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

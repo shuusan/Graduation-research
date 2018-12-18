@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="dto.User_DTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,6 +6,8 @@
 <%
 @SuppressWarnings("unchecked")
 ArrayList<User_DTO> hl = (ArrayList<User_DTO>)request.getAttribute("hl");
+@SuppressWarnings("unchecked")
+HashMap<String, String> hm = (HashMap<String, String>)request.getAttribute("hm");
 %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -28,9 +31,9 @@ ArrayList<User_DTO> hl = (ArrayList<User_DTO>)request.getAttribute("hl");
         </div>
     </header>
     <main>
-    <form action="Admin_ankeeto_resist" method="post" id="contents">
+    <form action="<%=String.valueOf(session.getAttribute("fa2")) %>" method="post" id="contents">
     	<div class="text">
-            <p><%=String.valueOf(request.getAttribute("latop1")) %></p>
+            <p><%=hm.get("latop1") %></p>
             <select name="edsel" class="game">
             <%for(int i=0; i<hl.size();i++){ %>
             <option value="<%=hl.get(i).getNum() %>"><%=hl.get(i).getText() %></option>
@@ -38,21 +41,22 @@ ArrayList<User_DTO> hl = (ArrayList<User_DTO>)request.getAttribute("hl");
             </select>
         </div>
         <div class="text">
-            <p><%=String.valueOf(request.getAttribute("latop2")) %></p>
-            <input type="text" value="<%=String.valueOf(request.getAttribute("edtit")) %>" class="game" name="edtit" required>
+            <p><%=hm.get("latop2") %></p>
+            <input type="text" value="<%=hm.get("edtit") %>" class="game" name="edtit" required>
         </div>
         <div class="text">
-            <p><%=String.valueOf(request.getAttribute("lamiddle")) %></p>
-            <input type="text" value="<%=String.valueOf(request.getAttribute("edcon")) %>" class="url" name="edcon" required>
+            <p><%=hm.get("lamiddle") %></p>
+            <input type="text" value="<%=hm.get("edcon") %>" class="url" name="edcon" required>
 
         </div>
         <div class="text">
-            <p><%=String.valueOf(request.getAttribute("labottom")) %></p>
-            <input type="datetime-local" class="time" value="<%=String.valueOf(request.getAttribute("edst")) %>" name="edst" required="required">～<input type="datetime-local" class="time" value="<%=String.valueOf(request.getAttribute("eden")) %>" name="eden" required="required">
+            <p><%=hm.get("labottom") %></p>
+            <input type="date" value="<%=hm.get("edst_date") %>" name="edst_date" required="required"><input type="time" value="<%=hm.get("edst_time") %>" name="edst_time" required="required">
+            <input type="date" value="<%=hm.get("eden_date") %>" name="eden_date" required="required"><input type="time" value="<%=hm.get("eden_time") %>" name="eden_time" required="required">
         </div>
         <div class="boder">
             <a href="<%=String.valueOf(session.getAttribute("fa")) %>" id="back">戻る</a>
-            <input type="submit" value="<%=String.valueOf(request.getAttribute("sb")) %>" class="update">
+            <button type="submit" value="<%=Integer.parseInt(hm.get("sbv")) %>" class="update" name="btn"><%=hm.get("sbt") %></button>
         </div>
 	</form>
     </main>
