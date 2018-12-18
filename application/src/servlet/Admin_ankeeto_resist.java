@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,16 +33,21 @@ public class Admin_ankeeto_resist extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		request.setAttribute("latop1", "関連イベント名");
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("latop1", "関連イベント名");
+		hm.put("latop2", "タイトル");
+		hm.put("edtit", "");
+		hm.put("lamiddle", "URL");
+		hm.put("edcon", "");
+		hm.put("labottom", "回収期間");
+		hm.put("edst_date", "");
+		hm.put("edst_time", "");
+		hm.put("eden_date", "");
+		hm.put("eden_time", "");
+		hm.put("sbv", "");
+		hm.put("sbt", "登録する");
 		request.setAttribute("hl", User_SelectDAO.top_event());
-		request.setAttribute("latop2", "タイトル");
-		request.setAttribute("edtit", "");
-		request.setAttribute("lamiddle", "URL");
-		request.setAttribute("edcon", "");
-		request.setAttribute("labottom", "回収期間");
-		request.setAttribute("edst", "");
-		request.setAttribute("eden", "");
-		request.setAttribute("sbt", "登録する");
+		request.setAttribute("hm", hm);
 		String view = "/WEB-INF/admin/admin_edit.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

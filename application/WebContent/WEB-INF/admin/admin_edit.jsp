@@ -56,7 +56,7 @@ HashMap<String, String> hm = (HashMap<String, String>)request.getAttribute("hm")
         </div>
         <div class="boder">
             <a href="<%=String.valueOf(session.getAttribute("fa")) %>" id="back">戻る</a>
-            <button type="submit" value="<%=Integer.parseInt(hm.get("sbv")) %>" class="update" name="btn"><%=hm.get("sbt") %></button>
+            <button type="submit" value="<%=hm.get("sbv") %>" class="update" name="btn"><%=hm.get("sbt") %></button>
         </div>
 	</form>
     </main>
