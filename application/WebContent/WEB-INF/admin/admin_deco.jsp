@@ -51,7 +51,7 @@ ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)request.getAttribute("decoList
             <tbody>
             <%for(int i=0;i<list.size();i++){ %>
                 <tr>
-                    <td><input type="checkbox" class="check" value="<%=list.get(i).getNum()%>"></td>
+                    <td><input type="checkbox" class="check" value="<%=list.get(i).getNum()%>" name="cb<%=i%>"></td>
                     <td class="item_body"><input type="text" id="dep<%=i%>" class="department" value="<%=list.get(i).getText().split(" ")[0]%>" name="dep<%=i%>"></td>
                     <td class="item_body"><input type="text" id="cose<%=i%>" class="course" value="<%=list.get(i).getText().split(" ")[1]%>" name="cose<%=i%>"></td>
                 </tr>
