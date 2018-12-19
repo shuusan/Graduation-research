@@ -271,4 +271,32 @@ public class Admin_SelectDAO {
 		}
 		return resultList;
 	}
+
+	public static ArrayList<Admin_DTO> questionList(){
+		ArrayList<Admin_DTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT id,title FROM question";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String title = rs.getString("title");
+				list.add(new Admin_DTO(id,title));
+			}
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
