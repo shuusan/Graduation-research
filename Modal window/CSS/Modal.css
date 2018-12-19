@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+@import url(index.css);
+@import url(Destination.css);
+@import url(style.css);
+
+
+.modalNoDisp {
+    display: none;
+}
+
+.modalBg {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle at 50% 50%,
+        rgba(102, 255, 102, 0.90),
+        rgba(102, 255, 102, 0.70));
+    z-index: 10;
+}
+
+.modalBgOpen {
+    animation: bgOpenAnime 0.3s ease;
+}
+
+@keyframes bgOpenAnime {
+
+    /* フェードイン */
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+.modalBgClose {
+    bottom: 100%;
+    animation: bgCloseAnime 0.3s ease;
+}
+
+@keyframes bgCloseAnime {
+
+    /* フェードイン */
+    0% {
+        opacity: 1;
+        bottom: 0
+    }
+
+    100% {
+        opacity: 0;
+        bottom: 0
+    }
+}
+
+/* === モーダルウインド ==================================== */
+.modalBg .modalWindow {
+    /* モーダルウインドを中心に表示 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    /* ↓モーダルウインドウの見た目：変更してください */
+    width: 600px;
+    min-height: 500px;
+    background: #fff;
+    border: 1px solid #355;
+    border-radius: 10px;
+    font-size: 16pt;
+    text-align: center;
+}
+
+/* === モーダルウインド：OPEN時のアニメーション============= */
+.modalBgOpen .modalWindow {
+    animation: modalOpenAnime 1s ease;
+}
+
+@keyframes modalOpenAnime {
+
+    /* 右→中心 */
+    0% {
+        left: 150%
+    }
+
+    100% {
+        left: 50%
+    }
+}
+
+/* === モーダルウインド：CLOSE時のアニメーション============ */
+.modalBgClose .modalWindow {
+    animation: modalCloseAnime 0.5s ease;
+}
+
+@keyframes modalCloseAnime {
+
+    /* 中心→左 */
+    0% {
+        left: 50%
+    }
+
+    100% {
+        left: -50%
+    }
+}
+
+.button1 {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.button2 {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+}
+
+.textfield {
+    font-size: 150%;
+}
