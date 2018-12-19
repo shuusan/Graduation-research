@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/CSS/Modal.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/JS/MakeModal.js" language="javascript">
+
+    </script>
+
+</head>
+
+<head>
+
+    <main>
+        <input type="text" id="inText" oninput="inputText()" style="width:260px" placeholder="入力してください">
+
+        <!-- 開くボタン -->
+        <input type="button" onclick="modalOpen()" value="送信します。">
+
+        <!-- モーダルウインドウのエリア -->
+        <div id="modalArea" class="modalNoDisp">
+            <div class="modalWindow">
+                <!-- ここがウインドウとなります -->
+                <p>この内容で本当にいいですか？</p>
+                <div id="endMsg" class="defStyle endStyle">入力完了と判定しました<br>入力：</div>
+                <a href="Destination.html">
+                    <p class="button1"><input type="button" value="送信" onclick="modalClose()">
+                </a>
+                <p class="button2"><input type="button" value="閉じる" onclick="modalClose()"></p>
+            </div>
+        </div>
+
+    </main>
+</head>

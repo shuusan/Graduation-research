@@ -1,0 +1,51 @@
+.scroll {
+    margin: auto;
+    width: 96%;
+    font-size: 600%;
+    line-height: 1.5em;
+    text-align: center;
+    border: 9 solid #666;
+    color: #000000;
+    background: whitesmoke;
+    overflow: hidden;
+}
+
+.scroll span {
+    display: inline-block;
+    padding-left: 100%;
+    white-space: nowrap;
+    line-height: 5em;
+    animation: scrollAnime_s2 0.01s linear infinite;
+}
+
+@keyframes scrollAnime_s2 {
+    0% {
+        transform: translateX(0);
+        color: lime
+    }
+
+    20% {
+        transform: translateX(-20%);
+        color: blueviolet
+    }
+
+    40% {
+        transform: translateX(-40%);
+        color: peru
+    }
+
+    60% {
+        transform: translateX(-60%);
+        color: aqua
+    }
+
+    80% {
+        transform: translateX(-80%);
+        color: orangered
+    }
+
+    100% {
+        transform: translateX(-100%);
+        color: fuchsia
+    }
+}
