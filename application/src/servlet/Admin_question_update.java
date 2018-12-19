@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,34 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.Admin_DeleteDAO;
 import dao.Admin_SelectDAO;
+import dao.Admin_UpdateDAO;
 import dao.User_SelectDAO;
-import dto.Admin_DTO;
 
 /**
- * Servlet implementation class Admin_form
+ * Servlet implementation class Admin_quesyion_update
  */
-@WebServlet("/Admin_form")
-public class Admin_form extends HttpServlet {
+@WebServlet("/Admin_question_update")
+public class Admin_question_update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Admin_form() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Admin_question_update() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("qList", Admin_SelectDAO.questionList());
-		String view = "/WEB-INF/admin/admin_question.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 	/**
@@ -45,33 +39,19 @@ public class Admin_form extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		ArrayList<Admin_DTO> list = Admin_SelectDAO.questionList();
 		String view = "";
 		RequestDispatcher dispatcher = null;
-		switch(request.getParameter("btn")) {
-		case "search":
+		if("back".equals(request.getParameter("btn"))) {
 			request.setAttribute("qList", Admin_SelectDAO.questionList());
 			view = "/WEB-INF/admin/admin_question.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
-
-		case "delete":
-			for(int i=0; i<list.size();i++) {
-				if(null!=request.getParameter("cb"+i)) {
-					Admin_DeleteDAO.deleteQuestion(Integer.parseInt(request.getParameter("cb"+i)));
-				}
-			}
-			request.setAttribute("qList", Admin_SelectDAO.questionList());
-			view = "/WEB-INF/admin/admin_question.jsp";
-			dispatcher = request.getRequestDispatcher(view);
-			dispatcher.forward(request, response);
-
-		default://update
+		}else {
+			Admin_UpdateDAO.updateQuestion(request.getParameter("answer"), Integer.parseInt(request.getParameter("btn")));
 			request.setAttribute("qData", User_SelectDAO.coResponse(Integer.parseInt(request.getParameter("btn"))));
 			view = "/WEB-INF/admin/admin_question_update.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 		}
 	}
-
 }

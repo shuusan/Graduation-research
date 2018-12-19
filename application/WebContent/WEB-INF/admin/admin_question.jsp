@@ -40,7 +40,7 @@ ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)request.getAttribute("qList");
                 <tr>
                     <td><input type="checkbox" class="check" value="<%=list.get(i).getNum() %>" name="cb<%=i%>"></td>
                     <td class="item_body"><%=list.get(i).getText() %></td>
-                    <td><button type="submit" class="editing" value="<%=list.get(i).getNum() %>" name="btn">詳細設定</button></td>
+                    <td><button type="submit" class="editing" value="<%=list.get(i).getNum() %>" name="btn">回答更新</button></td>
                 </tr>
                <%} %>
             </tbody>

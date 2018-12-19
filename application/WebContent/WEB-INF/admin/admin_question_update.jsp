@@ -1,5 +1,10 @@
+<%@page import="dto.User_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+@SuppressWarnings("unchecked")
+User_DTO data = (User_DTO)request.getAttribute("qData");
+%>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -22,24 +27,24 @@
         </div>
     </header>
     <main>
+    <form action="Admin_question_update" method="post">
         <div class="text">
             <p>タイトル</p>
-            <textarea class="title">全体スケジュールについて・・・</textarea>
+            <textarea class="title" readonly="readonly"><%=data.getText() %></textarea>
         </div>
         <div class="text">
             <p>質問</p>
-            <textarea class="question">全体スケジュールについて不備を発見したのですが、どこに届け出ればよいでしょうか？</textarea>
+            <textarea class="question" readonly="readonly"><%=data.getText1() %></textarea>
         </div>
         <div class="text">
             <p>回答</p>
-            <textarea class="answer">不備を発見していただき、大変助かりました。 ありがとうございます。 本部に届け出ていただければ幸いです。 よろしくお願いいたします。</textarea>
-
+            <textarea class="answer" name="answer"><%=data.getText2() %></textarea>
         </div>
         <div class="boder">
-            <button onclick="history.back()" type="button" class="button">戻る</button>
-            <button type="button" class="update">更新</button>
+            <button type="submit" class="button" name="btn" value="back">戻る</button>
+            <button type="submit" class="update" name="btn" value="<%=data.getNum() %>">更新</button>
         </div>
-
+	</form>
     </main>
 
     <footer>
