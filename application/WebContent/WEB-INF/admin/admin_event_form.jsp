@@ -43,7 +43,7 @@ ArrayList<User_DTO> list = (ArrayList<User_DTO>)request.getAttribute("hl");
                     <td><input type="checkbox" class="check" value="<%=list.get(i).getNum() %>" name="ckb<%=i%>"></td>
                     <td class="item_body"><%=list.get(i).getText() %></td>
                     <td>
-                        <button class="editing" value="<%=list.get(i).getNum() %>" name="btn">詳細設定</button>
+                        <button class="editing" value="<%=list.get(i).getNum() %>" name="next">詳細設定</button>
                     </td>
                 </tr>
                <%} %>
