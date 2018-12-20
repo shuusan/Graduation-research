@@ -34,7 +34,7 @@ ArrayList<User_DTO> list = (ArrayList<User_DTO>)request.getAttribute("hl");
 	    	<button type="submit" class="button" value="resist" name="btn">新規追加</button><br>
 	    	<input type="text" placeholder="キーワードを入力" class="textfield">
 	        <button type="submit" class="button" value="search" name="btn">検索</button>
-	        <button type="button" class="button" value="delete" name="btn">削除</button>
+	        <button type="submit" class="button" value="delete" name="btn">削除</button>
     	</div>
         <table>
             <tbody>

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Admin_DeleteDAO;
 import dao.Admin_InsertDAO;
 import dao.User_SelectDAO;
+import dto.User_DTO;
 
 /**
  * Servlet implementation class Admin_event_form
@@ -52,7 +55,6 @@ public class Admin_event_form extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "resist":
-			System.out.println("aaa");
 			Admin_InsertDAO.topEveInsert(request.getParameter("resitext"));
 			request.setAttribute("hl", User_SelectDAO.top_event());
 			view = "/WEB-INF/admin/admin_event_form.jsp";
@@ -60,6 +62,12 @@ public class Admin_event_form extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "delete":
+			ArrayList<User_DTO> list = User_SelectDAO.top_event();
+			for(int i=0; i<list.size();i++) {
+				if(null!=request.getParameter("ckb"+i)) {
+					Admin_DeleteDAO.delete_topEv(Integer.parseInt(request.getParameter("ckb"+i)));
+				}
+			}
 			request.setAttribute("hl", User_SelectDAO.top_event());
 			view = "/WEB-INF/admin/admin_event_form.jsp";
 			dispatcher = request.getRequestDispatcher(view);
