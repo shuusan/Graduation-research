@@ -2,12 +2,31 @@
 @import url(index.css);
 @import url(hamburger.css);
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .1);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, .5);
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .3);
+}
 
 main {
-    height: 90%;
-    margin: 20px auto 5px auto;
-    margin-left: 10%;
-    background-color: whitesmoke;
+    width: 80%;
+    display: block;
+}
+
+.top {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    margin-bottom: 0.5%;
 }
 
 table {
@@ -25,7 +44,7 @@ footer {
 
 #textfield {
     font-size: 1em;
-    width: 45%;
+    width: 30%;
     height: 29px;
     border: 2px solid #dbd0e6;
     outline: 0;
@@ -33,8 +52,8 @@ footer {
 }
 
 .textfield {
-    width: 45%;
-    height: 29px;
+    width: 50%;
+    height: 85%;
     border: 2px solid #dbd0e6;
     outline: 0;
     padding-left: 5px;
@@ -42,52 +61,40 @@ footer {
 
 .game {
     font-size: 1em;
-    width: 30%;
-    height: 29px;
+    width: 80%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     border: 2px solid #dbd0e6;
-    outline: 0;
-    margin-top: 3em;
-    padding-left: 5px;
+    outline: none;
+    margin-bottom: 5%;
 }
 
 .time {
     font-size: 2em;
-    width: 9%;
-    height: 35px;
+    width: 30%;
+    margin: 0 1.2% 0 1.2%;
     border: 2px solid #dbd0e6;
-    outline: 0;
-    margin-top: 15px;
-    padding-left: 5px;
+    outline: none;
 }
 
 .detail {
     font-size: 2em;
-    width: 50%;
-    height: 200px;
+    width: 90%;
+    height: 80%;
     border: 2px solid #dbd0e6;
-    padding-left: 5px;
-}
-
-#button {
-    height: 35px;
-    width: 75px;
-    background-color: #e5e4e6;
-    border: 2px solid #dbd0e6;
-    border-left: none;
-    margin-left: -5px;
-}
-
-#button:hover {
-    background-color: #e5e4e6;
-    border: 2px solid #b3ada0;
+    border-radius: 5px;
+    text-align: left;
+    margin-top: 2%;
+    resize: none;
+    outline: none;
 }
 
 .button {
-    height: 37px;
-    width: 75px;
+    height: 100%;
+    padding: 0 2% 0 2%;
+    margin-left: 0.5%;
     background-color: #e5e4e6;
     border: 2px solid #dbd0e6;
-    margin-left: 20px;
 }
 
 .button:hover {
@@ -95,28 +102,17 @@ footer {
     border: 2px solid #b3ada0;
 }
 
-.events {
-    height: 37px;
-    width: 100px;
-    background-color: #e5e4e6;
-    border: 2px solid #dbd0e6;
-    margin-left: 20px;
-}
-
-.events:hover {
-    background-color: #e5e4e6;
-    border: 2px solid #b3ada0;
-}
-
-#iti {
-    margin-top: 10px;
+.middle {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    margin-bottom: 0.5%;
 }
 
 .pull {
-    height: 34px;
-    width: 150px;
+    height: 100%;
+    width: 18%;
     border: 2px solid #dbd0e6;
-    margin-left: 30px;
 }
 
 .check {
@@ -137,13 +133,33 @@ footer {
     display: block;
 }
 
-.scroll {
-    display: block;
-    overflow-y: scroll;
+.bottom {
+    display: flex;
     height: 75%;
     width: 100%;
 }
 
-.text {
-    margin-left: 40px;
+.label {
+    display: inline;
+    margin: 0;
+    font-weight: bolder;
+}
+
+.left {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.right {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#scroll {
+    height: 75%;
+    width: 100%;
+    overflow-x: scroll;
 }
