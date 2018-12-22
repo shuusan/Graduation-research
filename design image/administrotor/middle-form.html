@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/middle-form.css">
+    <title>メインページ</title>
+</head>
+
+<body>
+    <header>
+        <div id="nav-drawer">
+            <input id="nav-input" type="checkbox" class="nav-unshown">
+            <label id="nav-open" for="nav-input"><span></span></label>
+            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+            <div id="nav-content">
+                <h1>ユーザーの登録</h1>
+                <h1>ユーザーの更新</h1>
+                <h1>ユーザーの削除</h1>
+                <h1>・</h1>
+                <h1>・</h1>
+                <h1>・</h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <form id="resist" action="" name="r-form">
+            <input type="text" class="txt" placeholder="新たなミドルイベントの追加">
+            <button type="submit" class="sr-btn">登録する！</button>
+        </form>
+
+        <form id="search" action="" name="s-form">
+            <input type="text" class="txt" placeholder="検索ワードの入力">
+            <button type="submit" class="sr-btn">検索する！</button>
+            <button type="submit" class="sr-btn" id="d-btn">チェックした項目の削除</button>
+        </form>
+
+        <form id="contents" action="" name="c-form">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="body-cbx"><input type="checkbox" class="cbx" value="" name=""></td>
+                        <td class="body-btn"><button type="submit" class="btn" value="" name="">ボタン</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>

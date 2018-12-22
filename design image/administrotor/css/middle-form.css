@@ -1,0 +1,114 @@
+@charset "UTF-8";
+@import url(index.css);
+@import url(hamburger.css);
+
+#resist {
+    height: 8%;
+    width: 80%;
+    display: flex;
+    margin: 0 auto 0.5% auto;
+}
+
+.sr-btn {
+    margin-left: 0.5%;
+    padding: 0 0.5% 0 0.5%;
+    font-size: 1em;
+    border-radius: 5px;
+    background: #e5e4e6;
+    border: 2px solid #dbd0e6;
+}
+
+.sr-btn:hover {
+    background-color: #e5e4e6;
+    border: 2px solid #b3ada0;
+}
+
+#d-btn {
+    margin-left: 5%;
+}
+
+#control {
+    width: 10%;
+    padding: 1%;
+    text-align: center;
+    border: 2px solid #795548;
+    border-radius: 5px;
+}
+
+#search {
+    height: 8%;
+    width: 80%;
+    display: flex;
+    margin: 0 auto 0.5% auto;
+}
+
+#contents {
+    height: 83%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    height: 98%;
+    margin: 0 auto;
+    border: 2px solid #b3ada0;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+tbody {
+    display: block;
+    width: 99%;
+    height: 95%;
+    overflow-y: scroll;
+    margin: 1% auto auto 1%;
+}
+
+tr {
+    width: 100%;
+    height: 5%;
+    border-bottom: 2px solid #dbd0e6;
+}
+
+tr:hover {
+    border-bottom: 2px solid #b3ada0;
+}
+
+td {
+    padding-top: 1%;
+}
+
+.body-cbx {
+    height: 100%;
+    width: 50px;
+}
+
+.body-btn {
+    width: 95%;
+    font-size: 1.2em;
+}
+
+.btn {
+    width: 100%;
+    font-size: 1.2em;
+    background-color: whitesmoke;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.txt {
+    font-size: 1.2em;
+    width: 60%;
+    border-radius: 5px;
+    outline: none;
+}
+
+.cbx {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 10%;
+    left: 15%;
+}
