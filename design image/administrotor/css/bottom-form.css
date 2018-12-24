@@ -234,6 +234,8 @@ textarea {
 }
 
 
-input {
+input,
+select,
+textarea {
     outline: none;
 }
