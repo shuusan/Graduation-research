@@ -1,0 +1,331 @@
+@charset "UTF-8";
+@import url(index.css);
+@import url(hamburger.css);
+
+main {
+    margin-left: 10%;
+}
+
+table {
+    margin-top: 3%;
+    table-layout: fixed;
+    width: 60%;
+    height: 84%;
+    border-collapse: collapse;
+    float: left;
+}
+
+footer {
+    width: 100%;
+    height: 2em;
+    margin: 0;
+    background-color: whitesmoke;
+}
+
+#textfield {
+    width: 45%;
+    height: 29px;
+    border: 2px solid #dbd0e6;
+    outline: 0;
+    padding-left: 5px;
+}
+
+#button {
+    height: 35px;
+    width: 75px;
+    background-color: #e5e4e6;
+    border: 2px solid #dbd0e6;
+    border-left: none;
+    margin-left: -5px;
+}
+
+#button:hover {
+
+    background-color: #e5e4e6;
+    border: 2px solid #b3ada0;
+}
+
+.button {
+    height: 37px;
+    width: 100px;
+    background-color: #e5e4e6;
+    border: 2px solid #dbd0e6;
+    margin-left: 20px;
+}
+
+.button:hover {
+    background-color: #e5e4e6;
+    border: 2px solid #b3ada0;
+}
+
+/*ヘッダー項目設定*/
+.item_head {
+    width: 100%;
+    height: 3em;
+    background-color: #e5e4e6;
+}
+
+/*ボディ項目設定 */
+.item_body {
+    width: 235px;
+    height: 180px;
+    ;
+}
+
+.item {
+    width: 156px;
+    height: 44px;
+    text-align: center;
+    font-size: 18px;
+    background-color: whitesmoke;
+}
+
+#item_number {
+    width: 60px;
+    height: 44px;
+    text-align: center;
+    font-size: 18px;
+    background-color: whitesmoke;
+}
+
+
+/*スクロールバー設定 */
+thead {
+    display: block;
+    width: 100%;
+}
+
+tbody {
+    display: block;
+    width: 100%;
+    height: 89.4%;
+    overflow-y: scroll;
+}
+
+tr {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    line-height: 3em;
+    word-break: break-all;
+}
+
+.check {
+    width: 20px;
+    height: 20px;
+}
+
+.camera {
+    display: block;
+    margin-top: -6px;
+    margin-left: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.tool {
+    float: right;
+}
+
+table,
+th,
+td {
+    border: 1px #dbd0e6 solid;
+}
+
+#registration_area {
+    margin-top: 40px;
+    margin-left: 63%;
+    width: 30%;
+    height: 50%;
+    background-color: whitesmoke;
+    border: 1px #dbd0e6 solid;
+}
+
+h1 {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 3%;
+    width: 100%;
+    height: 10%;
+    font-size: 1.5em;
+    background-color: #e5e4e6;
+    border: none;
+}
+
+.textfield {
+    margin-top: 10%;
+    margin-left: 10%;
+    width: 80%;
+    font-size: 1.3em;
+}
+
+#registration_button {
+    height: 35px;
+    width: 75px;
+    background-color: #e5e4e6;
+    border: 2px solid #dbd0e6;
+    margin-left: 70%;
+    margin-top: 10%;
+}
+
+#registration_button:hover {
+    background-color: #e5e4e6;
+    border: 2px solid #b3ada0;
+}
+
+.tagname {
+    text-align: center;
+    border: none;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+}
+
+.img {
+    width: 50%;
+    height: 68%;
+    margin-left: 24px;
+    margin-top: 2px;
+}
+
+.icon {
+    width: 20%;
+    height: 20%;
+    display: inline-block;
+}
+
+#icon_scroll {
+    overflow-y: scroll;
+    height: 320px;
+}
+
+h4 {
+    margin: 10px;
+    background: whitesmoke;
+}
+
+
+/* === モーダル非表示（初期） ============================== */
+/*
+.modalNoDisp {
+    display: none;
+}
+*/
+
+/* === モーダルバックグランド ============================== */
+/*
+.modalBg {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle at 50% 50%,
+        rgba(0, 0, 0, 0.10),
+        rgba(0, 0, 0, 0.10));
+    z-index: 10;
+}
+*/
+
+/* === モーダルバックグランド：OPEN時のアニメーション ====== */
+/*
+.modalBgOpen {
+    animation: bgOpenAnime 1s ease;
+}
+
+@keyframes bgOpenAnime {
+
+     フェードイン 
+    100% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+*/
+
+/* === モーダルバックグランド：CLOSE時のアニメーション ===== */
+/*
+.modalBgClose {
+    bottom: 100%;
+    animation: bgCloseAnime 0.3s ease;
+}
+
+@keyframes bgCloseAnime {
+
+     フェードイン 
+    0% {
+        opacity: 1;
+        bottom: 0
+    }
+
+    100% {
+        opacity: 0;
+        bottom: 0
+    }
+}
+*/
+
+/* === モーダルウインド ==================================== */
+/*.modalBg .modalWindow {*/
+    /* モーダルウインドを中心に表示 */
+/*
+    position: absolute;
+    top: 50%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+*/
+    /* ↓モーダルウインドウの見た目：変更してください */
+/*
+    width: 30%;
+    min-height: 65%;
+    background: #fff;
+    border: 3px solid #35557f;
+    border-radius: 10px;
+    font-size: 16pt;
+    text-align: center;
+}
+*/
+
+/* === モーダルウインド：OPEN時のアニメーション============= */
+/*
+.modalBgOpen .modalWindow {
+    animation: modalOpenAnime 0.3s ease;
+}
+
+@keyframes modalOpenAnime {
+
+     上→中心 
+    0% {
+        top: -50%
+    }
+
+    90% {
+        top: 45%
+    }
+}
+*/
+
+/* === モーダルウインド：CLOSE時のアニメーション============ */
+/*
+.modalBgClose .modalWindow {
+    animation: modalCloseAnime 0.3s ease;
+}
+
+@keyframes modalCloseAnime {
+
+    中心→下 0% {
+        top: 50%;
+    }
+
+    100% {
+        top: 150%
+    }
+}
+*/
