@@ -5,11 +5,13 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/admin/tagu.css">
+    <link rel="stylesheet" href="css/admin/tag.css">
     <!--
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/image_icon.js"></script>
 -->
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/imageDrain.js"></script>
     <title>メインページ</title>
 </head>
 
@@ -58,11 +60,11 @@
         </table>
         <div id="registration_area">
             <h1>新規タグ作成</h1>
-            <div>
-                <input type="text" placeholder="画像のurlを貼り付けてください" class="textfield" required>
-                <input type="text" placeholder="タグ名を入力してください" class="textfield" required>
-                <input type="button" value="登録" id="registration_button">
-            </div>
+            <form action="Admin_tag" method="post" name="form1">
+                <input type="file" id="file" name="img" required>
+                <input type="text" placeholder="タグ名を入力してください" class="textfield" name="tagName" id="tagName" required>
+                <a href="javascript:form1.submit()" id="registration_button">登録</a>
+            </form>
         </div>
         <!-- モーダルウインドウのエリア -->
         <!--
