@@ -28,7 +28,7 @@ public class Admin_tag extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "/WEB-INF/admin/admin_tag.jsp";
+		String view = "/WEB-INF/admin/admin_edit.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
@@ -37,10 +37,7 @@ public class Admin_tag extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		System.out.println(request.getParameter("img"));
-		System.out.println(request.getParameter("tagName"));
-		String view = "/WEB-INF/admin/admin_tag.jsp";
+		String view = "/WEB-INF/admin/admin_edit.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

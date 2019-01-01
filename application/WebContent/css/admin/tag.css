@@ -145,8 +145,9 @@ td {
 h1 {
     margin-top: auto;
     text-align: center;
+    padding-top: 3%;
     width: 100%;
-    height: 15%;
+    height: 10%;
     font-size: 1.5em;
     background-color: #e5e4e6;
     border: none;
@@ -205,17 +206,6 @@ h4 {
     background: whitesmoke;
 }
 
-#file{
-	font-size: 1em;
-	margin-left: 35px;
-}
-
-#data{
-	visibility: hidden;
-	margin: 0;
-	height: 1px;
-	width: 1px;
-}
 
 /* === モーダル非表示（初期） ============================== */
 /*
@@ -248,7 +238,7 @@ h4 {
 
 @keyframes bgOpenAnime {
 
-     フェードイン
+     フェードイン 
     100% {
         opacity: 1
     }
@@ -268,7 +258,7 @@ h4 {
 
 @keyframes bgCloseAnime {
 
-     フェードイン
+     フェードイン 
     0% {
         opacity: 1;
         bottom: 0
@@ -311,7 +301,7 @@ h4 {
 
 @keyframes modalOpenAnime {
 
-     上→中心
+     上→中心 
     0% {
         top: -50%
     }
