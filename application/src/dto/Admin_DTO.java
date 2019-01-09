@@ -29,6 +29,16 @@ public class Admin_DTO {
 		this.text3 = text3;
 	}
 
+
+
+	public Admin_DTO(int num, String text, String text1, String text2) {
+		super();
+		this.num = num;
+		this.text = text;
+		this.text1 = text1;
+		this.text2 = text2;
+	}
+
 	public Admin_DTO(int num, String text, int num1) {
 		super();
 		this.num = num;

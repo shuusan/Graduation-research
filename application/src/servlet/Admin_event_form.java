@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Admin_DeleteDAO;
 import dao.Admin_InsertDAO;
@@ -78,6 +79,20 @@ public class Admin_event_form extends HttpServlet {
 			view = "/WEB-INF/admin/admin_event_form.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
+			break;
+		default:
+			if(null!=request.getParameter("next")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("teNumber", request.getParameter("next"));
+				view = "/WEB-INF/admin/admin_event_select.jsp";
+				dispatcher = request.getRequestDispatcher(view);
+				dispatcher.forward(request, response);
+			}else {
+				request.setAttribute("hl", User_SelectDAO.top_event());
+				view = "/WEB-INF/admin/admin_event_form.jsp";
+				dispatcher = request.getRequestDispatcher(view);
+				dispatcher.forward(request, response);
+			}
 			break;
 		}
 	}
