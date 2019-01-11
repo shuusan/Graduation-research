@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Admin_event_select
@@ -39,8 +38,8 @@ public class Admin_event_select extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if("middle".equals(request.getParameter("btn"))){
-			HttpSession session = request.getSession();
-			
+//			HttpSession session = request.getSession();
+
 			String view = "/WEB-INF/admin/admin_event_middle.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);

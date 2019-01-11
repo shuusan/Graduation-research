@@ -329,4 +329,35 @@ public class Admin_SelectDAO {
 		}
 		return list;
 	}
+
+	public static ArrayList<Admin_DTO> midEvelist(int num){
+		ArrayList<Admin_DTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM middle_event WHERE top_eventID = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String title = rs.getString("title");
+				String[] start = rs.getString("start_datetime").split(" ");
+				String[] end = rs.getString("end_datetime").split(" ");
+				list.add(new Admin_DTO(id, title, start, end));
+			}
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

@@ -3,6 +3,7 @@ package dto;
 public class Admin_DTO {
 	private int num, num1,num2,num3;
 	private String text, text1, text2, text3;
+	private String[] array, array1;
 
 	public Admin_DTO() {
 		super();
@@ -66,6 +67,15 @@ public class Admin_DTO {
 		this.text3 = text3;
 	}
 
+
+	public Admin_DTO(int num, String text, String array[], String[] array1) {
+		super();
+		this.num = num;
+		this.text = text;
+		this.array = array;
+		this.array1 = array1;
+	}
+
 	public void setNum(int num) {
 		this.num = num;
 	}
@@ -124,6 +134,22 @@ public class Admin_DTO {
 
 	public void setText3(String text3) {
 		this.text3 = text3;
+	}
+
+	public String[] getArray() {
+		return array;
+	}
+
+	public void setArray(String[] array) {
+		this.array = array;
+	}
+
+	public String[] getArray1() {
+		return array1;
+	}
+
+	public void setArray1(String[] array1) {
+		this.array1 = array1;
 	}
 
 }

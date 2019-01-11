@@ -1,12 +1,20 @@
+<%@page import="dto.Admin_DTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    @SuppressWarnings("unchecked")
+    ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>) request.getAttribute("midEvelist");
+    %>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="event_select.css">
+    <link rel="stylesheet" href="css/admin/admin_midEve.css">
     <title>メインページ</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/midEve_change.js"></script>
 </head>
 
 <body>
@@ -24,44 +32,105 @@
     <main>
         <form action="Admin_event_form" method="post">
             <div id="acbtn">
-                <input type="text" placeholder="イベント名を入力" class="textfield" name="resitext">
-                <button type="submit" class="button" value="resist" name="btn">新規追加</button><br>
-                <input type="text" placeholder="キーワードを入力" class="textfield">
+            <input type="text" placeholder="キーワードを入力" class="textfield">
                 <button type="submit" class="button" value="search" name="btn">検索</button>
                 <button type="submit" class="button" value="delete" name="btn">削除</button>
+                <button type="submit" class="button" value="update" name="btn">更新</button>
+	            <div id="resist">
+	            <input type="text" placeholder="イベント名を入力" id="txtf" class="textfield"
+						name="resitext">
+					<br>
+					<div class="time">
+						<h5>開始時間</h5>
+						<br>
+						<div class="datetime">
+							<input type="date" class="date" name="s-date" required="required">
+							<select class="hour" name="s-hour" required>
+								<option selected>時</option>
+								<%for (int j = 0; j < 24; j++) {%>
+									<option value="<%=j%>"><%=j%>時</option>
+								<%}%>
+							</select>
+							<select class="minutes" name="s-minutes" required>
+								<option selected>分</option>
+								<%for (int j = 0; j < 60; j++) {%>
+									<option value="<%=j%>"><%=j%>分</option>
+								<%}%>
+							</select>
+						</div>
+					</div>
+					<div class="time">
+						<h5>終了時間</h5>
+						<br>
+						<div class="datetime">
+							<input type="date" class="date" name="e-date" required="required">
+							<select class="hour" name="e-time" required>
+								<option selected>時</option>
+								<%for (int j = 0; j < 24; j++) {%>
+									<option value="<%=j%>"><%=j%>時</option>
+								<%}%>
+							</select>
+							<select class="minutes" name="e-minutes" required>
+								<option selected>分</option>
+								<%for (int j = 0; j < 60; j++) {%>
+									<option value="<%=j%>"><%=j%>分</option>
+								<%}%>
+							</select>
+						</div>
+					</div>
+					<button type="submit" class="button" value="update" name="btn" id="resibtn">登録</button>
+				</div>
+
             </div>
             <table>
                 <tbody>
+                <%
+                	for (int i = 0; i < list.size(); i++) {
+                		String[] sArray = list.get(i).getArray()[1].split(":");
+                		String[] eArray = list.get(i).getArray1()[1].split(":");
+                %>
                     <tr>
                         <td style="width: 50px"><input type="checkbox" value="" name=""></td>
-                        <td>バスケ</td>
+                        <td><%=list.get(i).getText()%></td>
                         <td>
+                        <input type="text" id="id<%=i %>" name="id<%=i %>" class="id" value="<%=list.get(i).getNum() %>">
                             <h5>開始時間</h5><br>
                             <div class="datetime">
-                                <input type="date" value="2018-11-12">
-                                <select name="s-hour" id="">
-                                    <option value="10" selected>10時</option>
-                                    <option value="20" selected>10時</option>
+                                <input type="date" name="s-date<%=i %>" value="<%=list.get(i).getArray()[0] %>" required="required">
+                                <select name="s-hour<%=i %>" id="s-hour<%=i %>" class="hour">
+                                    <option value="<%=sArray[0] %>" selected><%=sArray[0] %>時</option>
+                                    <%for(int j=0; j<24; j++){ %>
+                                    	<option value="<%=j %>"><%=j %>時</option>
+                                    <%} %>
                                 </select>
-                                <select name="s-minutes" id="">
-                                    <option value="30" selected>30分</option>
+                                <select name="s-minutes<%=i %>" id="s-minutes<%=i %>"  class="minutes">
+                                    <option value="<%=sArray[1] %>" selected><%=sArray[1] %>分</option>
+                                	<%for(int j=0; j<60; j++){ %>
+                                    	<option value="<%=j %>"><%=j %>分</option>
+                                    <%} %>
                                 </select>
                             </div>
                         </td>
                         <td>
                             <h5>終了時間</h5><br>
                             <div class="datetime">
-                                <input type="date" value="2018-11-12">
-                                <select name="e-hour" id="">
-                                    <option value="10" selected>10時</option>
+                                <input type="date" name="e-date<%=i %>" value="<%=list.get(i).getArray1()[0] %>" required="required">
+                                <select name="e-hour<%=i %>"  id="e-hour<%=i %>" class="hour">
+                                    <option value="<%=eArray[0] %>" selected><%=eArray[0] %>時</option>
+                                    <%for(int j=0; j<24; j++){ %>
+                                    	<option value="<%=j %>"><%=j %>時</option>
+                                    <%} %>
                                 </select>
-                                <select name="e-minutes" id="">
-                                    <option value="30" selected>30分</option>
-                                    <option value="45" selected>45分</option>
+                                <select name="e-minutes<%=i %>"  id="e-minutes<%=i %>" class="minutes">
+                                    <option value="<%=eArray[1] %>" selected><%=eArray[1] %>分</option>
+                                	<%for(int j=0; j<60; j++){ %>
+                                    	<option value="<%=j %>"><%=j %>分</option>
+                                    <%} %>
                                 </select>
                             </div>
                         </td>
                     </tr>
+                    <%} %>
                 </tbody>
             </table>
         </form>
