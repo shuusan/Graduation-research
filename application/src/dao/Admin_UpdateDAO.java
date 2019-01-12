@@ -145,4 +145,28 @@ public class Admin_UpdateDAO {
 		}
 	}
 
+	public static void midEveUpdate(int key1, int key2, String[] array) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "UPDATE middle_event SET start_datetime = ?, end_datetime = ? WHERE id = ? AND top_eventID = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, array[0]);
+			pstmt.setString(2, array[1]);
+			pstmt.setInt(3, key1);
+			pstmt.setInt(4, key2);
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

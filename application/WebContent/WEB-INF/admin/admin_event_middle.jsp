@@ -107,7 +107,8 @@
                                 </select>
                                 <select name="s-minutes<%=i %>" id="s-minutes<%=i %>"  class="minutes">
                                     <option value="<%=sArray[1] %>" selected><%=sArray[1] %>分</option>
-                                	<%for(int j=0; j<60; j++){ %>
+                                    <option value="00">0分</option>
+                                	<%for(int j=1; j<60; j++){ %>
                                     	<option value="<%=j %>"><%=j %>分</option>
                                     <%} %>
                                 </select>
@@ -125,7 +126,8 @@
                                 </select>
                                 <select name="e-minutes<%=i %>"  id="e-minutes<%=i %>" class="minutes">
                                     <option value="<%=eArray[1] %>" selected><%=eArray[1] %>分</option>
-                                	<%for(int j=0; j<60; j++){ %>
+                                	<option value="00">0分</option>
+                                	<%for(int j=1; j<60; j++){ %>
                                     	<option value="<%=j %>"><%=j %>分</option>
                                     <%} %>
                                 </select>

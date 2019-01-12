@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Admin_DeleteDAO;
 import dao.Admin_InsertDAO;
 import dao.Admin_SelectDAO;
+import dao.Admin_UpdateDAO;
 
 /**
  * Servlet implementation class Admin_event_middle
@@ -92,6 +93,25 @@ public class Admin_event_middle extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "update"://update
+			for(int i=0; i<Admin_SelectDAO.midEvelist(1).size();i++) {
+				if(null!=request.getParameter("change_id"+i)) {
+					String[] data = new String[5];
+					data[2] = request.getParameter("s-date"+i);
+					data[3] = request.getParameter("s-hour"+i);
+					data[4] = request.getParameter("s-minutes"+i);
+					data[0] = data[2]+" "+data[3]+":"+data[4];
+
+					data[2] = request.getParameter("e-date"+i);
+					data[3] = request.getParameter("e-hour"+i);
+					data[4] = request.getParameter("e-minutes"+i);
+					data[1] = data[2]+" "+data[3]+":"+data[4];
+
+					System.out.println(data[0]);
+					System.out.println(data[1]);
+					Admin_UpdateDAO.midEveUpdate(Integer.parseInt(request.getParameter("change_id"+i)),1,data);
+				}
+			}
+			request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
 			view = "/WEB-INF/admin/admin_event_middle.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
