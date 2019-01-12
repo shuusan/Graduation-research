@@ -45,7 +45,7 @@
 						<h5>開始時間</h5>
 						<br>
 						<div class="datetime">
-							<input type="date" class="date" name="s-date" required="required">
+							<input type="date" class="date" name="s-date">
 							<select class="hour" name="s-hour" required>
 								<option value="0" selected>0時</option>
 								<%for (int j = 1; j < 24; j++) {%>
@@ -64,7 +64,7 @@
 						<h5>終了時間</h5>
 						<br>
 						<div class="datetime">
-							<input type="date" class="date" name="e-date" required="required">
+							<input type="date" class="date" name="e-date">
 							<select class="hour" name="e-time" required>
 								<option value="00">0時</option>
 								<option value="1" selected>1時</option>
@@ -92,7 +92,7 @@
                 		String[] eArray = list.get(i).getArray1()[1].split(":");
                 %>
                     <tr>
-                        <td style="width: 50px"><input type="checkbox" value="" name=""></td>
+                        <td style="width: 50px"><input type="checkbox" value="<%=list.get(i).getNum() %>" name="ckb<%=i%>"></td>
                         <td><%=list.get(i).getText()%></td>
                         <td>
                         <input type="text" id="id<%=i %>" name="id<%=i %>" class="id" value="<%=list.get(i).getNum() %>">

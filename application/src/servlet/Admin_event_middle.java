@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Admin_DeleteDAO;
 import dao.Admin_InsertDAO;
 import dao.Admin_SelectDAO;
 
@@ -73,18 +74,19 @@ public class Admin_event_middle extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 				request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
+				request.setAttribute("alert", "未入力の項目があります。");
 				view = "/WEB-INF/admin/admin_event_middle.jsp";
 				dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}
 			break;
 		case "delete":
-//			ArrayList<User_DTO> list = User_SelectDAO.middle_event();
-//			for(int i=0; i<list.size();i++) {
-//				if(null!=request.getParameter("ckb"+i)) {
-//					Admin_DeleteDAO.delete_middleEv(Integer.parseInt(request.getParameter("ckb"+i)));
-//				}
-//			}
+			for(int i=0; i<Admin_SelectDAO.midEvelist(1).size();i++) {
+				if(null!=request.getParameter("ckb"+i)) {
+					Admin_DeleteDAO.delete_midEv(Integer.parseInt(request.getParameter("ckb"+i)));
+				}
+			}
+			request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
 			view = "/WEB-INF/admin/admin_event_middle.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
