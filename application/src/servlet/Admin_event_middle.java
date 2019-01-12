@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Admin_InsertDAO;
 import dao.Admin_SelectDAO;
 
 /**
@@ -50,9 +51,32 @@ public class Admin_event_middle extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "resist":
-			view = "/WEB-INF/admin/admin_event_middle.jsp";
-			dispatcher = request.getRequestDispatcher(view);
-			dispatcher.forward(request, response);
+			try {
+				String[] data = new String[6];
+				data[0] = request.getParameter("resitext");
+
+				data[3] = request.getParameter("s-date");
+				data[4] = request.getParameter("s-hour");
+				data[5] = request.getParameter("s-minutes");
+				data[1] = data[3]+" "+data[4]+":"+data[5];
+
+				data[3] = request.getParameter("e-date");
+				data[4] = request.getParameter("e-time");
+				data[5] = request.getParameter("e-minutes");
+				data[2] = data[3]+" "+data[4]+":"+data[5];
+
+				Admin_InsertDAO.midEveInsert(1,data);
+				request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
+				view = "/WEB-INF/admin/admin_event_middle.jsp";
+				dispatcher = request.getRequestDispatcher(view);
+				dispatcher.forward(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
+				view = "/WEB-INF/admin/admin_event_middle.jsp";
+				dispatcher = request.getRequestDispatcher(view);
+				dispatcher.forward(request, response);
+			}
 			break;
 		case "delete":
 //			ArrayList<User_DTO> list = User_SelectDAO.middle_event();

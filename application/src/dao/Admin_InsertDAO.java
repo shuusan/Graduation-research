@@ -113,4 +113,28 @@ public class Admin_InsertDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public static void midEveInsert(int num, String[] array){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "INSERT INTO middle_event VALUES (null,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, array[0]);
+			pstmt.setString(3, array[1]);
+			pstmt.setString(4, array[2]);
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }

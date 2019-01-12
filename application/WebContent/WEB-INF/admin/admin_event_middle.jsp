@@ -30,12 +30,13 @@
         </div>
     </header>
     <main>
-        <form action="Admin_event_form" method="post">
+        <form action="Admin_event_middle" method="post">
             <div id="acbtn">
             <input type="text" placeholder="キーワードを入力" class="textfield">
                 <button type="submit" class="button" value="search" name="btn">検索</button>
                 <button type="submit" class="button" value="delete" name="btn">削除</button>
                 <button type="submit" class="button" value="update" name="btn">更新</button>
+	            <h5 style="color: red"><%=(null!=request.getAttribute("alert"))?request.getAttribute(""):"　" %></h5>
 	            <div id="resist">
 	            <input type="text" placeholder="イベント名を入力" id="txtf" class="textfield"
 						name="resitext">
@@ -46,14 +47,14 @@
 						<div class="datetime">
 							<input type="date" class="date" name="s-date" required="required">
 							<select class="hour" name="s-hour" required>
-								<option selected>時</option>
-								<%for (int j = 0; j < 24; j++) {%>
+								<option value="0" selected>0時</option>
+								<%for (int j = 1; j < 24; j++) {%>
 									<option value="<%=j%>"><%=j%>時</option>
 								<%}%>
 							</select>
 							<select class="minutes" name="s-minutes" required>
-								<option selected>分</option>
-								<%for (int j = 0; j < 60; j++) {%>
+								<option value="00" selected>0分</option>
+								<%for (int j = 1; j < 60; j++) {%>
 									<option value="<%=j%>"><%=j%>分</option>
 								<%}%>
 							</select>
@@ -65,20 +66,21 @@
 						<div class="datetime">
 							<input type="date" class="date" name="e-date" required="required">
 							<select class="hour" name="e-time" required>
-								<option selected>時</option>
-								<%for (int j = 0; j < 24; j++) {%>
+								<option value="00">0時</option>
+								<option value="1" selected>1時</option>
+								<%for (int j = 2; j < 24; j++) {%>
 									<option value="<%=j%>"><%=j%>時</option>
 								<%}%>
 							</select>
 							<select class="minutes" name="e-minutes" required>
-								<option selected>分</option>
+								<option value="0" selected>0分</option>
 								<%for (int j = 0; j < 60; j++) {%>
 									<option value="<%=j%>"><%=j%>分</option>
 								<%}%>
 							</select>
 						</div>
 					</div>
-					<button type="submit" class="button" value="update" name="btn" id="resibtn">登録</button>
+					<button type="submit" class="button" value="resist" name="btn" id="resibtn">登録</button>
 				</div>
 
             </div>
