@@ -17,14 +17,14 @@ import dao.Admin_UpdateDAO;
 /**
  * Servlet implementation class Admin_event_buttom
  */
-@WebServlet("/Admin_event_buttom")
-public class Admin_event_buttom extends HttpServlet {
+@WebServlet("/Admin_event_bottom")
+public class Admin_event_bottom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Admin_event_buttom() {
+    public Admin_event_bottom() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,7 +33,8 @@ public class Admin_event_buttom extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String view = "/WEB-INF/admin/admin_event_buttom.jsp";
+    	request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
+    	String view = "/WEB-INF/admin/admin_event_bottom.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

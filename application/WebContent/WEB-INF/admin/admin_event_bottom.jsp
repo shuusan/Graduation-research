@@ -1,5 +1,11 @@
+<%@page import="dto.Admin_DTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    @SuppressWarnings("unchecked")
+    ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)request.getAttribute("btmEvelist");
+    %>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -25,7 +31,7 @@
     </header>
 
     <main>
-        <form action="">
+        <form action="Admin_event_bottom">
             <div id="label">
                 <a href="#" id="te">スポーツ大会</a>
                 <label for="me" id="slash">/</label>
@@ -42,49 +48,58 @@
 
             <div id="contents">
                 <div class="event" id="left">
-                    <div class="one-event">
-                        <input type="text" class="ev-title" placeholder="イベント名">
-                        <input type="checkbox" value="" name="" class="cbx">
-                        <div class="evtime-area">
-                            <div class="date-time">
-                                <label class="date">
-                                    <input type="date">
-                                </label>
-                                <br>
-                                <select name="" class="hour">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                </select>
-                                <p class="time">時</p>
-                                <select name="" class="minutes">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                </select>
-                                <p class="time">分</p>
-                            </div>
-                            <div class="date-time">
-                                <label class="date">
-                                    <input type="date">
-                                </label>
-                                <br>
-                                <select name="" class="hour">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                </select>
-                                <p class="time">時</p>
-                                <select name="" class="minutes">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                </select>
-                                <p class="time">分</p>
-                            </div>
-                        </div>
-                        <textarea name="" cols="65" rows="10" placeholder="メモ"></textarea>
-                    </div>
+                <%for(int i=0; i<list.size(); i++){
+                	String[] sArray = list.get(i).getArray()[1].split(":");
+            		String[] eArray = list.get(i).getArray1()[1].split(":");
+                %>
+	                    <div class="one-event">
+	                        <input type="text" class="ev-title" placeholder="イベント名" value="<%=list.get(i).getText()%>">
+	                        <input type="checkbox" value="<%=list.get(i).getNum() %>" name="" class="cbx">
+	                        <div class="evtime-area">
+	                            <div class="date-time">
+	                                <label class="date">
+	                                    <input type="date" name="s-date" value="<%=list.get(i).getArray()[0]%>">
+	                                </label>
+	                                <br>
+	                                <select class="hour" name="s-hour" required>
+										<option value="<%=sArray[0]%>" selected><%=sArray[0]%></option>
+										<%for (int j = 0; j < 24; j++) {%>
+											<option value="<%=j%>"><%=j%></option>
+										<%}%>
+									</select>
+	                                <p class="time">時</p>
+	                                <select class="minutes" name="s-minutes" required>
+										<option value="<%=sArray[1]%>"><%=sArray[1]%></option>
+										<%for (int j = 0; j < 60; j++) {%>
+											<option value="<%=j%>"><%=j%></option>
+										<%}%>
+									</select>
+	                                <p class="time">分</p>
+	                            </div>
+	                            <div class="date-time">
+	                                <label class="date">
+	                                    <input type="date" value="<%=list.get(i).getArray1()[0]%>">
+	                                </label>
+	                                <br>
+	                                <select class="hour" name="e-hour" required>
+										<option value="<%=eArray[0]%>" selected><%=eArray[0]%></option>
+										<%for (int j = 0; j < 24; j++) {%>
+											<option value="<%=j%>"><%=j%></option>
+										<%}%>
+									</select>
+	                                <p class="time">時</p>
+	                                <select class="minutes" name="e-minutes" required>
+										<option value="<%=eArray[1]%>"><%=eArray[1]%></option>
+										<%for (int j = 0; j < 60; j++) {%>
+											<option value="<%=j%>"><%=j%></option>
+										<%}%>
+									</select>
+	                                <p class="time">分</p>
+	                            </div>
+	                        </div>
+	                        <textarea name="" cols="65" rows="10" placeholder="メモ" ><%=list.get(i).getText1()%></textarea>
+	                    </div>
+                    <%} %>
                 </div>
                 <div class="event" id="right">
                     <input type="text" class="ev-title" placeholder="イベント名">
