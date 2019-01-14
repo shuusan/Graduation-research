@@ -54,7 +54,8 @@ public class Admin_event_bottom extends HttpServlet {
 			break;
 		case "resist":
 			try {
-				for(int i=0; i<Integer.parseInt(request.getParameter("count"))+1; i++) {
+				System.out.println(request.getParameter("count"));
+				for(int i=0; i<=Integer.parseInt(request.getParameter("count"))+1; i++) {
 					int[] numData = new int[2];
 					numData[0] = 2;
 					numData[1] = 7;
@@ -88,7 +89,7 @@ public class Admin_event_bottom extends HttpServlet {
 			}
 			break;
 		case "delete":
-			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size();i++) {
+			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size()+1;i++) {
 				if(null!=request.getParameter("ckb"+i)) {
 					Admin_DeleteDAO.delete_btmEv(Integer.parseInt(request.getParameter("ckb"+i)));
 				}
@@ -99,7 +100,7 @@ public class Admin_event_bottom extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "update"://update
-			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size();i++) {
+			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size()+1;i++) {
 				if(null!=request.getParameter("change_id"+i)) {
 					String[] data = new String[7];
 					data[0] = request.getParameter("ev-title"+i);

@@ -82,7 +82,7 @@ public class Admin_event_middle extends HttpServlet {
 			}
 			break;
 		case "delete":
-			for(int i=0; i<Admin_SelectDAO.midEvelist(1).size();i++) {
+			for(int i=0; i<Admin_SelectDAO.midEvelist(1).size()+1;i++) {
 				if(null!=request.getParameter("ckb"+i)) {
 					Admin_DeleteDAO.delete_midEv(Integer.parseInt(request.getParameter("ckb"+i)));
 				}
@@ -93,7 +93,7 @@ public class Admin_event_middle extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "update"://update
-			for(int i=0; i<Admin_SelectDAO.midEvelist(1).size();i++) {
+			for(int i=0; i<Admin_SelectDAO.midEvelist(1).size()+1;i++) {
 				if(null!=request.getParameter("change_id"+i)) {
 					String[] data = new String[5];
 					data[2] = request.getParameter("s-date"+i);

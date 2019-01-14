@@ -64,7 +64,7 @@ public class Admin_event_form extends HttpServlet {
 			break;
 		case "delete":
 			ArrayList<User_DTO> list = User_SelectDAO.top_event();
-			for(int i=0; i<list.size();i++) {
+			for(int i=0; i<list.size()+1;i++) {
 				if(null!=request.getParameter("ckb"+i)) {
 					Admin_DeleteDAO.delete_topEv(Integer.parseInt(request.getParameter("ckb"+i)));
 				}
