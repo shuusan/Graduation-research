@@ -169,4 +169,29 @@ public class Admin_UpdateDAO {
 		}
 	}
 
+	public static void btmEveUpdate(int key1, String[] array) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "UPDATE bottom_event SET title = ?, contents = ?, start_datetime = ?, end_datetime = ? WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, array[0]);
+			pstmt.setString(2, array[1]);
+			pstmt.setString(3, array[2]);
+			pstmt.setString(4, array[3]);
+			pstmt.setInt(5, key1);
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

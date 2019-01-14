@@ -99,25 +99,26 @@ public class Admin_event_bottom extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "update"://update
-			for(int i=0; i<Admin_SelectDAO.midEvelist(1).size();i++) {
+			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size();i++) {
 				if(null!=request.getParameter("change_id"+i)) {
-					String[] data = new String[5];
-					data[2] = request.getParameter("s-date"+i);
-					data[3] = request.getParameter("s-hour"+i);
-					data[4] = request.getParameter("s-minutes"+i);
-					data[0] = data[2]+" "+data[3]+":"+data[4];
+					String[] data = new String[7];
+					data[0] = request.getParameter("ev-title"+i);
+					data[1] = request.getParameter("txta"+i);
 
-					data[2] = request.getParameter("e-date"+i);
-					data[3] = request.getParameter("e-hour"+i);
-					data[4] = request.getParameter("e-minutes"+i);
-					data[1] = data[2]+" "+data[3]+":"+data[4];
+					data[4] = request.getParameter("s-date"+i);
+					data[5] = request.getParameter("s-hour"+i);
+					data[6] = request.getParameter("s-minutes"+i);
+					data[2] = data[4]+" "+data[5]+":"+data[6];
 
-					System.out.println(data[0]);
-					System.out.println(data[1]);
-					Admin_UpdateDAO.midEveUpdate(Integer.parseInt(request.getParameter("change_id"+i)),1,data);
+					data[4] = request.getParameter("e-date"+i);
+					data[5] = request.getParameter("e-hour"+i);
+					data[6] = request.getParameter("e-minutes"+i);
+					data[3] = data[4]+" "+data[5]+":"+data[6];
+
+					Admin_UpdateDAO.btmEveUpdate(Integer.parseInt(request.getParameter("change_id"+i)),data);
 				}
 			}
-			request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
+			request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
 			view = "/WEB-INF/admin/admin_event_bottom.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);

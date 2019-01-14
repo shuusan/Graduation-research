@@ -241,7 +241,7 @@ textarea {
     outline: none;
 }
 
-#count{
+.count{
 	display: block;
 	width:1px;
 	height: 1px;

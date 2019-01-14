@@ -15,6 +15,7 @@
     <title>メインページ</title>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/ev-plus.js"></script>
+    <script type="text/javascript" src="js/midEve_change.js"></script>
 </head>
 
 <body>
@@ -53,6 +54,7 @@
             		String[] eArray = list.get(i).getArray1()[1].split(":");
                 %>
 	                    <div class="one-event">
+	                    	<input type="text" id="id<%=i%>" class="count" name="id<%=i%>" value="<%=list.get(i).getNum() %>">
 	                        <input type="text" name="ev-title<%=i %>" class="ev-title" placeholder="イベント名" value="<%=list.get(i).getText()%>">
 	                        <input type="checkbox" value="<%=list.get(i).getNum() %>" name="ckb<%=i%>" class="cbx">
 	                        <div class="evtime-area">
@@ -103,7 +105,7 @@
                 </form>
                 <form class="event" id="right" method="post">
                 <div id="ricon">
-                <input type="text" id="count" name="count" value="0">
+                <input type="text" class="count" name="count" value="0">
                 <input type="text" class="ev-title" placeholder="イベント名" name="ev-title0">
 	                        <div class="evtime-area">
 	                            <div class="date-time">

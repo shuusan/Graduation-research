@@ -23,4 +23,21 @@ $(document).ready(function () {
     	}
     })
 
+    $('textarea').change(function () {
+    	var num = $(this).attr('name').slice(4);
+    	console.log(num);
+    	var id = "id" + num;
+    	if(id != 'change_'+id){
+        	var reid = $('#'+id).attr('name', 'change_' + id);
+    	}
+    })
+
+    $('.ev-title').change(function () {
+    	var num = $(this).attr('name').slice(8);
+    	var id = "id" + num;
+    	if(id != 'change_'+id){
+        	var reid = $('#'+id).attr('name', 'change_' + id);
+    	}
+    })
+
 });
