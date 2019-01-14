@@ -47,7 +47,7 @@
             </form>
 
             <div id="contents">
-                <form class="event" id="left">
+                <form class="event" id="left" method="post">
                 <%for(int i=0; i<list.size(); i++){
                 	String[] sArray = list.get(i).getArray()[1].split(":");
             		String[] eArray = list.get(i).getArray1()[1].split(":");
@@ -101,8 +101,9 @@
 	                    </div>
                     <%} %>
                 </form>
-                <form class="event" id="right">
+                <form class="event" id="right" method="post">
                 <div id="ricon">
+                <input type="text" id="count" name="count" value="0">
                 <input type="text" class="ev-title" placeholder="イベント名" name="ev-title0">
 	                        <div class="evtime-area">
 	                            <div class="date-time">
@@ -144,7 +145,7 @@
 	                                <p class="time">分</p>
 	                            </div>
 	                        </div>
-	                        <textarea name="" cols="65" rows="10" placeholder="メモ" name="txta0"></textarea>
+	                        <textarea cols="65" rows="10" placeholder="メモ" name="txta0"></textarea>
                 </div>
                 </form>
                 <button type="button" id="plus" onclick="add();">＋</button>

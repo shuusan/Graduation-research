@@ -54,29 +54,37 @@ public class Admin_event_bottom extends HttpServlet {
 			break;
 		case "resist":
 			try {
-				String[] data = new String[6];
-				data[0] = request.getParameter("resitext");
+				for(int i=0; i<Integer.parseInt(request.getParameter("count"))+1; i++) {
+					int[] numData = new int[2];
+					numData[0] = 2;
+					numData[1] = 7;
 
-				data[3] = request.getParameter("s-date");
-				data[4] = request.getParameter("s-hour");
-				data[5] = request.getParameter("s-minutes");
-				data[1] = data[3]+" "+data[4]+":"+data[5];
+					String[] data = new String[7];
+					data[0] = request.getParameter("ev-title"+i);
+					data[1] = request.getParameter("txta"+i);
 
-				data[3] = request.getParameter("e-date");
-				data[4] = request.getParameter("e-time");
-				data[5] = request.getParameter("e-minutes");
-				data[2] = data[3]+" "+data[4]+":"+data[5];
+					data[4] = request.getParameter("s-date"+i);
+					data[5] = request.getParameter("s-hour"+i);
+					data[6] = request.getParameter("s-minutes"+i);
+					data[2] = data[4]+" "+data[5]+":"+data[6];
 
-				Admin_InsertDAO.midEveInsert(1,data);
-				request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
-				view = "/WEB-INF/admin/admin_event_middle.jsp";
+					data[4] = request.getParameter("e-date"+i);
+					data[5] = request.getParameter("e-hour"+i);
+					data[6] = request.getParameter("e-minutes"+i);
+					data[3] = data[4]+" "+data[5]+":"+data[6];
+
+					Admin_InsertDAO.btmEveInsert(numData,data);
+				}
+				request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
+				view = "/WEB-INF/admin/admin_event_bottom.jsp";
 				dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
+
 			} catch (Exception e) {
 				e.printStackTrace();
 				request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
 				request.setAttribute("alert", "未入力の項目があります。");
-				view = "/WEB-INF/admin/admin_event_middle.jsp";
+				view = "/WEB-INF/admin/admin_event_bottom.jsp";
 				dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}
@@ -88,7 +96,7 @@ public class Admin_event_bottom extends HttpServlet {
 				}
 			}
 			request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
-			view = "/WEB-INF/admin/admin_event_middle.jsp";
+			view = "/WEB-INF/admin/admin_event_bottom.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;
@@ -112,7 +120,7 @@ public class Admin_event_bottom extends HttpServlet {
 				}
 			}
 			request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
-			view = "/WEB-INF/admin/admin_event_middle.jsp";
+			view = "/WEB-INF/admin/admin_event_bottom.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;

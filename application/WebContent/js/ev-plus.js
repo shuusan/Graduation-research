@@ -36,5 +36,6 @@ var count =1;
 	    	id: 'txta'+count,
 	    	name: 'txta'+count
 	    });
+	    $('#count').attr('value', count);
 	    count++;
 	}

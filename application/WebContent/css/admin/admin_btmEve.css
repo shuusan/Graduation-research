@@ -240,3 +240,13 @@ select,
 textarea {
     outline: none;
 }
+
+#count{
+	display: block;
+	width:1px;
+	height: 1px;
+	margin:0;
+	padding:0;
+	visibility: hidden;
+}
+

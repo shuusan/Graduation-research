@@ -137,4 +137,29 @@ public class Admin_InsertDAO {
 			e.printStackTrace();
 		}
 	}
+	public static void btmEveInsert(int[] numrray, String[] array){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "INSERT INTO bottom_event VALUES (null,?,?,0,?,?,0,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, numrray[0]);
+			pstmt.setInt(2, numrray[1]);
+			pstmt.setString(3, array[0]);
+			pstmt.setString(4, array[1]);
+			pstmt.setString(5, array[2]);
+			pstmt.setString(6, array[3]);
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }
