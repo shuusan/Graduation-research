@@ -40,9 +40,9 @@
 
             <form id="control">
                 <input type="text" id="s-txt" placeholder="イベントの検索" name="txt">
-                <button type="submit" class="btn" id="s-btn" name="btn">検索</button>
-                <button type="submit" class="btn" name="btn" form="left">チェック項目の削除</button>
-                <button type="submit" class="btn" name="btn" form="left">変更の確定をする</button>
+                <button type="submit" value="search" class="btn" id="s-btn" name="btn">検索</button>
+                <button type="submit" value="delete" class="btn" name="btn" form="left">チェック項目の削除</button>
+                <button type="submit" value="update" class="btn" name="btn" form="left">変更の確定をする</button>
                 <button type="submit" value="resist" class="btn" name="btn" form="right">下記を登録する！</button>
             </form>
 

@@ -81,21 +81,19 @@ public class Admin_event_bottom extends HttpServlet {
 				dispatcher.forward(request, response);
 
 			} catch (Exception e) {
-				e.printStackTrace();
-				request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
-				request.setAttribute("alert", "未入力の項目があります。");
+				request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
 				view = "/WEB-INF/admin/admin_event_bottom.jsp";
 				dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}
 			break;
 		case "delete":
-			for(int i=0; i<Admin_SelectDAO.midEvelist(1).size();i++) {
+			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size();i++) {
 				if(null!=request.getParameter("ckb"+i)) {
-					Admin_DeleteDAO.delete_midEv(Integer.parseInt(request.getParameter("ckb"+i)));
+					Admin_DeleteDAO.delete_btmEv(Integer.parseInt(request.getParameter("ckb"+i)));
 				}
 			}
-			request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(1));
+			request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
 			view = "/WEB-INF/admin/admin_event_bottom.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
