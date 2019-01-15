@@ -17,6 +17,8 @@
 <script type="text/javascript" src="js/image_icon.js"></script>
 -->
     <title>メインページ</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/data-change.js"></script>
 </head>
 
 <body>

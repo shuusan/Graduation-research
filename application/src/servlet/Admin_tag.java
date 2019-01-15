@@ -83,27 +83,13 @@ public class Admin_tag extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "update"://update
-			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size()+1;i++) {
+			for(int i=0; i<Admin_SelectDAO.tagList().size()+1;i++) {
 				if(null!=request.getParameter("change_id"+i)) {
-					String[] data = new String[7];
-					data[0] = request.getParameter("ev-title"+i);
-					data[1] = request.getParameter("txta"+i);
-
-					data[4] = request.getParameter("s-date"+i);
-					data[5] = request.getParameter("s-hour"+i);
-					data[6] = request.getParameter("s-minutes"+i);
-					data[2] = data[4]+" "+data[5]+":"+data[6];
-
-					data[4] = request.getParameter("e-date"+i);
-					data[5] = request.getParameter("e-hour"+i);
-					data[6] = request.getParameter("e-minutes"+i);
-					data[3] = data[4]+" "+data[5]+":"+data[6];
-
-					Admin_UpdateDAO.btmEveUpdate(Integer.parseInt(request.getParameter("change_id"+i)),data);
+					Admin_UpdateDAO.tagUpdate(Integer.parseInt(request.getParameter("change_id"+i)),request.getParameter("tag"+i));
 				}
 			}
-			request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
-			view = "/WEB-INF/admin/admin_event_bottom.jsp";
+			request.setAttribute("tagList", Admin_SelectDAO.tagList());
+			view = "/WEB-INF/admin/admin_tag.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;

@@ -194,4 +194,26 @@ public class Admin_UpdateDAO {
 		}
 	}
 
+	public static void tagUpdate(int key1, String key2) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "UPDATE tag SET name = ? WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key2);
+			pstmt.setInt(2, key1);
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
