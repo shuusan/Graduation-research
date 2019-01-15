@@ -56,7 +56,6 @@ public class Admin_tag extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "resist":
-			System.out.println("resist");
 			Part part = request.getPart("file");
 			String name = this.getFileName(part);
 			part.write("C:\\Users\\高橋秀英\\Desktop\\卒業研究\\Graduation-research\\application\\WebContent\\photo" + "/" + name);
@@ -73,13 +72,13 @@ public class Admin_tag extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "delete":
-			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size()+1;i++) {
+			for(int i=0; i<Admin_SelectDAO.tagList().size()+1;i++) {
 				if(null!=request.getParameter("ckb"+i)) {
-					Admin_DeleteDAO.delete_btmEv(Integer.parseInt(request.getParameter("ckb"+i)));
+					Admin_DeleteDAO.delete_tag(Integer.parseInt(request.getParameter("ckb"+i)));
 				}
 			}
-			request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
-			view = "/WEB-INF/admin/admin_event_bottom.jsp";
+			request.setAttribute("tagList", Admin_SelectDAO.tagList());
+			view = "/WEB-INF/admin/admin_tag.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;

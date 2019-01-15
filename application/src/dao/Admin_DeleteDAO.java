@@ -155,4 +155,24 @@ public class Admin_DeleteDAO {
 			e.printStackTrace();
 		}
 	}
+	public static void delete_tag(int num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "DELETE FROM tag where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }

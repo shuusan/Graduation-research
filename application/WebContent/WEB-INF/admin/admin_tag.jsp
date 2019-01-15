@@ -33,13 +33,13 @@
 
     </header>
     <main>
-        <div id="search">
+        <form id="search">
             <input type="text" placeholder="キーワードを入力" id="textfield">
-            <button type="submit" id="button" name="btn">検索</button>
-            <button type="button" class="button" name="btn">更新</button>
-            <button type="button" class="button" name="btn">削除</button>
-        </div>
-
+            <button type="submit" id="button" name="btn" form="search">検索</button>
+            <button type="submit" value="update" class="button" name="btn" form="act">更新</button>
+            <button type="submit" value="delete" class="button" name="btn" form="act">削除</button>
+        </form>
+	<form action="Admin_tag" id="act" method="post">
         <table>
             <thead>
                 <tr>
@@ -53,39 +53,40 @@
                     <td class="item_body">
                         <div class="tool">
                             <input type="checkbox" class="check" value="<%=list.get(i).getNum()%>" name="ckb<%=i %>">
-                            <!--                            <input type="image" src="image/camera1.png" class="camera" onclick="modalOpen()">-->
+                            <input type="text" value="<%=list.get(i).getNum()%>" id="id<%=i%>" name="id<%=i %>" class="data">
                         </div>
                         <img src="photo/<%=list.get(i).getText1() %>" class="img" id="image">
                         <div>
-                            <input type="text" class="tagname" value="<%=list.get(i).getText()%>">
+                            <input type="text" class="tagname" value="<%=list.get(i).getText()%>" name="tag<%=i%>">
                         </div>
                     </td>
                     <%i++;if(i==list.size()){break;} %>
                     <td class="item_body">
                         <div class="tool">
                             <input type="checkbox" class="check" value="<%=list.get(i).getNum()%>" name="ckb<%=i %>">
-                            <!--                            <input type="image" src="image/camera1.png" class="camera" onclick="modalOpen()">-->
+                            <input type="text" value="<%=list.get(i).getNum()%>" id="id<%=i%>" name="id<%=i %>" class="data">
                         </div>
                         <img src="photo/<%=list.get(i).getText1() %>" class="img" id="image">
                         <div>
-                            <input type="text" class="tagname" value="<%=list.get(i).getText()%>">
+                            <input type="text" class="tagname" value="<%=list.get(i).getText()%>" name="tag<%=i%>">
                         </div>
                     </td>
                     <%i++;if(i==list.size()){break;} %>
                     <td class="item_body">
                         <div class="tool">
                             <input type="checkbox" class="check" value="<%=list.get(i).getNum()%>" name="ckb<%=i %>">
-                            <!--                            <input type="image" src="image/camera1.png" class="camera" onclick="modalOpen()">-->
+                            <input type="text" value="<%=list.get(i).getNum()%>" id="id<%=i%>" name="id<%=i %>" class="data">
                         </div>
                         <img src="photo/<%=list.get(i).getText1() %>" class="img" id="image">
                         <div>
-                            <input type="text" class="tagname" value="<%=list.get(i).getText()%>">
+                            <input type="text" class="tagname" value="<%=list.get(i).getText()%>" name="tag<%=i%>">
                         </div>
                     </td>
                 </tr>
                 <%} %>
             </tbody>
         </table>
+        </form>
         <div id="registration_area">
             <h1>新規タグ作成</h1>
             <form method="post" enctype="multipart/form-data" action="Admin_tag">
