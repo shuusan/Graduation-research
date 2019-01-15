@@ -252,4 +252,66 @@ public class User_SelectDAO {
 		return list;
 	}
 
+	public static ArrayList<User_DTO> searchQuest(String[] array,int key){
+		ArrayList<User_DTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM question";
+			String[] result = array[1].trim().split("[\\s]*,[\\s]*");
+			if(null!=array[1]) {
+				for(int i=0; i<result.length;i++) {
+					if(i==0) {
+						sql = sql + " WHERE title LIKE ? OR content LIKE ? OR answer LIKE ?";
+					}else {
+						sql = sql + " OR title LIKE ? OR content LIKE ? OR answer LIKE ?";
+					}
+					if(i==result.length-1) {
+						sql = sql + " AND top_eventNo = ? AND cflg = 1";
+					}
+					if(Integer.parseInt(array[0])!=0) {
+						sql = sql + " WHERE tagID = ?";
+					}
+				}
+			}else {
+				if(Integer.parseInt(array[0])!=0) {
+					sql = sql + " tagID = ?";
+				}
+			}
+
+			pstmt = con.prepareStatement(sql);
+
+			int count = 1;
+			for(int i=0;i<result.length;i++) {
+				pstmt.setString(count++, "%"+result[i]+"%");//title
+				pstmt.setString(count++, "%"+result[i]+"%");//content
+				pstmt.setString(count++, "%"+result[i]+"%");//answer
+			}
+			pstmt.setInt(count++, key);
+			if(Integer.parseInt(array[0])!=0) {
+				pstmt.setInt(count++, Integer.parseInt(array[0]));
+			}
+
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String title = rs.getString("title");
+				list.add(new User_DTO(id,title));
+			}
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 }

@@ -24,6 +24,8 @@ public class User_Question_common extends HttpServlet {
 		session.setAttribute("place", "User_Question_common");
 		session.setAttribute("tag", User_SelectDAO.tagList());
 		session.setAttribute("cqList", User_SelectDAO.cqList(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
+		session.setAttribute("qdv", 0);
+		session.setAttribute("qdt", "すべて");
 		String view = "/WEB-INF/user/question-common.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
@@ -32,12 +34,15 @@ public class User_Question_common extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("place", "User_Question_common");
 		request.setCharacterEncoding("UTF-8");
-		if("".equals(request.getParameter("text"))) {
-			//pulldown
-			
-		}else {
-			//textfield
+		String[] array = {
+				request.getParameter("select"),
+				request.getParameter("text")
+		};
+		if(null!=request.getParameter("select")) {
+			session.setAttribute("qdv", Integer.parseInt(request.getParameter("select")));
+			session.setAttribute("qdt", request.getParameter("data"));
 		}
+		session.setAttribute("cqList", User_SelectDAO.searchQuest(array, Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
 		String view = "/WEB-INF/user/question-common.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

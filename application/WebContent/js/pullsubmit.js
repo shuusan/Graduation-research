@@ -1,5 +1,7 @@
 $(document).ready(function () {
 	$('#select').on('change', function () {
-		document.search.submit();
+		var data = $('#select option:selected').text();
+		$('#data').attr('value', data);
+		$('#search').submit();
     })
 });
