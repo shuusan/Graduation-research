@@ -1,0 +1,30 @@
+@import url("index.css");
+@import url("hamburger.css");
+
+form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.contents {
+    height: 200px;
+    width: 200px;
+    margin: 10% auto;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    color: gray;
+    transition: .5s;
+    outline: none;
+}
+
+.contents:hover {
+    border: 2px solid white;
+    background: lightgray;
+    color: white;
+}
+
+h1 {
+    margin: 50px auto;
+    text-align: center;
+}

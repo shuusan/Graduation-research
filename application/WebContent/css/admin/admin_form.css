@@ -1,0 +1,118 @@
+@charset "UTF-8";
+@import url(index.css);
+@import url(hamburger.css);
+
+
+main {
+    height: 90%;
+    margin: 10px auto 5px auto;
+    margin-left: 10%;
+    background-color: whitesmoke;
+}
+
+table {
+    margin-top: 20px;
+    border: 2px solid #dbd0e6;
+    table-layout: fixed;
+}
+
+footer {
+    width: 100%;
+    height: 2em;
+    margin: 0;
+    background-color: whitesmoke;
+}
+
+#mainebent {
+    width: 41%;
+    height: 29px;
+    border: 2px solid #dbd0e6;
+    outline: 0;
+    padding-left: 5px;
+    margin-left: 127px;
+}
+
+#textfield {
+    width: 45%;
+    height: 29px;
+    border: 2px solid #dbd0e6;
+    outline: 0;
+    padding-left: 5px;
+}
+
+#button_touroku {
+    height: 35px;
+    width: 75px;
+    background-color: #e5e4e6;
+    border: 2px solid #dbd0e6;
+    border-left: none;
+    margin-top: 1px;
+}
+
+#button_touroku:hover {
+    background-color: #e5e4e6;
+    border: 2px solid #b3ada0;
+}
+
+#button {
+    height: 35px;
+    width: 75px;
+    background-color: #e5e4e6;
+    border: 2px solid #dbd0e6;
+    border-left: none;
+    margin-left: -5px;
+}
+
+#button:hover {
+    background-color: #e5e4e6;
+    border: 2px solid #b3ada0;
+}
+
+.button {
+    height: 37px;
+    width: 75px;
+    background-color: #e5e4e6;
+    border: 2px solid #dbd0e6;
+    margin-left: 20px;
+}
+
+.button:hover {
+    background-color: #e5e4e6;
+    border: 2px solid #b3ada0;
+}
+
+/*ボディ項目設定*/
+.item_body {
+    width: 100%;
+    height: 40px;
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-indent: 10px;
+}
+
+table {
+    width: 86%;
+}
+
+/*チェックボックス設定*/
+.check {
+    width: 25px;
+    height: 40px;
+}
+
+/*編集ボタン*/
+.editing {
+    width: 70px;
+    height: 40px;
+}
+
+/*スクロールバー設定*/
+tbody {
+    display: block;
+    overflow-y: scroll;
+    height: 450px;
+}
+
+form{
+	display: inline;
+}

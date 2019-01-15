@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+@import url(index.css);
+
+@import url(hamburger.css);
+
+main {
+	height: 90%;
+	margin: 0 auto;
+	background-color: whitesmoke;
+}
+
+table {
+	margin: 20px auto;
+	border: 2px solid #dbd0e6;
+	table-layout: fixed;
+}
+
+footer {
+	width: 100%;
+	height: 2em;
+	margin: 0;
+	background-color: whitesmoke;
+}
+
+#mainevent {
+	width: 41%;
+	height: 29px;
+	border: 2px solid #dbd0e6;
+	margin-bottom: 1%; outline : 0;
+	padding-left: 5px;
+	outline: 0;
+}
+
+.textfield {
+	width: 45%;
+	height: 29px;
+	border: 2px solid #dbd0e6;
+	outline: 0;
+	margin-bottom: 2%;
+	padding-left: 5px;
+}
+
+.button {
+	height: 37px;
+	width: 75px;
+	background-color: #e5e4e6;
+	border: 2px solid #dbd0e6;
+	margin-left: 0.2%;
+}
+
+.button:hover {
+	background-color: #e5e4e6;
+	border: 2px solid #b3ada0;
+}
+
+/*ボディ項目設定*/
+.item_body {
+	width: 100%;
+	height: 40px;
+	font-size: 30px;
+	letter-spacing: 5px;
+	text-indent: 10px;
+}
+
+table {
+	width: 86%;
+	height: 80%;
+}
+
+/*チェックボックス設定*/
+.check {
+	width: 25px;
+	height: 40px;
+}
+
+/*編集ボタン*/
+.editing {
+	width: 70px;
+	height: 40px;
+}
+
+/*スクロールバー設定*/
+tbody {
+	display: block;
+	overflow-y: scroll;
+	height: 450px;
+}
+
+table, td {
+	border-bottom: 2px #e5e4e6 solid;
+}
+
+form {
+	width: 100%;
+	height: 100%;
+}
+
+#acbtn {
+	width: 86%;
+	height: 15%;
+	margin: 0 auto;
+}
