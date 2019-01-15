@@ -85,6 +85,15 @@ public class Admin_DTO {
 		this.array1 = array1;
 	}
 
+
+
+	public Admin_DTO(int num, String text, String text1) {
+		super();
+		this.num = num;
+		this.text = text;
+		this.text1 = text1;
+	}
+
 	public void setNum(int num) {
 		this.num = num;
 	}

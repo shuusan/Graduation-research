@@ -145,9 +145,8 @@ td {
 h1 {
     margin-top: auto;
     text-align: center;
-    padding-top: 3%;
     width: 100%;
-    height: 10%;
+    height: 11%;
     font-size: 1.5em;
     background-color: #e5e4e6;
     border: none;
@@ -157,7 +156,7 @@ h1 {
     margin-top: 10%;
     margin-left: 10%;
     width: 80%;
-    font-size: 1.3em;
+    font-size: 1em;
 }
 
 #registration_button {
@@ -238,7 +237,7 @@ h4 {
 
 @keyframes bgOpenAnime {
 
-     フェードイン 
+     フェードイン
     100% {
         opacity: 1
     }
@@ -258,7 +257,7 @@ h4 {
 
 @keyframes bgCloseAnime {
 
-     フェードイン 
+     フェードイン
     0% {
         opacity: 1;
         bottom: 0
@@ -301,7 +300,7 @@ h4 {
 
 @keyframes modalOpenAnime {
 
-     上→中心 
+     上→中心
     0% {
         top: -50%
     }

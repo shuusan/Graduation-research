@@ -1,11 +1,17 @@
+<%@page import="dto.Admin_DTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    @SuppressWarnings("unchecked")
+    ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>) request.getAttribute("tagList");
+    %>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/admin/tagu.css">
+    <link rel="stylesheet" href="css/admin/tag.css">
     <!--
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/image_icon.js"></script>
@@ -29,9 +35,9 @@
     <main>
         <div id="search">
             <input type="text" placeholder="キーワードを入力" id="textfield">
-            <button type="submit" id="button">検索</button>
-            <button type="button" class="button">更新</button>
-            <button type="button" class="button">削除</button>
+            <button type="submit" id="button" name="btn">検索</button>
+            <button type="button" class="button" name="btn">更新</button>
+            <button type="button" class="button" name="btn">削除</button>
         </div>
 
         <table>
@@ -42,51 +48,52 @@
                 </tr>
             </thead>
             <tbody>
+            <%for(int i=0; i<list.size();i++){ %>
                 <tr>
                     <td class="item_body">
                         <div class="tool">
-                            <input type="checkbox" class="check">
+                            <input type="checkbox" class="check" value="<%=list.get(i).getNum()%>" name="ckb<%=i %>">
                             <!--                            <input type="image" src="image/camera1.png" class="camera" onclick="modalOpen()">-->
                         </div>
-                        <img src="image/icon_138200_256.png" class="img" id="image">
+                        <img src="photo/<%=list.get(i).getText1() %>" class="img" id="image">
                         <div>
-                            <input type="text" class="tagname" value="時間タグ">
+                            <input type="text" class="tagname" value="<%=list.get(i).getText()%>">
+                        </div>
+                    </td>
+                    <%i++;if(i==list.size()){break;} %>
+                    <td class="item_body">
+                        <div class="tool">
+                            <input type="checkbox" class="check" value="<%=list.get(i).getNum()%>" name="ckb<%=i %>">
+                            <!--                            <input type="image" src="image/camera1.png" class="camera" onclick="modalOpen()">-->
+                        </div>
+                        <img src="photo/<%=list.get(i).getText1() %>" class="img" id="image">
+                        <div>
+                            <input type="text" class="tagname" value="<%=list.get(i).getText()%>">
+                        </div>
+                    </td>
+                    <%i++;if(i==list.size()){break;} %>
+                    <td class="item_body">
+                        <div class="tool">
+                            <input type="checkbox" class="check" value="<%=list.get(i).getNum()%>" name="ckb<%=i %>">
+                            <!--                            <input type="image" src="image/camera1.png" class="camera" onclick="modalOpen()">-->
+                        </div>
+                        <img src="photo/<%=list.get(i).getText1() %>" class="img" id="image">
+                        <div>
+                            <input type="text" class="tagname" value="<%=list.get(i).getText()%>">
                         </div>
                     </td>
                 </tr>
+                <%} %>
             </tbody>
         </table>
         <div id="registration_area">
             <h1>新規タグ作成</h1>
-            <div>
-                <input type="text" placeholder="画像のurlを貼り付けてください" class="textfield" required>
+            <form method="post" enctype="multipart/form-data" action="Admin_tag">
+                <input type="file" name="file" class="textfield" required>
                 <input type="text" placeholder="タグ名を入力してください" class="textfield" required>
-                <input type="button" value="登録" id="registration_button">
-            </div>
+                <button type="button" value="resist" id="registration_button" name="btn">登録</button>
+            </form>
         </div>
-        <!-- モーダルウインドウのエリア -->
-        <!--
-        <div id="modalArea" class="modalNoDisp">
-            <div class="modalWindow">
--->
-        <!--                ここがウインドウとなります-->
-        <!--
-<h4>タグを選んでください</h4>
-<div id="icon_scroll">
-    <a href="javascript:void(0);" onclick="LinkClick(0);"><img src="image/icon_142460_256.png" class="icon"></a>
-    <a href="javascript:void(0);" onclick="LinkClick(1);"><img src="image/icon_141850_256.png" class="icon"></a>
-    <a href="javascript:void(0);" onclick="LinkClick(2);"><img src="image/icon_141860_256.png" class="icon"></a>
-    <a href="javascript:void(0);" onclick="LinkClick(3);"><img src="image/icon_142030_256.png" class="icon"></a>
-    <a href="javascript:void(0);" onclick="LinkClick(4);"><img src="image/icon_142150_256.png" class="icon"></a>
-    <a href="javascript:void(0);" onclick="LinkClick(5);"><img src="image/icon_138200_256.png" class="icon"></a>
-    <a href="javascript:void(0);" onclick="LinkClick(6);"><img src="image/icon_142530_256.png" class="icon"></a>
-    <a href="javascript:void(0);" onclick="LinkClick(7);"><img src="image/icon_147540_256.png" class="icon"></a>
-    <a href="javascript:void(0);" onclick="LinkClick(8);"><img src="image/shedule.png" class="icon"></a>
-</div>
-<input type="button" value="閉じる" onclick="modalClose()">
-</div>
-</div>
--->
     </main>
 
     <footer>
