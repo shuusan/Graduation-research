@@ -90,8 +90,8 @@
             <h1>新規タグ作成</h1>
             <form method="post" enctype="multipart/form-data" action="Admin_tag">
                 <input type="file" name="file" class="textfield" required>
-                <input type="text" placeholder="タグ名を入力してください" class="textfield" required>
-                <button type="button" value="resist" id="registration_button" name="btn">登録</button>
+                <input type="text" name="tn" placeholder="タグ名を入力してください" class="textfield" required>
+                <button type="submit" value="resist" id="registration_button" name="btn">登録</button>
             </form>
         </div>
     </main>

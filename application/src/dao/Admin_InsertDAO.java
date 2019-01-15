@@ -162,4 +162,26 @@ public class Admin_InsertDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public static void tagInsert(String[] array){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "INSERT INTO tag VALUES (null,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, array[0]);
+			pstmt.setString(2, array[1]);
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }
