@@ -32,7 +32,7 @@
     <main>
         <form action="Admin_event_middle" method="post">
             <div id="acbtn">
-            <input type="text" placeholder="キーワードを入力" class="textfield">
+            <input type="text" placeholder="キーワードを入力(イベント名)" class="textfield" name="keyword">
                 <button type="submit" class="button" value="search" name="btn">検索</button>
                 <button type="submit" class="button" value="delete" name="btn">削除</button>
                 <button type="submit" class="button" value="update" name="btn">更新</button>

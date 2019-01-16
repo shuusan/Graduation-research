@@ -48,6 +48,7 @@ public class Admin_event_middle extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		switch(null!=request.getParameter("btn")?request.getParameter("btn"):"update") {
 		case "search":
+			request.setAttribute("midEvelist", Admin_SelectDAO.midSearch(1,request.getParameter("keyword")));
 			view = "/WEB-INF/admin/admin_event_middle.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
