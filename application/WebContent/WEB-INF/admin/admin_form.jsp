@@ -30,6 +30,7 @@
     <main>
     	<form action="<%String.valueOf(session.getAttribute("fa"));%>" method="post">
     	<input type="text" placeholder="キーワードを入力" id="textfield" name="sw">
+    	<button type="submit" value="search" id="reset" name="sb">リセット</button>
         <button type="submit" value="search" id="button" name="sb">検索</button>
     	</form>
         <form action="<%String.valueOf(session.getAttribute("fa"));%>" method="post">

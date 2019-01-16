@@ -116,3 +116,16 @@ tbody {
 form{
 	display: inline;
 }
+
+#reset {
+    height: 35px;
+    background-color: #e5e4e6;
+    border: 2px solid #dbd0e6;
+    border-left: none;
+    margin-left: -5px;
+}
+
+#reset:hover {
+    background-color: #e5e4e6;
+    border: 2px solid #b3ada0;
+}

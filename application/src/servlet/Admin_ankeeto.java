@@ -53,7 +53,14 @@ public class Admin_ankeeto extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		switch(null!=request.getParameter("sb")?request.getParameter("sb"):"update") {
 		case "search":
+			session.setAttribute("adlist", Admin_SelectDAO.searchAnkeeto(request.getParameter("sw")));
+			view = "/WEB-INF/admin/admin_form.jsp";
+			dispatcher = request.getRequestDispatcher(view);
+			dispatcher.forward(request, response);
+			break;
+		case "reset":
 			session.setAttribute("adlist", Admin_SelectDAO.ankeetoView());
+			view = "/WEB-INF/admin/admin_form.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;
