@@ -30,7 +30,7 @@ ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)request.getAttribute("qList");
     </header>
     <main>
     <form action="Admin_form" method="post">
-        <input type="text" placeholder="キーワードを入力" id="textfield">
+        <input type="text" placeholder="キーワードを入力" id="textfield" name="txt">
         <button type="submit" id="button" value="search" name="btn">検索</button>
         <button type="submit" class="button" value="delete" name="btn">削除</button>
 

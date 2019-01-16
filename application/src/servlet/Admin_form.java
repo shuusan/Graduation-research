@@ -50,7 +50,7 @@ public class Admin_form extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		switch(request.getParameter("btn")) {
 		case "search":
-			request.setAttribute("qList", Admin_SelectDAO.questionList());
+			request.setAttribute("qList", Admin_SelectDAO.searchQuestion(request.getParameter("txt")));
 			view = "/WEB-INF/admin/admin_question.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
