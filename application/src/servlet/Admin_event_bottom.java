@@ -48,7 +48,8 @@ public class Admin_event_bottom extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		switch(null!=request.getParameter("btn")?request.getParameter("btn"):"update") {
 		case "search":
-			view = "/WEB-INF/admin/admin_event_middle.jsp";
+			request.setAttribute("btmEvelist", Admin_SelectDAO.btmSearch(2, 7,request.getParameter("txt")));
+			view = "/WEB-INF/admin/admin_event_bottom.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;

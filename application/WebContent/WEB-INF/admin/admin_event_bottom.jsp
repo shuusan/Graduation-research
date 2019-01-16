@@ -39,16 +39,16 @@
                 <a href="#" id="me">バスケットボール</a>
             </div>
 
-            <form id="control">
+            <form action="Admin_event_bottom" id="control" method="post">
                 <input type="text" id="s-txt" placeholder="イベントの検索" name="txt">
-                <button type="submit" value="search" class="btn" id="s-btn" name="btn">検索</button>
+                <button type="submit" value="search" class="btn" id="s-btn" name="btn" form="control">検索</button>
                 <button type="submit" value="delete" class="btn" name="btn" form="left">チェック項目の削除</button>
                 <button type="submit" value="update" class="btn" name="btn" form="left">変更の確定をする</button>
                 <button type="submit" value="resist" class="btn" name="btn" form="right">下記を登録する！</button>
             </form>
 
             <div id="contents">
-                <form class="event" id="left" method="post">
+                <form action="Admin_event_bottom" class="event" id="left" method="post">
                 <%for(int i=0; i<list.size(); i++){
                 	String[] sArray = list.get(i).getArray()[1].split(":");
             		String[] eArray = list.get(i).getArray1()[1].split(":");
@@ -103,7 +103,7 @@
 	                    </div>
                     <%} %>
                 </form>
-                <form class="event" id="right" method="post">
+                <form action="Admin_event_bottom" class="event" id="right" method="post">
                 <div id="ricon">
                 <input type="text" class="count" name="count" value="0">
                 <input type="text" class="ev-title" placeholder="イベント名" name="ev-title0">
