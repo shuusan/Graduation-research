@@ -57,32 +57,29 @@ public class Login_Main extends HttpServlet {
 		int authority = Login_DAO.login(Integer.parseInt(request.getParameter("id")), request.getParameter("pass"));
 		if(404!=authority) {
 			HttpSession session = request.getSession();
-			if(0==authority) {
-
+			//トップイベントリスト
+			ArrayList<User_DTO> hl = User_SelectDAO.top_event();
+			//ミドルイベントリスト
+			ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1,dtf.format(ld));
+			//ボトムイベントリスト
+			HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event(1,dtf.format(ld)));
+			//イベントや間隙の領域リスト
+			HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(bel);
+			//セッション打ち上げ
+			session.setAttribute("hl", hl);
+			session.setAttribute("mel", mel);
+			session.setAttribute("bel", bel);
+			session.setAttribute("interval", interval);
+			session.setAttribute("place", "User_Timetable");
+			session.setAttribute("here", 0);
+			session.setAttribute("userId", request.getParameter("id"));
+			session.setAttribute("top_eventId", 1);
+			session.setAttribute("date", dtf.format(ld));
+			session.setAttribute("authority", authority);
+			if(1<=authority) {
+				view = "/WEB-INF/manager/timetable.jsp";
 			}else {
-				//トップイベントリスト
-				ArrayList<User_DTO> hl = User_SelectDAO.top_event();
-				//ミドルイベントリスト
-				ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1,dtf.format(ld));
-				//ボトムイベントリスト
-				HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event(1,dtf.format(ld)));
-				//イベントや間隙の領域リスト
-				HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(bel);
-				//セッション打ち上げ
-				session.setAttribute("hl", hl);
-				session.setAttribute("mel", mel);
-				session.setAttribute("bel", bel);
-				session.setAttribute("interval", interval);
-				session.setAttribute("place", "User_Timetable");
-				session.setAttribute("here", 0);
-				session.setAttribute("userId", request.getParameter("id"));
-				session.setAttribute("top_eventId", 1);
-				session.setAttribute("date", dtf.format(ld));
-				if(1==authority) {
-					view = "/WEB-INF/manager/timetable.jsp";
-				}else {
-					view = "/WEB-INF/user/timetable.jsp";
-				}
+				view = "/WEB-INF/user/timetable.jsp";
 			}
 		}else {
 			request.setAttribute("caution", "学籍番号 または パスワードが間違っています。");

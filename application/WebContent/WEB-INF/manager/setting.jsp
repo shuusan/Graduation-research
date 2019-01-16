@@ -47,6 +47,10 @@ ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("
 	                    <button type="submit" class="square_btn" value="1" name="dif">変更</button>
 	                </div>
                 </form>
+                <a href="Login_Main">ログイン画面に戻る</a>
+                <%if(0==Integer.parseInt(String.valueOf(session.getAttribute("authority")))){ %>
+                	<a href="Admin_event_form">管理者画面に移動する</a>
+                <%} %>
             </div>
         </div>
     </main>
