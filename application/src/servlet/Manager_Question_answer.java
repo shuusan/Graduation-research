@@ -54,7 +54,7 @@ public class Manager_Question_answer extends HttpServlet {
 			session.setAttribute("qdv", Integer.parseInt(request.getParameter("select")));
 			session.setAttribute("qdt", request.getParameter("data"));
 		}
-		session.setAttribute("cqList", User_SelectDAO.searchQuest(array, Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
+		session.setAttribute("aqList", Manager_DAO.aqSearch(array, Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
 		String view = "/WEB-INF/manager/question-answer.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

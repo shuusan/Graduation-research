@@ -51,7 +51,7 @@
 	</header>
 	<main>
 	<p id="title">よくある質問</p>
-	<form action="User_Question_common" method="post" id="search">
+	<form action="Manager_Question_common" method="post" id="search">
 		<select id="select" name="select">
 			<option selected value="0">すべて</option>
 			<%for(int i = 0; i < tag.size(); i++){ %>
