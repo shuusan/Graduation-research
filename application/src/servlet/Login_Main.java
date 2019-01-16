@@ -76,10 +76,13 @@ public class Login_Main extends HttpServlet {
 			session.setAttribute("top_eventId", 1);
 			session.setAttribute("date", dtf.format(ld));
 			session.setAttribute("authority", authority);
-			if(1<=authority) {
-				view = "/WEB-INF/manager/timetable.jsp";
-			}else {
+			if(0==authority) {
+				view = "/WEB-INF/admin/admin_event_form.jsp";
+				request.setAttribute("hl", User_SelectDAO.top_event());
+			}else if(2<=authority){
 				view = "/WEB-INF/user/timetable.jsp";
+			}else {
+				view = "/WEB-INF/manager/timetable.jsp";
 			}
 		}else {
 			request.setAttribute("caution", "学籍番号 または パスワードが間違っています。");
