@@ -54,9 +54,13 @@
 	<p id="title">よくある質問</p>
 	<form action="User_Question_common" method="post" id="search" name="search">
 		<select id="select" name="select">
-			<option selected value="<%=session.getAttribute("qdv")%>"><%=session.getAttribute("qdt")%></option>
+			<option selected value="0">すべて</option>
 			<%for(int i = 0; i < tag.size(); i++){ %>
-			<option value="<%=tag.get(i).getNum() %>" id="op<%=i%>"><%=tag.get(i).getText() %></option>
+				<%if(Integer.parseInt(String.valueOf(session.getAttribute("qdv")))==tag.get(i).getNum()){ %>
+					<option selected value="<%=session.getAttribute("qdv")%>"><%=session.getAttribute("qdt")%></option>
+				<%}else{ %>
+					<option value="<%=tag.get(i).getNum() %>" id="op<%=i%>"><%=tag.get(i).getText() %></option>
+				<%} %>
 			<%} %>
 		</select>
 		<input type="text" placeholder="検索する" id="textfield" name="text">

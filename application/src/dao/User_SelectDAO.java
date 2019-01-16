@@ -264,7 +264,7 @@ public class User_SelectDAO {
 					"adminuser",
 					"password");
 			String sql = "SELECT * FROM question";
-			String[] result = array[1].trim().split("[\\s]*,[\\s]*");
+			String[] result = array[1].trim().split(" |　");
 			if(null!=array[1]) {
 				for(int i=0; i<result.length;i++) {
 					if(i==0) {
@@ -275,16 +275,12 @@ public class User_SelectDAO {
 					if(i==result.length-1) {
 						sql = sql + " AND top_eventNo = ? AND cflg = 1";
 					}
-					if(Integer.parseInt(array[0])!=0) {
-						sql = sql + " WHERE tagID = ?";
-					}
 				}
 			}else {
 				if(Integer.parseInt(array[0])!=0) {
-					sql = sql + " tagID = ?";
+					sql = sql + " WHERE tagID = ?";
 				}
 			}
-
 			pstmt = con.prepareStatement(sql);
 
 			int count = 1;
