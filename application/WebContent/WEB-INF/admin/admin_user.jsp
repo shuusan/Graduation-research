@@ -32,9 +32,9 @@
     <main>
     <form action="Admin_user" method="post">
 	        <div id="search">
-	            <input type="text" placeholder="キーワードを入力" id="textfield">
+	            <input type="text" placeholder="キーワードを入力" id="textfield" name="txt">
 	            <button type="submit" value="search" id="button" name="search">検索</button>
-	            <button type="submit" value="regist" class="button" name="regist">登録</button>
+	            <a type="submit" href="Admin_resist" class="button" id="resist">登録</a>
 	            <button type="submit" value="update" class="button" name="update">更新</button>
 	            <button type="submit" value="delete" class="button" name="delete">削除</button>
 	        </div>

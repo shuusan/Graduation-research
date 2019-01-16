@@ -54,8 +54,8 @@ public class Admin_user extends HttpServlet {
 		HashMap<String, String> map = new HashMap<String, String>();
 		//検索
 		if(null!=request.getParameter("search")) {
-
-		//更新
+			System.out.println(request.getParameterValues("txt"));
+			//更新
 		}else if(null!=request.getParameter("update")){
 			for(int i=0; i<list.size();i++) {
 				if(null!=request.getParameter("change_id "+list.get(i).getNum())) {
@@ -80,7 +80,7 @@ public class Admin_user extends HttpServlet {
 			Admin_UpdateDAO.updateUser(map);
 			session.setAttribute("userList", Admin_SelectDAO.userView());
 
-		//削除
+			//削除
 		}else if(null!=request.getParameter("delete")){
 			ArrayList<Integer> dl = new ArrayList<Integer>();
 			for(int i=0; i<list.size(); i++) {
@@ -90,7 +90,6 @@ public class Admin_user extends HttpServlet {
 			}
 			Admin_DeleteDAO.deleteUser(dl);;
 			session.setAttribute("userList", Admin_SelectDAO.userView());
-
 		}else {
 			System.out.println("管理できません");
 		}
