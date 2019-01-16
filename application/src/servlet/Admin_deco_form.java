@@ -50,12 +50,17 @@ public class Admin_deco_form extends HttpServlet {
 		ArrayList<Admin_DTO> list =  Admin_SelectDAO.decoList();
 		switch(null!=request.getParameter("btn")?request.getParameter("btn"):"update") {
 		case "search":
-
+			if(null!=request.getParameter("key")) {
+				request.setAttribute("decoList", Admin_SelectDAO.searchDC(request.getParameter("key")));
+			}else {
+				request.setAttribute("decoList", Admin_SelectDAO.decoList());
+			}
 			break;
 		case "resist":
 			deco = request.getParameter("department") + " " +  request.getParameter("cose");
 			Admin_InsertDAO.decoInsert(deco);
 			request.setAttribute("label", "登録完了しました。");
+			request.setAttribute("decoList", Admin_SelectDAO.decoList());
 			break;
 		case "delete":
 			for(int i=0; i<list.size();i++){
@@ -63,6 +68,7 @@ public class Admin_deco_form extends HttpServlet {
 					Admin_DeleteDAO.deleteDeco(Integer.parseInt(request.getParameter("cb"+i)));
 				}
 			}
+			request.setAttribute("decoList", Admin_SelectDAO.decoList());
 			break;
 		case "update"://update
 			for(int i=0; i<list.size();i++){
@@ -77,9 +83,9 @@ public class Admin_deco_form extends HttpServlet {
 					Admin_UpdateDAO.updateDeco(deco, list.get(i).getNum());
 				}
 			}
+			request.setAttribute("decoList", Admin_SelectDAO.decoList());
 			break;
 		}
-		request.setAttribute("decoList", Admin_SelectDAO.decoList());
 		String view = "/WEB-INF/admin/admin_deco.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

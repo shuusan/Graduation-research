@@ -7,14 +7,20 @@ main {
     display: flex;
 }
 
-table {
+#form1 {
     margin-top: 3%;
-    table-layout: fixed;
     width: 100%;
     height: 100%;
-    border-collapse: collapse;
     float: left;
 }
+
+table{
+	width: 100%;
+	height: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
 
 footer {
     width: 100%;
@@ -194,10 +200,8 @@ h4{
 
 }
 
-#form1{
+#block{
 	width: 70%;
 	height: 100%;
 	margin: 0 auto;
 }
-
-
