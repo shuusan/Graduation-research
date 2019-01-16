@@ -22,8 +22,6 @@
 			</p>
 			<button type="submit" id="Login">ログイン</button>
 		</form>
-		<br> <a href="#" class="position">パスワードを忘れた方</a><br> <a
-			href="#" class="position">アカウントの新規作成</a><br>
 	</div>
 </body>
 
