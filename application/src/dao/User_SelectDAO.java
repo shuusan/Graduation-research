@@ -265,7 +265,8 @@ public class User_SelectDAO {
 					"password");
 			String sql = "SELECT * FROM question";
 			String[] result = array[1].trim().split(" |　");
-			if(null!=array[1]) {
+			int count = 1;
+			if(null!=array[1]&&!("".equals(array[1]))&&!(" ".equals(array[1]))&&!("　".equals(array[1]))) {
 				for(int i=0; i<result.length;i++) {
 					if(i==0) {
 						sql = sql + " WHERE title LIKE ? OR content LIKE ? OR answer LIKE ?";
@@ -276,24 +277,21 @@ public class User_SelectDAO {
 						sql = sql + " AND top_eventNo = ? AND cflg = 1";
 					}
 				}
-			}else {
-				if(Integer.parseInt(array[0])!=0) {
-					sql = sql + " WHERE tagID = ?";
+				pstmt = con.prepareStatement(sql);
+				for(int i=0;i<result.length;i++) {
+					pstmt.setString(count++, "%"+result[i]+"%");//title
+					pstmt.setString(count++, "%"+result[i]+"%");//content
+					pstmt.setString(count++, "%"+result[i]+"%");//answer
 				}
-			}
-			pstmt = con.prepareStatement(sql);
+				pstmt.setInt(count, key);
+			}else if(Integer.parseInt(array[0])!=0) {
+				sql = sql + " WHERE tagID = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(count, Integer.parseInt(array[0]));
 
-			int count = 1;
-			for(int i=0;i<result.length;i++) {
-				pstmt.setString(count++, "%"+result[i]+"%");//title
-				pstmt.setString(count++, "%"+result[i]+"%");//content
-				pstmt.setString(count++, "%"+result[i]+"%");//answer
+			}else {
+				pstmt = con.prepareStatement(sql);
 			}
-			pstmt.setInt(count++, key);
-			if(Integer.parseInt(array[0])!=0) {
-				pstmt.setInt(count++, Integer.parseInt(array[0]));
-			}
-
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {

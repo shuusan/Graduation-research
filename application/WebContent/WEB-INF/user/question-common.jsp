@@ -66,7 +66,7 @@
 		<input type="text" placeholder="検索する" id="textfield" name="text">
 		<button type="submit" class="square_btn">検索！</button>
 		<a class="square_btn" href="User_Question_select">直接質問する</a>
-		<input type="text" id="data" name="data">
+		<input type="text" id="data" name="data"  value="<%=session.getAttribute("qdv")%>">
 	</form>
 
 	<form action="User_Question_responce" method="post" id="question">

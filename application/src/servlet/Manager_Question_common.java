@@ -19,28 +19,41 @@ import dao.User_SelectDAO;
 public class Manager_Question_common extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Manager_Question_common() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Manager_Question_common() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.setAttribute("place", "Manager_Question_common");
 		session.setAttribute("tag", User_SelectDAO.tagList());
 		session.setAttribute("cqList", User_SelectDAO.cqList(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
+		session.setAttribute("qdv", 0);
+		session.setAttribute("qdt", "すべて");
 		String view = "/WEB-INF/manager/question-common.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
-		}
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		session.setAttribute("place", "User_Question_common");
 		request.setCharacterEncoding("UTF-8");
+		String[] array = {
+				request.getParameter("select"),
+				request.getParameter("text")
+		};
+		if(null!=request.getParameter("select")) {
+			session.setAttribute("qdv", Integer.parseInt(request.getParameter("select")));
+			session.setAttribute("qdt", request.getParameter("data"));
+		}
+		session.setAttribute("cqList", User_SelectDAO.searchQuest(array, Integer.parseInt(String.valueOf(session.getAttribute("top_eventId")))));
 		String view = "/WEB-INF/manager/question-common.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
