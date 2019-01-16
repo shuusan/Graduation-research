@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.Admin_DeleteDAO;
 import dao.Admin_InsertDAO;
+import dao.Admin_SelectDAO;
 import dao.User_SelectDAO;
 import dto.User_DTO;
 
@@ -50,7 +51,7 @@ public class Admin_event_form extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		switch(null!=request.getParameter("btn")?request.getParameter("btn"):"update") {
 		case "search":
-			request.setAttribute("hl", User_SelectDAO.top_event());
+			request.setAttribute("hl", Admin_SelectDAO.topSearch(request.getParameter("keyword")));
 			view = "/WEB-INF/admin/admin_event_form.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);

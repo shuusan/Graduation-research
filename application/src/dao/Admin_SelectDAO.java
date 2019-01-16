@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import dto.Admin_DTO;
+import dto.User_DTO;
 
 public class Admin_SelectDAO {
 
@@ -543,5 +544,49 @@ public class Admin_SelectDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	public static ArrayList<User_DTO> topSearch(String key){
+		ArrayList<User_DTO> resultList = new ArrayList<User_DTO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM top_event";
+			String[] result = key.trim().split(" |　");
+			int count = 1;
+			for(int i=0; i<result.length;i++) {
+				if(i==0) {
+					sql = sql + " WHERE name LIKE ?";
+				}else {
+					sql = sql + " OR name LIKE ?";
+				}
+			}
+			sql = sql + " ORDER BY id ASC";
+			pstmt = con.prepareStatement(sql);
+			for(int i=0;i<result.length;i++) {
+				pstmt.setString(count++, "%"+result[i]+"%");
+			}
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				resultList.add(new User_DTO(id,name));
+			}
+			con.close();
+		} catch (SQLException e){
+
+			if(rs==null){
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return resultList;
 	}
 }

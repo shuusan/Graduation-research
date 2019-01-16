@@ -32,7 +32,7 @@ ArrayList<User_DTO> list = (ArrayList<User_DTO>)request.getAttribute("hl");
     	<div id="acbtn">
 	    	<input type="text" placeholder="イベント名を入力" class="textfield" name="resitext">
 	    	<button type="submit" class="button" value="resist" name="btn">新規追加</button><br>
-	    	<input type="text" placeholder="キーワードを入力" class="textfield">
+	    	<input type="text" placeholder="キーワードを入力" class="textfield" name="keyword">
 	        <button type="submit" class="button" value="search" name="btn">検索</button>
 	        <button type="submit" class="button" value="delete" name="btn">削除</button>
     	</div>
