@@ -75,17 +75,12 @@ public class Admin_event_form extends HttpServlet {
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;
-		case "update"://update
-			request.setAttribute("hl", User_SelectDAO.top_event());
-			view = "/WEB-INF/admin/admin_event_form.jsp";
-			dispatcher = request.getRequestDispatcher(view);
-			dispatcher.forward(request, response);
-			break;
 		default:
 			if(null!=request.getParameter("next")) {
 				HttpSession session = request.getSession();
-				session.setAttribute("teNumber", request.getParameter("next"));
-				view = "/WEB-INF/admin/admin_event_select.jsp";
+				session.setAttribute("teNumber",Integer.parseInt(request.getParameter("next")));
+				request.setAttribute("midEvelist", Admin_SelectDAO.midEvelist(Integer.parseInt(request.getParameter("next"))));
+				view = "/WEB-INF/admin/admin_event_middle.jsp";
 				dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}else {

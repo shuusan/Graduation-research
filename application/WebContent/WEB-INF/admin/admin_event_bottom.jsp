@@ -5,6 +5,7 @@
     <%
     @SuppressWarnings("unchecked")
     ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)request.getAttribute("btmEvelist");
+    String[] array = (String[]) session.getAttribute("en");
     %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -40,9 +41,9 @@
 
     <main>
             <div id="label">
-                <a href="#" id="te">スポーツ大会</a>
+                <a href="Admin_event_form" id="te"><%=array[0] %></a>
                 <label for="me" id="slash">/</label>
-                <a href="#" id="me">バスケットボール</a>
+                <a href="Admin_event_middle" id="me"><%=array[1] %></a>
             </div>
 
             <form action="Admin_event_bottom" id="control" method="post">

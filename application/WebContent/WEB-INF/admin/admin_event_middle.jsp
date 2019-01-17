@@ -99,7 +99,7 @@
                 %>
                     <tr>
                         <td style="width: 50px"><input type="checkbox" value="<%=list.get(i).getNum() %>" name="ckb<%=i%>"></td>
-                        <td><%=list.get(i).getText()%></td>
+                        <td><button type="submit" class="midlink" value="<%=list.get(i).getNum() %>" name="btn"><%=list.get(i).getText()%></button></td>
                         <td>
                         <input type="text" id="id<%=i %>" name="id<%=i %>" class="id" value="<%=list.get(i).getNum() %>">
                             <h5>開始時間</h5><br>

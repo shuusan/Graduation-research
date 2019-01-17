@@ -49,17 +49,20 @@ public class Manager_update extends HttpServlet {
 		ArrayList<User_DTO> smel = (ArrayList<User_DTO>)session.getAttribute("mel");
 		@SuppressWarnings("unchecked")
 		HashMap<Integer, ArrayList<User_DTO>> sbel = (HashMap<Integer, ArrayList<User_DTO>>)session.getAttribute("bel");
-
-		String title = "titleDATA";
-		String time = "timeDATA";
-		String contents = "contentsDATA";
+		System.out.println(sbel.get(0).size());
 		String[] value = new String[3];
 
 		for(int i=0; i<smel.size();i++) {
+			if(null==sbel.get(i)){
+				break;
+			}
 			for(int j=0; j < sbel.get(i).size();j++) {
-				title = title+i+j;
-				time = time+i+j;
-				contents = contents+i+j;
+				String title = "titleDATA"+i+j;
+				String time = "timeDATA"+i+j;
+				String contents = "contentsDATA"+i+j;
+				System.out.println(title);
+				System.out.println(time);
+				System.out.println(contents);
 				if(null!=request.getParameter(title)||null!=request.getParameter(time)||null!=request.getParameter(contents)) {
 					if(!(request.getParameter(title).isEmpty())) {
 						value[0] = request.getParameter(title);

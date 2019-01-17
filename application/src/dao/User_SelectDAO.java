@@ -92,7 +92,7 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = " SELECT * FROM bottom_event WHERE top_eventID = ? AND start_datetime LIKE ? ORDER BY start_datetime ASC";
+			String sql = "SELECT * FROM bottom_event WHERE top_eventID = ? AND start_datetime LIKE ? ORDER BY start_datetime ASC";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, date+"%");

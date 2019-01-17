@@ -44,7 +44,7 @@
 		<ul class="breadcrumb">
 			<li itemscope="itemscope"
 				itemtype="http://data-vocabulary.org/Breadcrumb"><a
-				href="User_Question_common" itemprop="url"> <span
+				href="Manager_Question_common" itemprop="url"> <span
 					itemprop="title">>質問-メインページ</span>
 			</a></li>
 		</ul>

@@ -43,6 +43,7 @@ public class Manager_Question_answer extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		session.setAttribute("place", "User_Question_common");
 		request.setCharacterEncoding("UTF-8");

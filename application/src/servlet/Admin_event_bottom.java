@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Admin_DeleteDAO;
 import dao.Admin_InsertDAO;
@@ -33,7 +34,8 @@ public class Admin_event_bottom extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
+    	HttpSession session = request.getSession();
+    	request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(Integer.parseInt(String.valueOf(session.getAttribute("teNumber"))), Integer.parseInt(request.getParameter("btn"))));
     	String view = "/WEB-INF/admin/admin_event_bottom.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
@@ -43,23 +45,23 @@ public class Admin_event_bottom extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
 		String view = "";
 		RequestDispatcher dispatcher = null;
 		switch(null!=request.getParameter("btn")?request.getParameter("btn"):"update") {
 		case "search":
-			request.setAttribute("btmEvelist", Admin_SelectDAO.btmSearch(2, 7,request.getParameter("txt")));
+			request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(Integer.parseInt(String.valueOf(session.getAttribute("teNumber"))), Integer.parseInt(request.getParameter("btn"))));
 			view = "/WEB-INF/admin/admin_event_bottom.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;
 		case "resist":
 			try {
-				System.out.println(request.getParameter("count"));
 				for(int i=0; i<=Integer.parseInt(request.getParameter("count"))+1; i++) {
 					int[] numData = new int[2];
-					numData[0] = 2;
-					numData[1] = 7;
+					numData[0] = Integer.parseInt(String.valueOf(session.getAttribute("teNumber")));
+					numData[1] = Integer.parseInt(String.valueOf(session.getAttribute("mid")));
 
 					String[] data = new String[7];
 					data[0] = request.getParameter("ev-title"+i);
@@ -77,31 +79,31 @@ public class Admin_event_bottom extends HttpServlet {
 
 					Admin_InsertDAO.btmEveInsert(numData,data);
 				}
-				request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
+				request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(Integer.parseInt(String.valueOf(session.getAttribute("teNumber"))), Integer.parseInt(String.valueOf(session.getAttribute("mid")))));
 				view = "/WEB-INF/admin/admin_event_bottom.jsp";
 				dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 
 			} catch (Exception e) {
-				request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
+				request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(Integer.parseInt(String.valueOf(session.getAttribute("teNumber"))), Integer.parseInt(String.valueOf(session.getAttribute("mid")))));
 				view = "/WEB-INF/admin/admin_event_bottom.jsp";
 				dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}
 			break;
 		case "delete":
-			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size()+1;i++) {
+			for(int i=0; i<Admin_SelectDAO.btmEvelist(Integer.parseInt(String.valueOf(session.getAttribute("teNumber"))), Integer.parseInt(String.valueOf(session.getAttribute("mid")))).size();i++) {
 				if(null!=request.getParameter("ckb"+i)) {
 					Admin_DeleteDAO.delete_btmEv(Integer.parseInt(request.getParameter("ckb"+i)));
 				}
 			}
-			request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
+			request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(Integer.parseInt(String.valueOf(session.getAttribute("teNumber"))), Integer.parseInt(String.valueOf(session.getAttribute("mid")))));
 			view = "/WEB-INF/admin/admin_event_bottom.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;
 		case "update"://update
-			for(int i=0; i<Admin_SelectDAO.btmEvelist(2,7).size()+1;i++) {
+			for(int i=0; i<Admin_SelectDAO.btmEvelist(Integer.parseInt(String.valueOf(session.getAttribute("teNumber"))), Integer.parseInt(String.valueOf(session.getAttribute("mid")))).size();i++) {
 				if(null!=request.getParameter("change_id"+i)) {
 					String[] data = new String[7];
 					data[0] = request.getParameter("ev-title"+i);
@@ -120,7 +122,7 @@ public class Admin_event_bottom extends HttpServlet {
 					Admin_UpdateDAO.btmEveUpdate(Integer.parseInt(request.getParameter("change_id"+i)),data);
 				}
 			}
-			request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(2, 7));
+			request.setAttribute("btmEvelist", Admin_SelectDAO.btmEvelist(Integer.parseInt(String.valueOf(session.getAttribute("teNumber"))), Integer.parseInt(String.valueOf(session.getAttribute("mid")))));
 			view = "/WEB-INF/admin/admin_event_bottom.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);

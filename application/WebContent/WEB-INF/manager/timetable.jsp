@@ -45,9 +45,9 @@
 			<form action="Connecting" method="post" id="nav-content">
 				<%for (int i = 0; i < hl.size(); i++) {
 					if (Integer.parseInt(String.valueOf(session.getAttribute("here"))) == i) {%>
-						<button type="submit" name="hc" class="nav" id="here" value="<%=i%>"><%=hl.get(i).getText()%></button>
+						<button type="submit" name="hc" class="nav" id="here" value="<%=hl.get(i).getNum()%>"><%=hl.get(i).getText()%></button>
 					<%} else {%>
-						<button type="submit" name="hc" class="nav" value="<%=i%>"><%=hl.get(i).getText()%></button>
+						<button type="submit" name="hc" class="nav" value="<%=hl.get(i).getNum()%>"><%=hl.get(i).getText()%></button>
 				<%		}
 					}
 				%>
@@ -78,24 +78,24 @@
 	</header>
 
 	<main>
-		<div id="subevent-area" style="width: calc(20px + 300px * <%=bel.size() %>)">
+		<div id="subevent-area" style="width: calc(20px + 300px * <%=mel.size() %>)">
 			<%if(0!=bel.size()){ %>
 				<p id="subevent-blank"></p>
 			<%}
-			for(int i =0; i < bel.size(); i++){%>
+			for(int i =0; i < mel.size(); i++){%>
 			<p class="subevent-title" id="set<%=i%>"><%=mel.get(i).getText() %></p>
 			<%}%>
 		</div>
 		<%int timeCount=0; %>
 		<form id="UF" name="UF" method="post" action="Manager_update">
-		<div id="event" style="width: calc(20px + 300px * <%=bel.size() %>)">
+		<div id="event" style="width: calc(20px + 300px * <%=mel.size() %>)">
 			<div id="time-area">
 				<%for(int i = interval.get(bel.size()).get(0).getSpace_height(); i < interval.get(bel.size()).get(0).getButton_height()+1; i++){ %>
 				<p class="constant-hour"><%=i %></p>
 				<%timeCount++;
 				} %>
 			</div>
-			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=bel.size() %>)">
+			<div id="event-area" style="height: calc(300px * <%=timeCount %>);width: calc(300px * <%=mel.size() %>)">
 				<%for(int i = 0; i<bel.size(); i++){%>
 				<div class="event-contents" style="height: calc(300px * <%=timeCount %>)">
 					<%

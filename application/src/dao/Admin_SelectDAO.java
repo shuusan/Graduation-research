@@ -679,4 +679,70 @@ public class Admin_SelectDAO {
 		}
 		return list;
 	}
+
+	public static int top(){
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM top_event ORDER BY id ASC";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			result = rs.getInt("id");
+			con.close();
+		} catch (SQLException e){
+			if(rs==null){
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public static String[] bottom(int key1, int key2){
+		String[] result = new String[2];
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM top_event WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, key1);
+			rs = pstmt.executeQuery();
+			rs.next();
+			result[0] = rs.getString("name");
+
+			sql = "SELECT * FROM middle_event WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, key2);
+			rs = pstmt.executeQuery();
+			rs.next();
+			result[1] = rs.getString("title");
+			con.close();
+		} catch (SQLException e){
+			if(rs==null){
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

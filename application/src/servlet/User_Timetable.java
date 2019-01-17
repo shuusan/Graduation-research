@@ -53,7 +53,7 @@ public class User_Timetable extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		//トップイベントリスト
-				ArrayList<User_DTO> hl = User_SelectDAO.top_event();
+		ArrayList<User_DTO> hl = User_SelectDAO.top_event();
 		//ミドルイベントリスト
 		ArrayList<User_DTO> mel = User_SelectDAO.middle_event(Integer.parseInt(String.valueOf(session.getAttribute("top_eventId"))),request.getParameter("date"));
 		//ボトムイベントリスト
