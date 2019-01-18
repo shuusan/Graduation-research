@@ -745,4 +745,34 @@ public class Admin_SelectDAO {
 		}
 		return result;
 	}
+
+	public static String topName(int num){
+		String result = "";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM top_event WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			result = rs.getString("name");
+			con.close();
+		} catch (SQLException e){
+			if(rs==null){
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
