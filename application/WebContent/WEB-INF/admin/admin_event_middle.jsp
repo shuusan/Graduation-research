@@ -24,15 +24,21 @@
             <label id="nav-open" for="nav-input"><span></span></label>
             <label class="nav-unshown" id="nav-close" for="nav-input"></label>
             <div id="nav-content">
-                <a href="#" class="nav" id="here">スポーツ大会</a>
-                <a href="#" class="nav">オープンキャンパス</a>
+                <a href="Admin_event_form" class="nav">イベントフォーム</a>
+                <a href="Admin_ankeeto" class="nav">アンケートフォーム</a>
+                <a href="Admin_form" class="nav">質問フォーム</a>
+                <a href="Admin_user" class="nav">ユーザーフォーム</a>
+                <a href="Admin_deco_form" class="nav">学年学科フォーム</a>
+                <a href="Admin_tag" class="nav">タグフォーム</a>
+                <a href="Manager_Timetable" class="nav">運営者<br>(管理者に戻るには設定から)</a>
+                <a href="Login_Main" class="nav">ログアウト</a>
             </div>
         </div>
     </header>
     <main>
         <form action="Admin_event_middle" method="post">
             <div id="acbtn">
-            <input type="text" placeholder="キーワードを入力" class="textfield">
+            <input type="text" placeholder="キーワードを入力(イベント名)" class="textfield" name="keyword">
                 <button type="submit" class="button" value="search" name="btn">検索</button>
                 <button type="submit" class="button" value="delete" name="btn">削除</button>
                 <button type="submit" class="button" value="update" name="btn">更新</button>
@@ -93,7 +99,7 @@
                 %>
                     <tr>
                         <td style="width: 50px"><input type="checkbox" value="<%=list.get(i).getNum() %>" name="ckb<%=i%>"></td>
-                        <td><%=list.get(i).getText()%></td>
+                        <td><button type="submit" class="midlink" value="<%=list.get(i).getNum() %>" name="btn"><%=list.get(i).getText()%></button></td>
                         <td>
                         <input type="text" id="id<%=i %>" name="id<%=i %>" class="id" value="<%=list.get(i).getNum() %>">
                             <h5>開始時間</h5><br>

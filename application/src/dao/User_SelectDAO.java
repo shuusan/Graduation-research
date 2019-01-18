@@ -92,7 +92,7 @@ public class User_SelectDAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = " SELECT * FROM bottom_event WHERE top_eventID = ? AND start_datetime LIKE ? ORDER BY start_datetime ASC";
+			String sql = "SELECT * FROM bottom_event WHERE top_eventID = ? AND start_datetime LIKE ? ORDER BY start_datetime ASC";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, date+"%");
@@ -242,6 +242,62 @@ public class User_SelectDAO {
 				String start_datetime = rs.getString("start_datetime").substring(0,16);
 				String end_datetime = rs.getString("end_datetime").substring(0,16);
 				list.add(new User_DTO(title,url,start_datetime,end_datetime));
+			}
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public static ArrayList<User_DTO> searchQuest(String[] array,int key){
+		ArrayList<User_DTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
+					"adminuser",
+					"password");
+			String sql = "SELECT * FROM question";
+			String[] result = array[1].trim().split(" |　");
+			int count = 1;
+			if(null!=array[1]&&!("".equals(array[1]))&&!(" ".equals(array[1]))&&!("　".equals(array[1]))) {
+				for(int i=0; i<result.length;i++) {
+					if(i==0) {
+						sql = sql + " WHERE title LIKE ? OR content LIKE ? OR answer LIKE ?";
+					}else {
+						sql = sql + " OR title LIKE ? OR content LIKE ? OR answer LIKE ?";
+					}
+					if(i==result.length-1) {
+						sql = sql + " AND top_eventNo = ? AND cflg = 1";
+					}
+				}
+				pstmt = con.prepareStatement(sql);
+				for(int i=0;i<result.length;i++) {
+					pstmt.setString(count++, "%"+result[i]+"%");//title
+					pstmt.setString(count++, "%"+result[i]+"%");//content
+					pstmt.setString(count++, "%"+result[i]+"%");//answer
+				}
+				pstmt.setInt(count, key);
+			}else if(Integer.parseInt(array[0])!=0) {
+				sql = sql + " WHERE tagID = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(count, Integer.parseInt(array[0]));
+
+			}else {
+				pstmt = con.prepareStatement(sql);
+			}
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String title = rs.getString("title");
+				list.add(new User_DTO(id,title));
 			}
 			con.close();
 		} catch (SQLException e){

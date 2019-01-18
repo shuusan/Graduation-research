@@ -67,7 +67,7 @@ public class Admin_ankeeto_resist extends HttpServlet {
 				request.getParameter("eden")
 		};
 		Admin_InsertDAO.ankeetoInsert(array);
-		String view = "/WEB-INF/admin/done.jsp";
+		String view = "/WEB-INF/admin/Done.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

@@ -47,6 +47,7 @@ ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("
 	                    <button type="submit" class="square_btn" value="1" name="dif">変更</button>
 	                </div>
                 </form>
+                <a href="Login_Main">ログイン画面に戻る</a>
             </div>
         </div>
     </main>

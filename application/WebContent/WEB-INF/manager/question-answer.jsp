@@ -20,6 +20,8 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/manager/question_answer.css">
 <title>回答フォーム</title>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/pullsubmit.js"></script>
 </head>
 
 <body>
@@ -42,23 +44,28 @@
 		<ul class="breadcrumb">
 			<li itemscope="itemscope"
 				itemtype="http://data-vocabulary.org/Breadcrumb"><a
-				href="User_Question_common" itemprop="url"> <span
+				href="Manager_Question_common" itemprop="url"> <span
 					itemprop="title">>質問-メインページ</span>
 			</a></li>
 		</ul>
 	</header>
 	<main>
 	<p id="title">回答フォーム</p>
-	<form action="User_Question_common" method="post" id="search">
+	<form action="Manager_Question_answer" method="post" id="search">
 		<select id="select" name="select">
-			<option selected value="404">ソート</option>
+			<option selected value="0">すべて</option>
 			<%for(int i = 0; i < tag.size(); i++){ %>
-			<option value="<%=tag.get(i).getNum() %>"><%=tag.get(i).getText() %></option>
+				<%if(Integer.parseInt(String.valueOf(session.getAttribute("qdv")))==tag.get(i).getNum()){ %>
+					<option selected value="<%=session.getAttribute("qdv")%>"><%=session.getAttribute("qdt")%></option>
+				<%}else{ %>
+					<option value="<%=tag.get(i).getNum() %>" id="op<%=i%>"><%=tag.get(i).getText() %></option>
+				<%} %>
 			<%} %>
 		</select>
 		<input type="text" placeholder="検索する" id="textfield" name="text">
 		<button type="submit" class="square_btn">検索！</button>
 		<a class="square_btn" href="Manager_Question_common">よくある質問</a>
+		<input type="text" id="data" name="data" value="<%=session.getAttribute("qdv")%>">
 	</form>
 	<form action="Manager_Question_view" method="get" id="question">
 		<%for(int i=0; i<aq.size();i++){ %>

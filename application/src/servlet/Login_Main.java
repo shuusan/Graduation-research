@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import culculator.Calc_con;
 import culculator.Calcurator;
+import dao.Admin_SelectDAO;
 import dao.Login_DAO;
 import dao.User_SelectDAO;
 import dto.User_DTO;
@@ -57,32 +58,33 @@ public class Login_Main extends HttpServlet {
 		int authority = Login_DAO.login(Integer.parseInt(request.getParameter("id")), request.getParameter("pass"));
 		if(404!=authority) {
 			HttpSession session = request.getSession();
+			//トップイベントリスト
+			ArrayList<User_DTO> hl = User_SelectDAO.top_event();
+			//ミドルイベントリスト
+			ArrayList<User_DTO> mel = User_SelectDAO.middle_event(Admin_SelectDAO.top(),dtf.format(ld));
+			//ボトムイベントリスト
+			HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event(Admin_SelectDAO.top(),dtf.format(ld)));
+			//イベントや間隙の領域リスト
+			HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(bel);
+			//セッション打ち上げ
+			session.setAttribute("hl", hl);
+			session.setAttribute("mel", mel);
+			session.setAttribute("bel", bel);
+			session.setAttribute("interval", interval);
+			session.setAttribute("here", 0);
+			session.setAttribute("userId", request.getParameter("id"));
+			session.setAttribute("top_eventId", Admin_SelectDAO.top());
+			session.setAttribute("date", dtf.format(ld));
+			session.setAttribute("authority", authority);
 			if(0==authority) {
-
-			}else {
-				//トップイベントリスト
-				ArrayList<User_DTO> hl = User_SelectDAO.top_event();
-				//ミドルイベントリスト
-				ArrayList<User_DTO> mel = User_SelectDAO.middle_event(1,dtf.format(ld));
-				//ボトムイベントリスト
-				HashMap<Integer, ArrayList<User_DTO>> bel = Calcurator.reKey(User_SelectDAO.bottom_event(1,dtf.format(ld)));
-				//イベントや間隙の領域リスト
-				HashMap<Integer,ArrayList<Calc_con>> interval = Calcurator.time_interval(bel);
-				//セッション打ち上げ
-				session.setAttribute("hl", hl);
-				session.setAttribute("mel", mel);
-				session.setAttribute("bel", bel);
-				session.setAttribute("interval", interval);
+				view = "/WEB-INF/admin/admin_event_form.jsp";
+				request.setAttribute("hl", User_SelectDAO.top_event());
+			}else if(2<=authority){
 				session.setAttribute("place", "User_Timetable");
-				session.setAttribute("here", 0);
-				session.setAttribute("userId", request.getParameter("id"));
-				session.setAttribute("top_eventId", 1);
-				session.setAttribute("date", dtf.format(ld));
-				if(1==authority) {
-					view = "/WEB-INF/manager/timetable.jsp";
-				}else {
-					view = "/WEB-INF/user/timetable.jsp";
-				}
+				view = "/WEB-INF/user/timetable.jsp";
+			}else {
+				session.setAttribute("place", "Manager_Timetable");
+				view = "/WEB-INF/manager/timetable.jsp";
 			}
 		}else {
 			request.setAttribute("caution", "学籍番号 または パスワードが間違っています。");
