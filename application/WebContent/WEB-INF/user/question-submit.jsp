@@ -40,7 +40,7 @@
 	            <select id="select" name="select" required="required">
 	                <option value="<%=request.getAttribute("questionNo") %>" selected><%=request.getAttribute("question") %>について</option>
 	                <%for(int i=0;i<list.size();i++){ %>
-	                	<option value="<%=list.get(i).getNum() %>"><%=list.get(i).getText() %></option>
+	                	<option value="<%=list.get(i).getNum() %>"><%=list.get(i).getText() %>について</option>
 	                <%} %>
 	            </select>
 	            <p>タイトル</p>
