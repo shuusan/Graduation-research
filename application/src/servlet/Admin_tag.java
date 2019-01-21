@@ -20,7 +20,7 @@ import dao.Admin_UpdateDAO;
  * Servlet implementation class Admin_tag
  */
 @WebServlet("/Admin_tag")
-@MultipartConfig(location="C:\\Users\\高橋秀英\\Desktop\\卒業研究\\Graduation-research\\application\\WebContent\\photo", maxFileSize=1048576)
+@MultipartConfig(location="", maxFileSize=1048576)
 public class Admin_tag extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -58,7 +58,7 @@ public class Admin_tag extends HttpServlet {
 		case "resist":
 			Part part = request.getPart("file");
 			String name = this.getFileName(part);
-			part.write("C:\\Users\\高橋秀英\\Desktop\\卒業研究\\Graduation-research\\application\\WebContent\\photo" + "/" + name);
+			part.write("" + "/" + name);
 
 			String[] array = new String[2];
 			array[0] = request.getParameter("tn");
@@ -72,7 +72,7 @@ public class Admin_tag extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "delete":
-			for(int i=0; i<Admin_SelectDAO.tagList().size()+1;i++) {
+			for(int i=0; i<Admin_SelectDAO.tagList().size();i++) {
 				if(null!=request.getParameter("ckb"+i)) {
 					Admin_DeleteDAO.delete_tag(Integer.parseInt(request.getParameter("ckb"+i)));
 				}
@@ -83,7 +83,7 @@ public class Admin_tag extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "update"://update
-			for(int i=0; i<Admin_SelectDAO.tagList().size()+1;i++) {
+			for(int i=0; i<Admin_SelectDAO.tagList().size();i++) {
 				if(null!=request.getParameter("change_id"+i)) {
 					Admin_UpdateDAO.tagUpdate(Integer.parseInt(request.getParameter("change_id"+i)),request.getParameter("tag"+i));
 				}
