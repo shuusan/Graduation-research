@@ -65,7 +65,7 @@
                   }else{
                 	  text += dd.getMinutes();
                   }
-                  text += " <%=session.getAttribute("top_eventName")%>のタイムテーブルです。"
+                  text += " <%=session.getAttribute("top_eventName")%>"
                   document.getElementById("timertext").innerHTML = text;
                 }
 
