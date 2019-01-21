@@ -13,6 +13,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/user/question-select.css">
     <title>質問分類選択</title>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/image_icon.js"></script>
 </head>
 
 <body>
@@ -31,7 +33,7 @@
         </ul>
     </header>
     <main>
-	    <form action="User_Question_submit"	metdod="get">
+	    <form action="User_Question_submit"	method="get">
 	    	<div id="area">
 	    	<%for(int i=0; i<list.size();i++){ %>
                 <button type="submit"  value="<%=list.get(i).getNum() %>"  name="selectButton"><img src="photo/<%=list.get(i).getText1() %>" alt="<%=list.get(i).getText() %>"></button>
