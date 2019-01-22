@@ -102,7 +102,6 @@ public class Manager_DAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-
 			if(null!=text[0]) {
 				sql = "UPDATE bottom_event SET title = ? WHERE id = ?";
 				pstmt = con.prepareStatement(sql);

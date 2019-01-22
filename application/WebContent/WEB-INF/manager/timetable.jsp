@@ -78,6 +78,7 @@
                 }, 1000 - (new Date()).getUTCMilliseconds());
             </script>
 		</p>
+		<a href="javascript:UF.submit()" class="square_btn">更新を完了する</a>
 	</header>
 
 	<main>
@@ -107,7 +108,7 @@
 
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
 
-						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
+						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()-1%>px">
 
 								<p class="event-time1" ><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
 								<input type="text" class="visibility" id="timeDATA<%=i%><%=j%>" name="timeDATA<%=i%><%=j%>" value="<%=bel.get(i).get(j).getSb().toString()%>～<%=bel.get(i).get(j).getSb1().toString() %>">
@@ -123,7 +124,7 @@
 
 					<%}else if(0==interval.get(i).get(j).getSpace_height()){%>
 
-						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()-1%>px">
 
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
 							<input type="text" class="visibility" id="timeDATA<%=i%><%=j%>" name="timeDATA<%=i%><%=j%>" value="<%=bel.get(i).get(j).getSb().toString()%>～<%=bel.get(i).get(j).getSb1().toString() %>">
@@ -140,7 +141,7 @@
 					<%}else{%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
 
-						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()-1%>px">
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
 							<input type="text" class="visibility" id="timeDATA<%=i%><%=j%>" name="timeDATA<%=i%><%=j%>"value="<%=bel.get(i).get(j).getSb().toString()%>～<%=bel.get(i).get(j).getSb1().toString() %>">
 
@@ -158,6 +159,13 @@
 				<%}%>
 			</div>
 		</div>
+		<div id="data">
+		<%for(int i=0; i<bel.size();i++){
+			for(int j=0; j<bel.get(i).size();j++){%>
+			<input class="visibility" id="data<%=i%><%=j%>" name="data<%=i%><%=j%>" value="<%=bel.get(i).get(j).getNum()%>">
+			<%}
+		}%>
+	</div>
     	</form>
 		<div id="date-drawer">
 			<input id="date-input" type="checkbox" class="date-unshown"> <label
@@ -199,7 +207,8 @@
             設 定
         </a>
     </nav>
-	<footer></footer>
+	<footer>
+	</footer>
 </body>
 <script type="text/javascript" src="js/syncscroll.js"></script>
 <script type="text/javascript" src="js/datepicker.js"></script>
