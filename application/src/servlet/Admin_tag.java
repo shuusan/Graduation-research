@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ import dao.Admin_DeleteDAO;
 import dao.Admin_InsertDAO;
 import dao.Admin_SelectDAO;
 import dao.Admin_UpdateDAO;
+import dto.Admin_DTO;
 
 /**
  * Servlet implementation class Admin_tag
@@ -51,7 +53,22 @@ public class Admin_tag extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		switch(null!=request.getParameter("btn")?request.getParameter("btn"):"update") {
 		case "search":
-			view = "/WEB-INF/admin/admin_event_middle.jsp";
+			ArrayList<Admin_DTO> sl = Admin_SelectDAO.tagList();
+			if(null!=request.getParameter("key")) {
+				String[] result = request.getParameter("key").trim().split(" |　");
+				ArrayList<Admin_DTO> relist = new ArrayList<Admin_DTO>();
+				for(int i=0; i<result.length; i++) {
+					for(int j=0; j<sl.size();j++) {
+						if(sl.get(j).getText().contains(result[i])) {
+							relist.add(sl.get(j));
+						}
+					}
+				}
+				request.setAttribute("tagList", relist);
+			}else {
+				request.setAttribute("tagList", Admin_SelectDAO.tagList());
+			}
+			view = "/WEB-INF/admin/admin_tag.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;
