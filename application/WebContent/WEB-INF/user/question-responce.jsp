@@ -29,25 +29,11 @@
 	<div id="bottom">
 		<label for="responce-sub">A.</label>
 		<textarea class="textarea" id="responce-sub" cols="80" rows="20"
-			readonly><%=("null".equals(dto.getText2()))?"　":dto.getText2() %></textarea>
+			readonly><%=(null==dto.getText2())?"　":dto.getText2() %></textarea>
 	</div>
-	 <form action="User_Question_responce" method="post" id="control">
-	 <!--
-		<%if(1==Integer.parseInt(String.valueOf(request.getAttribute("id")))){ %>
-			<button type="button" class="square_btn">　　　　</button>
-		<%}else{ %>
-			<button type="submit" class="square_btn" value="<%=Integer.parseInt(String.valueOf(request.getAttribute("id")))-1 %>" name="btn">前の質問</button>
-		<%} %>
-		 -->
+	 <div id="control">
 		<a href="User_Question_common" class="square_btn" id="return">戻る</a>
-		<!--
-		<%if(cq.size()==Integer.parseInt(String.valueOf(request.getAttribute("id")))){ %>
-			<button type="button" class="square_btn">　　　　</button>
-		<%}else{ %>
-			<button type="submit" class="square_btn" value="<%=Integer.parseInt(String.valueOf(request.getAttribute("id")))+1 %>" name="btn">次の質問</button>
-		<%} %>
-		-->
-	</form>
+	</div>
 	</main>
 	<nav>
 		<a href="User_Timetable" class="navi"> タイムテーブル </a> <a
