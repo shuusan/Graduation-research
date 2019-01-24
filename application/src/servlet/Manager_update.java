@@ -46,34 +46,20 @@ public class Manager_update extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
-		ArrayList<User_DTO> smel = (ArrayList<User_DTO>)session.getAttribute("mel");
-		@SuppressWarnings("unchecked")
-		HashMap<Integer, ArrayList<User_DTO>> sbel = (HashMap<Integer, ArrayList<User_DTO>>)session.getAttribute("bel");
-		System.out.println(sbel.get(0).size());
+		HashMap<Integer, ArrayList<User_DTO>> list = (HashMap<Integer, ArrayList<User_DTO>>)session.getAttribute("bel");
 		String[] value = new String[3];
 
-		for(int i=0; i<smel.size();i++) {
-			if(null==sbel.get(i)){
-				break;
-			}
-			for(int j=0; j < sbel.get(i).size();j++) {
+		for(int i=0; i<list.size();i++) {
+			for(int j=0; j < list.get(i).size();j++) {
 				String title = "titleDATA"+i+j;
 				String time = "timeDATA"+i+j;
 				String contents = "contentsDATA"+i+j;
-				System.out.println(title);
-				System.out.println(time);
-				System.out.println(contents);
-				if(null!=request.getParameter(title)||null!=request.getParameter(time)||null!=request.getParameter(contents)) {
-					if(!(request.getParameter(title).isEmpty())) {
-						value[0] = request.getParameter(title);
-					}
-					if(!(request.getParameter(time).isEmpty())) {
-						value[1] = request.getParameter(time);
-					}
-					if(!(request.getParameter(contents).isEmpty())) {
-						value[2] = request.getParameter(contents);
-					}
-					Manager_DAO.tiUpdate(value, sbel.get(i).get(j).getNum());
+				String id = "change_data"+i+j;
+				if(null!=request.getParameter(id)) {
+					value[0] = request.getParameter(title);
+					value[1] = request.getParameter(time);
+					value[2] = request.getParameter(contents);
+					Manager_DAO.tiUpdate(value, Integer.parseInt(request.getParameter(id)));
 				}
 			}
 		}

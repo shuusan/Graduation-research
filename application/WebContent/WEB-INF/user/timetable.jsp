@@ -33,11 +33,10 @@
 <script type="text/javascript" src="js/jquery.sidebar.js"></script>
 <script type="text/javascript" src="js/sidebar.js"></script>
     <script type="text/javascript" src="js/replace.js"></script>
-<title>タイムテーブル</title>
+<title>更新型イベント管理ツール</title>
 </head>
 
 <body>
-<%try { %>
 	<header>
 		<div id="nav-drawer">
 			<input id="nav-input" type="checkbox" class="nav-unshown"> <label
@@ -45,7 +44,7 @@
 				class="nav-unshown" id="nav-close" for="nav-input"></label>
 			<form action="Connecting" method="post" id="nav-content">
 				<%for (int i = 0; i < hl.size(); i++) {
-					if (Integer.parseInt(String.valueOf(session.getAttribute("here"))) == i) {%>
+					if (String.valueOf(session.getAttribute("top_eventName")).equals(hl.get(i).getText())) {%>
 						<button type="submit" name="hc" class="nav" id="here" value="<%=hl.get(i).getNum()%>"><%=hl.get(i).getText()%></button>
 					<%} else {%>
 						<button type="submit" name="hc" class="nav" value="<%=hl.get(i).getNum()%>"><%=hl.get(i).getText()%></button>
@@ -54,15 +53,19 @@
 				%>
 			</form>
 		</div>
-		<p id="date"><%=String.valueOf(session.getAttribute("date"))%></p>
+		<p id="date"><%=String.valueOf(session.getAttribute("date")).replaceFirst("-", "年").replaceFirst("-", "月")%>日</p>
 		<p id="timer">
-			<span id="timertext">2018年11月9日 10時8分8秒</span><br>
+			<span id="timertext">2018年11月9日 10時8分</span><br>
 			<script>// <![CDATA[
                 function showClock2() {
                   var dd = new Date();
                   var text = dd.getHours() + ":";
-                  text += dd.getMinutes() + ":";
-                  text += dd.getSeconds();
+                  if(9>dd.getMinutes()){
+                	  text += "0"+dd.getMinutes();
+                  }else{
+                	  text += dd.getMinutes();
+                  }
+                  text += " <%=session.getAttribute("top_eventName")%>"
                   document.getElementById("timertext").innerHTML = text;
                 }
 
@@ -175,9 +178,6 @@
         </a>
     </nav>
 	<footer></footer>
-	<%}catch (Exception e) {
-		e.printStackTrace();
-	} %>
 </body>
 <script type="text/javascript" src="js/syncscroll.js"></script>
 <script type="text/javascript" src="js/datepicker.js"></script>

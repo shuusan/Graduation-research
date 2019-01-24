@@ -74,6 +74,7 @@ public class Login_Main extends HttpServlet {
 			session.setAttribute("here", 0);
 			session.setAttribute("userId", request.getParameter("id"));
 			session.setAttribute("top_eventId", Admin_SelectDAO.top());
+			session.setAttribute("top_eventName", Admin_SelectDAO.topName(Admin_SelectDAO.top()));
 			session.setAttribute("date", dtf.format(ld));
 			session.setAttribute("authority", authority);
 			if(0==authority) {

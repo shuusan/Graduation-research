@@ -11,7 +11,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
     <link rel="stylesheet" href="css/admin/adminUser.css">
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/admin_user_data.js"></script>
@@ -38,7 +38,7 @@
     <main>
     <form action="Admin_user" method="post">
 	        <div id="search">
-	            <input type="text" placeholder="キーワードを入力" id="textfield" name="txt">
+	        	<input type="text" name="txt" placeholder="学籍番号での検索">
 	            <button type="submit" value="search" id="button" name="search">検索</button>
 	            <a type="submit" href="Admin_resist" class="button" id="resist">登録</a>
 	            <button type="submit" value="update" class="button" name="update">更新</button>

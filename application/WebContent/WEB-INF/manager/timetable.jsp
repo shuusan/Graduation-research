@@ -33,7 +33,7 @@
 <script type="text/javascript" src="js/jquery.sidebar.js"></script>
 <script type="text/javascript" src="js/sidebar.js"></script>
 <script type="text/javascript" src="js/updateText.js"></script>
-<title>タイムテーブル</title>
+<title>更新型イベント管理ツール</title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
 				class="nav-unshown" id="nav-close" for="nav-input"></label>
 			<form action="Connecting" method="post" id="nav-content">
 				<%for (int i = 0; i < hl.size(); i++) {
-					if (Integer.parseInt(String.valueOf(session.getAttribute("here"))) == i) {%>
+					if (String.valueOf(session.getAttribute("top_eventName")).equals(hl.get(i).getText())) {%>
 						<button type="submit" name="hc" class="nav" id="here" value="<%=hl.get(i).getNum()%>"><%=hl.get(i).getText()%></button>
 					<%} else {%>
 						<button type="submit" name="hc" class="nav" value="<%=hl.get(i).getNum()%>"><%=hl.get(i).getText()%></button>
@@ -53,15 +53,19 @@
 				%>
 			</form>
 		</div>
-		<p id="date"><%=String.valueOf(session.getAttribute("date")).replace("-", "/")%></p>
+		<p id="date"><%=String.valueOf(session.getAttribute("date")).replaceFirst("-", "年").replaceFirst("-", "月")%>日</p>
 		<p id="timer">
-			<span id="timertext">2018年11月9日 10時8分8秒</span><br>
+			<span id="timertext">2018年11月9日 10時8分</span><br>
 			<script>// <![CDATA[
                 function showClock2() {
                   var dd = new Date();
                   var text = dd.getHours() + ":";
-                  text += dd.getMinutes() + ":";
-                  text += dd.getSeconds();
+                  if(9>dd.getMinutes()){
+                	  text += "0"+dd.getMinutes();
+                  }else{
+                	  text += dd.getMinutes();
+                  }
+                  text += " <%=session.getAttribute("top_eventName")%>"
                   document.getElementById("timertext").innerHTML = text;
                 }
 
@@ -104,7 +108,7 @@
 
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
 
-						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()+1%>px">
+						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()-1%>px">
 
 								<p class="event-time1" ><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
 								<input type="text" class="visibility" id="timeDATA<%=i%><%=j%>" name="timeDATA<%=i%><%=j%>" value="<%=bel.get(i).get(j).getSb().toString()%>～<%=bel.get(i).get(j).getSb1().toString() %>">
@@ -120,7 +124,7 @@
 
 					<%}else if(0==interval.get(i).get(j).getSpace_height()){%>
 
-						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()-1%>px">
 
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
 							<input type="text" class="visibility" id="timeDATA<%=i%><%=j%>" name="timeDATA<%=i%><%=j%>" value="<%=bel.get(i).get(j).getSb().toString()%>～<%=bel.get(i).get(j).getSb1().toString() %>">
@@ -137,7 +141,7 @@
 					<%}else{%>
 						<p class="time-brank" style="height: <%=interval.get(i).get(j).getSpace_height()%>px"></p>
 
-						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()%>px">
+						<div id="btn<%=i%><%=j%>" class="btn btn-primary" data-action="open" data-side="right" style="height: <%=interval.get(i).get(j).getButton_height()-1%>px">
 							<p class="event-time1"><%=(10>bel.get(i).get(j).getNum3())?"0"+bel.get(i).get(j).getNum3():bel.get(i).get(j).getNum3()%></p>
 							<input type="text" class="visibility" id="timeDATA<%=i%><%=j%>" name="timeDATA<%=i%><%=j%>"value="<%=bel.get(i).get(j).getSb().toString()%>～<%=bel.get(i).get(j).getSb1().toString() %>">
 
@@ -155,6 +159,13 @@
 				<%}%>
 			</div>
 		</div>
+		<div id="data">
+		<%for(int i=0; i<bel.size();i++){
+			for(int j=0; j<bel.get(i).size();j++){%>
+			<input class="visibility" id="data<%=i%><%=j%>" name="data<%=i%><%=j%>" value="<%=bel.get(i).get(j).getNum()%>">
+			<%}
+		}%>
+	</div>
     	</form>
 		<div id="date-drawer">
 			<input id="date-input" type="checkbox" class="date-unshown"> <label
@@ -196,7 +207,8 @@
             設 定
         </a>
     </nav>
-	<footer></footer>
+	<footer>
+	</footer>
 </body>
 <script type="text/javascript" src="js/syncscroll.js"></script>
 <script type="text/javascript" src="js/datepicker.js"></script>

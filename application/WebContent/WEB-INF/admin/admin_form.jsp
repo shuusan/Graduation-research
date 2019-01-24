@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/admin/admin_form.css">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
 </head>
 
 <body>

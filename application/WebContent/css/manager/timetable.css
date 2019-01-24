@@ -14,12 +14,10 @@ timetable階層構造
             #subevent-brank
             .subevent-title
         }
-
         #event {
             #time-area {
                 .constant-hour
             }
-
             #event-area {
                 .event-contents {
                     .event-button {
@@ -36,6 +34,7 @@ timetable階層構造
 main {
 	width: 100%;
 	overflow-x: scroll;
+	overflow-y: hidden;
 }
 
 /*領域*/
@@ -407,7 +406,7 @@ main {
 .square_btn {
     display: inline-block;
     padding: 0.25em 1em;
-    margin-left: 65%;
+    margin-left:auto;
     text-decoration: none;
     color: gray;
     border: 1px solid darkgray;
@@ -419,4 +418,11 @@ main {
 .square_btn:hover {
     background: #AFB5F3;
     color: white;
+}
+
+#data{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	float: left;
 }

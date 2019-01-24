@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>更新型イベント管理ツール</title>
     <link rel="stylesheet" href="css/admin/event_select.css">
 </head>
 

@@ -54,7 +54,7 @@ public class Admin_user extends HttpServlet {
 		HashMap<String, String> map = new HashMap<String, String>();
 		//検索
 		if(null!=request.getParameter("search")) {
-			System.out.println(request.getParameterValues("txt"));
+			session.setAttribute("userList", Admin_SelectDAO.searchUser(request.getParameter("txt")));
 			//更新
 		}else if(null!=request.getParameter("update")){
 			for(int i=0; i<list.size();i++) {

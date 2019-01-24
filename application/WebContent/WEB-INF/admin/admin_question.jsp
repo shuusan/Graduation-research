@@ -12,7 +12,7 @@ ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)request.getAttribute("qList");
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/admin/question_form.css">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
 </head>
 
 <body>

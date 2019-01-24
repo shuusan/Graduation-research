@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,12 +16,13 @@ import dao.Admin_DeleteDAO;
 import dao.Admin_InsertDAO;
 import dao.Admin_SelectDAO;
 import dao.Admin_UpdateDAO;
+import dto.Admin_DTO;
 
 /**
  * Servlet implementation class Admin_tag
  */
 @WebServlet("/Admin_tag")
-@MultipartConfig(location="C:\\Users\\高橋秀英\\Desktop\\卒業研究\\Graduation-research\\application\\WebContent\\photo", maxFileSize=1048576)
+@MultipartConfig(location="", maxFileSize=1048576)
 public class Admin_tag extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,14 +53,29 @@ public class Admin_tag extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		switch(null!=request.getParameter("btn")?request.getParameter("btn"):"update") {
 		case "search":
-			view = "/WEB-INF/admin/admin_event_middle.jsp";
+			ArrayList<Admin_DTO> sl = Admin_SelectDAO.tagList();
+			if(null!=request.getParameter("key")) {
+				String[] result = request.getParameter("key").trim().split(" |　");
+				ArrayList<Admin_DTO> relist = new ArrayList<Admin_DTO>();
+				for(int i=0; i<result.length; i++) {
+					for(int j=0; j<sl.size();j++) {
+						if(sl.get(j).getText().contains(result[i])) {
+							relist.add(sl.get(j));
+						}
+					}
+				}
+				request.setAttribute("tagList", relist);
+			}else {
+				request.setAttribute("tagList", Admin_SelectDAO.tagList());
+			}
+			view = "/WEB-INF/admin/admin_tag.jsp";
 			dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			break;
 		case "resist":
 			Part part = request.getPart("file");
 			String name = this.getFileName(part);
-			part.write("C:\\Users\\高橋秀英\\Desktop\\卒業研究\\Graduation-research\\application\\WebContent\\photo" + "/" + name);
+			part.write("" + "/" + name);
 
 			String[] array = new String[2];
 			array[0] = request.getParameter("tn");
@@ -72,7 +89,7 @@ public class Admin_tag extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "delete":
-			for(int i=0; i<Admin_SelectDAO.tagList().size()+1;i++) {
+			for(int i=0; i<Admin_SelectDAO.tagList().size();i++) {
 				if(null!=request.getParameter("ckb"+i)) {
 					Admin_DeleteDAO.delete_tag(Integer.parseInt(request.getParameter("ckb"+i)));
 				}
@@ -83,7 +100,7 @@ public class Admin_tag extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 		case "update"://update
-			for(int i=0; i<Admin_SelectDAO.tagList().size()+1;i++) {
+			for(int i=0; i<Admin_SelectDAO.tagList().size();i++) {
 				if(null!=request.getParameter("change_id"+i)) {
 					Admin_UpdateDAO.tagUpdate(Integer.parseInt(request.getParameter("change_id"+i)),request.getParameter("tag"+i));
 				}

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Admin_SelectDAO;
+
 /**
  * Servlet implementation class Connecting
  */
@@ -36,7 +38,7 @@ public class Connecting extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-	    session.setAttribute("here", Integer.parseInt(request.getParameter("hc")));
+	    session.setAttribute("top_eventName", Admin_SelectDAO.topName(Integer.parseInt(request.getParameter("hc"))));
 	    session.setAttribute("top_eventId", Integer.parseInt(String.valueOf(request.getParameter("hc"))));
 	    response.sendRedirect(String.valueOf(session.getAttribute("place")));
 	}

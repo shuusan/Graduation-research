@@ -44,6 +44,13 @@ public class User_DTO {
 		this.text2 = text2;
 		this.text3 = text3;
 	}
+
+	public User_DTO(int num, String text, String text1) {
+		super();
+		this.num = num;
+		this.text = text;
+		this.text1 = text1;
+	}
 	public int getNum() {
 		return num;
 	}

@@ -13,7 +13,7 @@ Admin_DTO dto1 = (null!=request.getAttribute("tagName"))?(Admin_DTO)request.getA
 
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>更新型イベント管理ツール</title>
 <link rel="stylesheet" href="css/admin/resist_user.css">
 <!-- <script src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/choice.js"></script> -->

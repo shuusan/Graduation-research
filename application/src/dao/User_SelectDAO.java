@@ -151,7 +151,8 @@ public class User_SelectDAO {
 			do {
 				int id = rs.getInt("id");
 				String name = rs.getString("name");
-				list.add(new User_DTO(id,name));
+				String photo = rs.getString("photo");
+				list.add(new User_DTO(id,name,photo));
 			}while(rs.next() == true );
 			con.close();
 		} catch (SQLException e){

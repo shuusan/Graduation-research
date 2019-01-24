@@ -10,28 +10,11 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/user/question-submit.css">
-    <title>質問送信</title>
+    <title>更新型イベント管理ツール</title>
 </head>
 
 <body>
     <header>
-        <ul class="breadcrumb">
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="User_Question_common" itemprop="url">
-                    <span itemprop="title">>質問-メインページ</span>
-                </a>
-            </li>
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="User_Question_select" itemprop="url">
-                    <span itemprop="title">>質問区分選択ページ</span>
-                </a>
-            </li>
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="User_Question_submit" itemprop="url">
-                    <span itemprop="title">>質問送信ページ</span>
-                </a>
-            </li>
-        </ul>
     </header>
     <main>
         <h2>ここは<%=request.getAttribute("question") %>に関する質問フォームです。</h2>
@@ -40,7 +23,7 @@
 	            <select id="select" name="select" required="required">
 	                <option value="<%=request.getAttribute("questionNo") %>" selected><%=request.getAttribute("question") %>について</option>
 	                <%for(int i=0;i<list.size();i++){ %>
-	                	<option value="<%=list.get(i).getNum() %>"><%=list.get(i).getText() %></option>
+	                	<option value="<%=list.get(i).getNum() %>"><%=list.get(i).getText() %>について</option>
 	                <%} %>
 	            </select>
 	            <p>タイトル</p>

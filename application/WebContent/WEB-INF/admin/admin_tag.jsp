@@ -16,7 +16,7 @@
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/image_icon.js"></script>
 -->
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/data-change.js"></script>
 </head>
@@ -41,9 +41,9 @@
 
     </header>
     <main>
-        <form id="search">
-            <input type="text" placeholder="キーワードを入力" id="textfield">
-            <button type="submit" id="button" name="btn" form="search">検索</button>
+        <form action="Admin_tag" id="search" method="post">
+            <input type="text" placeholder="キーワードを入力" name="key">
+            <button type="submit" value="search" id="button" name="btn" form="search">検索</button>
             <button type="submit" value="update" class="button" name="btn" form="act">更新</button>
             <button type="submit" value="delete" class="button" name="btn" form="act">削除</button>
         </form>

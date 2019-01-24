@@ -13,7 +13,7 @@ ArrayList<User_DTO> humburger_list = (ArrayList<User_DTO>)session.getAttribute("
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/user/ankeeto.css">
-    <title>アンケート</title>
+    <title>更新型イベント管理ツール</title>
 </head>
 
 <body>

@@ -12,7 +12,7 @@ ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)request.getAttribute("decoList
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/admin/admin_deco.css">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/admin_user_data.js"></script>
 </head>
@@ -39,7 +39,7 @@ ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)request.getAttribute("decoList
     <main>
     <div id="block">
     	<form action="Admin_deco_form"  method="post" id="search">
-            <input type="text" placeholder="キーワードを入力" id="textfield" name="key">
+            <input type="text" placeholder="キーワードを入力" name="key">
             <button type="submit" id="button" value="search" name="btn" form="search">検索</button>
             <button type="submit" class="button" value="update" name="btn" form="form1">更新</button>
             <button type="submit" class="button" value="delete" name="btn" form="form1">削除</button>
