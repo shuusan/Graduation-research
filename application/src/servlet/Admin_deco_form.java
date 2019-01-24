@@ -51,7 +51,17 @@ public class Admin_deco_form extends HttpServlet {
 		switch(null!=request.getParameter("btn")?request.getParameter("btn"):"update") {
 		case "search":
 			if(null!=request.getParameter("key")) {
-				request.setAttribute("decoList", Admin_SelectDAO.searchDC(request.getParameter("key")));
+				String[] result = request.getParameter("key").trim().split(" |　");
+				ArrayList<Admin_DTO> sl = Admin_SelectDAO.decoList();
+				ArrayList<Admin_DTO> relist = new ArrayList<Admin_DTO>();
+				for(int i=0; i<result.length;i++) {
+					for(int j=0; j<sl.size();j++) {
+						if(sl.get(j).getText().contains(result[i])) {
+							relist.add(sl.get(j));
+						}
+					}
+				}
+				request.setAttribute("decoList", relist);
 			}else {
 				request.setAttribute("decoList", Admin_SelectDAO.decoList());
 			}
