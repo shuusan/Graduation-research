@@ -19,18 +19,6 @@
 
 <body>
     <header>
-        <ul class="breadcrumb">
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="User_Question_common" itemprop="url">
-                    <span itemprop="title">>質問-メインページ</span>
-                </a>
-            </li>
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="User_Question_select" itemprop="url">
-                    <span itemprop="title">>質問区分選択</span>
-                </a>
-            </li>
-        </ul>
     </header>
     <main>
 	    <form action="User_Question_submit"	method="get">

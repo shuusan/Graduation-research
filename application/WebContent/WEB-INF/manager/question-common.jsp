@@ -41,13 +41,6 @@
 				%>
 			</form>
 		</div>
-		<ul class="breadcrumb">
-			<li itemscope="itemscope"
-				itemtype="http://data-vocabulary.org/Breadcrumb"><a
-				href="Manager_Question_common" itemprop="url"> <span
-					itemprop="title">>質問-メインページ</span>
-			</a></li>
-		</ul>
 	</header>
 	<main>
 	<p id="title">よくある質問</p>
