@@ -22,7 +22,7 @@ public class Manager_DAO {
 					"jdbc:mysql://localhost:3306/timetable?useSSL=false",
 					"adminuser",
 					"password");
-			String sql = "SELECT id,title FROM question WHERE top_eventNo = ? ORDER BY answer IS NULL DESC";
+			String sql = "SELECT id,title,answer FROM question WHERE top_eventNo = ? AND answer IS NULL";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
