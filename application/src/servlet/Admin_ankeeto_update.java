@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Admin_SelectDAO;
 import dao.Admin_UpdateDAO;
 import dao.User_SelectDAO;
 import dto.Admin_DTO;
@@ -86,8 +87,10 @@ public class Admin_ankeeto_update extends HttpServlet {
 				request.getParameter("eden_date")+" "+request.getParameter("eden_time")
 		};
 		Admin_UpdateDAO.updateAnkeeto(array, Integer.parseInt(request.getParameter("btn")));
-		request.setAttribute("done", "更新");
-		String view = "/WEB-INF/admin/done.jsp";
+		HttpSession session = request.getSession();
+		session.setAttribute("adlist", Admin_SelectDAO.ankeetoView());
+		session.setAttribute("fa", "Admin_ankeeto");
+		String view = "/WEB-INF/admin/admin_form.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

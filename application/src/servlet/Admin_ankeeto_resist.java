@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Admin_InsertDAO;
+import dao.Admin_SelectDAO;
 import dao.User_SelectDAO;
 
 /**
@@ -67,7 +69,10 @@ public class Admin_ankeeto_resist extends HttpServlet {
 				request.getParameter("eden")
 		};
 		Admin_InsertDAO.ankeetoInsert(array);
-		String view = "/WEB-INF/admin/Done.jsp";
+		HttpSession session = request.getSession();
+		session.setAttribute("adlist", Admin_SelectDAO.ankeetoView());
+		session.setAttribute("fa", "Admin_ankeeto");
+		String view = "/WEB-INF/admin/admin_form.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
