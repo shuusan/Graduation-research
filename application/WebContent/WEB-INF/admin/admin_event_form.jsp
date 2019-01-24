@@ -12,7 +12,7 @@ ArrayList<User_DTO> list = (ArrayList<User_DTO>)request.getAttribute("hl");
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/admin/event_form.css">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
 </head>
 
 <body>

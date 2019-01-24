@@ -16,7 +16,7 @@
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/image_icon.js"></script>
 -->
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/data-change.js"></script>
 </head>

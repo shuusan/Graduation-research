@@ -11,7 +11,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
     <link rel="stylesheet" href="css/admin/adminUser.css">
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/admin_user_data.js"></script>

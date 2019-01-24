@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/admin/admin_btmEve.css">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/ev-plus.js"></script>
     <script type="text/javascript" src="js/midEve_change.js"></script>

@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/manager/question-view.css">
-<title>回答閲覧</title>
+<title>更新型イベント管理ツール</title>
 </head>
 
 <body>

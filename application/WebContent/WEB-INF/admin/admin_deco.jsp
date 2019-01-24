@@ -12,7 +12,7 @@ ArrayList<Admin_DTO> list = (ArrayList<Admin_DTO>)request.getAttribute("decoList
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/admin/admin_deco.css">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/admin_user_data.js"></script>
 </head>

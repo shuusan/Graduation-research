@@ -15,7 +15,7 @@ HashMap<String, String> hm = (HashMap<String, String>)request.getAttribute("hm")
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/admin/ankeeto_update.css">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
 </head>
 
 <body>

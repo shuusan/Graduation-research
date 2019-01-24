@@ -33,7 +33,7 @@
 <script type="text/javascript" src="js/jquery.sidebar.js"></script>
 <script type="text/javascript" src="js/sidebar.js"></script>
     <script type="text/javascript" src="js/replace.js"></script>
-<title>タイムテーブル</title>
+<title>更新型イベント管理ツール</title>
 </head>
 
 <body>

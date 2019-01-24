@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-@SuppressWarnings("unchecked")
 User_DTO data = (User_DTO)request.getAttribute("qData");
 %>
 <!DOCTYPE html>
@@ -11,7 +10,7 @@ User_DTO data = (User_DTO)request.getAttribute("qData");
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/admin/question_update.css">
-    <title>メインページ</title>
+    <title>更新型イベント管理ツール</title>
 </head>
 
 <body>
