@@ -25,7 +25,7 @@
 		<form action="Manager_Question_view" method="post" id="action">
 			<div id="bottom">
 				<label for="responce-sub">A.</label>
-				<textarea class="textarea" id="responce-sub" cols="80" rows="20" name="answer"><%=("null".equals(dto.getText2()))?"　":dto.getText2() %></textarea>
+				<textarea class="textarea" id="responce-sub" cols="80" rows="20" name="answer"><%=null==dto.getText2()?"　":dto.getText2() %></textarea>
 			</div>
 			<div id="control">
 				<button type="submit" class="square_btn" id="return" name="submit" value="<%=dto.getNum()%>">回答する！</button>
