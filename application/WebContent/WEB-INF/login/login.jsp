@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<p id="title">イベント管理タイムテーブル</p>
+	<p id="title">更新型イベント管理ツール</p>
 	<div id="area">
 		<p id="userlog">ログイン</p>
 		<form action="Login_Main" method="post" id="text">
