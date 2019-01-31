@@ -15,7 +15,7 @@
 		<p id="userlog">ログイン</p>
 		<form action="Login_Main" method="post" id="text">
 			<p style="color: red">
-				<input type="number" name="id" placeholder="学籍番号(半角数字7桁)" class="textfield"  required><br>
+				<input type="number" name="id" placeholder="学籍番号(半角数字7桁)" class="textfield" maxlength="7" required><br>
 				<br>
 				<input type="password" name="pass" placeholder="パスワード" class="textfield" maxlength='30' required><br>
 				<%=request.getAttribute("caution") %>
