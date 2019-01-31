@@ -149,7 +149,7 @@
 		<div class="sidebars">
             <div class="sidebar right">
                 <div class="bar-head">
-                    <p class="silabel">イベント概要</p>
+                    <p class="silabel">イベント詳細</p>
                     <a class="btn btn-danger" data-action="close" data-side="right">
                         <img src="photo/close.png" alt="close" class="close">
                     </a>
